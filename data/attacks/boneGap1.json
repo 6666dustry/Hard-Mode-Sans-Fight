@@ -1,0 +1,103 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "combatZone",
+            "type": "getPos",
+            "data": {
+                "height": "comHeight"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "addGap"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": 0,
+                "y": 250,
+                "length": 135,
+                "angle": 0,
+                "speed": 3,
+                "delay": 800,
+                "color": "blue",
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": 640,
+                "y": 250,
+                "length": 135,
+                "angle": 0,
+                "speed": -3,
+                "delay": 800,
+                "color": "blue",
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addGap",
+            "data": {
+                "x": 1,
+                "y": 550,
+                "length": 300,
+                "topLength": 150,
+                "angle": 180,
+                "speedAngle": -5,
+                "speed": 3,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addGap",
+            "data": {
+                "x": 639,
+                "y": 550,
+                "length": 300,
+                "topLength": 150,
+                "angle": 180,
+                "speedAngle": -175,
+                "speed": 3,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#addGap",
+                "count": 15
+            },
+            "wait": 600
+        },
+        {
+            "category": "endattack",
+            "wait": 2000
+        }
+    ]
+}

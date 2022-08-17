@@ -1,0 +1,175 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 230,
+                "dx": 390,
+                "y": 230,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "state": "stop"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "startAngle",
+                "value": 0
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "spawnCircle"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 310,
+                "y": 310,
+                "count": 3,
+                "spaceRadius": 180,
+                "boneRadius": 0,
+                "startAngle": "$startAngle",
+                "boneConfig": {
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    },
+                    "length": 180
+                },
+                "rotateSpeed": 2.5,
+                "tween": {
+                    "props": {
+                        "spaceRadius": 60
+                    },
+                    "duration": 400,
+                    "repeatDelay": 400,
+                    "ease": "Quad.easeOut",
+                    "yoyo": true,
+                    "repeat": -1,
+                    "delay": 700
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 310,
+                "y": 310,
+                "count": 3,
+                "spaceRadius": 180,
+                "boneRadius": 0,
+                "startAngle": "$startAngle",
+                "boneConfig": {
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    },
+                    "length": 180
+                },
+                "rotateSpeed": -2.5,
+                "tween": {
+                    "props": {
+                        "spaceRadius": 60
+                    },
+                    "duration": 400,
+                    "repeatDelay": 400,
+                    "ease": "Quad.easeOut",
+                    "yoyo": true,
+                    "repeat": -1,
+                    "delay": 700
+                }
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "startAngle",
+                "valueA": "$startAngle",
+                "valueB": 60
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#spawnCircle",
+                "count": 3
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "spawnStab"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "direction",
+                "values": [
+                    "up",
+                    "down",
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "direction": "$direction",
+                "slam": true,
+                "slamAnim": true
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#spawnStab",
+                "count": 10
+            },
+            "wait": 1200
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "torso",
+                "target": "torso",
+                "state": "dancing"
+            }
+        },
+        {
+            "category": "endattack"
+        }
+    ]
+}

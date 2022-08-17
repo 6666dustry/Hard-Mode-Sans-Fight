@@ -1,0 +1,624 @@
+{
+    "attacks": [
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "start"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "jumpTo",
+                "values": [
+                    "#attack1",
+                    "#attack2",
+                    "#attack3",
+                    "#attack4"
+                ]
+            }
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "removeAll": true
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "$jumpTo"
+            },
+            "wait": 250
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack1"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 250,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom",
+                "left": "comLeft",
+                "right": "comRight",
+                "centerX": "comMidX",
+                "centerY": "comMidY"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": "$comMidX",
+                "y": "$comMidY"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "interval",
+                "value": 400
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "next",
+                "valueA": "$interval",
+                "valueB": 500
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comMidY",
+                "blastTime": "$interval",
+                "size": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            },
+            "wait": "$next"
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comMidX",
+                "endY": "$comTop",
+                "blastTime": "$interval",
+                "endAngle": 90,
+                "size": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comMidY",
+                "blastTime": "$interval",
+                "size": 45,
+                "endAngle": 180,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comMidX",
+                "endY": "$comBottom",
+                "blastTime": "$interval",
+                "size": 45,
+                "endAngle": 270,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comTop",
+                "blastTime": "$interval",
+                "size": 45,
+                "wait": "$interval"
+            },
+            "wait": "$next"
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comTop",
+                "blastTime": "$interval",
+                "endAngle": 90,
+                "size": 45,
+                "wait": "$interval"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comBottom",
+                "blastTime": "$interval",
+                "size": 45,
+                "endAngle": 180,
+                "wait": "$interval"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comBottom",
+                "blastTime": "$interval",
+                "size": 45,
+                "endAngle": 270,
+                "wait": "$interval"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comTop",
+                "blastTime": "$interval",
+                "size": 45,
+                "endAngle": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            },
+            "wait": "$next"
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comTop",
+                "blastTime": "$interval",
+                "endAngle": 135,
+                "size": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comBottom",
+                "blastTime": "$interval",
+                "size": 45,
+                "endAngle": 225,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comBottom",
+                "blastTime": "$interval",
+                "size": 45,
+                "endAngle": 315,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": "$next"
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack2"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "angle",
+                "min": 0,
+                "max": 40
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 250,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "centerX": "comMidX",
+                "centerY": "comMidY"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": "$comMidX",
+                "y": "$comMidY"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "circleBlaster"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "posY",
+                "valueA": "$comMidY",
+                "valueB": 120
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "angle",
+                "valueA": "$angle",
+                "valueB": 45
+            }
+        },
+        {
+            "category": "math",
+            "type": "rotate",
+            "data": {
+                "originX": "$comMidX",
+                "originY": "$comMidY",
+                "pointX": "$comMidX",
+                "pointY": "$posY",
+                "angle": "$angle",
+                "x": "bPosX",
+                "y": "bPosY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "blasterAngle",
+                "valueA": "$angle",
+                "valueB": 90
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$bPosX",
+                "endY": "$bPosY",
+                "endAngle": "$blasterAngle",
+                "size": 30,
+                "wait": 1500,
+                "anchor": {
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#circleBlaster",
+                "count": 7
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 3000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack3"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 250,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "centerX": "comMidX",
+                "centerY": "comMidY",
+                "bottom": "comBottom",
+                "left": "comLeft",
+                "right": "comRight"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": "$comMidX",
+                "y": "$comMidY"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "color": "blue",
+                "direction": "down",
+                "slam": true
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comBottom",
+                "blastTime": 300,
+                "wait": 1000,
+                "anchor": {
+                    "y": "top"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comBottom",
+                "blastTime": 300,
+                "wait": 1000,
+                "endAngle": 180
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comMidY",
+                "wait": 0,
+                "blastTime": 300,
+                "anchor": {
+                    "y": "top"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comMidY",
+                "wait": 0,
+                "blastTime": 300,
+                "endAngle": 180
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 2500
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack4"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 250,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "centerX": "comMidX",
+                "centerY": "comMidY",
+                "bottom": "comBottom",
+                "left": "comLeft",
+                "right": "comRight"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": "$comMidX",
+                "y": "$comMidY"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "color",
+                "min": 1,
+                "max": 2,
+                "integer": true
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endY": "$comMidY",
+                "endX": 100,
+                "anchor": {
+                    "y": "middle"
+                },
+                "wait": 1250,
+                "color": "$color",
+                "size": 140
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endY": "$comMidY",
+                "endX": 540,
+                "endAngle": 180,
+                "anchor": {
+                    "y": "middle"
+                },
+                "wait": 1250,
+                "color": "$color",
+                "size": 140
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 3000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#start",
+                "count": 5
+            }
+        },
+        {
+            "category": "endattack"
+        }
+    ]
+}

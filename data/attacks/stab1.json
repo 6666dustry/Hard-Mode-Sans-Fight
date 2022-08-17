@@ -1,0 +1,154 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 230,
+                "dx": 390,
+                "y": 230,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "state": "stop"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "spawnStab"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "direction",
+                "values": [
+                    "up",
+                    "down",
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "$direction",
+                "slam": true,
+                "wait": 900,
+                "lifetime": 500,
+                "length": 30
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "blasterY",
+                "valueA": "$heartY",
+                "valueB": 80
+            }
+        },
+        {
+            "category": "heart",
+            "type": "getPos",
+            "data": {
+                "x": "heartX",
+                "y": "heartY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "posY",
+                "valueA": "$heartY",
+                "valueB": 100
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "angle",
+                "min": 0,
+                "max": 180
+            }
+        },
+        {
+            "category": "math",
+            "type": "rotate",
+            "data": {
+                "originX": "$heartX",
+                "originY": "$heartY",
+                "pointX": "$heartX",
+                "pointY": "$posY",
+                "angle": "$angle",
+                "x": "bPosX",
+                "y": "bPosY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "angle",
+                "valueA": "$angle",
+                "valueB": 90
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$bPosX",
+                "endY": "$bPosY",
+                "endAngle": "$angle",
+                "size": 25,
+                "wait": 1200,
+                "blastTime": 333,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#spawnStab",
+                "count": 10
+            },
+            "wait": 1500
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "torso",
+                "target": "torso",
+                "state": "dancing"
+            }
+        },
+        {
+            "category": "endattack"
+        }
+    ]
+}

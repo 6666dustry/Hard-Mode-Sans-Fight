@@ -1,0 +1,81 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 230,
+                "dx": 390,
+                "y": 230,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "state": "stop"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "spawnStab"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "direction",
+                "values": [
+                    "up",
+                    "down",
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "$direction",
+                "slam": true,
+                "wait": 900,
+                "lifetime": 500,
+                "length": 70
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#spawnStab",
+                "count": 10
+            },
+            "wait": 1200
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "torso",
+                "target": "torso",
+                "state": "dancing"
+            }
+        },
+        {
+            "category": "endattack"
+        }
+    ]
+}

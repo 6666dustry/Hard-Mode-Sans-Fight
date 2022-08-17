@@ -1,0 +1,67 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 0,
+                "y": 385,
+                "length": 35,
+                "angle": 180,
+                "speed": 2,
+                "count": 10,
+                "delay": 700,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 640,
+                "y": 250,
+                "length": 100,
+                "angle": 0,
+                "speed": -2,
+                "count": 10,
+                "delay": 700,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "y": "$comTop",
+                "dx": 390,
+                "dy": "$comBottom",
+                "duration": 9000
+            }
+        },
+        {
+            "category": "endattack",
+            "wait": 10000
+        }
+    ]
+}

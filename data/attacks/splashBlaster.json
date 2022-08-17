@@ -1,0 +1,125 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 238,
+                "y": 235,
+                "dx": 388,
+                "dy": 385
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "addBlaster"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "blasterX",
+                "min": 0,
+                "max": 640,
+                "padding": 50
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "blasterY",
+                "min": 0,
+                "max": 480,
+                "padding": 50
+            }
+        },
+        {
+            "category": "heart",
+            "type": "getPos",
+            "data": {
+                "x": "heartX",
+                "y": "heartY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "betWeenAngle",
+            "data": {
+                "fromX": "$blasterX",
+                "fromY": "$blasterY",
+                "toX": "$heartX",
+                "toY": "$heartY",
+                "angle": "blasterAngle"
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "Angle",
+                "valueA": "$blasterAngle",
+                "valueB": 90
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$blasterX",
+                "endY": "$blasterY",
+                "endAngle": "$Angle",
+                "anchor": {
+                    "y": "middle"
+                },
+                "wait": 1700
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": "$blasterX",
+                "y": "$blasterY",
+                "speedAngle": 0,
+                "length": 30,
+                "speed": 3.5,
+                "tween": {
+                    "props": {
+                        "speed": 1
+                    },
+                    "duration": 3000
+                },
+                "angle": 90,
+                "step": {
+                    "angle": 20,
+                    "speedAngle": 20
+                },
+                "deleteTween": {
+                    "effect": "disappear",
+                    "duration": 2000
+                },
+                "lifetime": 2500,
+                "visible": true,
+                "delay": 0,
+                "count": 18
+            },
+            "wait": 2000
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#addBlaster",
+                "count": 8
+            }
+        },
+        {
+            "category": "endAttack",
+            "wait": 2000
+        }
+    ]
+}

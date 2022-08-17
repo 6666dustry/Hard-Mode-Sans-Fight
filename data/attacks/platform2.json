@@ -1,0 +1,252 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "direction": "down",
+                "color": "blue"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 200,
+                "dx": 440
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom",
+                "left": "comLeft",
+                "right": "comRight",
+                "centerX": "comMidX"
+            },
+            "wait": 1000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "start"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "platEndX",
+                "min": "$comLeft",
+                "max": "$comRight"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "platLen",
+                "min": 20,
+                "max": 55
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "platAngle",
+                "min": 0,
+                "max": 360
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "platSpin",
+                "min": -4,
+                "max": 4
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": "$comMidX",
+                "y": 490,
+                "spin": "$platSpin",
+                "angle": "$platAngle",
+                "length": "$platLen",
+                "color": 1,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                },
+                "tween": {
+                    "props": {
+                        "y": "$comTop",
+                        "x": {
+                            "value": "$platEndX",
+                            "duration": 4500,
+                            "ease": "Quad.easeInOut"
+                        }
+                    },
+                    "yoyo": true,
+                    "duration": 2500,
+                    "ease": "Sine.easeInOut"
+                },
+                "lifetime": 5100
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#start",
+                "count": 3
+            },
+            "wait": 500
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "down",
+                "length": 20,
+                "onlyWarn": true
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "delay": 50,
+                "y": "$comBottom",
+                "x": 200,
+                "count": 22,
+                "length": 50,
+                "step": {
+                    "x": 11
+                },
+                "lifetime": 400,
+                "spawnTween": {
+                    "tween": "biggerMiddle",
+                    "duration": 300
+                },
+                "deleteTween": {
+                    "tween": "smallerMiddle",
+                    "duration": 300
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            },
+            "wait": 750
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "delay": 50,
+                "y": "$comBottom",
+                "x": 440,
+                "count": 22,
+                "length": 50,
+                "step": {
+                    "x": -11
+                },
+                "lifetime": 400,
+                "spawnTween": {
+                    "tween": "biggerMiddle",
+                    "duration": 300
+                },
+                "deleteTween": {
+                    "tween": "smallerMiddle",
+                    "duration": 300
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "compare",
+            "data": {
+                "to": "#blaster",
+                "type": "equal",
+                "valueA": "$three",
+                "valueB": 3
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#start",
+                "count": 6,
+                "remain": "three"
+            }
+        },
+        {
+            "category": "endattack",
+            "wait": 3000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "blaster"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endY": "$comTop",
+                "wait": 2000,
+                "endX": "$comLeft"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endY": "$comTop",
+                "endX": "$comRight",
+                "endAngle": 180,
+                "wait": 2000,
+                "anchor": {
+                    "y": "top"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            }
+        }
+    ]
+}

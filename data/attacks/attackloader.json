@@ -1,0 +1,40 @@
+{
+    "Phase1": [
+        "firstAttack.json",
+        "boneGap1.json",
+        "blueBone.json",
+        "boneGap2.json",
+        "platform1.json",
+        "platform2.json",
+        "platformBone.json",
+        "platform3.json",
+        "platformBlaster.json",
+        "platform4.json",
+        "boneGap1fast.json",
+        "boneSlideH.json",
+        "platformBlasterHard.json"
+    ],
+    "Phase1RND": [
+        "rndBlaster1.json",
+        "shapeBlaster.json",
+        "stabSpin.json"
+    ],
+    "Phase2": [
+        "multi1.json",
+        "multi2.json",
+        "rndBlaster2.json",
+        "stab1.json",
+        "stab2.json",
+        "rndBlaster3.json",
+        "boneSlideV.json",
+        "multi3.json",
+        "stab3.json",
+        "finalAttack.json"
+    ],
+    "Phase2RND": [
+        "rndBlaster1.json",
+        "multi3.json",
+        "splashBlaster.json",
+        "splashBlasterHard.json"
+    ]
+}

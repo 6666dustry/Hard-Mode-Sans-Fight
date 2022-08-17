@@ -1,0 +1,163 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            },
+            "wait": 100
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": 320,
+                "y": 350,
+                "angle": 20,
+                "color": "purple",
+                "tween": {
+                    "props": {
+                        "angle": -20,
+                        "length": {
+                            "value": 50,
+                            "duration": 1500,
+                            "delay": 500
+                        }
+                    },
+                    "duration": 1000,
+                    "yoyo": true,
+                    "ease": "Sine.easeInOut",
+                    "repeat": -1
+                },
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 170,
+                "dx": 470
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "down",
+                "wait": 1500,
+                "lifetime": 13000,
+                "length": 25
+            },
+            "wait": 1000
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "height",
+                "valueA": "$comBottom",
+                "valueB": "$comTop"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "randomize"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "topLength",
+                "max": 75,
+                "min": 25
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addGap",
+            "data": {
+                "y": "$comTop",
+                "x": 160,
+                "length": "$height",
+                "topLength": "$topLength",
+                "speed": 0,
+                "padding": 25,
+                "lifetime": 2000,
+                "tween": [
+                    {
+                        "props": {
+                            "x": "+=30"
+                        },
+                        "duration": 800,
+                        "ease": "Quad.easeOut"
+                    },
+                    {
+                        "props": {
+                            "x": "+=300"
+                        },
+                        "delay": 800,
+                        "ease": "Quad.easeOut"
+                    }
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addGap",
+            "data": {
+                "y": "$comTop",
+                "x": 480,
+                "length": "$height",
+                "topLength": "$topLength",
+                "speed": 0,
+                "padding": 25,
+                "lifetime": 2000,
+                "tween": [
+                    {
+                        "props": {
+                            "x": "-=30"
+                        },
+                        "duration": 800,
+                        "ease": "Quad.easeOut"
+                    },
+                    {
+                        "props": {
+                            "x": "-=300"
+                        },
+                        "delay": 800,
+                        "ease": "Quad.easeOut"
+                    }
+                ]
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#randomize",
+                "count": 8
+            },
+            "wait": 1500
+        },
+        {
+            "category": "endattack",
+            "wait": 1000
+        }
+    ]
+}

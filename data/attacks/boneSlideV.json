@@ -1,0 +1,64 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 240,
+                "dy": 380
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 250,
+                "y": -10,
+                "angle": 90,
+                "length": 70,
+                "visible": true,
+                "tween": {
+                    "props": {
+                        "y": 400
+                    },
+                    "yoyo": true,
+                    "ease": "Sine.easeInOut",
+                    "duration": 3000
+                },
+                "anchor": {
+                    "y": "top"
+                },
+                "delay": 800,
+                "count": 10
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 390,
+                "y": -10,
+                "angle": 90,
+                "length": 70,
+                "visible": true,
+                "tween": {
+                    "props": {
+                        "y": 400
+                    },
+                    "yoyo": true,
+                    "ease": "Sine.easeInOut",
+                    "duration": 3000
+                },
+                "delay": 800,
+                "count": 10
+            },
+            "wait": 400
+        },
+        {
+            "category": "endattack",
+            "wait": 12000
+        }
+    ]
+}

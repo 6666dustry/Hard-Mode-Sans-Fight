@@ -1,0 +1,115 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "y": "$comTop",
+                "sound": "boneStab",
+                "length": 50,
+                "speed": 11,
+                "delay": 1500,
+                "count": 7
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 640,
+                "y": "$comTop",
+                "sound": "boneStab",
+                "length": 50,
+                "speed": -11,
+                "delay": 1500,
+                "count": 7
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "y": "$comBottom",
+                "length": 20,
+                "speed": 2,
+                "count": 90,
+                "delay": 130,
+                "anchor": {
+                    "y": "top"
+                }
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "platHeight",
+                "min": 25,
+                "max": 60
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "platY",
+                "valueA": "$comBottom",
+                "valueB": "$platHeight"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "platAngle",
+                "values": [
+                    0,
+                    -25,
+                    45
+                ]
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "y": "$platY",
+                "speed": 2,
+                "angle": "$platAngle",
+                "length": 40,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "RELCount",
+            "data": {
+                "to": -4,
+                "count": 10
+            },
+            "wait": 1100
+        },
+        {
+            "category": "endattack",
+            "wait": 1000
+        }
+    ]
+}

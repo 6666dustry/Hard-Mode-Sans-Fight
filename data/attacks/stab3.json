@@ -1,0 +1,116 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 230,
+                "dx": 390,
+                "y": 230,
+                "dy": 390,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "state": "stop"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 310,
+                "y": 310,
+                "count": 8,
+                "spaceRadius": 125,
+                "boneRadius": 0,
+                "startAngle": 45,
+                "boneConfig": {
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    },
+                    "length": 80,
+                    "spawnTween": {
+                        "tween": "biggerMiddle"
+                    }
+                },
+                "rotateSpeed": 0,
+                "tween": {
+                    "props": {
+                        "rotateSpeed": 2.2,
+                        "spaceRadius": 110
+                    },
+                    "duration": 340,
+                    "yoyo": true,
+                    "repeat": -1,
+                    "delay": 460
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "spawnStab"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "direction",
+                "values": [
+                    "up",
+                    "down",
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "$direction",
+                "slam": true,
+                "wait": 700,
+                "lifetime": 400,
+                "length": 25
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#spawnStab",
+                "count": 10
+            },
+            "wait": 800
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "torso",
+                "target": "torso",
+                "state": "dancing"
+            }
+        },
+        {
+            "category": "endattack",
+            "wait": 1000
+        }
+    ]
+}

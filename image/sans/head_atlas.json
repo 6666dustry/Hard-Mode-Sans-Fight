@@ -1,0 +1,125 @@
+{
+    "frames": [
+        {
+            "filename": "default",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 32,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "closedeye",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 0,
+                "y": 30
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "lookleft",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 32,
+                "y": 30
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "noeyes",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 0,
+                "y": 60
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "tired1",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 32,
+                "y": 60
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "tired2",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 64,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "wink",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 64,
+                "y": 30
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "blueeye",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "yelloweye",
+            "frame": {
+                "w": 32,
+                "h": 30,
+                "x": 64,
+                "y": 60
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

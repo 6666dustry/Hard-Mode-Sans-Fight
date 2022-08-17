@@ -1,0 +1,795 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 240,
+                "dx": 380,
+                "y": 240,
+                "dy": 380,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "state": "stop"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "spawnStab"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "direction",
+                "values": [
+                    "up",
+                    "down",
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "$direction",
+                "slam": true,
+                "wait": 700,
+                "lifetime": 400
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#spawnStab",
+                "count": 3
+            },
+            "wait": 800
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 240,
+                "y": -10,
+                "angle": 90,
+                "length": 70,
+                "visible": true,
+                "tween": {
+                    "props": {
+                        "y": 400
+                    },
+                    "yoyo": true,
+                    "ease": "Sine.easeInOut",
+                    "duration": 3000
+                },
+                "anchor": {
+                    "y": "top"
+                },
+                "delay": 800,
+                "count": 2
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 380,
+                "y": -10,
+                "angle": 90,
+                "length": 70,
+                "visible": true,
+                "tween": {
+                    "props": {
+                        "y": 400
+                    },
+                    "yoyo": true,
+                    "ease": "Sine.easeInOut",
+                    "duration": 3000
+                },
+                "delay": 800,
+                "count": 2
+            },
+            "wait": 400
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "direction": "left",
+                "slam": true,
+                "slamAnim": true,
+                "color": "blue"
+            },
+            "wait": 7000
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "state": "dancing"
+            }
+        },
+        {
+            "category": "effect",
+            "type": "falling",
+            "data": {
+                "direction": "right",
+                "duration": 11000,
+                "playAnim": true
+            },
+            "wait": 1000
+        },
+        {
+            "category": "audio",
+            "type": "play",
+            "data": {
+                "sound": "blaster"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 0,
+                "dx": 640,
+                "y": 270,
+                "dy": 370,
+                "duration": 500
+            },
+            "wait": 500
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 50,
+                "duration": 1000
+            },
+            "wait": 250
+        },
+        {
+            "category": "bone",
+            "type": "addSine",
+            "data": {
+                "y": 270,
+                "x": 900,
+                "speed": -8,
+                "length": 100,
+                "padding": 22,
+                "amplitude": 20,
+                "frequency": 0.5,
+                "count": 40
+            }
+        },
+        {
+            "category": "jump",
+            "type": "REL",
+            "data": {
+                "to": 1
+            },
+            "wait": 4500
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 900,
+                "y": 270,
+                "length": 50,
+                "speed": -9,
+                "delay": 0,
+                "count": 3,
+                "step": {
+                    "x": -15
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 900,
+                "y": 370,
+                "length": 50,
+                "speed": -9,
+                "delay": 0,
+                "count": 3,
+                "anchor": {
+                    "y": "top"
+                },
+                "step": {
+                    "x": -15
+                }
+            },
+            "wait": 300
+        },
+        {
+            "category": "jump",
+            "type": "RELCount",
+            "data": {
+                "to": -2,
+                "count": 6
+            },
+            "wait": 300
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 900,
+                "y": 270,
+                "length": 14,
+                "speed": -9,
+                "delay": 0,
+                "count": 15,
+                "step": {
+                    "x": 15,
+                    "length": 2
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 900,
+                "y": 370,
+                "length": 14,
+                "speed": -9,
+                "delay": 0,
+                "count": 15,
+                "step": {
+                    "x": 15,
+                    "length": 2
+                },
+                "anchor": {
+                    "y": "top"
+                }
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 0,
+                "dx": 440,
+                "y": 270,
+                "dy": 370,
+                "duration": 500
+            },
+            "wait": 1000
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "right",
+                "slam": true,
+                "length": 40,
+                "wait": 1100,
+                "lifetime": 400
+            },
+            "wait": 1000
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "removeAll": true
+            },
+            "wait": 1900
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso",
+                "state": "dancing"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 240,
+                "dx": 380,
+                "y": 240,
+                "dy": 380,
+                "inst": true
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setPos",
+            "data": {
+                "x": 320
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 310,
+                "y": 370
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "direction": "down"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 240,
+                "endY": 240,
+                "blastTime": 600,
+                "size": 45
+            },
+            "wait": 100
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 380,
+                "endY": 240,
+                "blastTime": 600,
+                "endAngle": 90,
+                "size": 45
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 380,
+                "endY": 380,
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 180
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 240,
+                "endY": 380,
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 270
+            }
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "removeAll": true
+            },
+            "wait": 1000
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "direction": "up"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 250,
+                "y": 250
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 240,
+                "endY": 240,
+                "blastTime": 600,
+                "size": 45
+            },
+            "wait": 100
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 380,
+                "endY": 240,
+                "blastTime": 600,
+                "endAngle": 90,
+                "size": 45
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 380,
+                "endY": 380,
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 180
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 240,
+                "endY": 380,
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 270
+            }
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "removeAll": true
+            },
+            "wait": 1000
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "direction": "right"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 370,
+                "y": 370
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 240,
+                "endY": 240,
+                "blastTime": 600,
+                "size": 45
+            },
+            "wait": 100
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 380,
+                "endY": 240,
+                "blastTime": 600,
+                "endAngle": 90,
+                "size": 45
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 380,
+                "endY": 380,
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 180
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 240,
+                "endY": 380,
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 270
+            }
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "removeAll": true
+            },
+            "wait": 1000
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "angle",
+                "value": 0
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "add",
+                "value": 5
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "rotation"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rotate",
+            "data": {
+                "originX": 310,
+                "originY": 310,
+                "pointX": 310,
+                "pointY": 150,
+                "angle": "$angle",
+                "x": "bPosX",
+                "y": "bPosY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "endAngle",
+                "valueA": "$angle",
+                "valueB": 90
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$bPosX",
+                "endY": "$bPosY",
+                "endAngle": "$endAngle",
+                "color": 0,
+                "size": 30,
+                "wait": 1000,
+                "blastTime": 700,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "angle",
+                "valueA": "$angle",
+                "valueB": "$add"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#rotation",
+                "count": 10
+            },
+            "wait": 200
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "add",
+                "valueA": "$add",
+                "valueB": 5
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#rotation",
+                "count": 5
+            },
+            "wait": 200
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue"
+            },
+            "wait": 2000
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "state": "stop",
+                "target": "head",
+                "anim": "flashEye"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "wait",
+                "value": 200
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "count",
+                "value": 20
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "rndStab"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "direction",
+                "values": [
+                    "up",
+                    "down",
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "direction": "$direction",
+                "slam": true,
+                "slamAnim": true,
+                "takeDamage": true
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#rndStab",
+                "count": "$count"
+            },
+            "wait": "$wait"
+        },
+        {
+            "category": "math",
+            "type": "mul",
+            "data": {
+                "variable": "wait",
+                "valueA": "$wait",
+                "valueB": 1.8
+            }
+        },
+        {
+            "category": "math",
+            "type": "mul",
+            "data": {
+                "variable": "count",
+                "valueA": "$count",
+                "valueB": 0.6
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "sweet",
+                "frame": "addSweet"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#rndStab",
+                "count": 3
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "state": "tired",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "alright...",
+                "poses": {
+                    "target": "head",
+                    "frame": "tired1"
+                }
+            },
+            "wait": 3000
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "I guess you win",
+                "poses": {
+                    "target": "head",
+                    "frame": "tired2"
+                }
+            }
+        },
+        {
+            "category": "endattack",
+            "data": {
+                "win": true
+            },
+            "wait": 2000
+        }
+    ]
+}

@@ -1,0 +1,360 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            },
+            "wait": 100
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "downBoneLength",
+                "max": 50,
+                "min": 15
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "upBoneY",
+                "bottom": "downBoneY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "height",
+                "valueA": "$downBoneY",
+                "valueB": "$upBoneY"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "speed": 2.5,
+                "angle": 180,
+                "length": "$downBoneLength",
+                "x": 0,
+                "y": "$downBoneY",
+                "anchor": {
+                    "x": "middle",
+                    "y": "bottom"
+                }
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "upBoneLength",
+                "valueA": "$height",
+                "valueB": "$downBoneLength"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "upBoneLength",
+                "valueA": "$upBoneLength",
+                "valueB": 20
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "speed": 2.5,
+                "angle": 0,
+                "length": "$upBoneLength",
+                "x": 0,
+                "y": "$upBoneY",
+                "anchor": {
+                    "x": "middle",
+                    "y": "bottom"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": 1,
+                "count": 6
+            },
+            "wait": 800
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 240,
+                "dx": 400,
+                "y": 220,
+                "dy": 380,
+                "ease": "Quad.easeOut"
+            },
+            "wait": 3750
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 100,
+                "count": 2,
+                "spaceRadius": 1,
+                "boneRadius": 175,
+                "boneConfig": {
+                    "color": "orange",
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": 3,
+                "tween": {
+                    "props": {
+                        "y": 200
+                    }
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 100,
+                "count": 2,
+                "spaceRadius": 1,
+                "boneRadius": 120,
+                "startAngle": 90,
+                "boneConfig": {
+                    "color": "blue",
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": 3,
+                "tween": {
+                    "props": {
+                        "y": 200
+                    }
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 100,
+                "count": 2,
+                "spaceRadius": 135,
+                "boneRadius": 80,
+                "boneConfig": {
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": 3,
+                "tween": {
+                    "props": {
+                        "y": 200
+                    }
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 100,
+                "count": 2,
+                "spaceRadius": 1,
+                "boneRadius": 175,
+                "boneConfig": {
+                    "color": "orange",
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": -3,
+                "tween": {
+                    "props": {
+                        "y": 200
+                    }
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 100,
+                "count": 2,
+                "spaceRadius": 1,
+                "boneRadius": 120,
+                "startAngle": 90,
+                "boneConfig": {
+                    "color": "blue",
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": -3,
+                "tween": {
+                    "props": {
+                        "y": 200
+                    }
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 100,
+                "count": 2,
+                "spaceRadius": 135,
+                "boneRadius": 80,
+                "boneConfig": {
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": -3,
+                "tween": {
+                    "props": {
+                        "y": 200
+                    }
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 245,
+                "y": 220,
+                "anchor": {
+                    "x": "middle"
+                },
+                "step": {
+                    "x": 150
+                },
+                "count": 2,
+                "length": 10,
+                "tweenAnchor": "bottom",
+                "tween": [
+                    {
+                        "props": {
+                            "length": 40
+                        },
+                        "ease": "Quad.easeOut",
+                        "duration": 800
+                    },
+                    {
+                        "props": {
+                            "length": 160
+                        },
+                        "delay": 1600,
+                        "ease": "Back.easeIn",
+                        "duration": 800
+                    }
+                ]
+            },
+            "wait": 2000
+        },
+        {
+            "category": "audio",
+            "type": "play",
+            "data": {
+                "sound": "slam"
+            },
+            "wait": 2300
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 200,
+                "count": 4,
+                "spaceRadius": 1,
+                "startAngle": 90,
+                "boneConfig": {
+                    "length": 50,
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": -3,
+                "tween": {
+                    "props": {
+                        "spaceRadius": {
+                            "value": 95,
+                            "duration": 3000
+                        }
+                    },
+                    "ease": "Circ.easeOut"
+                }
+            },
+            "wait": 2000
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": 320,
+                "y": 200,
+                "count": 4,
+                "spaceRadius": 1,
+                "startAngle": 90,
+                "boneConfig": {
+                    "length": 50,
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    }
+                },
+                "rotateSpeed": 3,
+                "tween": {
+                    "props": {
+                        "spaceRadius": {
+                            "value": 95,
+                            "duration": 3000
+                        }
+                    },
+                    "ease": "Circ.easeOut"
+                }
+            }
+        },
+        {
+            "category": "endattack",
+            "wait": 3700
+        }
+    ]
+}

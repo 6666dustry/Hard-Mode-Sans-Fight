@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "outDir": "./runtime",
+        "sourceMap": true,
+        "target": "ESNext",
+        "module": "ESNext",
+        "baseUrl": "./scripts",
+        "strict": true,
+    }
+}

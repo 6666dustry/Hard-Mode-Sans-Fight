@@ -1,0 +1,135 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 0,
+                "y": 385,
+                "length": 15,
+                "angle": 180,
+                "speed": 6,
+                "count": 10,
+                "delay": 600,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 0,
+                "y": 250,
+                "length": 100,
+                "angle": 0,
+                "speed": 6,
+                "count": 10,
+                "delay": 600,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 640,
+                "y": 385,
+                "length": 15,
+                "angle": 180,
+                "speed": -6,
+                "count": 10,
+                "delay": 600,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 640,
+                "y": 250,
+                "length": 100,
+                "angle": 0,
+                "speed": -6,
+                "count": 10,
+                "delay": 600,
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 320,
+                "y": 245,
+                "length": 5,
+                "speed": 0,
+                "tweenAnchor": "bottom",
+                "tween": {
+                    "props": {
+                        "length": 135
+                    },
+                    "ease": "Bounce.easeOut",
+                    "duration": 2000
+                },
+                "anchor": {
+                    "y": "bottom",
+                    "x": "middle"
+                },
+                "step": {
+                    "x": 10
+                },
+                "delay": 500,
+                "count": 9
+            },
+            "wait": 1000
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 320,
+                "y": 245,
+                "length": 5,
+                "speed": 0,
+                "tweenAnchor": "bottom",
+                "tween": {
+                    "props": {
+                        "length": 135
+                    },
+                    "ease": "Bounce.easeOut",
+                    "duration": 2000
+                },
+                "anchor": {
+                    "y": "bottom",
+                    "x": "middle"
+                },
+                "step": {
+                    "x": -10
+                },
+                "delay": 500,
+                "count": 9
+            }
+        },
+        {
+            "category": "endattack",
+            "wait": 8000
+        }
+    ]
+}

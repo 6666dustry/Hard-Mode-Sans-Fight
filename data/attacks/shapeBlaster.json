@@ -1,0 +1,348 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 240,
+                "dx": 400,
+                "y": 220,
+                "dy": 380
+            },
+            "wait": 0
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "interval",
+                "value": 1300
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom",
+                "left": "comLeft",
+                "right": "comRight",
+                "centerX": "comMidX",
+                "centerY": "comMidY"
+            },
+            "wait": "$interval"
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": "$comMidX",
+                "y": "$comMidY",
+                "count": 4,
+                "spaceRadius": 65,
+                "boneRadius": 0,
+                "startAngle": 45,
+                "boneConfig": {
+                    "angle": 90,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    },
+                    "length": 120,
+                    "spawnTween": {
+                        "tween": "biggerMiddle",
+                        "duration": 400
+                    }
+                },
+                "rotateSpeed": 0,
+                "tween": {
+                    "props": {
+                        "rotateSpeed": 2.2
+                    },
+                    "duration": 340,
+                    "yoyo": true,
+                    "repeat": -1,
+                    "delay": 1300
+                }
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "next",
+                "valueA": "$interval",
+                "valueB": 500
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "blaster"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comMidY",
+                "blastTime": 600,
+                "size": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            },
+            "wait": "$next"
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comMidX",
+                "endY": "$comTop",
+                "blastTime": 600,
+                "endAngle": 90,
+                "size": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comMidY",
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 180,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comMidX",
+                "endY": "$comBottom",
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 270,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comTop",
+                "blastTime": 600,
+                "size": 45,
+                "wait": "$interval"
+            },
+            "wait": "$next"
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comTop",
+                "blastTime": 600,
+                "endAngle": 90,
+                "size": 45,
+                "wait": "$interval"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comBottom",
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 180,
+                "wait": "$interval"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comBottom",
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 270,
+                "wait": "$interval"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comTop",
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            },
+            "wait": "$next"
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comTop",
+                "blastTime": 600,
+                "endAngle": 135,
+                "size": 45,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comRight",
+                "endY": "$comBottom",
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 225,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$comLeft",
+                "endY": "$comBottom",
+                "blastTime": 600,
+                "size": 45,
+                "endAngle": 315,
+                "wait": "$interval",
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#blaster"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "angle",
+                "value": 0
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "centerX": "comMidX",
+                "centerY": "comMidY"
+            },
+            "wait": 3000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "circleBlaster"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "posY",
+                "valueA": "$comMidY",
+                "valueB": 60
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "angle",
+                "valueA": "$angle",
+                "valueB": 20
+            }
+        },
+        {
+            "category": "math",
+            "type": "rotate",
+            "data": {
+                "originX": "$comMidX",
+                "originY": "$comMidY",
+                "pointX": "$comMidX",
+                "pointY": "$posY",
+                "angle": "$angle",
+                "x": "bPosX",
+                "y": "bPosY"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$bPosX",
+                "endY": "$bPosY",
+                "endAngle": "$angle",
+                "size": 30,
+                "wait": 1500
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#circleBlaster",
+                "count": 18
+            }
+        },
+        {
+            "category": "endattack",
+            "wait": 3000
+        }
+    ]
+}

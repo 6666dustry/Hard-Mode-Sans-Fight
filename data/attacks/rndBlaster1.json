@@ -1,0 +1,261 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 220,
+                "dx": 420,
+                "y": 200,
+                "dy": 400
+            },
+            "wait": 100
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "addBlaster"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "color",
+                "values": [
+                    0,
+                    1,
+                    1,
+                    2,
+                    2
+                ]
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "blasterY",
+                "valueA": "$heartY",
+                "valueB": 80
+            }
+        },
+        {
+            "category": "heart",
+            "type": "getPos",
+            "data": {
+                "x": "heartX",
+                "y": "heartY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "posY",
+                "valueA": "$heartY",
+                "valueB": 100
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "angle",
+                "min": 0,
+                "max": 360
+            }
+        },
+        {
+            "category": "math",
+            "type": "rotate",
+            "data": {
+                "originX": "$heartX",
+                "originY": "$heartY",
+                "pointX": "$heartX",
+                "pointY": "$posY",
+                "angle": "$angle",
+                "x": "bPosX",
+                "y": "bPosY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "angle",
+                "valueA": "$angle",
+                "valueB": 90
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$bPosX",
+                "endY": "$bPosY",
+                "endAngle": "$angle",
+                "color": "$color",
+                "size": 30,
+                "wait": 1250,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#addBlaster",
+                "count": 3
+            }
+        },
+        {
+            "category": "jump",
+            "type": "compare",
+            "data": {
+                "type": "=",
+                "valueA": "$blasterRemain",
+                "valueB": 4,
+                "to": "#addBone1"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "compare",
+            "data": {
+                "type": "=",
+                "valueA": "$blasterRemain",
+                "valueB": 2,
+                "to": "#addBone2"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "restart"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#addBlaster",
+                "count": 6,
+                "remain": "blasterRemain"
+            },
+            "wait": 1500
+        },
+        {
+            "category": "endattack",
+            "wait": 1300
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "addBone1"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 220,
+                "y": 170,
+                "length": 40,
+                "tween": [
+                    {
+                        "props": {
+                            "y": "+=30"
+                        },
+                        "ease": "Quad.easeOut",
+                        "duration": 500
+                    },
+                    {
+                        "props": {
+                            "y": "+=230"
+                        },
+                        "ease": "Back.easeIn",
+                        "duration": 2500,
+                        "delay": 500
+                    }
+                ],
+                "lifetime": 4000,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                },
+                "step": {
+                    "x": {
+                        "min": 220,
+                        "max": 420
+                    }
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#restart"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "addBone2"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 190,
+                "y": 300,
+                "angle": 90,
+                "length": 40,
+                "tween": [
+                    {
+                        "props": {
+                            "x": "+=30"
+                        },
+                        "ease": "Quad.easeOut",
+                        "duration": 500
+                    },
+                    {
+                        "props": {
+                            "x": "+=230"
+                        },
+                        "ease": "Back.easeIn",
+                        "duration": 2500,
+                        "delay": 500
+                    }
+                ],
+                "lifetime": 4000,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                },
+                "step": {
+                    "y": {
+                        "min": 200,
+                        "max": 400
+                    }
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#restart"
+            }
+        }
+    ]
+}

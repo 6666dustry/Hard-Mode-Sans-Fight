@@ -1,0 +1,250 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "topY",
+                "value": "$comTop"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 180,
+                "dx": 460,
+                "y": "$comTop",
+                "dy": "$comBottom"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "height",
+                "valueA": "$comBottom",
+                "valueB": "$comTop"
+            }
+        },
+        {
+            "category": "math",
+            "type": "div",
+            "data": {
+                "variable": "padding",
+                "valueA": "$height",
+                "valueB": 3
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "platY",
+                "valueA": "$comTop",
+                "valueB": "$padding"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "centerY",
+                "value": "$platY"
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addMulti",
+            "data": {
+                "y": "$platY",
+                "speed": 2,
+                "delay": 1100,
+                "length": 60,
+                "x": 0,
+                "count": 30,
+                "anchor": {
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "platY",
+                "valueA": "$platY",
+                "valueB": "$padding"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "bottomY",
+                "value": "$platY"
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addMulti",
+            "data": {
+                "y": "$platY",
+                "speed": -2,
+                "delay": 1100,
+                "length": 50,
+                "x": 640,
+                "count": 35,
+                "anchor": {
+                    "y": "middle"
+                }
+            },
+            "wait": 200
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "left": "comLeft",
+                "right": "comRight"
+            },
+            "wait": 1000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "addBones"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "boneY",
+                "values": [
+                    "$topY",
+                    "$bottomY",
+                    "$centerY"
+                ]
+            }
+        },
+        {
+            "category": "jump",
+            "type": "RND",
+            "data": {
+                "to": [
+                    "#left",
+                    "#right"
+                ]
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "left"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": "$comLeft",
+                "y": "$boneY",
+                "length": "$padding",
+                "lifetime": 3500,
+                "spawnTween": {
+                    "tween": "biggerMiddle"
+                },
+                "tween": {
+                    "props": {
+                        "x": "$comRight"
+                    },
+                    "duration": 1500,
+                    "yoyo": true,
+                    "ease": "Quad.easeInOut",
+                    "delay": 500
+                },
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "right"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": "$comRight",
+                "y": "$boneY",
+                "length": "$padding",
+                "lifetime": 3500,
+                "spawnTween": {
+                    "tween": "biggerMiddle"
+                },
+                "tween": {
+                    "props": {
+                        "x": "$comLeft"
+                    },
+                    "duration": 1500,
+                    "yoyo": true,
+                    "ease": "Sine.easeInOut",
+                    "delay": 500
+                },
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#addBones",
+                "count": 12
+            },
+            "wait": 1000
+        },
+        {
+            "category": "endattack",
+            "wait": 3000
+        }
+    ]
+}

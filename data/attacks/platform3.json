@@ -1,0 +1,300 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "bottom": "comBottom",
+                "left": "comLeft",
+                "width": "comWidth",
+                "right": "comRight"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPosition",
+            "data": {
+                "x": 50,
+                "y": 320
+            },
+            "wait": 1
+        },
+        {
+            "category": "combatzone",
+            "type": "tweenRect",
+            "data": {
+                "tween": {
+                    "props": {
+                        "width": 100
+                    },
+                    "duration": 0
+                }
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "tweenRect",
+            "data": {
+                "tween": {
+                    "props": {
+                        "centerX": "+=500"
+                    },
+                    "duration": 14000,
+                    "yoyo": true,
+                    "ease": "Quad.easeIn"
+                }
+            },
+            "wait": 100
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "y": "$comBottom",
+                "x": "$comLeft",
+                "speed": 1,
+                "count": 120,
+                "delay": 240,
+                "length": 30,
+                "anchor": {
+                    "y": "top",
+                    "x": "middle"
+                },
+                "spawnTween": {
+                    "tween": "biggerTop"
+                },
+                "lifetime": 9000,
+                "deleteTween": {
+                    "tween": "smallerTop"
+                }
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": "$comLeft",
+                "y": 340,
+                "length": 45,
+                "tween": {
+                    "props": {
+                        "x": "$comRight"
+                    },
+                    "yoyo": true,
+                    "duration": 14000,
+                    "ease": "Quad.easeIn"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addCircle",
+            "data": {
+                "x": "$comLeft",
+                "y": 340,
+                "count": 6,
+                "spaceRadius": 100,
+                "rotateSpeed": -0.8,
+                "boneConfig": {
+                    "angle": 45,
+                    "length": 50,
+                    "anchor": {
+                        "x": "middle",
+                        "y": "middle"
+                    },
+                    "tween": {
+                        "props": {
+                            "length": 200
+                        },
+                        "yoyo": true,
+                        "duration": 2000,
+                        "repeat": -1
+                    }
+                },
+                "tween": [
+                    {
+                        "props": {
+                            "x": "$comRight",
+                            "boneRadius": {
+                                "duration": 2000,
+                                "value": 150
+                            }
+                        },
+                        "yoyo": true,
+                        "duration": 14000,
+                        "ease": "Quad.easeIn"
+                    }
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 450,
+                "y": 0,
+                "speed": 2,
+                "speedAngle": 90,
+                "delay": 600,
+                "length": 20,
+                "count": 17,
+                "tween": {
+                    "props": {
+                        "length": 40,
+                        "x": 440
+                    },
+                    "repeat": -1,
+                    "duration": 1000,
+                    "yoyo": true
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 350,
+                "y": 0,
+                "speed": 2,
+                "speedAngle": 90,
+                "delay": 450,
+                "length": 20,
+                "count": 19
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 250,
+                "y": 0,
+                "speed": 2.3,
+                "speedAngle": 90,
+                "delay": 600,
+                "length": 20,
+                "count": 12
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 150,
+                "y": 480,
+                "speed": -2,
+                "speedAngle": 90,
+                "delay": 800,
+                "length": 30,
+                "count": 10
+            }
+        },
+        {
+            "category": "heart",
+            "type": "getPos",
+            "data": {
+                "x": "heartX",
+                "y": "heartY"
+            },
+            "wait": 14000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "blaster"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "blasterY",
+                "valueA": "$heartY",
+                "valueB": 80
+            }
+        },
+        {
+            "category": "heart",
+            "type": "getPos",
+            "data": {
+                "x": "heartX",
+                "y": "heartY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "posY",
+                "valueA": "$heartY",
+                "valueB": 100
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "angle",
+                "min": 0,
+                "max": 180
+            }
+        },
+        {
+            "category": "math",
+            "type": "rotate",
+            "data": {
+                "originX": "$heartX",
+                "originY": "$heartY",
+                "pointX": "$heartX",
+                "pointY": "$posY",
+                "angle": "$angle",
+                "x": "bPosX",
+                "y": "bPosY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "angle",
+                "valueA": "$angle",
+                "valueB": 90
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$bPosX",
+                "endY": "$bPosY",
+                "endAngle": "$angle",
+                "size": 25,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#blaster",
+                "count": 8
+            },
+            "wait": 1000
+        },
+        {
+            "category": "endattack",
+            "wait": 1000
+        }
+    ]
+}

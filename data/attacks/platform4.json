@@ -1,0 +1,277 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom",
+                "left": "comLeft",
+                "right": "comRight"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPosition",
+            "data": {
+                "x": 50,
+                "y": 320
+            },
+            "wait": 1
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "y": "$comBottom",
+                "x": "$comLeft",
+                "speed": 1,
+                "count": 180,
+                "delay": 200,
+                "tweenAnchor": "top",
+                "anchor": {
+                    "y": "top",
+                    "x": "middle"
+                },
+                "length": 51,
+                "lifetime": 9600,
+                "tween": {
+                    "props": {
+                        "length": 30
+                    },
+                    "yoyo": true,
+                    "delay": 0,
+                    "repeat": -1,
+                    "ease": "Sine.easeInOut"
+                }
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": "$comLeft",
+                "y": 340,
+                "length": 45,
+                "tweenAnchor": "left",
+                "tween": {
+                    "props": {
+                        "x": "$comRight",
+                        "length": {
+                            "value": 50,
+                            "delay": 13000,
+                            "duration": 1000,
+                            "yoyo": false
+                        },
+                        "color": {
+                            "value": 1,
+                            "delay": 13000,
+                            "duration": 0,
+                            "yoyo": false
+                        },
+                        "angle": {
+                            "value": -90,
+                            "delay": 13000,
+                            "duration": 1000,
+                            "ease": "Sine.easeInOut",
+                            "yoyo": false
+                        },
+                        "y": {
+                            "value": 300,
+                            "ease": "Quad.easeOut",
+                            "duration": 600,
+                            "delay": 7500
+                        }
+                    },
+                    "yoyo": true,
+                    "duration": 14000,
+                    "ease": "Quad.easeIn"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "y": "$comBottom",
+                "x": "$comRight",
+                "count": 6,
+                "delay": 800,
+                "anchor": {
+                    "y": "top",
+                    "x": "middle"
+                },
+                "length": 70,
+                "spawnTween": {
+                    "tween": "biggerTop",
+                    "duration": 500
+                },
+                "tween": {
+                    "props": {
+                        "x": "$comLeft"
+                    },
+                    "delay": 500,
+                    "duration": 1600,
+                    "ease": "Quad.easeIn"
+                },
+                "lifetime": 2200
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "up",
+                "length": 40,
+                "lifetime": 10000
+            },
+            "wait": 7500
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 450,
+                "y": 220,
+                "spin": -2.5,
+                "speed": 0,
+                "angle": 45,
+                "length": 80,
+                "step": {
+                    "angle": 90
+                },
+                "tween": {
+                    "props": {
+                        "y": "+=80",
+                        "speed": {
+                            "delay": 1500,
+                            "value": -4,
+                            "ease": "Quad.easeOut"
+                        }
+                    },
+                    "delay": 500,
+                    "duration": 800,
+                    "yoyo": false,
+                    "ease": "Quad.easeIn"
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                },
+                "delay": 0,
+                "count": 2
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "right",
+                "length": 40,
+                "lifetime": 675,
+                "slam": true
+            },
+            "wait": 3000
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso",
+                "state": "dancing"
+            },
+            "wait": 500
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "height",
+                "valueA": "$comBottom",
+                "valueB": "$comTop"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSine",
+            "data": {
+                "x": "$comLeft",
+                "y": "$comTop",
+                "length": "$height",
+                "speed": 5
+            },
+            "wait": 3500
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": "$comRight",
+                "y": "$comTop",
+                "length": "$height",
+                "tween": {
+                    "props": {
+                        "x": 320
+                    },
+                    "yoyo": true,
+                    "duration": 2000,
+                    "ease": "Sine.easeInOut",
+                    "repeat": 1
+                },
+                "count": 3,
+                "delay": 150
+            },
+            "wait": 2000
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": 150,
+                "y": 250,
+                "angle": 270,
+                "length": 40,
+                "tween": {
+                    "props": {
+                        "y": "+=40"
+                    },
+                    "duration": 500,
+                    "ease": "Quad.easeIn"
+                }
+            },
+            "wait": 3000
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endY": 290,
+                "endX": 30,
+                "wait": 1750
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endY": 240,
+                "endX": 10,
+                "wait": 1750
+            },
+            "wait": 2000
+        },
+        {
+            "category": "endattack",
+            "wait": 3000
+        }
+    ]
+}

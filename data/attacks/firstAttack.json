@@ -1,0 +1,420 @@
+{
+    "attacks": [
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 238,
+                "y": 235,
+                "dx": 388,
+                "dy": 385,
+                "inst": false
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "head",
+                "frame": "closedeye",
+                "state": "stop"
+            },
+            "wait": 0
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "ready?"
+            }
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "pause": true
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "head",
+                "anim": "flashEye"
+            },
+            "wait": 500
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "down",
+                "slam": true,
+                "wait": 800,
+                "length": 50,
+                "lifetime": 500
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "up",
+                "slam": false,
+                "wait": 800,
+                "length": 50,
+                "lifetime": 500
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 304,
+                "dx": 322,
+                "ease": "Quad.easeOut"
+            }
+        },
+        {
+            "category": "audio",
+            "type": "play",
+            "data": {
+                "sound": "ding"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "anim": "upSlam",
+                "autoInit": true
+            },
+            "wait": 800
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red",
+                "playSound": true
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSine",
+            "data": {
+                "x": 208,
+                "y": 160,
+                "length": 300,
+                "speed": 5,
+                "amplitude": 0,
+                "count": 45,
+                "step": {
+                    "amplitude": 0.5,
+                    "padding": 0.4,
+                    "speed": 0.06
+                }
+            },
+            "wait": 850
+        },
+        {
+            "category": "audio",
+            "type": "play",
+            "data": {
+                "sound": "blaster"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torsoside1"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 338,
+                "dx": 488,
+                "ease": "Quad.easeOut"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            },
+            "wait": 500
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 238,
+                "dx": 388,
+                "ease": "Sine.easeInOut",
+                "duration": 3000
+            }
+        },
+        {
+            "category": "jump",
+            "type": "REL",
+            "data": {
+                "to": 1
+            },
+            "wait": 3000
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 304,
+                "dx": 322,
+                "ease": "Quad.easeOut"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 238,
+                "endY": 235,
+                "blastTime": 500,
+                "size": 45
+            },
+            "wait": 900
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 388,
+                "endY": 235,
+                "blastTime": 500,
+                "endAngle": 90,
+                "size": 45
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 388,
+                "endY": 385,
+                "blastTime": 500,
+                "size": 45,
+                "endAngle": 180
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 238,
+                "endY": 385,
+                "blastTime": 500,
+                "size": 45,
+                "endAngle": 270
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 238,
+                "endY": 235,
+                "blastTime": 500,
+                "endAngle": 45,
+                "size": 45,
+                "anchor": {
+                    "x": "bottom",
+                    "y": "middle"
+                }
+            },
+            "wait": 900
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 388,
+                "endY": 235,
+                "blastTime": 500,
+                "endAngle": 135,
+                "size": 45,
+                "anchor": {
+                    "x": "bottom",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 388,
+                "endY": 385,
+                "blastTime": 500,
+                "endAngle": 225,
+                "size": 45,
+                "anchor": {
+                    "x": "bottom",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 238,
+                "endY": 385,
+                "blastTime": 500,
+                "endAngle": 315,
+                "size": 45,
+                "anchor": {
+                    "x": "bottom",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 238,
+                "dx": 388,
+                "relPointY": 310,
+                "y": -9,
+                "dy": 9,
+                "ease": "Sine.easeInOut",
+                "duration": 500
+            }
+        },
+        {
+            "category": "jump",
+            "type": "RELCount",
+            "data": {
+                "to": -9,
+                "count": 1
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 238,
+                "endY": 235,
+                "blastTime": 500,
+                "size": 45
+            },
+            "wait": 900
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 388,
+                "endY": 235,
+                "blastTime": 500,
+                "endAngle": 90,
+                "size": 45
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 388,
+                "endY": 385,
+                "blastTime": 500,
+                "size": 45,
+                "endAngle": 180
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 238,
+                "endY": 385,
+                "blastTime": 500,
+                "size": 45,
+                "endAngle": 270
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 238,
+                "y": 235,
+                "dx": 388,
+                "dy": 385,
+                "ease": "Back.easeInOut"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 138,
+                "endY": 310,
+                "blastTime": 1200,
+                "wait": 1200,
+                "endAngle": 0,
+                "size": 80,
+                "anchor": {
+                    "x": "bottom",
+                    "y": "middle"
+                }
+            },
+            "wait": 1000
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 488,
+                "endY": 310,
+                "blastTime": 1200,
+                "wait": 1200,
+                "endAngle": 180,
+                "size": 80,
+                "anchor": {
+                    "x": "bottom",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "up",
+                "wait": 1200,
+                "length": 150,
+                "lifetime": 2000,
+                "color": "orange"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "head",
+                "frame": "default",
+                "state": "dancing"
+            },
+            "wait": 4000
+        },
+        {
+            "category": "endattack"
+        }
+    ]
+}

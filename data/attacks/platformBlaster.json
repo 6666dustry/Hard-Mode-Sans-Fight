@@ -1,0 +1,343 @@
+{
+    "attacks": [
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue",
+                "playSound": true
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "addRemain",
+                "value": 0
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "getPos",
+            "data": {
+                "top": "comTop",
+                "bottom": "comBottom"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "topY",
+                "value": "$comTop"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 180,
+                "dx": 460,
+                "y": "$comTop",
+                "dy": "$comBottom"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "height",
+                "valueA": "$comBottom",
+                "valueB": "$comTop"
+            }
+        },
+        {
+            "category": "math",
+            "type": "div",
+            "data": {
+                "variable": "padding",
+                "valueA": "$height",
+                "valueB": 3
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "platY",
+                "valueA": "$comTop",
+                "valueB": "$padding"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "centerY",
+                "value": "$platY"
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addMulti",
+            "data": {
+                "y": "$platY",
+                "speed": 2,
+                "delay": 1600,
+                "length": 70,
+                "x": 100,
+                "count": 20,
+                "anchor": {
+                    "y": "middle"
+                },
+                "tween": {
+                    "props": {
+                        "y": "+=10"
+                    },
+                    "yoyo": true,
+                    "repeat": -1,
+                    "ease": "Sine.easeInOut"
+                }
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "platY",
+                "valueA": "$platY",
+                "valueB": "$padding"
+            }
+        },
+        {
+            "category": "math",
+            "type": "set",
+            "data": {
+                "variable": "bottomY",
+                "value": "$platY"
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addMulti",
+            "data": {
+                "y": "$platY",
+                "speed": -2,
+                "delay": 1000,
+                "length": 40,
+                "x": 440,
+                "count": 25,
+                "anchor": {
+                    "y": "middle"
+                },
+                "tween": {
+                    "props": {
+                        "y": "+=10"
+                    },
+                    "yoyo": true,
+                    "duration": 500,
+                    "repeat": -1,
+                    "ease": "Sine.easeInOut"
+                }
+            },
+            "wait": 200
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "addBlasters"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "boneY",
+                "values": [
+                    "$topY",
+                    "$bottomY",
+                    "$centerY"
+                ]
+            }
+        },
+        {
+            "category": "jump",
+            "type": "RND",
+            "data": {
+                "to": [
+                    "#left",
+                    "#right"
+                ]
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "left"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 100,
+                "endY": "$boneY",
+                "endAngle": 0,
+                "size": "$padding",
+                "wait": 1000
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "right"
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": 540,
+                "endY": "$boneY",
+                "endAngle": 180,
+                "size": "$padding",
+                "wait": 1000,
+                "anchor": {
+                    "y": "top"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#addBlasters",
+                "count": 13,
+                "remain": "$addRemain"
+            },
+            "wait": 1000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "blaster"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "color",
+                "min": 0,
+                "max": 2,
+                "integer": true
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "blasterY",
+                "valueA": "$heartY",
+                "valueB": 80
+            }
+        },
+        {
+            "category": "heart",
+            "type": "getPos",
+            "data": {
+                "x": "heartX",
+                "y": "heartY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "sub",
+            "data": {
+                "variable": "posY",
+                "valueA": "$heartY",
+                "valueB": 100
+            }
+        },
+        {
+            "category": "math",
+            "type": "rnd",
+            "data": {
+                "variable": "angle",
+                "min": 0,
+                "max": 360
+            }
+        },
+        {
+            "category": "math",
+            "type": "rotate",
+            "data": {
+                "originX": "$heartX",
+                "originY": "$heartY",
+                "pointX": "$heartX",
+                "pointY": "$posY",
+                "angle": "$angle",
+                "x": "bPosX",
+                "y": "bPosY"
+            }
+        },
+        {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "angle",
+                "valueA": "$angle",
+                "valueB": 90
+            }
+        },
+        {
+            "category": "blaster",
+            "type": "addSingle",
+            "data": {
+                "endX": "$bPosX",
+                "endY": "$bPosY",
+                "endAngle": "$angle",
+                "color": "$color",
+                "size": 30
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#blaster",
+                "count": 8
+            },
+            "wait": 350
+        },
+        {
+            "category": "endattack",
+            "wait": 2000
+        }
+    ]
+}

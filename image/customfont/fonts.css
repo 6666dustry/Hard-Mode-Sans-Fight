@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'battlefont';
+    src: url('DeterminationMonoWebRegular-Z5oq.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "gameHUB";
+    src: url("MNC.ttf");
+}
+
+@font-face {
+    font-family: "damagefont";
+    src: url("hachicro.TTF")
+}
+
+@font-face {
+    font-family: "comicsansfont";
+    src: url("comic-sans-ms-bold.ttf")
+}

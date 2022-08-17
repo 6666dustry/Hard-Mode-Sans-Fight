@@ -1,0 +1,31 @@
+{
+    "textSets": [
+        [
+            200,
+            200,
+            "play",
+            {
+                "fontFamily": "battlefont",
+                "fontSize": "64px"
+            }
+        ],
+        [
+            200,
+            240,
+            "freeplay",
+            {
+                "fontFamily": "battlefont",
+                "fontSize": "64px"
+            }
+        ],
+        [
+            200,
+            280,
+            "settings",
+            {
+                "fontFamily": "battlefont",
+                "fontSize": "64px"
+            }
+        ]
+    ]
+}

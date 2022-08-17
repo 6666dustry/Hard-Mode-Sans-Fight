@@ -1,0 +1,682 @@
+{
+    "attacks": [
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "start"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "jumpTo",
+                "values": [
+                    "#attack1",
+                    "#attack2",
+                    "#attack3",
+                    "#attack4",
+                    "#attack5"
+                ]
+            }
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "removeAll": true
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "$jumpTo"
+            },
+            "wait": 250
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack1"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 250,
+                "dy": 350,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 320,
+                "y": 300
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "color": "blue",
+                "direction": "down",
+                "slam": true
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 250,
+                "y": 350,
+                "length": 15,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": 3,
+                "delay": 600
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 250,
+                "y": 250,
+                "length": 65,
+                "anchor": {
+                    "x": "middle"
+                },
+                "speed": 3,
+                "delay": 600
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 390,
+                "y": 350,
+                "length": 15,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": -3,
+                "delay": 600
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 390,
+                "y": 250,
+                "length": 65,
+                "anchor": {
+                    "x": "middle"
+                },
+                "speed": -3,
+                "delay": 600
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 3000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack2"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 200,
+                "dx": 440,
+                "y": 250,
+                "dy": 350,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 320,
+                "y": 300
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setG",
+            "data": {
+                "color": "blue",
+                "direction": "down",
+                "slam": true
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 200,
+                "y": 350,
+                "length": 15,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": 4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 190,
+                "y": 350,
+                "length": 30,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": 4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 180,
+                "y": 350,
+                "length": 15,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": 4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 190,
+                "y": 250,
+                "length": 50,
+                "anchor": {
+                    "x": "middle"
+                },
+                "speed": 4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 440,
+                "y": 350,
+                "length": 15,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": -4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 450,
+                "y": 350,
+                "length": 30,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": -4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 460,
+                "y": 350,
+                "length": 15,
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                },
+                "speed": -4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 450,
+                "y": 250,
+                "length": 50,
+                "anchor": {
+                    "x": "middle"
+                },
+                "speed": -4.5,
+                "delay": 900
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 2500
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack3"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 210,
+                "dy": 350,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 320,
+                "y": 340
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "spin",
+                "values": [
+                    2.2,
+                    -2.2
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 320,
+                "y": 280,
+                "count": 2,
+                "delay": 0,
+                "length": 170,
+                "angle": 0,
+                "spin": 0,
+                "spawnTween": {
+                    "tween": "biggerMiddle"
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                },
+                "step": {
+                    "angle": 90
+                },
+                "tween": {
+                    "props": {
+                        "spin": "$spin"
+                    },
+                    "yoyo": true,
+                    "repeat": -1,
+                    "duration": 700
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 4500
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack4"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 210,
+                "dy": 350,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 320,
+                "y": 280
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "math",
+            "type": "rndValues",
+            "data": {
+                "variable": "spin",
+                "values": [
+                    0.5,
+                    -0.5
+                ]
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": 250,
+                "y": 280,
+                "delay": 0,
+                "length": 135,
+                "angle": 0,
+                "spin": "$spin",
+                "spawnTween": {
+                    "tween": "biggerMiddle"
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": 390,
+                "y": 280,
+                "delay": 0,
+                "length": 135,
+                "angle": 0,
+                "spin": "$spin",
+                "spawnTween": {
+                    "tween": "biggerMiddle"
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": 320,
+                "y": 210,
+                "delay": 0,
+                "length": 135,
+                "angle": 90,
+                "spin": "$spin",
+                "spawnTween": {
+                    "tween": "biggerMiddle"
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": 320,
+                "y": 350,
+                "delay": 0,
+                "length": 135,
+                "angle": 90,
+                "spin": "$spin",
+                "spawnTween": {
+                    "tween": "biggerMiddle"
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 6000
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "attack5"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "x": 250,
+                "dx": 390,
+                "y": 210,
+                "dy": 350,
+                "inst": true
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setPos",
+            "data": {
+                "x": 320,
+                "y": 340
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "red"
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "direction": "down",
+                "lifetime": 4000,
+                "length": 25
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "delay": 0,
+                "x": 250,
+                "y": 210,
+                "speed": 4,
+                "length": 60,
+                "speedAngle": 90,
+                "count": 7,
+                "anchor": {
+                    "y": "top"
+                },
+                "angle": 90,
+                "step": {
+                    "y": 10
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "delay": 0,
+                "x": 390,
+                "y": 210,
+                "speed": 4,
+                "length": 60,
+                "speedAngle": 90,
+                "angle": 90,
+                "count": 7,
+                "step": {
+                    "y": 10
+                }
+            }
+        },
+        {
+            "category": "heart",
+            "type": "setColor",
+            "data": {
+                "color": "blue"
+            },
+            "wait": 750
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "x": 320,
+                "y": 350,
+                "delay": 0,
+                "length": 130,
+                "spawnTween": {
+                    "tween": "biggerTop"
+                },
+                "anchor": {
+                    "x": "middle",
+                    "y": "top"
+                }
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": 355,
+                "y": 350,
+                "tween": {
+                    "props": {
+                        "y": 310
+                    },
+                    "duration": 400,
+                    "ease": "Back.easeOut"
+                },
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": 275,
+                "y": 350,
+                "tween": {
+                    "props": {
+                        "y": 310
+                    },
+                    "duration": 400,
+                    "ease": "Back.easeOut"
+                },
+                "anchor": {
+                    "x": "middle"
+                }
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABS",
+            "data": {
+                "to": "#end"
+            },
+            "wait": 1500
+        },
+        {
+            "category": "jump",
+            "type": "label",
+            "data": {
+                "name": "end"
+            }
+        },
+        {
+            "category": "jump",
+            "type": "ABSCount",
+            "data": {
+                "to": "#start",
+                "count": 6
+            }
+        },
+        {
+            "category": "endattack",
+            "data": {
+                "menuBone": 1
+            }
+        }
+    ]
+}

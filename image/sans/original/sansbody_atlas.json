@@ -1,0 +1,86 @@
+{
+    "frames": [
+        {
+            "filename": "torsoupside1",
+            "frame": {
+                "w": 60,
+                "h": 42,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "torsoupside2",
+            "frame": {
+                "w": 58,
+                "h": 49,
+                "x": 60,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "torsoupside3",
+            "frame": {
+                "w": 57,
+                "h": 33,
+                "x": 118,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "torsoside1",
+            "frame": {
+                "w": 74,
+                "h": 25,
+                "x": 175,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "torsoside2",
+            "frame": {
+                "w": 86,
+                "h": 25,
+                "x": 249,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "torso",
+            "frame": {
+                "w": 54,
+                "h": 25,
+                "x": 335,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
