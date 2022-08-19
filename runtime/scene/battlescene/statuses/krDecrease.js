@@ -13,6 +13,7 @@ export default function krDecrease() {
         }
     }
     this.setDisplay();
+    this.setBars();
     const WAIT = this.kr > 30 ? 200 :
         this.kr > 20 ? 400 :
             this.kr > 10 ? 600 : 800;

@@ -1,4 +1,4 @@
-function spawnTween(type) {
+export default function spawnTween(type) {
     if (this.scene) {
         if (type) {
             switch (type.tween) {
@@ -58,5 +58,4 @@ function spawnTween(type) {
         }
     }
 }
-export default spawnTween;
 //# sourceMappingURL=spawnTween.js.map

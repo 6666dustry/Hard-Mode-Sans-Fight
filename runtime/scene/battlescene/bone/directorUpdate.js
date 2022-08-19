@@ -1,4 +1,4 @@
-function update(time) {
+export default function update(time) {
     //update bones.
     for (const iterator of this.getChildren()) {
         iterator.update();
@@ -14,5 +14,4 @@ function update(time) {
         iterator.update();
     }
 }
-export default update;
 //# sourceMappingURL=directorUpdate.js.map

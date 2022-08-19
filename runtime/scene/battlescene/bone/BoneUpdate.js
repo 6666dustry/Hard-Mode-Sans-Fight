@@ -59,7 +59,7 @@ function setAngle() {
  * used for custom tween.
  * @param this
  */
-function update() {
+export default function update() {
     if (!this.body) {
         this.scene.tweens.killTweensOf(this);
         return;
@@ -85,6 +85,4 @@ function update() {
     this.oldLength = this.displayLength;
     this.oldAngle = this.angle;
 }
-export default update;
-;
 //# sourceMappingURL=BoneUpdate.js.map

@@ -3,7 +3,7 @@ import Keys from "../../../keys.js";
  * start attack again. called at practice mode.
  * @param this
  */
-function retry() {
+export default function retry() {
     const D = this.director;
     D.removeAll();
     D.Heart.enemyTurnInit();
@@ -31,5 +31,4 @@ function retry() {
     this.runAttackPos = 0;
     this.startAttack();
 }
-export default retry;
 //# sourceMappingURL=retry.js.map

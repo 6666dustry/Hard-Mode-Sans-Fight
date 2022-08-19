@@ -4,7 +4,7 @@ function boneRemove() {
         this.destroy();
     }
 }
-function deleteTween(type) {
+export default function deleteTween(type) {
     if (this.scene) {
         if (type) {
             switch (type.tween) {
@@ -52,5 +52,4 @@ function deleteTween(type) {
         }
     }
 }
-export default deleteTween;
 //# sourceMappingURL=deleteTween.js.map

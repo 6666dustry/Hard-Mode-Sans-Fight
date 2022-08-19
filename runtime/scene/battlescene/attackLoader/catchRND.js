@@ -2,7 +2,7 @@
  * catch random attack.
  * @returns return parsed json file object.
  */
-function catchRND() {
+export default function catchRND() {
     let result;
     switch (this.phase) {
         case 1: {
@@ -20,5 +20,4 @@ function catchRND() {
     }
     return result;
 }
-export default catchRND;
 //# sourceMappingURL=catchRND.js.map

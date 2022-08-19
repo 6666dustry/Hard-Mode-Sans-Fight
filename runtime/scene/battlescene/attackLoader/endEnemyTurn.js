@@ -60,7 +60,7 @@ function menuBone2() {
  * player turn initialize.
  * @param this
  */
-function endEnemyTurn(config) {
+export default function endEnemyTurn(config) {
     this.playerTurn = true;
     if (config) {
         if (this.endConfig) {
@@ -130,5 +130,4 @@ function endEnemyTurn(config) {
         }
     }
 }
-export default endEnemyTurn;
 //# sourceMappingURL=endEnemyTurn.js.map

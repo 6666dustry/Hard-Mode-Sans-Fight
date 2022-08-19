@@ -1,7 +1,7 @@
 /**
    * deliver data to another module.
    */
-function loadAttack(attack) {
+export default function loadAttack(attack) {
     let noData = false;
     if (!attack) {
         console.error(`attack is not defined at ${this.runAttackPos}`);
@@ -79,5 +79,4 @@ function loadAttack(attack) {
             this.startAttack();
     }
 }
-export default loadAttack;
 //# sourceMappingURL=loadAttack.js.map

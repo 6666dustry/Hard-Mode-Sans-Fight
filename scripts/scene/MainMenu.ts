@@ -36,6 +36,24 @@ export default class MainMenu extends Phaser.Scene {
     config!: BattleStartConfig;
     rainBone!: Phaser.GameObjects.Particles.ParticleEmitterManager;
     preload(): void {
+        let progress = this.add.graphics();
+        let loading = this.add.text(320, 150, "loading...", {
+            fontFamily: "battlefont",
+            fontSize: "60px"
+        }).setOrigin(0.5);
+        this.load.on('progress', (value: number) => {
+
+            progress.clear();
+            progress.fillStyle(0xffffff, 1);
+            progress.fillRect(0, 180, 640 * value, 60);
+        });
+
+        this.load.on('complete', function () {
+
+            progress.destroy();
+            loading.destroy();
+        });
+
         /**load game data. */
         const ARGARRAY: [key: string, textureUrl: string, frameconfig?: loadConfig][] = [
             [Keys.Image.heart, "image/heart/heart.png"],
@@ -117,6 +135,8 @@ export default class MainMenu extends Phaser.Scene {
         this.load.json(Keys.Json.attack, "data/attacks/attackloader.json");
     }
     create(config: BattleStartConfig): void {
+
+
         this.sound.stopAll();
 
         this.BackGround = new BackGround(this);

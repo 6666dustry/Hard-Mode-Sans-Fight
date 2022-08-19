@@ -32,6 +32,20 @@ export default class MainMenu extends Phaser.Scene {
     config;
     rainBone;
     preload() {
+        let progress = this.add.graphics();
+        let loading = this.add.text(320, 150, "loading...", {
+            fontFamily: "battlefont",
+            fontSize: "60px"
+        }).setOrigin(0.5);
+        this.load.on('progress', (value) => {
+            progress.clear();
+            progress.fillStyle(0xffffff, 1);
+            progress.fillRect(0, 180, 640 * value, 60);
+        });
+        this.load.on('complete', function () {
+            progress.destroy();
+            loading.destroy();
+        });
         /**load game data. */
         const ARGARRAY = [
             [Keys.Image.heart, "image/heart/heart.png"],

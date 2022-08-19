@@ -19,6 +19,7 @@ export default function krDecrease(this: Statuses): void {
 
     this.setDisplay();
 
+    this.setBars();
     const WAIT: number =
         this.kr > 30 ? 200 :
             this.kr > 20 ? 400 :

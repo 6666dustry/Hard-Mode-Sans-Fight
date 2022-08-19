@@ -3,7 +3,7 @@
 * called at player attacked.
 * @returns return parsed json file object.
 */
-function catchOrder() {
+export default function catchOrder() {
     let result;
     switch (this.phase) {
         case 1: {
@@ -19,5 +19,4 @@ function catchOrder() {
     }
     return result;
 }
-export default catchOrder;
 //# sourceMappingURL=catchAttack.js.map
