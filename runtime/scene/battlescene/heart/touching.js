@@ -1,5 +1,5 @@
 import Keys from "../../../keys.js";
-function touching(args) {
+export default function touching(args) {
     this.colliding = args.collision.bodyA.label;
     let collided = args.collision.bodyA;
     if (this.colliding === Keys.Label.heart) {
@@ -65,5 +65,4 @@ function touching(args) {
             break;
     }
 }
-export default touching;
 //# sourceMappingURL=touching.js.map

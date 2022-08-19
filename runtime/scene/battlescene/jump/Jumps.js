@@ -8,7 +8,7 @@ import RND from "./RND.js";
 import countOut from "./CountOut.js";
 import compare from "./compare.js";
 import init from "./init.js";
-class Jumps {
+export default class Jumps {
     constructor(DIRECTOR) {
         this.director = DIRECTOR;
         this.counter = [];
@@ -39,5 +39,4 @@ class Jumps {
         return false;
     }
 }
-export default Jumps;
 //# sourceMappingURL=Jumps.js.map

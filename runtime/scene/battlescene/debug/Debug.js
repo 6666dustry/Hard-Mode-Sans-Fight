@@ -1,7 +1,7 @@
 import Keys from "../../../keys.js";
 import debugUpdate from "./debugUpdate.js";
 import setMode from "./setMode.js";
-class Debug extends Phaser.GameObjects.Container {
+export default class Debug extends Phaser.GameObjects.Container {
     constructor(scene, director) {
         super(scene);
         this.director = director;
@@ -18,5 +18,4 @@ class Debug extends Phaser.GameObjects.Container {
     state;
     setMode;
 }
-export default Debug;
 //# sourceMappingURL=Debug.js.map

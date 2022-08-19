@@ -5,7 +5,7 @@ import setColor from "./setColor.js";
 /**
  * base class for attacks.
  */
-class Bullet extends Phaser.GameObjects.Container {
+export default class Bullet extends Phaser.GameObjects.Container {
     constructor(scene, director, color, x, y, children) {
         super(scene, x, y, children);
         this.setColor = setColor;
@@ -32,5 +32,4 @@ class Bullet extends Phaser.GameObjects.Container {
     }
 }
 ;
-export default Bullet;
 //# sourceMappingURL=bullet.js.map

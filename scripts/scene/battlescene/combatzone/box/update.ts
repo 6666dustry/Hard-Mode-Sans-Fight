@@ -1,7 +1,6 @@
-import Bone from "../../bone/bone.js";
 import CombatZoneDirector from "../CombatZoneDirector.js";
 import CombatZone from "./combatzone.js";
-function update(this: CombatZone, draws: CombatZoneDirector["draws"], updateDisplay?: boolean) {
+export default function update(this: CombatZone, draws: CombatZoneDirector["draws"], updateDisplay?: boolean) {
 
     if (updateDisplay) {
         this.RenderZone.clear();
@@ -93,4 +92,3 @@ function update(this: CombatZone, draws: CombatZoneDirector["draws"], updateDisp
 
     }
 }
-export default update;

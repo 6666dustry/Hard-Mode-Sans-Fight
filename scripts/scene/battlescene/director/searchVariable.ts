@@ -37,7 +37,7 @@ function searcher(this: Director,
         }
     }
 }
-function searchVariable(this: Director, attack: Readonly<SingleAttack>): SingleAttack {
+export default function searchVariable(this: Director, attack: Readonly<SingleAttack>): SingleAttack {
     let result: SingleAttack;
     result = {} as SingleAttack;
 
@@ -60,4 +60,3 @@ function searchVariable(this: Director, attack: Readonly<SingleAttack>): SingleA
     }
     return result;
 }
-export default searchVariable;

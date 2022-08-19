@@ -108,7 +108,6 @@
                 "y": 160,
                 "length": 300,
                 "speed": 5,
-                "amplitude": 0,
                 "count": 45,
                 "step": {
                     "amplitude": 0.5,

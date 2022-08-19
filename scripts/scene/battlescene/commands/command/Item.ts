@@ -1,7 +1,7 @@
 import Keys from "../../../../keys.js";
 import { ItemConfig } from "../../../../Types.js";
 import Commands from "../Commands.js";
-class Item {
+export default class Item {
     constructor(command: Commands, items?: (keyof typeof Keys.Item)[]) {
         this.command = command;
         this.texts = [
@@ -121,4 +121,3 @@ class Item {
     }
     update(): void { }
 }
-export default Item; 

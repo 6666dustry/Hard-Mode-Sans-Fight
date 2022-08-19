@@ -6,7 +6,7 @@ import GameMath from "./GameMath.js";
  * @param key variable name must start with $.
  * @returns 
  */
-function variableToUse(this: GameMath, key: variableName): variableType {
+export default function variableToUse(this: GameMath, key: variableName): variableType {
     if (key[0] === "$") {
         let strings = key.slice(1);
 
@@ -23,4 +23,3 @@ function variableToUse(this: GameMath, key: variableName): variableType {
     }
     return key;
 }
-export default variableToUse;

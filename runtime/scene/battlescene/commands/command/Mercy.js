@@ -1,5 +1,5 @@
 import Keys from "../../../../keys.js";
-class Mercy {
+export default class Mercy {
     constructor(command) {
         this.command = command;
         this.texts = ["spare"];
@@ -21,5 +21,4 @@ class Mercy {
     }
     update() { }
 }
-export default Mercy;
 //# sourceMappingURL=Mercy.js.map

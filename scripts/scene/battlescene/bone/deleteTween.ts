@@ -6,7 +6,7 @@ function boneRemove(this: Bone) {
         this.destroy();
     }
 }
-function deleteTween(this: Bone, type: BoneConfig["deleteTween"]) {
+export default function deleteTween(this: Bone, type: BoneConfig["deleteTween"]) {
 
     if (this.scene) {
         if (type) {
@@ -55,4 +55,3 @@ function deleteTween(this: Bone, type: BoneConfig["deleteTween"]) {
         } else { boneRemove.call(this); }
     }
 }
-export default deleteTween;

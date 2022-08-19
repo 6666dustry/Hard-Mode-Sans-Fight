@@ -1,7 +1,7 @@
 import Commands from "../Commands.js";
 import Keys from "../../../../keys.js";
 import Director from "../../director/Director.js";
-class Fight {
+export default class Fight {
     constructor(command: Commands) {
         this.command = command;
         this.texts = ["sans"];
@@ -146,4 +146,3 @@ class Fight {
     }
     update(): void { }
 }
-export default Fight;

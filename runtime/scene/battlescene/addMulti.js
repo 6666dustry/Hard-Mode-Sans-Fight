@@ -7,7 +7,12 @@ export default function addMulti(data, type) {
     if (copyData.delay && copyData.delay > 0) {
         this.repeats.push(this.scene.time.addEvent({
             callback: () => {
-                this.addSingle(copyData, type);
+                this.addSingle(copyData, type, {
+                    step: true,
+                    delay: true,
+                    count: true,
+                    startAt: true
+                });
                 if (copyData.step) {
                     step(copyData, copyData.step);
                 }
@@ -21,7 +26,12 @@ export default function addMulti(data, type) {
     }
     else {
         for (let index = 0; index < copyData.count; index++) {
-            this.addSingle(copyData, type);
+            this.addSingle(copyData, type, {
+                step: true,
+                delay: true,
+                count: true,
+                startAt: true
+            });
             if (copyData.step) {
                 step(copyData, copyData.step);
             }

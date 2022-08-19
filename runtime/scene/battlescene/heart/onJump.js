@@ -1,4 +1,4 @@
-function onJump() {
+export default function onJump() {
     const JUMP_POWER = 3;
     switch (this.gravityDirection) {
         case "up":
@@ -15,5 +15,4 @@ function onJump() {
             break;
     }
 }
-export default onJump;
 //# sourceMappingURL=onJump.js.map

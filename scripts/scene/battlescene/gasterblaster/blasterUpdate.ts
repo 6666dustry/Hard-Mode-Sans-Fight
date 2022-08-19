@@ -1,7 +1,6 @@
-import checkTakeDamage from "../bullet/checkTakeDamage.js";
 import GasterBlaster from "./GasterBlaster.js";
 
-function update(this: GasterBlaster, time: number, delta: number) {
+export default function update(this: GasterBlaster, time: number, delta: number) {
 
     this.Face.anims.update(time, delta);
 
@@ -52,4 +51,3 @@ function update(this: GasterBlaster, time: number, delta: number) {
         }
     }
 }
-export default update;

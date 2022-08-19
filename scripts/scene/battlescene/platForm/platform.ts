@@ -1,51 +1,105 @@
 import BattleScene from "../BattleScene.js";
-import { AllReadonly, Anchor, AnchorConfig, PlatFormSingleConfig, Pos2 } from "../../../Types.js";
+import { AllReadonly, AnchorConfig, PlatFormSingleConfig, Pos2 } from "../../../Types.js";
 import Keys from "../../../keys.js";
 import BoxNinePatch from "./boxNinePatch.js";
 import update from "./platformUpdate.js";
 import getAnchoredPos from "../getAnchoredPos.js";
 import type Director from "../director/Director.js";
 import setTarget from "../setTween.js";
+import checkType from "../checkType.js";
 export default class PlatForm extends Phaser.GameObjects.Container {
     constructor(scene: BattleScene, config: AllReadonly<PlatFormSingleConfig>,
         collision: number,
-        heartCol: number) {
+        heartCol: number, type?: string, ignoreWarn?: {
+            [k: string]: boolean;
+        }) {
 
         super(scene, 0, 0);
 
         this.collision = collision;
         this.heartCol = heartCol;
         this.director = scene.director;
+        const DATA = checkType(config, {
+            x: {
+                type: "number",
+                default: 0
+            },
+            y: {
+                type: "number",
+                default: 0
+            },
+            angle: {
+                type: "number",
+                default: 0
+            },
+            spin: {
+                type: "number",
+                default: 0
+            },
+            speed: {
+                type: "number",
+                default: 0
+            },
+            speedAngle: {
+                type: "number",
+                default: 0
+            },
+            color: {
+                type: ["string", "number"],
+                default: 0
+            },
+            anchor: {
+                type: "object",
+                default: {
+                    x: "bottom"
+                }
+            },
+            visible: {
+                type: "boolean",
+                default: false
+            },
+            length: {
+                type: "number",
+                default: 30
+            },
+            lifetime: {
+                type: ["number", "boolean",],
+                default: false
+            },
+            tween: {
+                type: "object",
+                default: undefined
+            },
+            tweenAnchor: {
+                type: "string",
+                default: "middle"
+            }
+        }, this.director.AttackLoader.runAttackPos, ignoreWarn);
 
-        this.speed = config.speed || 0;
-        this.speedAngle = config.speedAngle || 0;
-        this.spin = config.spin || 0;
+        this.speed = DATA.speed;
+        this.speedAngle = DATA.speedAngle;
+        this.spin = DATA.spin;
 
-        this.tweenAnchor = config.tweenAnchor || "middle";
+        this.tweenAnchor = DATA.tweenAnchor;
 
-        this.platLength = config.length || 30;
+        this.platLength = DATA.length;
         this.oldLength = this.platLength;
         this.destroyed = false;
 
-        if (config.color) {
-            if (typeof config.color === "number") {
-                this.color = config.color;
-            } else {
 
-                switch (config.color) {
-                    case "green":
-                        this.color = 0;
-                        break;
-
-                    case "purple":
-                        this.color = 1;
-                        break;
-                }
-            }
-
+        if (typeof DATA.color === "number") {
+            this.color = DATA.color;
         } else {
-            //default value.
-            this.color = 0;
+
+            switch (DATA.color) {
+                case "green":
+                    this.color = 0;
+                    break;
+
+                case "purple":
+                    this.color = 1;
+                    break;
+            }
         }
 
         this.Scaffold = new BoxNinePatch(scene, {
@@ -86,30 +140,30 @@ export default class PlatForm extends Phaser.GameObjects.Container {
         (this.MatterObject.body as MatterJS.BodyType).label = Keys.Label.platform;
 
         let AnchorConfig: AnchorConfig = {
-            x: config.x || 0,
-            y: config.y || 0,
-            anchor: config.anchor,
+            x: DATA.x,
+            y: DATA.y,
+            anchor: DATA.anchor,
             width: this.platLength,
             height: this.Scaffold.Middle.displayHeight,
-            angle: config.angle
+            angle: DATA.angle
         };
 
         let newPos = getAnchoredPos(AnchorConfig, true);
 
         this.setPosition(newPos.x, newPos.y);
 
-        this.setAngle(config.angle);
+        this.setAngle(DATA.angle);
         this.oldAngle = this.angle;
 
-        if (config.tween) {
+        if (DATA.tween) {
 
-            setTarget(scene, this, config.tween, {
+            setTarget(scene, this, DATA.tween, {
                 length: "platLength"
             });
         }
 
-        if (typeof config.lifetime === "number" && config.lifetime !== Infinity) {
-            scene.time.delayedCall(config.lifetime, () => {
+        if (typeof DATA.lifetime === "number") {
+            scene.time.delayedCall(DATA.lifetime, () => {
 
                 scene.tweens.killTweensOf(this);
                 this.removeAll(true);
@@ -122,8 +176,9 @@ export default class PlatForm extends Phaser.GameObjects.Container {
             x: this.x, y: this.y
         };
 
-        if (!config.visible) {
+        if (!DATA.visible) {
             this.director.CombatzoneDirector.draws.push(this);
+
             this.visible = false;
             this.onRender = true;
         } else {
@@ -143,10 +198,10 @@ export default class PlatForm extends Phaser.GameObjects.Container {
     speed: number;
     speedAngle: number;
     tweenAnchor: NonNullable<PlatFormSingleConfig["tweenAnchor"]>;
-    oldAngle: number;
+    oldAngle: PlatForm["angle"];
     oldPosition: Pos2;
     platLength: number;
-    oldLength: number;
+    oldLength: PlatForm["platLength"];
     destroyed: boolean;
     onRender: boolean;
     readonly Scaffold: BoxNinePatch;

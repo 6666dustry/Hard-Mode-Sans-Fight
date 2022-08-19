@@ -4,7 +4,7 @@
  * @param b compare value.
  * @param angle degrees
  */
-function compareBigger(a, b, angle) {
+export default function compareBigger(a, b, angle) {
     angle %= 360;
     if (angle < 0) {
         angle += 360;
@@ -32,5 +32,4 @@ function compareBigger(a, b, angle) {
         return (a.x >= b.x && a.y >= b.y);
     }
 }
-export default compareBigger;
 //# sourceMappingURL=compareBigger.js.map

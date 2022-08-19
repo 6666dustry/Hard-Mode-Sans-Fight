@@ -1,7 +1,7 @@
 import GasterBlaster from "./GasterBlaster.js";
 import Keys from "../../../keys.js";
 import router from "../router.js";
-class BlasterDirector extends Phaser.GameObjects.Group {
+export default class BlasterDirector extends Phaser.GameObjects.Group {
     constructor(scene, collision, OPERATOR) {
         super(scene);
         this.#collision = collision;
@@ -59,5 +59,4 @@ class BlasterDirector extends Phaser.GameObjects.Group {
     }
     ;
 }
-export default BlasterDirector;
 //# sourceMappingURL=BlasterDirector.js.map

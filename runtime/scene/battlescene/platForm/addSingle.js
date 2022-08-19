@@ -1,9 +1,8 @@
 import Keys from "../../../keys.js";
 import PlatForm from "./platform.js";
-function addSingle(config) {
-    let a = new PlatForm(this.scene, config, this.collision, this.heartCol);
+export default function addSingle(config, type, ignoreWarn) {
+    let a = new PlatForm(this.scene, config, this.collision, this.heartCol, type, ignoreWarn);
     a.setDepth(Keys.Depth.platform);
     this.add(a);
 }
-export default addSingle;
 //# sourceMappingURL=addSingle.js.map

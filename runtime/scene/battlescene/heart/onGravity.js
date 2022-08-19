@@ -1,4 +1,4 @@
-function onGravity(gravityPower) {
+export default function onGravity(gravityPower) {
     const GRAVITY_POWER = gravityPower || 0.1;
     switch (this.gravityDirection) {
         case "up":
@@ -15,5 +15,4 @@ function onGravity(gravityPower) {
             break;
     }
 }
-export default onGravity;
 //# sourceMappingURL=onGravity.js.map

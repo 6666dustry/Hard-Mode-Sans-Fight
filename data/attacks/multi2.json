@@ -485,7 +485,7 @@
             "data": {
                 "endX": "$comLeft",
                 "endY": "$comMidY",
-                "wait": 0,
+                "wait": 500,
                 "blastTime": 300,
                 "anchor": {
                     "y": "top"
@@ -498,7 +498,7 @@
             "data": {
                 "endX": "$comRight",
                 "endY": "$comMidY",
-                "wait": 0,
+                "wait": 500,
                 "blastTime": 300,
                 "endAngle": 180
             }

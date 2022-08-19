@@ -1,6 +1,4 @@
-
 import Heart from "./Heart.js";
-
 export default function isMoving(this: Heart): boolean {
 
 

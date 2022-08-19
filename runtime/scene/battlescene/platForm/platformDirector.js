@@ -2,7 +2,7 @@ import addSingle from "./addSingle.js";
 import router from "./router.js";
 import update from "./directorUpdate.js";
 import addMulti from "../addMulti.js";
-class PlatFormDirector extends Phaser.GameObjects.Group {
+export default class PlatFormDirector extends Phaser.GameObjects.Group {
     constructor(scene, collision, DIRECTOR, heartCol) {
         super(scene);
         this.director = DIRECTOR;
@@ -32,5 +32,4 @@ class PlatFormDirector extends Phaser.GameObjects.Group {
         return this;
     }
 }
-export default PlatFormDirector;
 //# sourceMappingURL=platformDirector.js.map

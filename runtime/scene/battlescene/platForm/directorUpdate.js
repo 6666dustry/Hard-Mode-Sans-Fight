@@ -1,4 +1,4 @@
-function update() {
+export default function update() {
     for (const iterator of this.getChildren()) {
         let isRiding = iterator.update();
         if (isRiding) {
@@ -18,5 +18,4 @@ function update() {
         }
     }
 }
-export default update;
 //# sourceMappingURL=directorUpdate.js.map

@@ -4,7 +4,7 @@ import addSingle from "./addSingle.js";
 import router from "./router.js";
 import update from "./directorUpdate.js";
 import addMulti from "../addMulti.js";
-class PlatFormDirector extends Phaser.GameObjects.Group {
+export default class PlatFormDirector extends Phaser.GameObjects.Group {
     constructor(scene: BattleScene, collision: number, DIRECTOR: Director, heartCol: number) {
         super(scene);
         this.director = DIRECTOR;
@@ -41,4 +41,3 @@ class PlatFormDirector extends Phaser.GameObjects.Group {
         return this;
     }
 }
-export default PlatFormDirector; 

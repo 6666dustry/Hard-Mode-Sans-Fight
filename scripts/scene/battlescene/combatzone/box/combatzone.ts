@@ -144,7 +144,4 @@ export default class CombatZone extends Phaser.GameObjects.Group {
         router.call(this, config, type);
         return true;
     }
-    setRenderDepth(Depth: number) {
-        this.RenderZone.setDepth(Depth);
-    }
 }

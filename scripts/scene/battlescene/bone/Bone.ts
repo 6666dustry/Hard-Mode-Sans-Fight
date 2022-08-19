@@ -1,61 +1,108 @@
 import BattleScene from "scene/battlescene/BattleScene.js";
 import Keys from "../../../keys.js";
 import Director from "../director/Director.js";
-import type { Image, BoneConfig, Anchor, AnchorConfig } from "../../../Types.js";
+import type { Image, BoneConfig, Anchor, AnchorConfig, AllReadonly } from "../../../Types.js";
 import update from "./BoneUpdate.js";
 import deleteTween from "./deleteTween.js";
 import spawnTween from "./spawnTween.js";
 import getAnchoredPos from "../getAnchoredPos.js";
 import Bullet from "../bullet/bullet.js";
 import setTween from "../setTween.js";
+import checkType from "../checkType.js";
 
-class Bone extends Bullet {
-    constructor(scene: BattleScene, config: BoneConfig, collision: number, DIRECTOR: Director, moveType?: Bone["moveType"]) {
-        //set config #region 
-        let
-            speed: number,
-            speedAngle: number,
-            angle: number,
-            spin: number,
-            lifetime: number | undefined;
+export default class Bone extends Bullet {
+    constructor(scene: BattleScene, config: AllReadonly<BoneConfig>, collision: number, director: Director, moveType?: Bone["moveType"], ignoreWarn?: {
+        [k: string]: boolean;
+    }) {
+        //set config
+        const DATA = checkType(config, {
+            x: {
+                type: "number",
+                default: 0
+            },
+            y: {
+                type: "number",
+                default: 0
+            },
+            speed: {
+                type: "number",
+                default: 0
+            },
+            speedAngle: {
+                type: "number",
+                default: 0
+            },
+            angle: {
+                type: "number",
+                default: 0
+            },
+            spin: {
+                type: "number",
+                default: 0
+            },
+            visible: {
+                type: "boolean",
+                default: false
+            },
+            length: {
+                type: "number",
+                default: 12
+            },
+            spawnTween: {
+                type: ["boolean", "object"],
+                default: false
+            },
+            deleteTween: {
+                type: ["boolean", "object"],
+                default: false
+            },
+            sound: {
+                type: ["string", "boolean"],
+                default: false
+            },
+            color: {
+                type: ["string", "number"],
+                default: 0
+            },
+            tweenAnchor: {
+                type: "string",
+                default: "middle"
+            },
+            tween: {
+                type: ["object", "boolean"],
+                default: false
+            },
+            anchor: {
+                type: "object",
+                default: {
+                    x: "bottom",
+                    y: "bottom"
+                }
+            },
+            lifetime: {
+                type: ["number", "boolean"],
+                default: false
+            }
+        }, director.AttackLoader.runAttackPos, ignoreWarn);
 
-
-        speed = config.speed || 0;
-        speedAngle = config.speedAngle || 0;
-
-        angle = config.angle || 0;
-        spin = config.spin || 0;
-        lifetime = config.lifetime;
-        let Anchor: Anchor;
-        if (config.anchor) {
-            Anchor = {
-                x: config.anchor.x || "bottom",
-                y: config.anchor.y || "bottom"
-            };
-        } else {
-            Anchor = {
-                x: "bottom",
-                y: "bottom"
-            };
-        }
-        //#endregion
-
-        super(scene, DIRECTOR,
+        super(scene, director,
             config.color);
 
-        this.spin = spin;
+        this.spin = DATA.spin;
 
-        this.speed = speed;
-        this.speedAngle = speedAngle;
+        this.speed = DATA.speed;
+        this.speedAngle = DATA.speedAngle;
 
         this.moveType = moveType || "normal";
-        this.deleteTweenType = config.deleteTween;
+        this.deleteTweenType =
+            DATA.deleteTween;
 
-        this.spawnTweenType = config.spawnTween;
+        this.spawnTweenType = DATA.spawnTween;
 
         this.state = "appear";
 
-        this.tweenAnchor = config.tweenAnchor || "middle";
+        this.tweenAnchor = DATA.tweenAnchor;
+
         this.collision = collision;
 
         this.deleteTween = deleteTween;
@@ -99,12 +146,12 @@ class Bone extends Bullet {
 
         const WIDTH = this.middle.displayWidth;
         let AnchorConfig: AnchorConfig = {
-            x: config.x || 0,
-            y: config.y || 0,
+            x: DATA.x,
+            y: DATA.y,
             width: WIDTH,
             height: this.displayLength,
-            anchor: Anchor,
-            angle: angle
+            anchor: DATA.anchor,
+            angle: DATA.angle
         };
 
         let newPos = getAnchoredPos(AnchorConfig, true);
@@ -134,10 +181,10 @@ class Bone extends Bullet {
         //#endregion
 
         //#rotate region 
-        this.setAngle(angle);
+        this.setAngle(DATA.angle);
 
-        if (config.sound) {
-            this.scene.sound.play(Keys.Audio[config.sound]);
+        if (DATA.sound) {
+            this.scene.sound.play(Keys.Audio[DATA.sound]);
         }
 
         this.tints = [this.top, this.middle, this.bottom];
@@ -145,12 +192,12 @@ class Bone extends Bullet {
         this.oldAngle = this.angle;
         this.oldColor = this.color;
 
-        if (lifetime && lifetime !== Infinity) {
+        if (DATA.lifetime && DATA.lifetime !== Infinity) {
             //set lifetime
-            this.scene.time.delayedCall(lifetime, this.deleteTween, [this.deleteTweenType], this);
+            this.scene.time.delayedCall(DATA.lifetime, this.deleteTween, [this.deleteTweenType], this);
         }
 
-        if (!config.visible) {
+        if (!DATA.visible) {
             if (this.state !== "appear") {
                 this.director.CombatzoneDirector.draws.push(this);
                 this.onRender = true;
@@ -164,8 +211,8 @@ class Bone extends Bullet {
         this.destroyed = false;
 
         //add tween. can multiple
-        if (config.tween) {
-            setTween(scene, this, config.tween, {
+        if (DATA.tween) {
+            setTween(scene, this, DATA.tween, {
                 length: "displayLength"
             });
         }
@@ -210,4 +257,3 @@ class Bone extends Bullet {
         this.destroyed = true;
     }
 }
-export default Bone;

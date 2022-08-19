@@ -1,8 +1,18 @@
-import changeAndCheck from "../../setTween.js";
+import setTween from "../../setTween.js";
+import checkType from "../../checkType.js";
+import makeDeepCopy from "../../makeDeepCopy.js";
 export default function tweenRect(config) {
-    if (config.tween) {
+    const DATA = checkType(config, {
+        zone: {
+            type: "string",
+            default: "main"
+        },
+        tween: "object",
+    }, this.director.AttackLoader.runAttackPos);
+    if (DATA.tween) {
         this.moving = true;
-        changeAndCheck(this.scene, this.RectSize, config.tween);
+        const TWEEN = makeDeepCopy(DATA.tween);
+        setTween(this.scene, this.RectSize, TWEEN);
     }
     else {
         console.error(`tween is not defined at ${this.director.AttackLoader.runAttackPos}`);

@@ -24,7 +24,7 @@ type key = Phaser.Input.Keyboard.Key;
 /**
  * battle scene's operating system.
  */
-class Director {
+export default class Director {
     /**
      * 
      * @param scene BattleScene reference.
@@ -38,7 +38,11 @@ class Director {
         this.SansText = new SansText(scene, 490, 140, zKey, this);
         this.heartCol = 1;
 
+        this.AttackLoader = new AttackLoader(scene, this);
+
+
         this.combatCol = 2;
+
         this.CombatzoneDirector = new CombatZoneDirector(scene, this.combatCol, this.heartCol, this);
 
         this.Statuses = new Statuses(scene, this, 410);
@@ -68,9 +72,6 @@ class Director {
         this.AudioPlayer = new AudioPlayer(scene, this);
 
         this.Effect = new Effect(scene, this);
-
-        this.AttackLoader = new AttackLoader(scene, this);
-
 
         this.Statuses.setSetting(this.scene.config.settings || {});
 
@@ -133,5 +134,4 @@ class Director {
             }
         }
     }
-}
-export default Director; 
+} 

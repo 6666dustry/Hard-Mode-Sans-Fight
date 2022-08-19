@@ -1,5 +1,5 @@
 import Keys from "../../../../keys.js";
-class Item {
+export default class Item {
     constructor(command, items) {
         this.command = command;
         this.texts = [
@@ -102,5 +102,4 @@ class Item {
     }
     update() { }
 }
-export default Item;
 //# sourceMappingURL=Item.js.map

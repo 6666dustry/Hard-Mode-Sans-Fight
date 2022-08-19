@@ -71,7 +71,7 @@ function setSlam(this: Heart, config: HeartGravity) {
     }
 }
 /**and sans slam. */
-function setGravity(this: Heart, config: HeartGravity) {
+export default function setGravity(this: Heart, config: HeartGravity) {
     if (config.slamAnim) {
         const CONFIG: SansVisualConfig = {
             target: "torso",
@@ -101,4 +101,3 @@ function setGravity(this: Heart, config: HeartGravity) {
         this.scene.sound.play(Keys.Audio.damage);
     }
 }
-export default setGravity;

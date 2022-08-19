@@ -1,23 +1,82 @@
 import BoneDirector from "./BoneDirector.js";
-import { SineBoneConfig, BoneConfig } from "../../../Types.js";
+import { SineBoneConfig, BoneConfig, AllReadonly } from "../../../Types.js";
 import step from "../step.js";
-function addSine(this: BoneDirector, data: Readonly<SineBoneConfig>) {
+import checkType from "../checkType.js";
+export default function addSine(this: BoneDirector, config: AllReadonly<SineBoneConfig>) {
+    const DATA = checkType(config, {
+        x: {
+            type: "number",
+            default: 0,
+        },
+        y: {
+            type: "number",
+            default: 0,
+        },
+        angle: {
+            type: "number",
+            default: 0,
+        },
+        speed: {
+            type: "number",
+            default: 0,
+        },
+        speedAngle: {
+            type: "number",
+            default: 0,
+        },
+        length: {
+            type: "number",
+            default: 150
+        },
+        frequency: {
+            type: "number",
+            default: 1
+        },
+        amplitude: {
+            type: "number",
+            default: 20
+        },
+        padding: {
+            type: "number",
+            default: 30
+        },
+        interval: {
+            type: "number",
+            default: 75
+        },
+        count: {
+            type: "number",
+            default: 20
+        },
+        step: {
+            type: ["object", "boolean"],
+            default: false
+        },
+        color: {
+            type: ["number", "string"],
+            default: 0
+        },
+        lifetime: {
+            type: ["number", "boolean"],
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
     //make copy.
     let copyData: Required<SineBoneConfig> = {
-        x: data.x,
-        y: data.y,
-        length: data.length || 150,
-        speed: data.speed || 0,
-        speedAngle: data.speedAngle || 0,
-        angle: data.angle || 0,
-        frequency: data.frequency || 1,
-        amplitude: data.amplitude || 20,
-        padding: data.padding || 40,
-        interval: data.interval || 75,
-        count: data.count || 20,
-        step: data.step as SineBoneConfig,
-        color: data.color || "white",
-        lifetime: data.lifetime || Infinity
+        x: DATA.x,
+        y: DATA.y,
+        length: DATA.length,
+        speed: DATA.speed,
+        speedAngle: DATA.speedAngle,
+        angle: DATA.angle,
+        frequency: DATA.frequency,
+        amplitude: DATA.amplitude,
+        padding: DATA.padding,
+        interval: DATA.interval,
+        count: DATA.count,
+        step: DATA.step,
+        color: DATA.color,
+        lifetime: DATA.lifetime
     };
     let upBone: BoneConfig,
         downBone: BoneConfig;
@@ -58,10 +117,10 @@ function addSine(this: BoneDirector, data: Readonly<SineBoneConfig>) {
             if (downBone.angle) {
                 let POS: Phaser.Math.Vector2 = new Phaser.Math.Vector2(0, Math.sin(wave) * copyData.amplitude);
                 Phaser.Math.Rotate(POS, Phaser.Math.DegToRad(downBone.angle));
-                downBone.y += POS.y;
-                downBone.x += POS.x;
+                (downBone.y as number) += POS.y;
+                (downBone.x as number) += POS.x;
             } else {
-                downBone.y += Math.sin(wave) * copyData.amplitude;
+                (downBone.y as number) += Math.sin(wave) * copyData.amplitude;
             }
             this.addSingle(upBone);
             this.addSingle(downBone);
@@ -78,4 +137,3 @@ function addSine(this: BoneDirector, data: Readonly<SineBoneConfig>) {
         delay: copyData.interval,
     }));
 }
-export default addSine;

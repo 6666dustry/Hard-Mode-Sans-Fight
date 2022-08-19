@@ -1,7 +1,6 @@
-
 import MoveKey from "../../../MoveKey.js";
 import Heart from "./Heart.js";
-function update(this: Heart, cursors: MoveKey, time: number): void {
+export default function update(this: Heart, cursors: MoveKey, time: number): void {
     this.setDirection();
     switch (this.color) {
         case "red":
@@ -40,4 +39,3 @@ function update(this: Heart, cursors: MoveKey, time: number): void {
     this.updateVelocity();
     this.maxSpeed();
 }
-export default update;

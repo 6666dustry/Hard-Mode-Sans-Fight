@@ -2,7 +2,7 @@ import { BoneConfig } from "../../../../Types.js";
 import Keys from "../../../../keys.js";
 import stabBone from "./stabBone.js";
 import compareBigger from "./compareBigger.js";
-function spawnStab(this: stabBone) {
+export default function spawnStab(this: stabBone) {
     if (!this.scene) {
         return;
     }
@@ -121,4 +121,3 @@ function spawnStab(this: stabBone) {
 
     this.scene.time.delayedCall(this.lifetime + ANIM_TIME, this.destroyStab, undefined, this);
 }
-export default spawnStab;

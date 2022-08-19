@@ -1,7 +1,6 @@
-
 import Bullet from "./bullet.js";
 
-function getColorKey(this: Bullet): "white" | "blue" | "orange" {
+export default function getColorKey(this: Bullet): "white" | "blue" | "orange" {
     switch (Math.floor(this.color) % 3) {
         case 0:
             return "white";
@@ -13,4 +12,3 @@ function getColorKey(this: Bullet): "white" | "blue" | "orange" {
             return "white";
     }
 }
-export default getColorKey;

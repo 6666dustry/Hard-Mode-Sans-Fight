@@ -1,4 +1,4 @@
-function update() {
+export default function update() {
     if (!this.scene) {
         return;
     }
@@ -38,5 +38,4 @@ function update() {
     this.oldX = this.x;
     this.oldY = this.y;
 }
-export default update;
 //# sourceMappingURL=update.js.map

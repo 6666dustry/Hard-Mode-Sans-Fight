@@ -1,4 +1,4 @@
-function update(time, delta) {
+export default function update(time, delta) {
     this.Face.anims.update(time, delta);
     let facePos = new Phaser.Geom.Point(this.x + this.Face.x + this.Face.displayWidth, this.y + this.Face.y);
     facePos = Phaser.Math.RotateAround(facePos, this.x, this.y, Phaser.Math.DegToRad(this.angle));
@@ -34,5 +34,4 @@ function update(time, delta) {
         }
     }
 }
-export default update;
 //# sourceMappingURL=blasterUpdate.js.map

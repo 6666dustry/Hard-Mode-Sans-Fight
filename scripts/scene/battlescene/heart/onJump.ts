@@ -1,6 +1,6 @@
 import Heart from "./Heart.js";
 
-function onJump(this: Heart) {
+export default function onJump(this: Heart) {
     const JUMP_POWER: number = 3;
     switch (this.gravityDirection) {
         case "up":
@@ -20,4 +20,3 @@ function onJump(this: Heart) {
             break;
     }
 }
-export default onJump;

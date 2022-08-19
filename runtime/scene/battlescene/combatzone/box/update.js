@@ -1,4 +1,4 @@
-function update(draws, updateDisplay) {
+export default function update(draws, updateDisplay) {
     if (updateDisplay) {
         this.RenderZone.clear();
         this.RenderZone.beginDraw();
@@ -56,5 +56,4 @@ function update(draws, updateDisplay) {
         }
     }
 }
-export default update;
 //# sourceMappingURL=update.js.map

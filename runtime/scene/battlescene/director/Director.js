@@ -21,7 +21,7 @@ import startGame from "./startGame.js";
 /**
  * battle scene's operating system.
  */
-class Director {
+export default class Director {
     /**
      *
      * @param scene BattleScene reference.
@@ -33,17 +33,18 @@ class Director {
         this.scene = scene;
         this.Sans = new Sans(scene, 320, 170, this);
         this.SansText = new SansText(scene, 490, 140, zKey, this);
-        this.heartCol = 1; //scene.matter.world.nextCategory();
-        this.combatCol = 2; // scene.matter.world.nextCategory();
+        this.heartCol = 1;
+        this.AttackLoader = new AttackLoader(scene, this);
+        this.combatCol = 2;
         this.CombatzoneDirector = new CombatZoneDirector(scene, this.combatCol, this.heartCol, this);
         this.Statuses = new Statuses(scene, this, 410);
         this.Heart = new Heart(scene, this.heartCol, this);
         this.Commands = new Commands(scene, this, this.Heart, this.CombatzoneDirector, this.Statuses);
-        this.boneCol = 3; // scene.matter.world.nextCategory();
+        this.boneCol = 3;
         this.BoneDirector = new BoneDirector(scene, this.boneCol, this);
-        this.blasterCol = 4; //scene.matter.world.nextCategory();
+        this.blasterCol = 4;
         this.BlasterDirector = new BlasterDirector(scene, this.blasterCol, this);
-        this.PlatFormCol = 5; //scene.matter.world.nextCategory();
+        this.PlatFormCol = 5;
         this.PlatFormDirector = new PlatFormDirector(scene, this.PlatFormCol, this, this.heartCol);
         this.Debug = new Debug(scene, this);
         this.Debug.setMode(gameDebug);
@@ -51,7 +52,6 @@ class Director {
         this.GameMath = new GameMath(scene, this);
         this.AudioPlayer = new AudioPlayer(scene, this);
         this.Effect = new Effect(scene, this);
-        this.AttackLoader = new AttackLoader(scene, this);
         this.Statuses.setSetting(this.scene.config.settings || {});
         this.searchVariable = searchVariable;
         this.removeAll = removeAll;
@@ -111,5 +111,4 @@ class Director {
         }
     }
 }
-export default Director;
 //# sourceMappingURL=Director.js.map

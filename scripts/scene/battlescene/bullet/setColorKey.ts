@@ -2,7 +2,7 @@ import Keys from "../../../keys.js";
 import { bulletColor } from "../../../Types.js";
 import Bullet from "./bullet.js";
 
-function setColorKey(this: Bullet, v: bulletColor, tints?: {
+export default function setColorKey(this: Bullet, v: bulletColor, tints?: {
     setTint: (arg: number) => any;
 }[]) {
     if (typeof v === "string") {
@@ -47,5 +47,3 @@ function setColorKey(this: Bullet, v: bulletColor, tints?: {
         }
     }
 }
-
-export default setColorKey;

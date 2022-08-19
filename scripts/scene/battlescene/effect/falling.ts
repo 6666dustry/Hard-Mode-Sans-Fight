@@ -1,34 +1,51 @@
-import { FallingConfig } from "../../../Types.js";
+import { AllReadonly, FallingConfig } from "../../../Types.js";
 import Effect from "./Effect.js";
+import checkType from "../checkType.js";
+export default function falling(this: Effect, config: AllReadonly<FallingConfig>) {
+    const DATA = checkType(config, {
+        direction: {
+            type: "string",
+            default: "right"
+        },
+        duration: {
+            type: "number",
+            default: 1000
+        },
+        playAnim: {
+            type: "boolean",
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
 
-function falling(this: Effect, config: FallingConfig) {
     this.director.Heart.setGravity(
         {
-            direction: config.direction || "right",
+            direction: DATA.direction,
             color: "falling",
         });
-    this.director.Sans.falling = config.direction || "right";
-    if (config.playAnim) {
+
+    this.director.Sans.falling = DATA.direction;
+
+    if (DATA.playAnim) {
         this.director.Sans.setVisual({
             target: "torso",
-            anim: `${ config.direction || "right" }Slam`,
+            anim: `${ DATA.direction }Slam`,
             autoInit: true,
         });
     }
+
     this.scene.time.delayedCall(
-        config.duration || 1000, () => {
+        DATA.duration, () => {
             this.director.Sans.falling = undefined;
             this.director.Sans.setVisual(
                 {
-                    "frame": "default"
+                    frame: "default"
                 }
             );
             this.director.Heart.setGravity(
                 {
-                    direction: config.direction || "right",
+                    direction: DATA.direction,
                     color: "blue",
                 });
         }, undefined, this
     );
 }
-export default falling;

@@ -1,6 +1,5 @@
 import BattleScene from "scene/battlescene/BattleScene.js";
 import Keys from "../../../keys.js";
-import CombatZone from "../combatzone/box/combatzone.js";
 import Heart from "../heart/Heart.js";
 import Director from "../director/Director.js";
 import Fight from "./command/Fight.js";
@@ -13,7 +12,7 @@ import CombatZoneDirector from "../combatzone/CombatZoneDirector.js";
 /**
  * player turn system.
  */
-class Commands {
+export default class Commands {
     /**
      * 
      * @param SCENE BattleScene reference.
@@ -350,4 +349,3 @@ class Commands {
         this.endingTurn = false;
     }
 }
-export default Commands;

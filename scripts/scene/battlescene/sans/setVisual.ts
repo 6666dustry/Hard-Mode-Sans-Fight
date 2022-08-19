@@ -9,39 +9,35 @@ export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConf
             default: "head"
         },
         frame: {
-            type: "string",
-            default: "a"
+            type: ["string", "boolean"],
+            default: false
         },
         autoInit: {
             type: "boolean",
             default: false
         },
         state: {
-            type: "string",
-            default: "dancing"
+            type: ["string", "boolean"],
+            default: false
         },
         anim: {
-            type: "string",
-            default: "any"
+            type: ["string", "boolean"],
+            default: false
         },
         visible: {
             type: "boolean",
             default: true
         }
     }, this.director.AttackLoader.runAttackPos);
-    let target: Phaser.GameObjects.Sprite = this[Config.target || "head"];
 
-    if (!target) {
-        target = this["head"];
-        console.error(`${ Config.target } is not defined at ${ this.director.AttackLoader.runAttackPos }`);
-    }
+    let target: Phaser.GameObjects.Sprite = this[DATA.target];
 
-    if (Config.visible != null) {
-        target.setVisible(Config.visible);
-    }
 
-    if (Config.anim && Config.target === "torso") {
-        switch (Config.anim) {
+    target.setVisible(DATA.visible);
+
+
+    if (DATA.anim && DATA.target === "torso") {
+        switch (DATA.anim) {
             case "upSlam":
                 this.torso.anims.playReverse(Keys.Anim.downSlam);
                 break;
@@ -59,14 +55,14 @@ export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConf
                 break;
 
             default:
-                console.warn(`anim name is not defined at ${ this.director.AttackLoader.runAttackPos } turn with ${ Config.anim }`);
+                console.warn(`anim name is not defined at ${ this.director.AttackLoader.runAttackPos } turn with ${ DATA.anim }`);
                 break;
         }
 
         this.slamming = true;
 
-        if (Config.autoInit ||
-            Config.anim === "leftSlam") {
+        if (DATA.autoInit ||
+            DATA.anim === "leftSlam") {
             this.torso.off("animationcomplete");
             this.torso.once("animationcomplete", () => {
                 this.torso.setFrame("torso");
@@ -80,21 +76,21 @@ export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConf
             }, this);
         }
 
-    } else if (Config.anim && Config.target === "head") {
+    } else if (DATA.anim && DATA.target === "head") {
 
-        switch (Config.anim) {
+        switch (DATA.anim) {
             case "flashEye":
                 this.head.anims.play(Keys.Anim.flashEyes);
                 break;
 
             default:
-                console.warn(`anim error on ${ this.director.AttackLoader.runAttackPos } turn with ${ Config.anim }`);
+                console.warn(`anim error on ${ this.director.AttackLoader.runAttackPos } turn with ${ DATA.anim }`);
                 break;
         }
 
     } else {
 
-        if (Config.target === "sweet" && Config.frame === "addSweet") {
+        if (DATA.target === "sweet" && DATA.frame === "addSweet") {
             if (!target.visible) {
                 target.setVisible(true);
             } else {
@@ -104,13 +100,13 @@ export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConf
                 target.setFrame(`sweet${ num }`);
             }
         } else
-            if (Config.frame) {
+            if (DATA.frame) {
                 target.anims.stop();
-                target.setFrame(Config.frame);
+                target.setFrame(DATA.frame);
             }
     }
 
-    if (Config.state) {
-        this.state = Config.state;
+    if (DATA.state) {
+        this.state = DATA.state;
     }
 }

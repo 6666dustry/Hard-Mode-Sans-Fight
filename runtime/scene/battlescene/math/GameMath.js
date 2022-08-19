@@ -12,7 +12,7 @@ import mod from "./mod.js";
 import rotate from "./rotate.js";
 import betWeenAngle from "./betWeenAngle.js";
 import init from "./init.js";
-class GameMath {
+export default class GameMath {
     constructor(scene, director) {
         this.scene = scene;
         this.director = director;
@@ -50,5 +50,4 @@ class GameMath {
     betWeenAngle;
     init;
 }
-export default GameMath;
 //# sourceMappingURL=GameMath.js.map

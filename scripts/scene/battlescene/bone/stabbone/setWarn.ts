@@ -1,9 +1,10 @@
 import stabBone from "./stabBone.js";
 
-function setWarn(this: stabBone) {
+export default function setWarn(this: stabBone) {
     const PADDING: 2 = 2;
     const THICKNESS: number = this.director.CombatzoneDirector.thickness;
     switch (this.direction) {
+
         case "up": {
             let startFrom: Phaser.Math.Vector2 = this.addTo.getBottomLeft();
             const MAX: Phaser.Math.Vector2 = this.addTo.getBottomRight();
@@ -53,4 +54,3 @@ function setWarn(this: stabBone) {
     }
     this.director.CombatzoneDirector.draws.push(this.warnBox);
 }
-export default setWarn;

@@ -1,7 +1,7 @@
 /**
  *
  */
-function checkTakeDamage(body, takeKr, remain1) {
+export default function checkTakeDamage(body, takeKr, remain1) {
     if (!remain1 || this.director.Statuses.hp > 1) {
         switch (Math.floor(this.color) % 3) {
             case 0:
@@ -20,5 +20,4 @@ function checkTakeDamage(body, takeKr, remain1) {
         }
     }
 }
-export default checkTakeDamage;
 //# sourceMappingURL=checkTakeDamage.js.map

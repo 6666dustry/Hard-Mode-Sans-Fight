@@ -4,7 +4,7 @@ import CircleBone from "./circleBone.js";
  * @param this 
  * @returns padding of bones in degrees.
  */
-function getPadding(this: CircleBone) {
+export default function getPadding(this: CircleBone) {
     if (this.padding === "equal") {
         if (this.count === "single") {
             return 0;
@@ -14,4 +14,3 @@ function getPadding(this: CircleBone) {
         return this.padding;
     }
 }
-export default getPadding;

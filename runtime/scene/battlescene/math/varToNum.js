@@ -4,7 +4,7 @@
  * @param key variable name must start with $.
  * @returns
  */
-function variableToUse(key) {
+export default function variableToUse(key) {
     if (key[0] === "$") {
         let strings = key.slice(1);
         let result;
@@ -17,5 +17,4 @@ function variableToUse(key) {
     }
     return key;
 }
-export default variableToUse;
 //# sourceMappingURL=varToNum.js.map

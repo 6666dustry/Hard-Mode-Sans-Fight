@@ -4,7 +4,7 @@
  * @param b compare value.
  * @param angle degrees
  */
-function compareBigger(a: Phaser.Math.Vector2, b: Phaser.Math.Vector2, angle: number): boolean {
+export default function compareBigger(a: Phaser.Math.Vector2, b: Phaser.Math.Vector2, angle: number): boolean {
     angle %= 360;
     if (angle < 0) {
         angle += 360;
@@ -29,4 +29,3 @@ function compareBigger(a: Phaser.Math.Vector2, b: Phaser.Math.Vector2, angle: nu
         return (a.x >= b.x && a.y >= b.y);
     }
 }
-export default compareBigger;

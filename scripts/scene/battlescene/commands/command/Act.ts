@@ -1,7 +1,7 @@
 import Keys from "../../../../keys.js";
 import MoveKey from "../../../../MoveKey.js";
 import Commands from "../Commands.js";
-class Act {
+export default class Act {
     constructor(command: Commands) {
         this.command = command;
         this.texts = [["sans", ["check"], ["SANS 1 ATK 1 DEF\n* The easiest enemy.\n* Can only deal 1 damage."]]];
@@ -115,4 +115,3 @@ class Act {
         }
     }
 }
-export default Act; 

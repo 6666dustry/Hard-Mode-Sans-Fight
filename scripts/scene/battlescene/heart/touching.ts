@@ -1,8 +1,7 @@
-
 import Keys from "../../../keys.js";
 import Heart from "./Heart.js";
 
-function touching(this: Heart, args: { collision: Phaser.Types.Physics.Matter.MatterCollisionData; }): void {
+export default function touching(this: Heart, args: { collision: Phaser.Types.Physics.Matter.MatterCollisionData; }): void {
     this.colliding = args.collision.bodyA.label as typeof this.colliding;
     let collided = args.collision.bodyA;
     if (this.colliding === Keys.Label.heart) {
@@ -82,4 +81,3 @@ function touching(this: Heart, args: { collision: Phaser.Types.Physics.Matter.Ma
             break;
     }
 }
-export default touching;

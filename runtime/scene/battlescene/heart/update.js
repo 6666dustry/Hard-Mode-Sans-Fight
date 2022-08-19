@@ -1,4 +1,4 @@
-function update(cursors, time) {
+export default function update(cursors, time) {
     this.setDirection();
     switch (this.color) {
         case "red":
@@ -36,5 +36,4 @@ function update(cursors, time) {
     this.updateVelocity();
     this.maxSpeed();
 }
-export default update;
 //# sourceMappingURL=update.js.map

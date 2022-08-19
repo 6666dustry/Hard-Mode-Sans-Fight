@@ -1,10 +1,15 @@
-import { AddConfig } from "../../../Types.js";
+import { AddConfig, AllReadonly } from "../../../Types.js";
+import checkType from "../checkType.js";
 import GameMath from "./GameMath.js";
 
-function add(this: GameMath, data: AddConfig) {
+export default function add(this: GameMath, config: AllReadonly<AddConfig>) {
+    const DATA = checkType(config, {
+        variable: "string",
+        valueA: "number",
+        valueB: "number"
+    }, this.director.AttackLoader.runAttackPos);
 
-    const A: number = data.valueA;
-    const B: number = data.valueB;
-    this.variables[data.variable] = A + B;
+    const A: number = DATA.valueA;
+    const B: number = DATA.valueB;
+    this.variables[DATA.variable] = A + B;
 }
-export default add;

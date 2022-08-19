@@ -1,6 +1,6 @@
 import Keys from "../../../keys.js";
 import update from "./boxUpdate.js";
-class BoxNinePatch extends Phaser.GameObjects.Container {
+export default class BoxNinePatch extends Phaser.GameObjects.Container {
     constructor(scene, config) {
         super(scene, config.x, config.y);
         this.boxLength = config.length;
@@ -33,5 +33,4 @@ class BoxNinePatch extends Phaser.GameObjects.Container {
     Right;
     boxLength;
 }
-export default BoxNinePatch;
 //# sourceMappingURL=boxNinePatch.js.map

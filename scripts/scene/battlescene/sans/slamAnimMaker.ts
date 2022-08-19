@@ -3,7 +3,7 @@ import Keys from "../../../keys.js";
  * make sans anims.
  * @param scene 
  */
-function slamAnimMaker(scene: Phaser.Scene) {
+export default function slamAnimMaker(scene: Phaser.Scene) {
     const SPEED: 75 = 75;
     //up and down.
     scene.anims.create({
@@ -58,4 +58,3 @@ function slamAnimMaker(scene: Phaser.Scene) {
         repeat: -1
     });
 }
-export default slamAnimMaker;

@@ -1,7 +1,7 @@
 import Bone from "../bone.js";
 import CircleBone from "./circleBone.js";
 
-function update(this: CircleBone) {
+export default function update(this: CircleBone) {
     if (!this.scene) {
         return;
     }
@@ -53,4 +53,3 @@ function update(this: CircleBone) {
     this.oldX = this.x;
     this.oldY = this.y;
 }
-export default update;

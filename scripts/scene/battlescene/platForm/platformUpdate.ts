@@ -55,7 +55,7 @@ function setAngle(this: PlatForm) {
  * @param this 
  * @returns is Heart riding this and move with this? boolean
  */
-function update(this: PlatForm) {
+export default function update(this: PlatForm) {
     if (!this.body) {
         return false;
     }
@@ -168,4 +168,3 @@ function update(this: PlatForm) {
     this.oldLength = this.platLength;
     return rideAndMove;
 }
-export default update;

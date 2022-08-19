@@ -1,15 +1,36 @@
 import Keys from "../../../keys.js";
+import checkType from "../checkType.js";
 export default function setVisual(Config) {
-    let target = this[Config.target || "head"];
-    if (!target) {
-        target = this["head"];
-        console.error(`${Config.target} is not defined at ${this.director.AttackLoader.runAttackPos}`);
-    }
-    if (Config.visible != null) {
-        target.setVisible(Config.visible);
-    }
-    if (Config.anim && Config.target === "torso") {
-        switch (Config.anim) {
+    const DATA = checkType(Config, {
+        target: {
+            type: "string",
+            default: "head"
+        },
+        frame: {
+            type: ["string", "boolean"],
+            default: false
+        },
+        autoInit: {
+            type: "boolean",
+            default: false
+        },
+        state: {
+            type: ["string", "boolean"],
+            default: false
+        },
+        anim: {
+            type: ["string", "boolean"],
+            default: false
+        },
+        visible: {
+            type: "boolean",
+            default: true
+        }
+    }, this.director.AttackLoader.runAttackPos);
+    let target = this[DATA.target];
+    target.setVisible(DATA.visible);
+    if (DATA.anim && DATA.target === "torso") {
+        switch (DATA.anim) {
             case "upSlam":
                 this.torso.anims.playReverse(Keys.Anim.downSlam);
                 break;
@@ -23,12 +44,12 @@ export default function setVisual(Config) {
                 this.torso.anims.playReverse(Keys.Anim.leftSlam);
                 break;
             default:
-                console.warn(`anim name is not defined at ${this.director.AttackLoader.runAttackPos} turn with ${Config.anim}`);
+                console.warn(`anim name is not defined at ${this.director.AttackLoader.runAttackPos} turn with ${DATA.anim}`);
                 break;
         }
         this.slamming = true;
-        if (Config.autoInit ||
-            Config.anim === "leftSlam") {
+        if (DATA.autoInit ||
+            DATA.anim === "leftSlam") {
             this.torso.off("animationcomplete");
             this.torso.once("animationcomplete", () => {
                 this.torso.setFrame("torso");
@@ -42,18 +63,18 @@ export default function setVisual(Config) {
             }, this);
         }
     }
-    else if (Config.anim && Config.target === "head") {
-        switch (Config.anim) {
+    else if (DATA.anim && DATA.target === "head") {
+        switch (DATA.anim) {
             case "flashEye":
                 this.head.anims.play(Keys.Anim.flashEyes);
                 break;
             default:
-                console.warn(`anim error on ${this.director.AttackLoader.runAttackPos} turn with ${Config.anim}`);
+                console.warn(`anim error on ${this.director.AttackLoader.runAttackPos} turn with ${DATA.anim}`);
                 break;
         }
     }
     else {
-        if (Config.target === "sweet" && Config.frame === "addSweet") {
+        if (DATA.target === "sweet" && DATA.frame === "addSweet") {
             if (!target.visible) {
                 target.setVisible(true);
             }
@@ -63,13 +84,13 @@ export default function setVisual(Config) {
                 target.setFrame(`sweet${num}`);
             }
         }
-        else if (Config.frame) {
+        else if (DATA.frame) {
             target.anims.stop();
-            target.setFrame(Config.frame);
+            target.setFrame(DATA.frame);
         }
     }
-    if (Config.state) {
-        this.state = Config.state;
+    if (DATA.state) {
+        this.state = DATA.state;
     }
 }
 //# sourceMappingURL=setVisual.js.map

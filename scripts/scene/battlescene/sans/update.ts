@@ -3,7 +3,7 @@ import Sans from "./Sans.js";
     * update image position.
     * @param time just time. in milliseconds.
     */
-function update(this: Sans, time: number): void {
+export default function update(this: Sans, time: number): void {
     if (this.yAuto) {
         this.setPosition(this.x, this.director.CombatzoneDirector.Zones.main.RectSize.y - (this.leg.y + this.leg.height / 2) - + 20);
     }
@@ -101,4 +101,3 @@ function update(this: Sans, time: number): void {
     }
     this.sweet.setPosition(this.head.x, this.head.y - 20);
 };
-export default update;

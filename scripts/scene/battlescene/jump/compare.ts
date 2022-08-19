@@ -1,73 +1,87 @@
-import { CompareConfig } from "../../../Types.js";
+import { AllReadonly, CompareConfig } from "../../../Types.js";
+import checkType from "../checkType.js";
 import Jumps from "./Jumps.js";
 
-function compare(this: Jumps, config: CompareConfig) {
+export default function compare(this: Jumps, config: AllReadonly<CompareConfig>) {
+    const DATA = checkType(config, {
+        to: ["number", "string"],
+        type: "string",
+        valueA: "number",
+        valueB: {
+            type: "number",
+            default: undefined
+        },
+        rel: {
+            type: "boolean",
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
     let canJump: boolean = false;
-    switch (config.type) {
+    switch (DATA.type) {
         case "true":
-            if (!!config.valueA) {
+            if (!!DATA.valueA) {
                 canJump = true;
             }
             break;
         case "false":
-            if (!config.valueA) {
+            if (!DATA.valueA) {
                 canJump = true;
             }
             break;
         case "zero":
-            if (config.valueA === 0) {
+            if (DATA.valueA === 0) {
                 canJump = true;
             }
             break;
         case "notZero":
-            if (config.valueA !== 0) {
+            if (DATA.valueA !== 0) {
                 canJump = true;
             }
             break;
         default: {
-            if (config.valueB != null) {
-                switch (config.type) {
+            if (DATA.valueB != null) {
+                switch (DATA.type) {
                     case "equal":
                     case "=":
-                        if (config.valueA === config.valueB) {
+                        if (DATA.valueA === DATA.valueB) {
                             canJump = true;
                         }
                         break;
                     case "notEqual":
                     case "!=":
-                        if (config.valueA !== config.valueB) {
+                        if (DATA.valueA !== DATA.valueB) {
                             canJump = true;
                         }
                         break;
                     case "less":
                     case "<":
-                        if (config.valueA < config.valueB) {
+                        if (DATA.valueA < DATA.valueB) {
                             canJump = true;
                         }
                         break;
                     case "notLess":
                     case ">=":
-                        if (!(config.valueA < config.valueB)) {
+                        if (!(DATA.valueA < DATA.valueB)) {
                             canJump = true;
                         }
                         break;
 
                     case "greater":
                     case ">":
-                        if (config.valueA > config.valueB) {
+                        if (DATA.valueA > DATA.valueB) {
                             canJump = true;
                         }
                         break;
                     case "notGreater":
                     case "<=":
-                        if (!(config.valueA > config.valueB)) {
+                        if (!(DATA.valueA > DATA.valueB)) {
                             canJump = true;
                         }
                         break;
                     default:
                         console.error(
                             `jump type is incorrect at ${ this.director.AttackLoader.runAttackPos }
-    name:${ config.type }`);
+    name:${ DATA.type }`);
 
                         break;
                 }
@@ -80,12 +94,13 @@ function compare(this: Jumps, config: CompareConfig) {
 
     if (canJump) {
         let to;
-        if (typeof config.to !== "number") {
-            to = this.searchLabel(config.to);
+        if (typeof DATA.to !== "number") {
+            to = this.searchLabel(DATA.to);
         } else {
-            to = config.to;
+            to = DATA.to;
         }
-        if (config.rel) {
+
+        if (DATA.rel) {
             this.director.AttackLoader.runAttackPos += to;
         } else {
             this.director.AttackLoader.runAttackPos = to;
@@ -95,4 +110,3 @@ function compare(this: Jumps, config: CompareConfig) {
         return false;
     }
 }
-export default compare;

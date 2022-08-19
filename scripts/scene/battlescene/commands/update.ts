@@ -5,13 +5,13 @@ import Item from "./command/Item.js";
 import Mercy from "./command/Mercy.js";
 import Keys from "../../../keys.js";
 import MoveKey from "../../../MoveKey.js";
-function    /**
+/**
 * commands update.
 * @param  cursors 
 * @param  xKey 
 * @param  zKey 
 */
-    update(this: Commands, cursors: MoveKey, xKey: Phaser.Input.Keyboard.Key, zKey: Phaser.Input.Keyboard.Key): void {
+export default function update(this: Commands, cursors: MoveKey, xKey: Phaser.Input.Keyboard.Key, zKey: Phaser.Input.Keyboard.Key): void {
     const NOWCOMMAND: Fight | Act | Item | Mercy = this.getCommands();
 
     if (this.endingTurn && NOWCOMMAND.update !== undefined) {
@@ -60,4 +60,3 @@ function    /**
         }
     }
 }
-export default update;

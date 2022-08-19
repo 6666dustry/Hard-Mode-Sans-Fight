@@ -10,7 +10,7 @@ import startAttack from "./startAttack.js";
 import endEnemyTurn from "./endEnemyTurn.js";
 import endPlayerTurn from "./endPlayerTurn.js";
 import endAttack from "./endAttack.js";
-class AttackLoader {
+export default class AttackLoader {
     constructor(scene: BattleScene, director: Director) {
         this.scene = scene;
         this.director = director;
@@ -90,4 +90,3 @@ class AttackLoader {
         }
     }
 }
-export default AttackLoader;

@@ -1,10 +1,15 @@
-import type { ModConfig } from "../../../Types.js";
+import type { AllReadonly, ModConfig } from "../../../Types.js";
 import GameMath from "./GameMath.js";
+import checkType from "../checkType.js";
 
-function mod(this: GameMath, data: ModConfig) {
+export default function mod(this: GameMath, config: AllReadonly<ModConfig>) {
+    const DATA = checkType(config, {
+        variable: "string",
+        valueA: "number",
+        valueB: "number"
+    }, this.director.AttackLoader.runAttackPos);
 
-    const A: number = data.valueA;
-    const B: number = data.valueB;
-    this.variables[data.variable] = A % B;
+    const A: number = DATA.valueA;
+    const B: number = DATA.valueB;
+    this.variables[DATA.variable] = A % B;
 }
-export default mod;

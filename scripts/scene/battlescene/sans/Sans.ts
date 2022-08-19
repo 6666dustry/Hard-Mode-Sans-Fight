@@ -69,7 +69,7 @@ export default class Sans extends Phaser.GameObjects.Container {
     readonly avoidWait: number;
     readonly avoidSpeed: number;
     readonly director: Director;
-    state: NonNullable<SansVisualConfig["state"]>;
+    state: Exclude<NonNullable<SansVisualConfig["state"]>, boolean>;
     slamming: boolean;
     yAuto: boolean;
     falling?: FallingConfig["direction"];

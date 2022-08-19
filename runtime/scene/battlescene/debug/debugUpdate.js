@@ -1,5 +1,5 @@
 import Keys from "../../../keys.js";
-function debugUpdate(time, fps) {
+export default function debugUpdate(time, fps) {
     if (this.state !== "running") {
         return;
     }
@@ -37,5 +37,4 @@ pressKey: ${this.scene.cursors.getDownKey()} `);
         });
     }
 }
-export default debugUpdate;
 //# sourceMappingURL=debugUpdate.js.map

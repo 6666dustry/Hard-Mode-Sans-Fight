@@ -2,10 +2,9 @@ import Heart from "./Heart.js";
 import {
     HeartConfig,
     HeartType,
-
 } from "../../../Types.js";
 import routerCall from "../router.js";
-function router(this: Heart, config: HeartConfig, type: HeartType): void {
+export default function router(this: Heart, config: HeartConfig, type: HeartType): void {
     switch (type) {
         case "getPos":
             type = "getPosition";
@@ -19,4 +18,3 @@ function router(this: Heart, config: HeartConfig, type: HeartType): void {
     }
     routerCall.call(this, config, type);
 }
-export default router;

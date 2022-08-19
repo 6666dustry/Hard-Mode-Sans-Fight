@@ -1,16 +1,61 @@
 import CombatZone from "./combatzone";
-import { SetRectConfig } from "../../../../Types";
-function setRect(this: CombatZone, config: Readonly<SetRectConfig>, overlapInst?: boolean) {
+import { AllReadonly, SetRectConfig } from "../../../../Types";
+import checkType from "../../checkType.js";
+export default function setRect(this: CombatZone, config: AllReadonly<SetRectConfig>, overlapInst?: boolean) {
+
+    const DATA = checkType(config, {
+        x: {
+            type: "number",
+            default: this.RectSize.x - (typeof config.relPointX === "number" ? config.relPointX : 0)
+        },
+        y: {
+            type: "number",
+            default: this.RectSize.y - (typeof config.relPointY === "number" ? config.relPointY : 0)
+        },
+        dx: {
+            type: "number",
+            default: this.RectSize.right - (typeof config.relPointX === "number" ? config.relPointX : 0)
+        },
+        dy: {
+            type: "number",
+            default: this.RectSize.bottom - (typeof config.relPointY === "number" ? config.relPointY : 0)
+        },
+        duration: {
+            type: "number",
+            default: 500
+        },
+        inst: {
+            type: "boolean",
+            default: false
+        },
+        relPointX: {
+            type: "number",
+            default: 0
+        },
+        relPointY: {
+            type: "number",
+            default: 0
+        },
+        ease: {
+            type: "string",
+            default: "Linear"
+        },
+        zone: {
+            type: "string",
+            default: "main"
+        }
+    }, this.director.AttackLoader.runAttackPos);
+
     let x: number, y: number, dx: number, dy: number, duration: number, inst: boolean, relPointX: number, relPointY: number;
 
-    relPointX = config.relPointX || 0;
-    relPointY = config.relPointY || 0;
+    relPointX = DATA.relPointX;
+    relPointY = DATA.relPointY;
 
-    x = typeof config.x === "number" ? config.x + relPointX : this.RectSize.x;
-    y = typeof config.y === "number" ? config.y + relPointY : this.RectSize.y;
+    x = DATA.x + relPointX;
+    y = DATA.y + relPointY;
 
-    dx = typeof config.dx === "number" ? config.dx + relPointX : this.RectSize.right;
-    dy = typeof config.dy === "number" ? config.dy + relPointY : this.RectSize.bottom;
+    dx = DATA.dx + relPointX;
+    dy = DATA.dy + relPointY;
 
 
     if (x > dx) {
@@ -26,8 +71,8 @@ function setRect(this: CombatZone, config: Readonly<SetRectConfig>, overlapInst?
         y = CHANGER;
     }
 
-    duration = config.duration || 500;
-    inst = config.inst || false;
+    duration = DATA.duration;
+    inst = DATA.inst;
 
     this.scene.tweens.killTweensOf(this.RectSize);
     if (!inst && !overlapInst) {
@@ -52,4 +97,3 @@ function setRect(this: CombatZone, config: Readonly<SetRectConfig>, overlapInst?
     }
     this.moving = true;
 }
-export default setRect;

@@ -66,7 +66,7 @@ function setSlam(config) {
     }
 }
 /**and sans slam. */
-function setGravity(config) {
+export default function setGravity(config) {
     if (config.slamAnim) {
         const CONFIG = {
             target: "torso",
@@ -95,5 +95,4 @@ function setGravity(config) {
         this.scene.sound.play(Keys.Audio.damage);
     }
 }
-export default setGravity;
 //# sourceMappingURL=setGravity.js.map

@@ -1,5 +1,5 @@
 import Keys from "../../../keys.js";
-function setColorKey(v, tints) {
+export default function setColorKey(v, tints) {
     if (typeof v === "string") {
         switch (v) {
             case "white":
@@ -43,5 +43,4 @@ function setColorKey(v, tints) {
         }
     }
 }
-export default setColorKey;
 //# sourceMappingURL=setColorKey.js.map

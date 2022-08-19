@@ -14,7 +14,7 @@ import update from "./directorUpdate.js";
 import addSine from "./addSine.js";
 import addMulti from "../addMulti.js";
 import router from "./router.js";
-class BoneDirector extends Phaser.GameObjects.Group {
+export default class BoneDirector extends Phaser.GameObjects.Group {
     constructor(scene: BattleScene, collision: number, OPERATOR: Director) {
         super(scene);
         this.collision = collision;
@@ -46,9 +46,11 @@ class BoneDirector extends Phaser.GameObjects.Group {
     readonly addGap: typeof addGap;
     readonly router: typeof router;
     readonly update: typeof update;
-    addSingle(data: BoneConfig, type?: Bone["moveType"]): Bone {
+    addSingle(data: BoneConfig, type?: Bone["moveType"], ignoreWarn?: {
+        [k: string]: boolean;
+    }): Bone {
         let result: Bone;
-        result = new Bone(this.scene as BattleScene, data, this.collision, this.director, type);
+        result = new Bone(this.scene as BattleScene, data, this.collision, this.director, type, ignoreWarn);
         result.setDepth(Keys.Depth.bone);
         this.add(result);
 
@@ -75,4 +77,3 @@ class BoneDirector extends Phaser.GameObjects.Group {
         return this;
     }
 }
-export default BoneDirector;

@@ -1,7 +1,7 @@
 import Keys from "../../../keys.js";
 import Debug from "./Debug.js";
 
-function debugUpdate(this: Debug, time: number, fps: number) {
+export default function debugUpdate(this: Debug, time: number, fps: number) {
     if (this.state !== "running") {
         return;
     }
@@ -40,4 +40,3 @@ pressKey: ${ this.scene.cursors.getDownKey() } `);
         });
     }
 }
-export default debugUpdate;

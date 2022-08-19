@@ -1,14 +1,19 @@
-import { ABSConfig } from "../../../Types.js";
+import { ABSConfig, AllReadonly } from "../../../Types.js";
+import checkType from "../checkType.js";
 import Jumps from "./Jumps.js";
 /**jump absolute*/
-function ABS(this: Jumps, config: ABSConfig): true {
+export default function ABS(this: Jumps, config: AllReadonly<ABSConfig>): true {
+    const DATA = checkType(config, {
+        to: ["number", "string"]
+    }, this.director.AttackLoader.runAttackPos);
     let to;
-    if (typeof config.to !== "number") {
-        to = this.searchLabel(config.to);
+
+    if (typeof DATA.to !== "number") {
+        to = this.searchLabel(DATA.to);
     } else {
-        to = config.to;
+        to = DATA.to;
     }
+
     this.director.AttackLoader.runAttackPos = to;
     return true;
 }
-export default ABS;

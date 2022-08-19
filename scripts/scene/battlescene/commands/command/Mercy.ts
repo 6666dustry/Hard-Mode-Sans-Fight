@@ -1,7 +1,7 @@
 import Commands from "../Commands.js";
 import Keys from "../../../../keys.js";
 
-class Mercy {
+export default class Mercy {
     constructor(command: Commands) {
         this.command = command;
         this.texts = ["spare"];
@@ -24,4 +24,3 @@ class Mercy {
     }
     update() { }
 }
-export default Mercy; 

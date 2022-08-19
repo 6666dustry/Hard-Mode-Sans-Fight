@@ -7,7 +7,7 @@ export default function setSansPosition(config) {
         },
         y: {
             type: ["number", "string", "boolean"],
-            default: this.y
+            default: this.yAuto ? this.yAuto : this.y
         }
     }, this.director.AttackLoader.runAttackPos);
     this.x = DATA.x;

@@ -1,5 +1,5 @@
 import stabBone from "./stabBone.js";
-function destroyStab(this: stabBone) {
+export default function destroyStab(this: stabBone) {
     for (const iterator of this.Bones) {
         iterator.removeAll(true);
         iterator.destroy();
@@ -9,4 +9,3 @@ function destroyStab(this: stabBone) {
     }
     this.destroy();
 }
-export default destroyStab;

@@ -288,7 +288,10 @@
                 "endAngle": "$angle",
                 "color": "$color",
                 "size": 20,
-                "blastTime": 200
+                "blastTime": 200,
+                "anchor": {
+                    "y": "middle"
+                }
             }
         },
         {

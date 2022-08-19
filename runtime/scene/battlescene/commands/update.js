@@ -1,5 +1,11 @@
 import Keys from "../../../keys.js";
-function update(cursors, xKey, zKey) {
+/**
+* commands update.
+* @param  cursors
+* @param  xKey
+* @param  zKey
+*/
+export default function update(cursors, xKey, zKey) {
     const NOWCOMMAND = this.getCommands();
     if (this.endingTurn && NOWCOMMAND.update !== undefined) {
         NOWCOMMAND.update(cursors, xKey, zKey);
@@ -45,5 +51,4 @@ function update(cursors, xKey, zKey) {
         }
     }
 }
-export default update;
 //# sourceMappingURL=update.js.map

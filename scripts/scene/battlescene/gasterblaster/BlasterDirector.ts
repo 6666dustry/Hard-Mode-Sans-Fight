@@ -4,7 +4,7 @@ import BattleScene from "../BattleScene.js";
 import Keys from "../../../keys.js";
 import type { BlasterConfig, BlasterType } from "../../../Types.js";
 import router from "../router.js";
-class BlasterDirector extends Phaser.GameObjects.Group {
+export default class BlasterDirector extends Phaser.GameObjects.Group {
     constructor(scene: BattleScene, collision: number, OPERATOR: Director) {
         super(scene);
         this.#collision = collision;
@@ -63,4 +63,3 @@ class BlasterDirector extends Phaser.GameObjects.Group {
         this.clear(false, true);
     };
 }
-export default BlasterDirector; 

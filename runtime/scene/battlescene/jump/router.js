@@ -1,5 +1,5 @@
 import routerCall from "../router.js";
-function router(config, type) {
+export default function router(config, type) {
     try {
         const IS_LOOP = this.director.AttackLoader.runAttackPos;
         let jumped;
@@ -24,5 +24,4 @@ function router(config, type) {
         return true;
     }
 }
-export default router;
 //# sourceMappingURL=router.js.map

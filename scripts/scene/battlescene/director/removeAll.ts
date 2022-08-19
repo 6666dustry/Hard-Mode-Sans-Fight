@@ -3,7 +3,7 @@ import Director from "./Director.js";
  * remove all bullets, reset counts and reset variables.
  * @param this 
  */
-function removeAll(this: Director, continuePlay?: boolean) {
+export default function removeAll(this: Director, continuePlay?: boolean) {
     if (!continuePlay) {
         this.Jumps.init();
         this.GameMath.init();
@@ -13,4 +13,3 @@ function removeAll(this: Director, continuePlay?: boolean) {
     this.BlasterDirector.clear(false, true);
     this.PlatFormDirector.clear(false, true);
 }
-export default removeAll;

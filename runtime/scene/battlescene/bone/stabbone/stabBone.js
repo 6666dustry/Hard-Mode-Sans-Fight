@@ -3,21 +3,56 @@ import spawnStab from "./spawnStabBone.js";
 import update from "./stabUpdate.js";
 import destroyStab from "./destroyStab.js";
 import setWarn from "./setWarn.js";
-class stabBone extends Phaser.GameObjects.Zone {
-    constructor(scene, config, DIRECTOR, BONE_DIRECTOR) {
+import checkType from "../../checkType.js";
+export default class stabBone extends Phaser.GameObjects.Zone {
+    constructor(scene, config, director, boneDirector) {
         super(scene, 0, 0);
         scene.add.existing(this);
-        this.director = DIRECTOR;
-        this.BONE_DIRECTOR = BONE_DIRECTOR;
+        const DATA = checkType(config, {
+            zone: {
+                type: "string",
+                default: "main"
+            },
+            direction: {
+                type: "string",
+                default: "down"
+            },
+            length: {
+                type: "number",
+                default: 20
+            },
+            wait: {
+                type: "number",
+                default: 1000
+            },
+            lifetime: {
+                type: "number",
+                default: 750
+            },
+            slam: {
+                type: ["string", "boolean"],
+                default: false
+            },
+            color: {
+                type: ["number", "string"],
+                default: 0
+            },
+            onlyWarn: {
+                type: "boolean",
+                default: false
+            }
+        }, director.AttackLoader.runAttackPos);
+        this.director = director;
+        this.BONE_DIRECTOR = boneDirector;
         this.Bones = [];
         this.state = "warning";
         this.scene.sound.play(Keys.Audio.warning);
-        this.color = config.color || "white";
-        this.direction = config.direction || "down";
-        this.Zone = this.director.CombatzoneDirector.getZone(config.zone);
-        this.length = config.length || 20;
-        this.lifetime = config.lifetime || 750;
-        this.wait = config.wait || 1000;
+        this.color = DATA.color;
+        this.direction = DATA.direction;
+        this.Zone = this.director.CombatzoneDirector.getZone(DATA.zone);
+        this.length = DATA.length;
+        this.lifetime = DATA.lifetime;
+        this.wait = DATA.wait;
         this.setWarn = setWarn;
         this.spawnStab = spawnStab;
         this.destroyStab = destroyStab;
@@ -28,8 +63,8 @@ class stabBone extends Phaser.GameObjects.Zone {
         this.warnBox.setVisible(false);
         this.addTo = this.Zone[this.direction];
         this.setWarn();
-        if (config.slam) {
-            if (config.slam === true) {
+        if (DATA.slam) {
+            if (DATA.slam === true) {
                 this.director.Heart.setGravity({
                     direction: this.direction,
                     slam: true,
@@ -39,14 +74,14 @@ class stabBone extends Phaser.GameObjects.Zone {
                 });
             }
             else {
-                this.director.Heart.setGravity(config.slam);
+                this.director.Heart.setGravity(DATA.slam);
             }
         }
-        if (config.onlyWarn) {
+        if (DATA.onlyWarn) {
             this.timerEvent = this.scene.time.delayedCall(this.wait, this.destroy, undefined, this);
         }
         else {
-            this.timerEvent = this.scene.time.delayedCall(this.wait, this.spawnStab, [config], this);
+            this.timerEvent = this.scene.time.delayedCall(this.wait, this.spawnStab, undefined, this);
         }
     }
     Zone;
@@ -76,5 +111,4 @@ class stabBone extends Phaser.GameObjects.Zone {
         super.destroy(fromScene);
     }
 }
-export default stabBone;
 //# sourceMappingURL=stabBone.js.map

@@ -1,21 +1,80 @@
 import step from "../step.js";
-function addSine(data) {
+import checkType from "../checkType.js";
+export default function addSine(config) {
+    const DATA = checkType(config, {
+        x: {
+            type: "number",
+            default: 0,
+        },
+        y: {
+            type: "number",
+            default: 0,
+        },
+        angle: {
+            type: "number",
+            default: 0,
+        },
+        speed: {
+            type: "number",
+            default: 0,
+        },
+        speedAngle: {
+            type: "number",
+            default: 0,
+        },
+        length: {
+            type: "number",
+            default: 150
+        },
+        frequency: {
+            type: "number",
+            default: 1
+        },
+        amplitude: {
+            type: "number",
+            default: 20
+        },
+        padding: {
+            type: "number",
+            default: 30
+        },
+        interval: {
+            type: "number",
+            default: 75
+        },
+        count: {
+            type: "number",
+            default: 20
+        },
+        step: {
+            type: ["object", "boolean"],
+            default: false
+        },
+        color: {
+            type: ["number", "string"],
+            default: 0
+        },
+        lifetime: {
+            type: ["number", "boolean"],
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
     //make copy.
     let copyData = {
-        x: data.x,
-        y: data.y,
-        length: data.length || 150,
-        speed: data.speed || 0,
-        speedAngle: data.speedAngle || 0,
-        angle: data.angle || 0,
-        frequency: data.frequency || 1,
-        amplitude: data.amplitude || 20,
-        padding: data.padding || 40,
-        interval: data.interval || 75,
-        count: data.count || 20,
-        step: data.step,
-        color: data.color || "white",
-        lifetime: data.lifetime || Infinity
+        x: DATA.x,
+        y: DATA.y,
+        length: DATA.length,
+        speed: DATA.speed,
+        speedAngle: DATA.speedAngle,
+        angle: DATA.angle,
+        frequency: DATA.frequency,
+        amplitude: DATA.amplitude,
+        padding: DATA.padding,
+        interval: DATA.interval,
+        count: DATA.count,
+        step: DATA.step,
+        color: DATA.color,
+        lifetime: DATA.lifetime
     };
     let upBone, downBone;
     let wave = 0;
@@ -72,5 +131,4 @@ function addSine(data) {
         delay: copyData.interval,
     }));
 }
-export default addSine;
 //# sourceMappingURL=addSine.js.map

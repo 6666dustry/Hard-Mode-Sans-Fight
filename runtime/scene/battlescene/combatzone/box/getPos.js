@@ -1,29 +1,67 @@
-function getPos(config) {
+import checkType from "../../checkType.js";
+export default function getPos(config) {
+    const DATA = checkType(config, {
+        left: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        right: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        top: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        bottom: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        width: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        height: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        centerX: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        centerY: {
+            type: ["number", "boolean"],
+            default: false
+        },
+        zone: {
+            type: "string",
+            default: "main"
+        }
+    }, this.director.AttackLoader.runAttackPos);
     const SET_TO = this.director.GameMath.variables;
-    if (config.bottom) {
-        SET_TO[config.bottom] = this.boxDy;
+    if (DATA.bottom) {
+        SET_TO[DATA.bottom] = this.boxDy;
     }
-    if (config.right) {
-        SET_TO[config.right] = this.boxDx;
+    if (DATA.right) {
+        SET_TO[DATA.right] = this.boxDx;
     }
-    if (config.top) {
-        SET_TO[config.top] = this.boxY;
+    if (DATA.top) {
+        SET_TO[DATA.top] = this.boxY;
     }
-    if (config.left) {
-        SET_TO[config.left] = this.boxX;
+    if (DATA.left) {
+        SET_TO[DATA.left] = this.boxX;
     }
-    if (config.centerX) {
-        SET_TO[config.centerX] = this.midPoint.x;
+    if (DATA.centerX) {
+        SET_TO[DATA.centerX] = this.midPoint.x;
     }
-    if (config.centerY) {
-        SET_TO[config.centerY] = this.midPoint.y;
+    if (DATA.centerY) {
+        SET_TO[DATA.centerY] = this.midPoint.y;
     }
-    if (config.width) {
-        SET_TO[config.width] = this.RectSize.width;
+    if (DATA.width) {
+        SET_TO[DATA.width] = this.RectSize.width;
     }
-    if (config.height) {
-        SET_TO[config.height] = this.RectSize.height;
+    if (DATA.height) {
+        SET_TO[DATA.height] = this.RectSize.height;
     }
 }
-export default getPos;
 //# sourceMappingURL=getPos.js.map

@@ -1,10 +1,20 @@
-function getPosition(config) {
-    if (config.x) {
-        this.director.GameMath.variables[config.x] = this.Image.x;
+import checkType from "../checkType.js";
+export default function getPosition(config) {
+    const DATA = checkType(config, {
+        x: {
+            type: "string",
+            default: false
+        },
+        y: {
+            type: "string",
+            default: false
+        },
+    }, this.director.AttackLoader.runAttackPos);
+    if (DATA.x) {
+        this.director.GameMath.variables[DATA.x] = this.Image.x;
     }
-    if (config.y) {
-        this.director.GameMath.variables[config.y] = this.Image.y;
+    if (DATA.y) {
+        this.director.GameMath.variables[DATA.y] = this.Image.y;
     }
 }
-export default getPosition;
 //# sourceMappingURL=getPosition.js.map

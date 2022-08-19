@@ -1,7 +1,7 @@
 import router from "./router.js";
 import flash from "./flash.js";
 import falling from "./falling.js";
-class Effect {
+export default class Effect {
     constructor(scene, director) {
         this.scene = scene;
         this.director = director;
@@ -15,5 +15,4 @@ class Effect {
     router;
     falling;
 }
-export default Effect;
 //# sourceMappingURL=Effect.js.map

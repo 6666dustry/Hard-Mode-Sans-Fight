@@ -3,7 +3,7 @@ import router from "./router.js";
 import play from "./play.js";
 import stop from "./stop.js";
 import Director from "../director/Director.js";
-class AudioPlayer {
+export default class AudioPlayer {
     constructor(scene: BattleScene, director: Director) {
         this.scene = scene;
         this.director = director;
@@ -18,4 +18,3 @@ class AudioPlayer {
     readonly play: typeof play;
     readonly stop: typeof stop;
 }
-export default AudioPlayer;

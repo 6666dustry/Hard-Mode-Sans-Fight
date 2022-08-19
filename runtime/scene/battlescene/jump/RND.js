@@ -1,16 +1,24 @@
+import checkType from "../checkType.js";
 /**
  * randomly jump.
  * @param this
  * @param config
  * @returns
  */
-function RND(config) {
-    const KEY = Phaser.Math.Between(0, config.to.length - 1);
-    let to = config.to[KEY];
+export default function RND(config) {
+    const DATA = checkType(config, {
+        to: "object",
+        rel: {
+            type: "boolean",
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
+    const KEY = Phaser.Math.Between(0, DATA.to.length - 1);
+    let to = DATA.to[KEY];
     if (typeof to !== "number") {
         to = this.searchLabel(to);
     }
-    if (config.rel) {
+    if (DATA.rel) {
         this.director.AttackLoader.runAttackPos += to;
     }
     else {
@@ -18,5 +26,4 @@ function RND(config) {
     }
     return true;
 }
-export default RND;
 //# sourceMappingURL=RND.js.map

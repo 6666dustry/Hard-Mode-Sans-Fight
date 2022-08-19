@@ -1,7 +1,7 @@
 /**
  * @return in degrees.
  */
-function setDirection() {
+export default function setDirection() {
     const ANG = this.Image.setAngle.bind(this.Image);
     if (this.color === "red") {
         ANG(0);
@@ -25,5 +25,4 @@ function setDirection() {
         }
     }
 }
-export default setDirection;
 //# sourceMappingURL=setDirection.js.map

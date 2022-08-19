@@ -4,7 +4,7 @@ import AttackLoader from "./attackLoader.js";
  * start attack again. called at practice mode.
  * @param this 
  */
-function retry(this: AttackLoader) {
+export default function retry(this: AttackLoader) {
     const D = this.director;
     D.removeAll();
     D.Heart.enemyTurnInit();
@@ -38,4 +38,3 @@ function retry(this: AttackLoader) {
     this.runAttackPos = 0;
     this.startAttack();
 }
-export default retry;

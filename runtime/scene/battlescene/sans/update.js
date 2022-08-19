@@ -2,7 +2,7 @@
     * update image position.
     * @param time just time. in milliseconds.
     */
-function update(time) {
+export default function update(time) {
     if (this.yAuto) {
         this.setPosition(this.x, this.director.CombatzoneDirector.Zones.main.RectSize.y - (this.leg.y + this.leg.height / 2) - +20);
     }
@@ -89,5 +89,4 @@ function update(time) {
     this.sweet.setPosition(this.head.x, this.head.y - 20);
 }
 ;
-export default update;
 //# sourceMappingURL=update.js.map

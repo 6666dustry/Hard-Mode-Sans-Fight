@@ -1,5 +1,5 @@
 import routerCall from "../router.js";
-function router(config, type) {
+export default function router(config, type) {
     switch (type) {
         case "getPos":
             type = "getPosition";
@@ -13,5 +13,4 @@ function router(config, type) {
     }
     routerCall.call(this, config, type);
 }
-export default router;
 //# sourceMappingURL=router.js.map

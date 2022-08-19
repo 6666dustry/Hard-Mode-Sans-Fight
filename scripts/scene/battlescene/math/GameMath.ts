@@ -15,7 +15,7 @@ import betWeenAngle from "./betWeenAngle.js";
 import init from "./init.js";
 import BattleScene from "../BattleScene.js";
 import Director from "../director/Director.js";
-class GameMath {
+export default class GameMath {
     constructor(scene: BattleScene, director: Director) {
         this.scene = scene;
         this.director = director;
@@ -56,4 +56,3 @@ class GameMath {
     readonly betWeenAngle: typeof betWeenAngle;
     readonly init: typeof init;
 }
-export default GameMath;

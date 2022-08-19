@@ -2,7 +2,7 @@ import Heart from "./Heart.js";
 /**
  * @return in degrees.
  */
-function setDirection(this: Heart): number {
+export default function setDirection(this: Heart): number {
     const ANG: typeof this.Image.setAngle = this.Image.setAngle.bind(this.Image);
     if (this.color === "red") {
         ANG(0);
@@ -25,4 +25,3 @@ function setDirection(this: Heart): number {
         }
     }
 }
-export default setDirection;

@@ -1,8 +1,13 @@
-import { RndValuesConfig } from "../../../Types.js";
+import { AllReadonly, RndValuesConfig } from "../../../Types.js";
+import checkType from "../checkType.js";
 import GameMath from "./GameMath.js";
 
-function rndValues(this: GameMath, config: RndValuesConfig) {
-    let index = Phaser.Math.Between(0, config.values.length - 1);
-    this.variables[config.variable] = config.values[index];
+export default function rndValues(this: GameMath, config: AllReadonly<RndValuesConfig>) {
+    const DATA = checkType(config, {
+        variable: "string",
+        values: "object"
+    }, this.director.AttackLoader.runAttackPos);
+
+    let index = Phaser.Math.Between(0, DATA.values.length - 1);
+    this.variables[DATA.variable] = DATA.values[index];
 }
-export default rndValues;

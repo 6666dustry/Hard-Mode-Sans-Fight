@@ -7,7 +7,7 @@ import update from "./update.js";
 /**
  * player turn system.
  */
-class Commands {
+export default class Commands {
     /**
      *
      * @param SCENE BattleScene reference.
@@ -328,5 +328,4 @@ class Commands {
         this.endingTurn = false;
     }
 }
-export default Commands;
 //# sourceMappingURL=Commands.js.map

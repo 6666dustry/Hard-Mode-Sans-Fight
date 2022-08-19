@@ -1,4 +1,4 @@
-function isFalling() {
+export default function isFalling() {
     const BODY = this.Image.body;
     switch (this.gravityDirection) {
         case "up":
@@ -11,5 +11,4 @@ function isFalling() {
             return BODY.velocity.x <= 0;
     }
 }
-export default isFalling;
 //# sourceMappingURL=isFalling.js.map

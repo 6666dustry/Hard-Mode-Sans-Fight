@@ -1,15 +1,17 @@
-import { RELConfig } from "../../../Types.js";
+import { AllReadonly, RELConfig } from "../../../Types.js";
+import checkType from "../checkType.js";
 import Jumps from "./Jumps.js";
 /**jump relative*/
-function REL(this: Jumps, config: RELConfig): true {
-
+export default function REL(this: Jumps, config: AllReadonly<RELConfig>): true {
+    const DATA = checkType(config, {
+        to: ["number", "string"]
+    }, this.director.AttackLoader.runAttackPos);
     let to: number;
-    if (typeof config.to !== "number") {
-        to = this.searchLabel(config.to);
+    if (typeof DATA.to !== "number") {
+        to = this.searchLabel(DATA.to);
     } else {
-        to = config.to;
+        to = DATA.to;
     }
     this.director.AttackLoader.runAttackPos += to;
     return true;
 }
-export default REL;

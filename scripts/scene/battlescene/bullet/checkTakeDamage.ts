@@ -3,7 +3,7 @@ import Bullet from "./bullet.js";
 /**
  * 
  */
-function checkTakeDamage(this: Bullet, body: MatterJS.BodyType, takeKr?: boolean, remain1?: boolean) {
+export default function checkTakeDamage(this: Bullet, body: MatterJS.BodyType, takeKr?: boolean, remain1?: boolean) {
     if (!remain1 || this.director.Statuses.hp > 1) {
         switch (Math.floor(this.color) % 3) {
             case 0:
@@ -31,4 +31,3 @@ function checkTakeDamage(this: Bullet, body: MatterJS.BodyType, takeKr?: boolean
         }
     }
 }
-export default checkTakeDamage;

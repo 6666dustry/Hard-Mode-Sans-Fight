@@ -3,6 +3,7 @@ import Keys from "../../../keys.js";
 import Director from "../director/Director.js";
 import { EnemyTextType, SpeechConfig, EnemyTextConfig, AllReadonly } from "../../../Types.js";
 import router from "../router.js";
+import checkType from "../checkType.js";
 export default class SansText extends Phaser.GameObjects.Container {
     constructor(scene: BattleScene, x: number, y: number, zKey: Phaser.Input.Keyboard.Key, OPERATOR: Director) {
         super(scene, x, y);
@@ -57,11 +58,18 @@ export default class SansText extends Phaser.GameObjects.Container {
         });
     }
     speech(config: AllReadonly<SpeechConfig>): void {
+        const DATA = checkType(config, {
+            text: "string",
+            poses: {
+                type: "object",
+                default: undefined
+            }
+        }, this.director.AttackLoader.runAttackPos);
         if (this.scene === undefined) {
             return;
         }
-        if (config.poses) {
-            this.director.Sans.setVisual(config.poses);
+        if (DATA.poses) {
+            this.director.Sans.setVisual(DATA.poses);
         }
 
 
@@ -71,11 +79,8 @@ export default class SansText extends Phaser.GameObjects.Container {
         this.setVisible(true);
 
         this.text.setText("");
-        if (config.text) {
-            this.speechId = this.rollDiaText(config.text);
-        } else {
-            console.error(`text is not defined at ${ this.director.AttackLoader.runAttackPos }`);
-        }
+        this.speechId = this.rollDiaText(DATA.text);
+
 
         this.zKey.once("down", this.#setTextInst.bind(this, config.text));
     }

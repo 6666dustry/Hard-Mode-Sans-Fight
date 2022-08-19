@@ -170,14 +170,14 @@ export type TweenRectConfig = getZone & {
 };
 /**return number */
 export type getCombatzonePos = getZone & {
-    left?: string,
-    right?: string;
-    bottom?: string,
-    top?: string,
-    centerX?: string,
-    centerY?: string;
-    width?: string;
-    height?: string;
+    left?: string | false;
+    right?: string | false;
+    bottom?: string | false;
+    top?: string | false;
+    centerX?: string | false;
+    centerY?: string | false;
+    width?: string | false;
+    height?: string | false;
 };
 export type combatZoneConfig = SetRectConfig | getCombatzonePos | TweenRectConfig;
 export type BoneType =
@@ -187,12 +187,12 @@ export type BoneType =
     "addStab" |
     "addSine" |
     "addCircle";
-export type BoneConfig = Pos2 & {
+export type BoneConfig = Partial<Pos2> & {
     /**default is 0, */
     speed?: number;
     /**default is 0 */
     speedAngle?: number;
-    /**default is 24. */
+    /**default is 12. */
     length?: number,
     /**default is 0. */
     angle?: number,
@@ -200,13 +200,13 @@ export type BoneConfig = Pos2 & {
     spin?: number;
     /**can see outside of combatzone. default is false. */
     visible?: boolean;
-    /**default is infinity. */
-    lifetime?: number;
+    /**default is false. */
+    lifetime?: number | false;
     anchor?: Anchor;
     /**used for tween. default is "middle"*/
     tweenAnchor?: "top" | "middle" | "bottom";
     /**Phaser tween. can multiple. */
-    tween?: Phaser.Types.Tweens.TweenBuilderConfig | Phaser.Types.Tweens.TweenBuilderConfig[];
+    tween?: Phaser.Types.Tweens.TweenBuilderConfig | Phaser.Types.Tweens.TweenBuilderConfig[] | false;
     /** default is "inst" */
     deleteTween?: {
         tween?: "inst" |
@@ -215,7 +215,7 @@ export type BoneConfig = Pos2 & {
         "smallerBottom";
         effect?: "inst" | "disappear";
         duration?: number;
-    };
+    } | false;
     spawnTween?: {
         tween?: "inst" |
         "biggerTop" |
@@ -223,13 +223,13 @@ export type BoneConfig = Pos2 & {
         "biggerBottom";
         effect?: "inst" | "appear";
         duration?: number;
-    };
+    } | false;
     /** default is white*/
     color?: bulletColor;
-    sound?: PlayConfig["sound"];
+    sound?: PlayConfig["sound"] | false;
 };
 export type MultiBoneConfig = BoneConfig & MultiConfig;
-export type SineBoneConfig = Pos2 & {
+export type SineBoneConfig = Partial<Pos2> & {
     speed?: number;
     speedAngle?: number;
     length?: number;
@@ -239,13 +239,14 @@ export type SineBoneConfig = Pos2 & {
     amplitude?: number;
     frequency?: number;
     angle?: number;
-    step?: SineBoneConfig;
+    step?: SineBoneConfig | false;
     /** default is white*/
     color?: bulletColor;
-    lifetime?: number;
+    lifetime?: BoneConfig["lifetime"];
 };
-export type StabBoneConfig = getCombatzonePos & {
-    direction: "up" | "down" | "left" | "right";
+export type StabBoneConfig = getZone & {
+    /**default is down. */
+    direction?: "up" | "down" | "left" | "right";
     /**default is 20 */
     length?: number;
     /**default is 750ms */
@@ -257,9 +258,9 @@ export type StabBoneConfig = getCombatzonePos & {
     /** default is white*/
     color?: bulletColor;
     /** default is false*/
-    onlyWarn: boolean;
+    onlyWarn?: boolean;
 };
-export type CircleBoneConfig = Pos2 & {
+export type CircleBoneConfig = Partial<Pos2> & {
     spaceRadius?: number;
     boneRadius?: number;
     count?: number | "single";
@@ -271,8 +272,8 @@ export type CircleBoneConfig = Pos2 & {
     padding?: number | "equal";
     /**in degrees. */
     rotateSpeed?: number;
-    tween?: BoneConfig["tween"];
-    boneConfig?: BoneConfig;
+    tween?: BoneConfig["tween"] | false;
+    boneConfig?: BoneConfig | false;
 };
 export type GapBoneConfig = {
     x?: number;
@@ -284,8 +285,8 @@ export type GapBoneConfig = {
     speed?: number;
     speedAngle?: number;
     anchor?: Anchor;
-    tween?: BoneConfig["tween"];
-    lifetime?: number;
+    tween?: BoneConfig["tween"] | false;
+    lifetime?: BoneConfig["lifetime"];
 };
 export type BonesConfig = BoneConfig | MultiBoneConfig | StabBoneConfig | SineBoneConfig | CircleBoneConfig | GapBoneConfig;
 
@@ -298,8 +299,10 @@ export type BlasterConfig = {
     startY?: number,
     /**default is endAngle + 180 */
     startAngle?: number;
-    endX: number,
-    endY: number,
+    /**default is 0 */
+    endX?: number,
+    /**default is 0 */
+    endY?: number,
     /**default is 0 */
     endAngle?: number;
     size?: number,
@@ -354,12 +357,14 @@ export type setColor = {
     color: HeartColor;
     playSound?: boolean;
 };
-export type SetHeartPos = Partial<Pos2> & {
-    duration?: number;
+export type SetHeartPos = {
+    [k in keyof Pos2]?: number | false
+} & {
+    duration?: number | false;
 };
 export type getHeartPos = {
-    x?: string,
-    y?: string;
+    x?: string | false;
+    y?: string | false;
 };
 export type HeartDirection = "up" | "left" | "right" | "down";
 export type HeartGravity =
@@ -405,15 +410,15 @@ export type SansVisualConfig = {
     "torsoupside3" |
 
     //sweet frames.
-    "addSweet"
-    | "sweet1"
-    | "sweet2" |
-    "sweet3";
-    anim?: HeartGravity["slamAnim"] | "flashEye";
+    "addSweet" |
+    "sweet1" |
+    "sweet2" |
+    "sweet3" | false;
+    anim?: Exclude<HeartGravity["slamAnim"], true> | "flashEye" | false;
     /**default is true */
     visible?: boolean;
     autoInit?: boolean;
-    state?: "stop" | "dancing" | "tired";
+    state?: "stop" | "dancing" | "tired" | false;
 };
 export type SetPositionConfig = {
     x?: number;
@@ -606,7 +611,7 @@ export type EffectType = "flash" | "falling";
 export type FlashConfig = {
     duration?: number;
     /**default is flash. */
-    sound?: keyof typeof Keys.Audio;
+    sound?: keyof typeof Keys.Audio | false;
     pause?: boolean;
     removeAll?: boolean;
 };

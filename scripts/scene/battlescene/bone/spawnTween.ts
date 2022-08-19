@@ -1,6 +1,6 @@
 import Bone from "./bone.js";
 import { BoneConfig } from "../../../Types.js";
-function spawnTween(this: Bone, type: BoneConfig["spawnTween"]) {
+export default function spawnTween(this: Bone, type: BoneConfig["spawnTween"]) {
     if (this.scene) {
         if (type) {
             switch (type.tween) {
@@ -64,4 +64,3 @@ function spawnTween(this: Bone, type: BoneConfig["spawnTween"]) {
         }
     }
 }
-export default spawnTween;

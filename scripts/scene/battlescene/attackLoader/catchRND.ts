@@ -4,7 +4,7 @@ import AttackLoader from "./attackLoader.js";
  * catch random attack.
  * @returns return parsed json file object.
  */
-function catchRND(this: AttackLoader) {
+export default function catchRND(this: AttackLoader) {
     let result: any;
     switch (this.phase) {
         case 1: {
@@ -28,4 +28,3 @@ function catchRND(this: AttackLoader) {
     }
     return result;
 }
-export default catchRND;

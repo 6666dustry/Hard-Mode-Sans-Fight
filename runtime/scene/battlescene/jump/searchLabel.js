@@ -2,7 +2,7 @@ function searchLabel(data) {
     try {
         let label;
         if (data[0] !== "#") {
-            throw new Error("label name is must be start a #");
+            throw new Error(`label name is must be start a # at ${this.director.AttackLoader.runAttackPos}`);
         }
         else {
             label = data.slice(1);
@@ -16,7 +16,7 @@ function searchLabel(data) {
                 }
             }
         }
-        throw new Error("label name is undefined");
+        throw new Error(`label name is not defined at ${this.director.AttackLoader.runAttackPos}`);
     }
     catch (error) {
         console.log(error.message);

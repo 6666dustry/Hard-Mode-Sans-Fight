@@ -10,7 +10,7 @@ export default function setSansPosition(this: Sans, config: AllReadonly<SetPosit
         },
         y: {
             type: ["number", "string", "boolean"],
-            default: this.y
+            default: this.yAuto ? this.yAuto : this.y
         }
     }, this.director.AttackLoader.runAttackPos);
 

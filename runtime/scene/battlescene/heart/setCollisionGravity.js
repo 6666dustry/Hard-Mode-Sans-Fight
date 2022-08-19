@@ -1,5 +1,5 @@
 import Keys from "../../../keys.js";
-function setCollisionGravity() {
+export default function setCollisionGravity() {
     if (this.colliding !== Keys.Label.platform) {
         if (this.collidingAt.top || this.collidingAt.bottom) {
             this.Force.y = 0;
@@ -9,5 +9,4 @@ function setCollisionGravity() {
         }
     }
 }
-export default setCollisionGravity;
 //# sourceMappingURL=setCollisionGravity.js.map

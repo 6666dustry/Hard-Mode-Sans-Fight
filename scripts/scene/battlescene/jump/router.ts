@@ -5,7 +5,7 @@ import {
 import Jumps from "./Jumps.js";
 import routerCall from "../router.js";
 
-function router(this: Jumps, config: JumpsConfig, type: JumpsType) {
+export default function router(this: Jumps, config: JumpsConfig, type: JumpsType) {
     try {
         const IS_LOOP: number = this.director.AttackLoader.runAttackPos;
         let jumped: boolean;
@@ -29,4 +29,3 @@ function router(this: Jumps, config: JumpsConfig, type: JumpsType) {
         return true;
     }
 }
-export default router;

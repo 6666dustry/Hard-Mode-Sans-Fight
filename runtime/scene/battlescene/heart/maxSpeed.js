@@ -1,5 +1,5 @@
 import Keys from "../../../keys.js";
-function maxSpeed() {
+export default function maxSpeed() {
     let max = 3;
     if (this.colliding == Keys.Label.platform) {
         max = 1.5;
@@ -13,5 +13,4 @@ function maxSpeed() {
                 undefined;
     }
 }
-export default maxSpeed;
 //# sourceMappingURL=maxSpeed.js.map

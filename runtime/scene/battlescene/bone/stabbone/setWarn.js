@@ -1,4 +1,4 @@
-function setWarn() {
+export default function setWarn() {
     const PADDING = 2;
     const THICKNESS = this.director.CombatzoneDirector.thickness;
     switch (this.direction) {
@@ -29,5 +29,4 @@ function setWarn() {
     }
     this.director.CombatzoneDirector.draws.push(this.warnBox);
 }
-export default setWarn;
 //# sourceMappingURL=setWarn.js.map

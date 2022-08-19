@@ -2,7 +2,7 @@
    * red soul custom movement.
    * @param cursors keys data.
    */
-function redMovement(cursors) {
+export default function redMovement(cursors) {
     //set color to red.
     if (this.color === "red") {
         this.Image.setTint(0xff0000);
@@ -22,5 +22,4 @@ function redMovement(cursors) {
         this.Force.y = 0;
     }
 }
-export default redMovement;
 //# sourceMappingURL=redMovement.js.map

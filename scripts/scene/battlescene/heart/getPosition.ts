@@ -1,12 +1,23 @@
-import { getHeartPos } from "../../../Types.js";
+import { AllReadonly, getHeartPos } from "../../../Types.js";
 import Heart from "./Heart.js";
+import checkType from "../checkType.js";
 
-function getPosition(this: Heart, config: getHeartPos) {
-    if (config.x) {
-        this.director.GameMath.variables[config.x] = this.Image.x;
+export default function getPosition(this: Heart, config: AllReadonly<getHeartPos>) {
+    const DATA = checkType(config,
+        {
+            x: {
+                type: "string",
+                default: false
+            },
+            y: {
+                type: "string",
+                default: false
+            },
+        }, this.director.AttackLoader.runAttackPos);
+    if (DATA.x) {
+        this.director.GameMath.variables[DATA.x] = this.Image.x;
     }
-    if (config.y) {
-        this.director.GameMath.variables[config.y] = this.Image.y;
+    if (DATA.y) {
+        this.director.GameMath.variables[DATA.y] = this.Image.y;
     }
 }
-export default getPosition;

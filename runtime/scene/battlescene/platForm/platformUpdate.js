@@ -43,7 +43,7 @@ function setAngle() {
  * @param this
  * @returns is Heart riding this and move with this? boolean
  */
-function update() {
+export default function update() {
     if (!this.body) {
         return false;
     }
@@ -124,5 +124,4 @@ function update() {
     this.oldLength = this.platLength;
     return rideAndMove;
 }
-export default update;
 //# sourceMappingURL=platformUpdate.js.map

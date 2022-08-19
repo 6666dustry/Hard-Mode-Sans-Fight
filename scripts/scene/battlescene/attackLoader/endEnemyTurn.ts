@@ -66,7 +66,7 @@ function menuBone2(this: Director) {
  * player turn initialize.
  * @param this 
  */
-function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
+export default function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
     this.playerTurn = true;
 
     if (config) {
@@ -152,4 +152,3 @@ function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
         }
     }
 }
-export default endEnemyTurn;

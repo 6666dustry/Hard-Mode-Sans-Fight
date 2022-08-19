@@ -1,6 +1,6 @@
 import BoneDirector from "./BoneDirector";
 import Bone from "./bone.js";
-function update(this: BoneDirector, time: number): void {
+export default function update(this: BoneDirector, time: number): void {
     //update bones.
     for (const iterator of this.getChildren() as Bone[]) {
         iterator.update();
@@ -16,4 +16,3 @@ function update(this: BoneDirector, time: number): void {
         iterator.update();
     }
 }
-export default update;

@@ -1,4 +1,3 @@
-
 import AttackLoader from "./attackLoader.js";
 
 /**
@@ -6,7 +5,7 @@ import AttackLoader from "./attackLoader.js";
 * called at player attacked.
 * @returns return parsed json file object.
 */
-function catchOrder(this: AttackLoader): any {
+export default function catchOrder(this: AttackLoader): any {
     let result: any;
     switch (this.phase) {
         case 1: {
@@ -26,5 +25,3 @@ function catchOrder(this: AttackLoader): any {
     }
     return result;
 }
-
-export default catchOrder;

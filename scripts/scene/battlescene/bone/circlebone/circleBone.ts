@@ -1,6 +1,6 @@
 import BattleScene from "../../BattleScene.js";
 import Bone from "../bone.js";
-import { BoneConfig, CircleBoneConfig } from "../../../../Types.js";
+import { AllReadonly, BoneConfig, CircleBoneConfig } from "../../../../Types.js";
 import makeDeepCopy from "../../makeDeepCopy.js";
 import BoneDirector from "../BoneDirector.js";
 import update from "./update.js";
@@ -8,22 +8,70 @@ import Keys from "../../../../keys.js";
 import getPadding from "./getPadding.js";
 import { gameDebug } from "../../../../main.js";
 import setTarget from "../../setTween.js";
-class CircleBone extends Phaser.GameObjects.Zone {
-    constructor(scene: BattleScene, Config: Readonly<CircleBoneConfig>, BoneDirector: BoneDirector) {
-        super(scene, Config.x, Config.y);
+import checkType from "../../checkType.js";
+export default class CircleBone extends Phaser.GameObjects.Zone {
+    constructor(scene: BattleScene, config: AllReadonly<CircleBoneConfig>, BoneDirector: BoneDirector) {
+        super(scene, config.x || 0, config.y || 0);
         scene.add.existing(this);
 
         this.BoneDirector = BoneDirector;
 
+        const DATA = checkType(config, {
+            x: {
+                type: "number",
+                default: 0
+            },
+            y: {
+                type: "number",
+                default: 0
+            },
+            spaceRadius: {
+                type: "number",
+                default: 30
+            },
+            boneRadius: {
+                type: "number",
+                default: 30
+            },
+            count: {
+                type: ["number", "string"],
+                default: 4
+            },
+            startAngle: {
+                type: "number",
+                default: 0
+            },
+            padding: {
+                type: ["number", "string"],
+                default: "equal"
+            },
+            rotateSpeed: {
+                type: "number",
+                default: 1
+            },
+            tween: {
+                type: ["object", "boolean"],
+                default: false
+            },
+            boneConfig: {
+                type: ["object", "boolean"],
+                default: false
+            },
+            stepAngle: {
+                type: "boolean",
+                default: true
+            }
+        }, this.BoneDirector.director.AttackLoader.runAttackPos);
 
-        this.spaceRadius = typeof Config.spaceRadius === "number" ? Config.spaceRadius : 30;
-        this.boneRadius = typeof Config.boneRadius === "number" ? Config.boneRadius : 30;
 
-        this.count = Config.count || 4;
+        this.spaceRadius = DATA.spaceRadius;
+        this.boneRadius = DATA.boneRadius;
 
-        this.startAngle = Config.startAngle || 0;
-        this.padding = Config.padding || "equal";
-        this.rotateSpeed = typeof Config.rotateSpeed === "number" ? Config.rotateSpeed : 1;
+        this.count = DATA.count;
+
+        this.startAngle = DATA.startAngle;
+        this.padding = DATA.padding;
+        this.rotateSpeed = DATA.rotateSpeed;
 
         this.getPadding = getPadding;
 
@@ -41,8 +89,8 @@ class CircleBone extends Phaser.GameObjects.Zone {
             this.angleLine.setAngle(this.angle);
         }
 
-        if (Config.boneConfig) {
-            this.Config = makeDeepCopy(Config.boneConfig);
+        if (DATA.boneConfig) {
+            this.Config = makeDeepCopy(config.boneConfig);
         } else {
             this.Config = {
                 x: 0,
@@ -93,16 +141,16 @@ class CircleBone extends Phaser.GameObjects.Zone {
                 this.Bones.push(Bone);
                 BonePos.rotate(Phaser.Math.DegToRad(this.getPadding()));
 
-                if (Config.stepAngle || Config.stepAngle == null) {
+                if (DATA.stepAngle) {
                     this.Config.angle += this.getPadding();
                 }
             }
         }
 
-        if (Config.tween) {
-            setTarget(scene, this, Config.tween);
+        if (DATA.tween) {
+            setTarget(scene, this, DATA.tween);
         }
-        this.setPosition(Config.x, Config.y);
+        this.setPosition(DATA.x, DATA.y);
 
         this.oldX = this.x;
         this.oldY = this.y;
@@ -154,4 +202,3 @@ class CircleBone extends Phaser.GameObjects.Zone {
         super.destroy();
     }
 }
-export default CircleBone;

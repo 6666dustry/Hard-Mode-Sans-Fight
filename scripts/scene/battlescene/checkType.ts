@@ -1,12 +1,16 @@
 type returnTypeof = "undefined" | "object" | "string" | "boolean" | "number" | "bigint" | "symbol" | "function";
 export default function checkType<check extends {
     readonly [k: string]: any;
-}>(Check: check, Property: Required<{
-    readonly [k in keyof check]: check[k] extends undefined ? returnTypeof | returnTypeof[] : {
+
+}, property extends Required<{
+    readonly [k in keyof check]: Extract<check[k], undefined> extends never ? returnTypeof | returnTypeof[] : {
         readonly type: returnTypeof | returnTypeof[];
-        readonly default: any;
+        readonly default: check[k];
     }
-}>, runAttackPosition: number): Required<check> {
+
+}>>(Check: check, Property: property, runAttackPosition: number, ignoreWarn?: {
+    [k in keyof check]: boolean
+}): Required<check> {
     const KEYS: (keyof check)[] = Object.keys(Property);
 
     if (Check == undefined || typeof Check! !== "object") {
@@ -16,20 +20,24 @@ export default function checkType<check extends {
     for (const iterator of KEYS) {
 
         const element = Property[iterator];
+        const checked = Check[iterator];
 
         if (typeof element === "object" && !Array.isArray(element)) {
             //here, element is object. not array.
 
-            if (Check[iterator] == undefined) {
-                Check[iterator] = element.default;
+            if (checked == undefined) {
+                Check[iterator] = element.default as check[string] | check[number];
+                continue;
             }
+
             if (Array.isArray(element.type)) {
 
                 let isMatched = false;
 
-                for (const iterator of element.type) {
-                    if (typeof Check[iterator] === iterator) {
+                for (const ITERATOR of element.type) {
+                    if (typeof checked === ITERATOR) {
                         isMatched = true;
+                        break;
                     }
                 }
 
@@ -39,16 +47,18 @@ export default function checkType<check extends {
 
             } else {
 
-                if (typeof Check[iterator] !== element.type) {
+                if (typeof checked !== element.type) {
                     console.error(`${ String(iterator) } is not ${ element.type } at ${ runAttackPosition }`);
-                    Check[iterator] = element.default;
+
+                    Check[iterator] = element.default as check[string] | check[number];
                 }
             }
 
 
         } else {
+
             //here, element is string or array.
-            if (Check[iterator] == undefined) {
+            if (checked == undefined) {
                 console.error(`${ String(iterator) } is not defined at ${ runAttackPosition }`);
             }
 
@@ -56,11 +66,13 @@ export default function checkType<check extends {
             if (Array.isArray(element)) {
                 let isMatched = false;
 
-                for (const iterator of element) {
-                    if (typeof Check[iterator] === iterator) {
+                for (const ITERATOR of element) {
+                    if (typeof checked === ITERATOR) {
                         isMatched = true;
+                        break;
                     }
                 }
+
                 if (!isMatched) {
                     console.error(`${ String(iterator) } is not ${ element.join(" or ") } at ${ runAttackPosition }`);
                 }
@@ -68,7 +80,7 @@ export default function checkType<check extends {
             } else {
 
 
-                if (typeof Check[iterator] !== element) {
+                if (typeof checked !== element) {
                     console.error(`${ String(iterator) } is not ${ element } at ${ runAttackPosition }`);
                 }
             }
@@ -76,6 +88,21 @@ export default function checkType<check extends {
     }
 
     const CHECK_KEYS: string[] = Object.keys(Check);
+    if (ignoreWarn) {
+        CHECK_KEYS.forEach((value, index, array) => {
+            for (const key in ignoreWarn) {
+                if (Object.prototype.hasOwnProperty.call(ignoreWarn, key)) {
+                    const element = ignoreWarn[key];
+                    if (element) {
+                        if (value === key) {
+                            CHECK_KEYS.splice(index, 1);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
     for (const iterator of CHECK_KEYS) {
         if (Property[iterator] == undefined) {
             console.warn(`${ String(iterator) } is not defined at ${ runAttackPosition }`);

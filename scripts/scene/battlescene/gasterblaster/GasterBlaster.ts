@@ -1,15 +1,14 @@
 import BattleScene from "scene/battlescene/BattleScene.js";
 import Keys from "../../../keys.js";
 import { gameDebug } from "../../../main.js";
-import type { AnchorConfig, BlasterConfig, Anchor, bulletColor } from "../../../Types.js";
+import type { AnchorConfig, BlasterConfig, Anchor, AllReadonly } from "../../../Types.js";
 import Bullet from "../bullet/bullet.js";
-import getColorKey from "../bullet/getColorKey.js";
-import setColorKey from "../bullet/setColorKey.js";
+import checkType from "../checkType.js";
 import Director from "../director/Director.js";
 import getAnchoredPos from "../getAnchoredPos.js";
 import update from "./blasterUpdate.js";
-class GasterBlaster extends Bullet {
-    constructor(scene: BattleScene, Config: Readonly<BlasterConfig>, collision: number, director: Director) {
+export default class GasterBlaster extends Bullet {
+    constructor(scene: BattleScene, Config: AllReadonly<BlasterConfig>, collision: number, director: Director) {
 
         super(scene,
             director,
@@ -21,36 +20,83 @@ class GasterBlaster extends Bullet {
 
         this.director = director;
 
-        this.startX = Config.startX || 0;
-        this.startY = Config.startY || 0;
+
+        const DATA = checkType(Config, {
+            startX: {
+                type: "number",
+                default: 0
+            },
+            startY: {
+                type: "number",
+                default: 0
+            },
+            endX: {
+                type: "number",
+                default: 0
+            },
+            endY: {
+                type: "number",
+                default: 0
+            },
+            startAngle: {
+                type: "number",
+                default: 0
+            },
+            endAngle: {
+                type: "number",
+                default: 0
+            },
+            size: {
+                type: "number",
+                default: this.scene.textures.get(Keys.Sheet.blaster).get(0).height
+            },
+            wait: {
+                type: "number",
+                default: 500
+            },
+            blastTime: {
+                type: "number",
+                default: 500
+            },
+            color: {
+                type: ["number", "string"],
+                default: 0
+            },
+            anchor: {
+                type: "object",
+                default: {
+                    x: "bottom",
+                    y: "bottom"
+                }
+            }
+        }, this.director.AttackLoader.runAttackPos);
+
+        this.startX = DATA.startX;
+        this.startY = DATA.startY;
 
 
-        this.endX = Config.endX;
-        this.endY = Config.endY;
+        this.endX = DATA.endX;
+        this.endY = DATA.endY;
 
 
-        this.wait = Config.wait || 500;
-        this.blastTime = Config.blastTime || 500;
+        this.wait = DATA.wait;
+        this.blastTime = DATA.blastTime;
 
-        this.endAngle = Config.endAngle || 0;
+
+        this.endAngle = DATA.endAngle;
         this.endAngle %= 360;
 
-        this.startAngle = Config.startAngle || this.endAngle + 180;
+
+        this.startAngle = DATA.startAngle;
         this.startAngle %= 360;
 
-        if (Config.anchor) {
-            this.anchor = Config.anchor;
-        } else {
-            this.anchor = {
-                x: "bottom",
-                y: "bottom"
-            };
-        }
+        this.anchor = DATA.anchor;
+
         this.collision = collision;
 
         this.Face = scene.add.sprite(0, 0, Keys.Sheet.blaster);
 
-        this.size = Config.size || this.Face.width;
+        this.size = DATA.size;
 
         this.Laser = this.scene.add.sprite(16, 0, Keys.Image.block);
 
@@ -98,13 +144,14 @@ class GasterBlaster extends Bullet {
 
         // set start position.
         let startPos: AnchorConfig = {
-            x: Config.startX || 0,
-            y: Config.startY || 0,
+            x: DATA.startX,
+            y: DATA.startY,
             width: this.Face.displayWidth,
             height: this.Face.displayHeight,
-            angle: Config.startAngle || 0,
+            angle: DATA.startAngle,
             anchor: this.anchor
         };
+
         getAnchoredPos(startPos);
 
         this.Face.setPosition(startPos.x, startPos.y);
@@ -117,11 +164,11 @@ class GasterBlaster extends Bullet {
             Phaser.Math.DegToRad(Config.endAngle || 0));
         // set end point.
         let endFacePos: AnchorConfig = {
-            x: Config.endX - add.x,
-            y: Config.endY - add.y,
+            x: DATA.endX - add.x,
+            y: DATA.endY - add.y,
             width: this.Face.displayWidth * 2,
             height: this.Laser.displayHeight,
-            angle: Config.endAngle || 0,
+            angle: DATA.endAngle || 0,
             anchor: this.anchor,
             origin: {
                 width: this.Face.displayWidth,
@@ -133,12 +180,12 @@ class GasterBlaster extends Bullet {
 
 
         let endPoint: AnchorConfig = {
-            x: Config.endX,
-            y: Config.endY,
+            x: DATA.endX,
+            y: DATA.endY,
             width: this.width + this.Face.displayWidth,
             height: this.Laser.displayHeight,
 
-            angle: Config.endAngle || 0,
+            angle: DATA.endAngle,
             anchor: this.anchor,
             origin: {
                 width: this.Face.displayWidth,
@@ -191,7 +238,7 @@ class GasterBlaster extends Bullet {
         this.haveDamage = false;
         this.state = "moving";
         this.tints = [this.Face, this.Laser, this.Arc];
-        this.colorKey = Config.color || "white";
+        this.colorKey = DATA.color;
     }
     readonly collision: number;
     readonly Face: Phaser.GameObjects.Sprite;
@@ -353,4 +400,3 @@ class GasterBlaster extends Bullet {
         }
     }
 }
-export default GasterBlaster;

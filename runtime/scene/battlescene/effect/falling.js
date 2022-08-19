@@ -1,26 +1,40 @@
-function falling(config) {
+import checkType from "../checkType.js";
+export default function falling(config) {
+    const DATA = checkType(config, {
+        direction: {
+            type: "string",
+            default: "right"
+        },
+        duration: {
+            type: "number",
+            default: 1000
+        },
+        playAnim: {
+            type: "boolean",
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
     this.director.Heart.setGravity({
-        direction: config.direction || "right",
+        direction: DATA.direction,
         color: "falling",
     });
-    this.director.Sans.falling = config.direction || "right";
-    if (config.playAnim) {
+    this.director.Sans.falling = DATA.direction;
+    if (DATA.playAnim) {
         this.director.Sans.setVisual({
             target: "torso",
-            anim: `${config.direction || "right"}Slam`,
+            anim: `${DATA.direction}Slam`,
             autoInit: true,
         });
     }
-    this.scene.time.delayedCall(config.duration || 1000, () => {
+    this.scene.time.delayedCall(DATA.duration, () => {
         this.director.Sans.falling = undefined;
         this.director.Sans.setVisual({
-            "frame": "default"
+            frame: "default"
         });
         this.director.Heart.setGravity({
-            direction: config.direction || "right",
+            direction: DATA.direction,
             color: "blue",
         });
     }, undefined, this);
 }
-export default falling;
 //# sourceMappingURL=falling.js.map

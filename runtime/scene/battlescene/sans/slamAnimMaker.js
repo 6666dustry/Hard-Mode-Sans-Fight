@@ -3,7 +3,7 @@ import Keys from "../../../keys.js";
  * make sans anims.
  * @param scene
  */
-function slamAnimMaker(scene) {
+export default function slamAnimMaker(scene) {
     const SPEED = 75;
     //up and down.
     scene.anims.create({
@@ -60,5 +60,4 @@ function slamAnimMaker(scene) {
         repeat: -1
     });
 }
-export default slamAnimMaker;
 //# sourceMappingURL=slamAnimMaker.js.map

@@ -24,7 +24,7 @@ function searcher(search, addTo) {
         }
     }
 }
-function searchVariable(attack) {
+export default function searchVariable(attack) {
     let result;
     result = {};
     //get objects
@@ -45,5 +45,4 @@ function searchVariable(attack) {
     }
     return result;
 }
-export default searchVariable;
 //# sourceMappingURL=searchVariable.js.map

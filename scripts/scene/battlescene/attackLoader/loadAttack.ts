@@ -29,7 +29,7 @@ import AttackLoader from "./attackLoader.js";
 /**
    * deliver data to another module.
    */
-function loadAttack(this: AttackLoader, attack: SingleAttack) {
+export default function loadAttack(this: AttackLoader, attack: SingleAttack) {
     let noData = false;
     if (!attack) {
         console.error(`attack is not defined at ${ this.runAttackPos }`);
@@ -148,4 +148,3 @@ function loadAttack(this: AttackLoader, attack: SingleAttack) {
 
     }
 }
-export default loadAttack;

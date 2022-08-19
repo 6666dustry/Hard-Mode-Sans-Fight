@@ -6,6 +6,7 @@ import {
     SetHeartPos,
     HeartDirection,
     setColor,
+    AllReadonly,
 } from "../../../Types.js";
 import blueMovement from "./blueMovement.js";
 import redMovement from "./redMovement.js";
@@ -21,10 +22,11 @@ import setCollisionGravity from "./setCollisionGravity.js";
 import maxSpeed from "./maxSpeed.js";
 import getPosition from "./getPosition.js";
 import router from "./router.js";
+import checkType from "../checkType.js";
 /**
  * attack turn heart movement systems.
  */
-class Heart {
+export default class Heart {
     /**
      * 
      * @param SCENE BattleScene reference.
@@ -161,53 +163,82 @@ class Heart {
             right: false,
         };
     }
-    setColor(config: setColor): void {
-        this.color = config.color;
+    setColor(config: AllReadonly<setColor>): void {
+        const DATA = checkType(config, {
+            color: "string",
+            playSound: {
+                type: "boolean",
+                default: false
+            }
+        }, this.director.AttackLoader.runAttackPos);
+        this.color = DATA.color;
         this.canJump = false;
-        if (config.playSound) {
+        if (DATA.playSound) {
             this.scene.sound.play(Keys.Audio.ding);
         }
     }
-    setPosition(config: SetHeartPos): void {
-        const X: number | undefined = config.x,
-            Y: number | undefined = config.y;
-        if (config.duration) {
-            if (X && Y) {
+    setPosition(config: AllReadonly<SetHeartPos>): void {
+        const DATA = checkType(config, {
+            x: {
+                type: ["number", "boolean"],
+                default: false
+            },
+            y: {
+                type: ["number", "boolean"],
+                default: false
+            },
+            duration: {
+                type: ["number", "boolean"],
+                default: false
+            },
+        }, this.director.AttackLoader.runAttackPos);
+        const X: number | false = DATA.x,
+            Y: number | false = DATA.y;
+
+        if (typeof DATA.duration === "number" && DATA.duration > 0) {
+            if (X !== false && Y !== false) {
                 this.scene.tweens.add({
                     targets: this.Image,
                     props: {
                         x: X,
                         y: Y
                     },
-                    duration: config.duration
+                    duration: DATA.duration
                 });
             } else {
-                if (X) {
+                if (X !== false) {
                     this.scene.tweens.add({
                         targets: this.Image,
                         props: {
                             x: X,
                         },
-                        duration: config.duration
+                        duration: DATA.duration
                     });
                 }
-                if (Y) {
+                if (Y !== false) {
                     this.scene.tweens.add({
                         targets: this.Image,
                         props: {
                             x: Y,
                         },
-                        duration: config.duration
+                        duration: DATA.duration
                     });
                 }
             }
-        } else
-            this.Image.setPosition(X, Y);
+        } else {
+            if (X !== false) {
+                this.Image.x = X;
+            }
+            if (Y !== false) {
+                this.Image.y = Y;
+            }
+        }
     }
     playerTurnInit() {
         this.setColor({
             color: "red"
         });
+
         this.gravityDirection = "down";
         this.Image.setTint(0xff0000);
         this.Force = { x: 0, y: 0 };
@@ -236,4 +267,3 @@ class Heart {
         this.Image.setVelocity(this.Force.x, this.Force.y);
     }
 };
-export default Heart; 

@@ -5,7 +5,7 @@ import Heart from "./Heart";
    * red soul custom movement.
    * @param cursors keys data.
    */
-function redMovement(this: Heart, cursors: MoveKey): void {
+export default function redMovement(this: Heart, cursors: MoveKey): void {
     //set color to red.
     if (this.color === "red") {
         this.Image.setTint(0xff0000);
@@ -26,4 +26,3 @@ function redMovement(this: Heart, cursors: MoveKey): void {
         this.Force.y = 0;
     }
 }
-export default redMovement;

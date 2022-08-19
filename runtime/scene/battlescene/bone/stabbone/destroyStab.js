@@ -1,4 +1,4 @@
-function destroyStab() {
+export default function destroyStab() {
     for (const iterator of this.Bones) {
         iterator.removeAll(true);
         iterator.destroy();
@@ -8,5 +8,4 @@ function destroyStab() {
     }
     this.destroy();
 }
-export default destroyStab;
 //# sourceMappingURL=destroyStab.js.map

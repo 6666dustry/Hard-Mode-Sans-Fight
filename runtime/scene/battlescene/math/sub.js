@@ -1,12 +1,17 @@
+import checkType from "../checkType.js";
 /**
  * do valueA - valueB.
  * @param this
  * @param config
  */
-function sub(config) {
-    const A = config.valueA;
-    const B = config.valueB;
-    this.variables[config.variable] = A - B;
+export default function sub(config) {
+    const DATA = checkType(config, {
+        variable: "string",
+        valueA: "number",
+        valueB: "number"
+    }, this.director.AttackLoader.runAttackPos);
+    const A = DATA.valueA;
+    const B = DATA.valueB;
+    this.variables[DATA.variable] = A - B;
 }
-export default sub;
 //# sourceMappingURL=sub.js.map

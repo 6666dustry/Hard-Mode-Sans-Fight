@@ -72,7 +72,7 @@ function setAngle(this: Bone) {
  * used for custom tween.
  * @param this
  */
-function update(this: Bone) {
+export default function update(this: Bone) {
     if (!this.body) {
         this.scene.tweens.killTweensOf(this);
         return;
@@ -101,4 +101,3 @@ function update(this: Bone) {
     this.oldLength = this.displayLength;
     this.oldAngle = this.angle;
 }
-export default update;;

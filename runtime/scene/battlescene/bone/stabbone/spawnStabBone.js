@@ -1,6 +1,6 @@
 import Keys from "../../../../keys.js";
 import compareBigger from "./compareBigger.js";
-function spawnStab() {
+export default function spawnStab() {
     if (!this.scene) {
         return;
     }
@@ -91,5 +91,4 @@ function spawnStab() {
     }
     this.scene.time.delayedCall(this.lifetime + ANIM_TIME, this.destroyStab, undefined, this);
 }
-export default spawnStab;
 //# sourceMappingURL=spawnStabBone.js.map

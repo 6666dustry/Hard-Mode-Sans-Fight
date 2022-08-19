@@ -3,7 +3,7 @@ import Director from "../director/Director.js";
 import router from "./router.js";
 import flash from "./flash.js";
 import falling from "./falling.js";
-class Effect {
+export default class Effect {
     constructor(scene: BattleScene, director: Director) {
         this.scene = scene;
         this.director = director;
@@ -18,4 +18,3 @@ class Effect {
     readonly router: typeof router;
     readonly falling: typeof falling;
 }
-export default Effect;

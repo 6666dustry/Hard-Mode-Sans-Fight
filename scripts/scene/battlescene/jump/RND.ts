@@ -1,4 +1,5 @@
 import { RNDJumpConfig } from "../../../Types.js";
+import checkType from "../checkType.js";
 import Jumps from "./Jumps.js";
 /**
  * randomly jump.
@@ -7,16 +8,23 @@ import Jumps from "./Jumps.js";
  * @returns 
  */
 
-function RND(this: Jumps, config: RNDJumpConfig) {
-    const KEY = Phaser.Math.Between(0, config.to.length - 1);
+export default function RND(this: Jumps, config: RNDJumpConfig) {
+    const DATA = checkType(config, {
+        to: "object",
+        rel: {
+            type: "boolean",
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
+    const KEY = Phaser.Math.Between(0, DATA.to.length - 1);
 
-    let to = config.to[KEY];
+    let to = DATA.to[KEY];
 
     if (typeof to !== "number") {
         to = this.searchLabel(to);
     }
 
-    if (config.rel) {
+    if (DATA.rel) {
         this.director.AttackLoader.runAttackPos += to;
     }
     else {
@@ -24,4 +32,3 @@ function RND(this: Jumps, config: RNDJumpConfig) {
     }
     return true;
 }
-export default RND;

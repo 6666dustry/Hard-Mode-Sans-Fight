@@ -3,7 +3,7 @@ import Keys from "../../../keys.js";
 import Director from "../director/Director.js";
 import debugUpdate from "./debugUpdate.js";
 import setMode from "./setMode.js";
-class Debug extends Phaser.GameObjects.Container {
+export default class Debug extends Phaser.GameObjects.Container {
     constructor(scene: BattleScene, director: Director) {
         super(scene);
 
@@ -24,4 +24,3 @@ class Debug extends Phaser.GameObjects.Container {
     state: "sleep" | "running";
     setMode: typeof setMode;
 }
-export default Debug;

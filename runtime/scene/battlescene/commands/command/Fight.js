@@ -1,5 +1,5 @@
 import Keys from "../../../../keys.js";
-class Fight {
+export default class Fight {
     constructor(command) {
         this.command = command;
         this.texts = ["sans"];
@@ -131,5 +131,4 @@ class Fight {
     }
     update() { }
 }
-export default Fight;
 //# sourceMappingURL=Fight.js.map
