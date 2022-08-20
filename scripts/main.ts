@@ -16,7 +16,7 @@ inspired by c2 sans fight
     link:https://jcw87.github.io/c2-sans-fight
 
 */
-export const gameDebug: boolean = !1;
+export const gameDebug: boolean = !0;
 const MDebug: Phaser.Types.Physics.Matter.MatterDebugConfig = {
     showVelocity: true,
     showCollisions: true,

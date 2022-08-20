@@ -81,15 +81,6 @@
             }
         },
         {
-            "category": "math",
-            "type": "add",
-            "data": {
-                "variable": "angle",
-                "valueA": "$angle",
-                "valueB": 90
-            }
-        },
-        {
             "category": "blaster",
             "type": "addSingle",
             "data": {

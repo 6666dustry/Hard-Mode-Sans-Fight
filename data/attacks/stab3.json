@@ -32,7 +32,7 @@
                 "x": 310,
                 "y": 310,
                 "count": 8,
-                "spaceRadius": 125,
+                "spaceRadius": 110,
                 "boneRadius": 0,
                 "startAngle": 45,
                 "boneConfig": {
@@ -50,7 +50,7 @@
                 "tween": {
                     "props": {
                         "rotateSpeed": 2.2,
-                        "spaceRadius": 110
+                        "spaceRadius": 85
                     },
                     "duration": 340,
                     "yoyo": true,

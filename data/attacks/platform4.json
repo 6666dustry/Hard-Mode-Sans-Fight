@@ -256,7 +256,12 @@
             "data": {
                 "endY": 290,
                 "endX": 30,
-                "wait": 1750
+                "wait": 1750,
+                "endAngle": -90,
+                "anchor": {
+                    "x": "top",
+                    "y": "middle"
+                }
             }
         },
         {
@@ -265,7 +270,12 @@
             "data": {
                 "endY": 240,
                 "endX": 10,
-                "wait": 1750
+                "wait": 1750,
+                "endAngle": -90,
+                "anchor": {
+                    "x": "top",
+                    "y": "middle"
+                }
             },
             "wait": 2000
         },

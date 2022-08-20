@@ -454,7 +454,7 @@ export type ABSConfig = {
 };
 export type ABSCountConfig = ABSConfig & {
     count?: number;
-    remain?: string;
+    remain?: string | false;
 };
 export type CountOutConfig = {
     to: number | `#${ label["name"] }`;
@@ -467,7 +467,7 @@ export type RELConfig = {
 };
 export type RELCountConfig = RELConfig & {
     count?: number;
-    remain?: string;
+    remain?: string | false;
 };
 export type RNDJumpConfig = {
     to: (number | `#${ label["name"] }`)[];

@@ -602,7 +602,6 @@
             "data": {
                 "x": 320,
                 "y": 350,
-                "delay": 0,
                 "length": 130,
                 "spawnTween": {
                     "tween": "biggerTop"

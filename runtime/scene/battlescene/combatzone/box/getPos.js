@@ -2,35 +2,35 @@ import checkType from "../../checkType.js";
 export default function getPos(config) {
     const DATA = checkType(config, {
         left: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         right: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         top: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         bottom: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         width: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         height: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         centerX: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         centerY: {
-            type: ["number", "boolean"],
+            type: ["string", "boolean"],
             default: false
         },
         zone: {

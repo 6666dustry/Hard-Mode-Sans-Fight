@@ -31,7 +31,6 @@
                 "length": 135,
                 "angle": 0,
                 "speed": 3,
-                "delay": 800,
                 "color": "blue",
                 "anchor": {
                     "x": "middle"
@@ -47,7 +46,6 @@
                 "length": 135,
                 "angle": 0,
                 "speed": -3,
-                "delay": 800,
                 "color": "blue",
                 "anchor": {
                     "x": "middle"

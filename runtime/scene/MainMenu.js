@@ -126,6 +126,7 @@ export default class MainMenu extends Phaser.Scene {
         this.load.json(Keys.Json.attack, "data/attacks/attackloader.json");
     }
     create(config) {
+        this.textures.get(Keys.Sheet.blaster);
         this.sound.stopAll();
         this.BackGround = new BackGround(this);
         this.AttackOrders = this.cache.json.get(Keys.Json.attack);

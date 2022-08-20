@@ -39,8 +39,8 @@ export default function addGap(this: BoneDirector, config: AllReadonly<GapBoneCo
         anchor: {
             type: "object",
             default: {
-                x: "middle",
-                y: "middle"
+                x: "bottom",
+                y: "bottom"
             }
         },
         lifetime: {

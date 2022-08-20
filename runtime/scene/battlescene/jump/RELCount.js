@@ -8,8 +8,8 @@ export default function RELCount(config) {
             default: 1
         },
         remain: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         }
     }, this.director.AttackLoader.runAttackPos);
     const INDEX = this.director.AttackLoader.runAttackPos;

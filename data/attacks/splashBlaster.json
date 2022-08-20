@@ -57,23 +57,14 @@
             }
         },
         {
-            "category": "math",
-            "type": "add",
-            "data": {
-                "variable": "Angle",
-                "valueA": "$blasterAngle",
-                "valueB": 90
-            }
-        },
-        {
             "category": "blaster",
             "type": "addSingle",
             "data": {
                 "endX": "$blasterX",
                 "endY": "$blasterY",
-                "endAngle": "$Angle",
+                "endAngle": "$blasterAngle",
                 "anchor": {
-                    "y": "middle"
+                    "x": "middle"
                 },
                 "wait": 1700
             }

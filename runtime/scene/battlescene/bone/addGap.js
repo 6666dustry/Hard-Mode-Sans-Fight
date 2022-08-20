@@ -36,8 +36,8 @@ export default function addGap(config) {
         anchor: {
             type: "object",
             default: {
-                x: "middle",
-                y: "middle"
+                x: "bottom",
+                y: "bottom"
             }
         },
         lifetime: {

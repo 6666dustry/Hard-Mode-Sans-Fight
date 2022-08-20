@@ -72,7 +72,7 @@
             "data": {
                 "variable": "endAngle",
                 "valueA": "$angle",
-                "valueB": 270
+                "valueB": 180
             }
         },
         {

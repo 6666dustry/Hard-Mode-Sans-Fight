@@ -136,6 +136,7 @@ export default class MainMenu extends Phaser.Scene {
     }
     create(config: BattleStartConfig): void {
 
+        this.textures.get(Keys.Sheet.blaster);
 
         this.sound.stopAll();
 

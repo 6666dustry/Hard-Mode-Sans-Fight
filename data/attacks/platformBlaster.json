@@ -9,14 +9,6 @@
             }
         },
         {
-            "category": "math",
-            "type": "set",
-            "data": {
-                "variable": "addRemain",
-                "value": 0
-            }
-        },
-        {
             "category": "combatzone",
             "type": "getPos",
             "data": {
@@ -184,9 +176,13 @@
             "data": {
                 "endX": 100,
                 "endY": "$boneY",
-                "endAngle": 0,
+                "endAngle": 270,
                 "size": "$padding",
-                "wait": 1000
+                "wait": 1000,
+                "anchor": {
+                    "x": "top",
+                    "y": "top"
+                }
             }
         },
         {
@@ -209,7 +205,7 @@
             "data": {
                 "endX": 540,
                 "endY": "$boneY",
-                "endAngle": 180,
+                "endAngle": 90,
                 "size": "$padding",
                 "wait": 1000,
                 "anchor": {
@@ -236,8 +232,7 @@
             "type": "ABSCount",
             "data": {
                 "to": "#addBlasters",
-                "count": 13,
-                "remain": "$addRemain"
+                "count": 13
             },
             "wait": 1000
         },
@@ -246,6 +241,14 @@
             "type": "label",
             "data": {
                 "name": "blaster"
+            }
+        },
+        {
+            "category": "heart",
+            "type": "getPos",
+            "data": {
+                "x": "heartX",
+                "y": "heartY"
             }
         },
         {
@@ -262,26 +265,9 @@
             "category": "math",
             "type": "sub",
             "data": {
-                "variable": "blasterY",
-                "valueA": "$heartY",
-                "valueB": 80
-            }
-        },
-        {
-            "category": "heart",
-            "type": "getPos",
-            "data": {
-                "x": "heartX",
-                "y": "heartY"
-            }
-        },
-        {
-            "category": "math",
-            "type": "sub",
-            "data": {
                 "variable": "posY",
                 "valueA": "$heartY",
-                "valueB": 100
+                "valueB": 200
             }
         },
         {
@@ -307,15 +293,6 @@
             }
         },
         {
-            "category": "math",
-            "type": "add",
-            "data": {
-                "variable": "angle",
-                "valueA": "$angle",
-                "valueB": 90
-            }
-        },
-        {
             "category": "blaster",
             "type": "addSingle",
             "data": {
@@ -323,7 +300,10 @@
                 "endY": "$bPosY",
                 "endAngle": "$angle",
                 "color": "$color",
-                "size": 30
+                "size": 30,
+                "anchor": {
+                    "x": "middle"
+                }
             }
         },
         {

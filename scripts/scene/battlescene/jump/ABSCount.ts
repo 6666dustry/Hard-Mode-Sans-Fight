@@ -10,8 +10,8 @@ export default function ABSCount(this: Jumps, config: AllReadonly<ABSCountConfig
             default: 1
         },
         remain: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         }
     }, this.director.AttackLoader.runAttackPos);
     /**own position */

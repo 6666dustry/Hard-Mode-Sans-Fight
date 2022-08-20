@@ -129,6 +129,7 @@ export default class CircleBone extends Phaser.GameObjects.Zone {
             setTarget(scene, this, DATA.tween);
         }
         this.setPosition(DATA.x, DATA.y);
+        this.oldAngle = this.startAngle;
         this.oldX = this.x;
         this.oldY = this.y;
         this.update = update;
@@ -164,6 +165,7 @@ export default class CircleBone extends Phaser.GameObjects.Zone {
     angleLine;
     oldX;
     oldY;
+    oldAngle;
     lockLength;
     getPadding;
     destroy() {

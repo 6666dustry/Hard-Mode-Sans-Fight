@@ -79,7 +79,7 @@
             "data": {
                 "variable": "posY",
                 "valueA": "$heartY",
-                "valueB": 100
+                "valueB": 130
             }
         },
         {
@@ -102,15 +102,6 @@
                 "angle": "$angle",
                 "x": "bPosX",
                 "y": "bPosY"
-            }
-        },
-        {
-            "category": "math",
-            "type": "add",
-            "data": {
-                "variable": "angle",
-                "valueA": "$angle",
-                "valueB": 90
             }
         },
         {

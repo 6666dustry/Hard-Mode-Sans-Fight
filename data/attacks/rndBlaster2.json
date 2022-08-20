@@ -138,7 +138,7 @@
             "data": {
                 "variable": "posY",
                 "valueA": 260,
-                "valueB": 100
+                "valueB": 200
             }
         },
         {
@@ -155,21 +155,12 @@
             }
         },
         {
-            "category": "math",
-            "type": "add",
-            "data": {
-                "variable": "endAngle",
-                "valueA": "$angle",
-                "valueB": 90
-            }
-        },
-        {
             "category": "blaster",
             "type": "addSingle",
             "data": {
                 "endX": "$bPosX",
                 "endY": "$bPosY",
-                "endAngle": "$endAngle",
+                "endAngle": "$angle",
                 "color": 0,
                 "size": 30,
                 "wait": 800,

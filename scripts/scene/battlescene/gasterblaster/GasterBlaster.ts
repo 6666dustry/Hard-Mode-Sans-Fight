@@ -48,7 +48,7 @@ export default class GasterBlaster extends Bullet {
             },
             size: {
                 type: "number",
-                default: this.scene.textures.get(Keys.Sheet.blaster).get(0).height
+                default: this.scene.textures.get(Keys.Sheet.blaster).get(0).width
             },
             wait: {
                 type: "number",
@@ -98,17 +98,17 @@ export default class GasterBlaster extends Bullet {
 
         this.size = DATA.size;
 
-        this.Laser = this.scene.add.sprite(16, 0, Keys.Image.block);
+        this.Laser = this.scene.add.sprite(0, 0, Keys.Image.block);
 
-        const LASER_SCALE = this.size / this.Laser.width;
+        const LASER_SCALE = this.size / this.Laser.height;
 
-        this.Laser.setScale(100, LASER_SCALE);
+        this.Laser.setScale(LASER_SCALE, 100);
 
-        const FACE_SCALE = this.size / this.Face.width;
+        const FACE_SCALE = this.size / this.Face.height;
         const MORE = 2.5;
         const MIN = 2;
 
-        this.Face.setScale(Math.max(MIN, FACE_SCALE * MORE), FACE_SCALE * MORE
+        this.Face.setScale(FACE_SCALE * MORE, Math.max(MIN, FACE_SCALE * MORE)
         );
 
         this.Laser.setVisible(false);
@@ -118,8 +118,8 @@ export default class GasterBlaster extends Bullet {
         ]);
 
         this.Arc = scene.add.arc(
-            -(this.Laser.displayWidth / 2) + this.Laser.x,
-            0, this.Laser.displayHeight / 2, 90, 270, false, 0xffffff) as typeof this.Arc;
+            0,
+            -(this.Laser.displayHeight / 2) + this.Laser.x, this.Laser.displayWidth / 2, 180, 360, false, 0xffffff) as typeof this.Arc;
 
         this.Arc.setTint = this.Arc.setFillStyle;
 
@@ -131,7 +131,7 @@ export default class GasterBlaster extends Bullet {
         this.setAngle(this.startAngle);
 
 
-        this.setSize(this.Laser.displayWidth, this.Laser.displayHeight - 10);
+        this.setSize(this.Laser.displayWidth - 10, this.Laser.displayHeight);
 
         const MatterObject: Phaser.Physics.Matter.Sprite = this.scene.matter.add.gameObject(this) as Phaser.Physics.Matter.Sprite;
 
@@ -158,20 +158,19 @@ export default class GasterBlaster extends Bullet {
         this.Face.setDepth(Keys.Depth.blaster);
 
         let add = Phaser.Math.Rotate({
-            x: this.Face.displayWidth,
-            y: 0
+            x: 0, y: this.Face.displayHeight,
         },
-            Phaser.Math.DegToRad(Config.endAngle || 0));
+            Phaser.Math.DegToRad(DATA.endAngle));
         // set end point.
         let endFacePos: AnchorConfig = {
             x: DATA.endX - add.x,
             y: DATA.endY - add.y,
-            width: this.Face.displayWidth * 2,
-            height: this.Laser.displayHeight,
-            angle: DATA.endAngle || 0,
+            width: this.Laser.displayWidth,
+            height: this.Face.displayHeight * 3,
+            angle: DATA.endAngle,
             anchor: this.anchor,
             origin: {
-                width: this.Face.displayWidth,
+                height: this.Face.displayHeight,
             }
         };
 
@@ -182,13 +181,13 @@ export default class GasterBlaster extends Bullet {
         let endPoint: AnchorConfig = {
             x: DATA.endX,
             y: DATA.endY,
-            width: this.width + this.Face.displayWidth,
-            height: this.Laser.displayHeight,
+            width: this.Laser.displayWidth,
+            height: this.height + this.Face.displayHeight * 2,
 
             angle: DATA.endAngle,
             anchor: this.anchor,
             origin: {
-                width: this.Face.displayWidth,
+                height: this.Face.displayHeight,
             }
         };
 
@@ -268,7 +267,7 @@ export default class GasterBlaster extends Bullet {
             return;
         }
 
-        this.Face.setPosition(-(this.Laser.displayWidth / 2) - (this.Face.displayWidth / 2), 0);
+        this.Face.setPosition(0, -(this.Laser.displayHeight / 2) - (this.Face.displayHeight / 2));
         this.Face.setAngle();
 
         this.add(this.Face);
@@ -303,8 +302,8 @@ export default class GasterBlaster extends Bullet {
                     value: 1,
                     duration: WAIT_BLAST / 2
                 },
-                displayHeight: {
-                    value: this.Laser.displayHeight,
+                displayWidth: {
+                    value: this.Laser.displayWidth,
                 }
             },
             duration: WAIT_BLAST,
@@ -312,8 +311,8 @@ export default class GasterBlaster extends Bullet {
             onCompleteScope: this
         });
 
-        this.Laser.displayHeight = 0;
-        this.Arc.displayHeight = 0;
+        this.Laser.displayWidth = 0;
+        this.Arc.displayWidth = 0;
         this.Laser.alpha = 0;
         this.Arc.alpha = 0;
     }
@@ -333,13 +332,13 @@ export default class GasterBlaster extends Bullet {
 
         this.Face.anims.play(Keys.Anim.blasting, true);
 
-        this.Laser.displayHeight = this.size - 10;
-        this.Arc.displayHeight = this.size - 10;
+        this.Laser.displayWidth = this.size - 10;
+        this.Arc.displayWidth = this.size - 10;
 
         this.laserTween = this.scene.tweens.add({
             targets: [this.Laser, this.Arc],
             props: {
-                displayHeight: Math.min(this.size + 20, this.Laser.displayHeight * 2),
+                displayWidth: Math.min(this.size + 20, this.Laser.displayWidth * 2),
             },
 
             yoyo: true,
@@ -348,7 +347,7 @@ export default class GasterBlaster extends Bullet {
             repeat: -1,
         });
 
-        this.scene.matter.applyForceFromAngle(this.body as MatterJS.BodyType, -Keys.MASS / 30);
+        this.scene.matter.applyForceFromAngle(this.body as MatterJS.BodyType, -Keys.MASS / 30, Phaser.Math.DegToRad(this.angle + 90));
 
         this.scene.time.delayedCall(this.blastTime, this.endBlast, undefined, this);
     }
@@ -370,7 +369,7 @@ export default class GasterBlaster extends Bullet {
                     value: 0,
                     duration: 350
                 },
-                displayHeight: {
+                displayWidth: {
                     value: 10,
                     duration: 300
                 }

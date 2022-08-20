@@ -8,8 +8,8 @@ export default function ABSCount(config) {
             default: 1
         },
         remain: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         }
     }, this.director.AttackLoader.runAttackPos);
     /**own position */

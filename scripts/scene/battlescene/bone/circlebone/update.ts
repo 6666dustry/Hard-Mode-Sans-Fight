@@ -12,25 +12,33 @@ export default function update(this: CircleBone) {
     }
 
     this.startAngle += this.rotateSpeed;
-    let BonePos = new Phaser.Math.Vector2(0, (this.boneRadius / 2 + this.spaceRadius));
 
-    BonePos.rotate(Phaser.Math.DegToRad(this.startAngle));
+    //rotation.
+    if (this.oldAngle !== this.angle) {
+        let BonePos = new Phaser.Math.Vector2(0, (this.boneRadius / 2 + this.spaceRadius));
 
-    for (const iterator of this.Bones as Bone[]) {
+        BonePos.rotate(Phaser.Math.DegToRad(this.startAngle));
+        let addAngle = this.startAngle - this.oldAngle;
+        const PADDING = this.getPadding();
 
-        if (!iterator.destroyed) {
+        for (const iterator of this.Bones as Bone[]) {
 
-            iterator.setPosition(BonePos.x + this.x, BonePos.y + this.y);
+            if (!iterator.destroyed) {
 
-            iterator.setAngle(iterator.angle + this.rotateSpeed);
+                iterator.setPosition(BonePos.x + this.x, BonePos.y + this.y);
 
-            if (!this.lockLength) {
-                iterator.displayLength = this.boneRadius;
+                iterator.angle += addAngle;
+
+                if (!this.lockLength) {
+                    iterator.displayLength = this.boneRadius;
+                }
+
             }
-        }
 
-        BonePos.rotate(Phaser.Math.DegToRad(this.getPadding()));
+            BonePos.rotate(Phaser.Math.DegToRad(PADDING));
+        }
     }
+
     if (this.scene.director.Debug.state === "running" && this.middlePoint) {
         this.middlePoint.clear();
         this.middlePoint.x = this.x;
@@ -52,4 +60,5 @@ export default function update(this: CircleBone) {
 
     this.oldX = this.x;
     this.oldY = this.y;
+    this.oldAngle = this.startAngle;
 }

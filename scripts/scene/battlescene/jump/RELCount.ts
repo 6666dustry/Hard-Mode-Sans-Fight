@@ -10,8 +10,8 @@ export default function RELCount(this: Jumps, config: RELCountConfig): boolean {
             default: 1
         },
         remain: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         }
     }, this.director.AttackLoader.runAttackPos);
 

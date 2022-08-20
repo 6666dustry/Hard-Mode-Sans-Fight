@@ -7,17 +7,22 @@ export default function update() {
         return;
     }
     this.startAngle += this.rotateSpeed;
-    let BonePos = new Phaser.Math.Vector2(0, (this.boneRadius / 2 + this.spaceRadius));
-    BonePos.rotate(Phaser.Math.DegToRad(this.startAngle));
-    for (const iterator of this.Bones) {
-        if (!iterator.destroyed) {
-            iterator.setPosition(BonePos.x + this.x, BonePos.y + this.y);
-            iterator.setAngle(iterator.angle + this.rotateSpeed);
-            if (!this.lockLength) {
-                iterator.displayLength = this.boneRadius;
+    //rotation.
+    if (this.oldAngle !== this.angle) {
+        let BonePos = new Phaser.Math.Vector2(0, (this.boneRadius / 2 + this.spaceRadius));
+        BonePos.rotate(Phaser.Math.DegToRad(this.startAngle));
+        let addAngle = this.startAngle - this.oldAngle;
+        const PADDING = this.getPadding();
+        for (const iterator of this.Bones) {
+            if (!iterator.destroyed) {
+                iterator.setPosition(BonePos.x + this.x, BonePos.y + this.y);
+                iterator.angle += addAngle;
+                if (!this.lockLength) {
+                    iterator.displayLength = this.boneRadius;
+                }
             }
+            BonePos.rotate(Phaser.Math.DegToRad(PADDING));
         }
-        BonePos.rotate(Phaser.Math.DegToRad(this.getPadding()));
     }
     if (this.scene.director.Debug.state === "running" && this.middlePoint) {
         this.middlePoint.clear();
@@ -37,5 +42,6 @@ export default function update() {
     }
     this.oldX = this.x;
     this.oldY = this.y;
+    this.oldAngle = this.startAngle;
 }
 //# sourceMappingURL=update.js.map

@@ -37,6 +37,15 @@
             "wait": 1000
         },
         {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "platMinY",
+                "valueA": "$comTop",
+                "valueB": 25
+            }
+        },
+        {
             "category": "jump",
             "type": "label",
             "data": {
@@ -95,7 +104,7 @@
                 },
                 "tween": {
                     "props": {
-                        "y": "$comTop",
+                        "y": "$platMinY",
                         "x": {
                             "value": "$platEndX",
                             "duration": 4500,
@@ -225,7 +234,9 @@
             "data": {
                 "endY": "$comTop",
                 "wait": 2000,
-                "endX": "$comLeft"
+                "endX": "$comLeft",
+                "endAngle": 90,
+                "anchor": {}
             }
         },
         {
@@ -234,10 +245,11 @@
             "data": {
                 "endY": "$comTop",
                 "endX": "$comRight",
-                "endAngle": 180,
+                "endAngle": 270,
                 "wait": 2000,
                 "anchor": {
-                    "y": "top"
+                    "y": "bottom",
+                    "x": "top"
                 }
             }
         },

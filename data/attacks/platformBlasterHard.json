@@ -165,9 +165,13 @@
             "data": {
                 "endX": 100,
                 "endY": "$boneY",
-                "endAngle": 0,
+                "endAngle": 270,
                 "size": "$padding",
-                "wait": 1000
+                "wait": 1000,
+                "anchor": {
+                    "x": "top",
+                    "y": "top"
+                }
             }
         },
         {
@@ -190,7 +194,7 @@
             "data": {
                 "endX": 540,
                 "endY": "$boneY",
-                "endAngle": 180,
+                "endAngle": 90,
                 "size": "$padding",
                 "wait": 1000,
                 "anchor": {
@@ -234,18 +238,9 @@
             "category": "math",
             "type": "sub",
             "data": {
-                "variable": "blasterY",
-                "valueA": "$heartY",
-                "valueB": 80
-            }
-        },
-        {
-            "category": "math",
-            "type": "sub",
-            "data": {
                 "variable": "posY",
                 "valueA": "$heartY",
-                "valueB": 100
+                "valueB": 200
             }
         },
         {
@@ -271,15 +266,6 @@
             }
         },
         {
-            "category": "math",
-            "type": "add",
-            "data": {
-                "variable": "angle",
-                "valueA": "$angle",
-                "valueB": 90
-            }
-        },
-        {
             "category": "blaster",
             "type": "addSingle",
             "data": {
@@ -290,7 +276,7 @@
                 "size": 20,
                 "blastTime": 200,
                 "anchor": {
-                    "y": "middle"
+                    "x": "middle"
                 }
             }
         },

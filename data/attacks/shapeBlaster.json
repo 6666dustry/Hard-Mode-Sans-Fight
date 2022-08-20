@@ -89,7 +89,8 @@
                 "endX": "$comLeft",
                 "endY": "$comMidY",
                 "blastTime": 600,
-                "size": 45,
+                "endAngle": 270,
+                "size": 40,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -105,8 +106,8 @@
                 "endX": "$comMidX",
                 "endY": "$comTop",
                 "blastTime": 600,
-                "endAngle": 90,
-                "size": 45,
+                "endAngle": 0,
+                "size": 40,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -121,8 +122,8 @@
                 "endX": "$comRight",
                 "endY": "$comMidY",
                 "blastTime": 600,
-                "size": 45,
-                "endAngle": 180,
+                "size": 40,
+                "endAngle": 90,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -137,8 +138,8 @@
                 "endX": "$comMidX",
                 "endY": "$comBottom",
                 "blastTime": 600,
-                "size": 45,
-                "endAngle": 270,
+                "size": 40,
+                "endAngle": 180,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -153,8 +154,11 @@
                 "endX": "$comLeft",
                 "endY": "$comTop",
                 "blastTime": 600,
-                "size": 45,
-                "wait": "$interval"
+                "size": 40,
+                "wait": "$interval",
+                "anchor": {
+                    "y": "top"
+                }
             },
             "wait": "$next"
         },
@@ -166,8 +170,11 @@
                 "endY": "$comTop",
                 "blastTime": 600,
                 "endAngle": 90,
-                "size": 45,
-                "wait": "$interval"
+                "size": 40,
+                "wait": "$interval",
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -177,9 +184,12 @@
                 "endX": "$comRight",
                 "endY": "$comBottom",
                 "blastTime": 600,
-                "size": 45,
+                "size": 40,
                 "endAngle": 180,
-                "wait": "$interval"
+                "wait": "$interval",
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -189,9 +199,12 @@
                 "endX": "$comLeft",
                 "endY": "$comBottom",
                 "blastTime": 600,
-                "size": 45,
+                "size": 40,
                 "endAngle": 270,
-                "wait": "$interval"
+                "wait": "$interval",
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -201,8 +214,8 @@
                 "endX": "$comLeft",
                 "endY": "$comTop",
                 "blastTime": 600,
-                "size": 45,
-                "endAngle": 45,
+                "size": 40,
+                "endAngle": 315,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -218,8 +231,8 @@
                 "endX": "$comRight",
                 "endY": "$comTop",
                 "blastTime": 600,
-                "endAngle": 135,
-                "size": 45,
+                "endAngle": 45,
+                "size": 40,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -234,8 +247,8 @@
                 "endX": "$comRight",
                 "endY": "$comBottom",
                 "blastTime": 600,
-                "size": 45,
-                "endAngle": 225,
+                "size": 40,
+                "endAngle": 135,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -250,8 +263,8 @@
                 "endX": "$comLeft",
                 "endY": "$comBottom",
                 "blastTime": 600,
-                "size": 45,
-                "endAngle": 315,
+                "size": 40,
+                "endAngle": 225,
                 "wait": "$interval",
                 "anchor": {
                     "x": "middle",
@@ -296,7 +309,7 @@
             "data": {
                 "variable": "posY",
                 "valueA": "$comMidY",
-                "valueB": 60
+                "valueB": 270
             }
         },
         {
@@ -322,12 +335,21 @@
             }
         },
         {
+            "category": "math",
+            "type": "add",
+            "data": {
+                "variable": "endAngle",
+                "valueA": "$angle",
+                "valueB": 15
+            }
+        },
+        {
             "category": "blaster",
             "type": "addSingle",
             "data": {
                 "endX": "$bPosX",
                 "endY": "$bPosY",
-                "endAngle": "$angle",
+                "endAngle": "$endAngle",
                 "size": 30,
                 "wait": 1500
             }

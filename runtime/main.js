@@ -15,7 +15,7 @@ inspired by c2 sans fight
     link:https://jcw87.github.io/c2-sans-fight
 
 */
-export const gameDebug = !1;
+export const gameDebug = !0;
 const MDebug = {
     showVelocity: true,
     showCollisions: true,

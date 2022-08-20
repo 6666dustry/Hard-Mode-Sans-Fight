@@ -6,7 +6,7 @@ export default function flash(this: Effect, config: AllReadonly<FlashConfig>) {
     const DATA = checkType(config, {
         duration: {
             type: "number",
-            default: 500
+            default: 350
         },
         sound: {
             type: ["string", "boolean"],
@@ -18,7 +18,7 @@ export default function flash(this: Effect, config: AllReadonly<FlashConfig>) {
         },
         pause: {
             type: "boolean",
-            default: true
+            default: false
         }
     }, this.director.AttackLoader.runAttackPos);
     this.scene.cameras.cameras.forEach((value) => {

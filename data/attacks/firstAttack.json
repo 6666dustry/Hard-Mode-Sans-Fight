@@ -184,7 +184,11 @@
                 "endX": 238,
                 "endY": 235,
                 "blastTime": 500,
-                "size": 45
+                "size": 45,
+                "endAngle": 0,
+                "anchor": {
+                    "y": "top"
+                }
             },
             "wait": 900
         },
@@ -196,7 +200,10 @@
                 "endY": 235,
                 "blastTime": 500,
                 "endAngle": 90,
-                "size": 45
+                "size": 45,
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -207,7 +214,10 @@
                 "endY": 385,
                 "blastTime": 500,
                 "size": 45,
-                "endAngle": 180
+                "endAngle": 180,
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -218,7 +228,10 @@
                 "endY": 385,
                 "blastTime": 500,
                 "size": 45,
-                "endAngle": 270
+                "endAngle": 270,
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -228,11 +241,11 @@
                 "endX": 238,
                 "endY": 235,
                 "blastTime": 500,
-                "endAngle": 45,
+                "endAngle": -45,
                 "size": 45,
                 "anchor": {
-                    "x": "bottom",
-                    "y": "middle"
+                    "x": "middle",
+                    "y": "top"
                 }
             },
             "wait": 900
@@ -244,11 +257,11 @@
                 "endX": 388,
                 "endY": 235,
                 "blastTime": 500,
-                "endAngle": 135,
+                "endAngle": 45,
                 "size": 45,
                 "anchor": {
-                    "x": "bottom",
-                    "y": "middle"
+                    "x": "middle",
+                    "y": "top"
                 }
             }
         },
@@ -259,11 +272,11 @@
                 "endX": 388,
                 "endY": 385,
                 "blastTime": 500,
-                "endAngle": 225,
+                "endAngle": 135,
                 "size": 45,
                 "anchor": {
-                    "x": "bottom",
-                    "y": "middle"
+                    "x": "middle",
+                    "y": "top"
                 }
             }
         },
@@ -274,11 +287,11 @@
                 "endX": 238,
                 "endY": 385,
                 "blastTime": 500,
-                "endAngle": 315,
+                "endAngle": 225,
                 "size": 45,
                 "anchor": {
-                    "x": "bottom",
-                    "y": "middle"
+                    "x": "middle",
+                    "y": "top"
                 }
             }
         },
@@ -310,7 +323,11 @@
                 "endX": 238,
                 "endY": 235,
                 "blastTime": 500,
-                "size": 45
+                "size": 45,
+                "endAngle": 0,
+                "anchor": {
+                    "y": "top"
+                }
             },
             "wait": 900
         },
@@ -322,7 +339,10 @@
                 "endY": 235,
                 "blastTime": 500,
                 "endAngle": 90,
-                "size": 45
+                "size": 45,
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -333,7 +353,10 @@
                 "endY": 385,
                 "blastTime": 500,
                 "size": 45,
-                "endAngle": 180
+                "endAngle": 180,
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -344,7 +367,10 @@
                 "endY": 385,
                 "blastTime": 500,
                 "size": 45,
-                "endAngle": 270
+                "endAngle": 270,
+                "anchor": {
+                    "y": "top"
+                }
             }
         },
         {
@@ -366,11 +392,11 @@
                 "endY": 310,
                 "blastTime": 1200,
                 "wait": 1200,
-                "endAngle": 0,
+                "endAngle": -90,
                 "size": 80,
                 "anchor": {
-                    "x": "bottom",
-                    "y": "middle"
+                    "x": "middle",
+                    "y": "top"
                 }
             },
             "wait": 1000
@@ -383,11 +409,11 @@
                 "endY": 310,
                 "blastTime": 1200,
                 "wait": 1200,
-                "endAngle": 180,
+                "endAngle": 90,
                 "size": 80,
                 "anchor": {
-                    "x": "bottom",
-                    "y": "middle"
+                    "x": "middle",
+                    "y": "top"
                 }
             }
         },

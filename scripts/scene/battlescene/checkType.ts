@@ -88,22 +88,19 @@ export default function checkType<check extends {
     }
 
     const CHECK_KEYS: string[] = Object.keys(Check);
-    if (ignoreWarn) {
-        CHECK_KEYS.forEach((value, index, array) => {
-            for (const key in ignoreWarn) {
-                if (Object.prototype.hasOwnProperty.call(ignoreWarn, key)) {
-                    const element = ignoreWarn[key];
-                    if (element) {
-                        if (value === key) {
-                            CHECK_KEYS.splice(index, 1);
-                        }
+
+    checkHas: for (const iterator of CHECK_KEYS) {
+        for (const key in ignoreWarn) {
+            if (Object.prototype.hasOwnProperty.call(ignoreWarn, key)) {
+                const element = ignoreWarn[key];
+                if (element) {
+                    if (key === iterator) {
+                        continue checkHas;
                     }
                 }
-            }
-        });
-    }
 
-    for (const iterator of CHECK_KEYS) {
+            }
+        }
         if (Property[iterator] == undefined) {
             console.warn(`${ String(iterator) } is not defined at ${ runAttackPosition }`);
         }
