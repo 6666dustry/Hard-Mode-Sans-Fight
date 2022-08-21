@@ -67,6 +67,8 @@ export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConf
             this.torso.once("animationcomplete", () => {
                 this.torso.setFrame("torso");
                 this.slamming = false;
+                this.head.setPosition(0, this.headY);
+                this.torso.setPosition(0, 0);
             }, this);
 
         } else {
