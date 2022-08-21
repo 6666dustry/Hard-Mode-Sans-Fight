@@ -6,7 +6,7 @@ export default function compare(config) {
         valueA: "number",
         valueB: {
             type: "number",
-            default: undefined
+            default: 0
         },
         rel: {
             type: "boolean",

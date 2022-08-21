@@ -18,12 +18,12 @@ export default function rotate(config) {
             default: 0
         },
         x: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         },
         y: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         },
         angle: "number"
     }, this.director.AttackLoader.runAttackPos);

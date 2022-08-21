@@ -29,12 +29,16 @@ export default class MoveKey {
     left;
     down;
     right;
-    upKeys;
-    leftKeys;
-    downKeys;
-    rightKeys;
     space;
     shift;
+    /**key of move to up. */
+    upKeys;
+    /**key of move to left. */
+    leftKeys;
+    /**key of move to down. */
+    downKeys;
+    /**key of move to right. */
+    rightKeys;
     get upIsDown() {
         for (const iterator of this.upKeys) {
             if (iterator.isDown) {

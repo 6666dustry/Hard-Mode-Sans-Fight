@@ -150,7 +150,6 @@ const Keys = {
     Json: JsonKey,
     Anim: AnimKey,
     Event: EventKey,
-    /**It Just have texts. */
     Text: TextKey,
     Depth: DepthKey,
     Scene: SceneKey,

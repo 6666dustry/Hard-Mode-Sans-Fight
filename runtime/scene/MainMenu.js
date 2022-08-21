@@ -2,7 +2,6 @@
 import BackGround from "../backGround.js";
 import Keys from "../keys.js";
 import MoveKey from "../MoveKey.js";
-//MainMenu load many resource.
 export default class MainMenu extends Phaser.Scene {
     constructor() {
         super(Keys.Scene.mainMenu);

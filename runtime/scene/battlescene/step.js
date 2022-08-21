@@ -4,7 +4,7 @@ import stepType from "./steptype.js";
  * @param stepped
  * @param stepper
  * @param makeCopy is make deep copy? default is false.
- * @returns
+ * @returns stepped values.
  */
 export default function step(stepped, stepper, makeCopy) {
     let result = stepped;

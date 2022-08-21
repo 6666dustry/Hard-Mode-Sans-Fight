@@ -54,6 +54,8 @@ export default function setVisual(Config) {
             this.torso.once("animationcomplete", () => {
                 this.torso.setFrame("torso");
                 this.slamming = false;
+                this.head.setPosition(0, this.headY);
+                this.torso.setPosition(0, 0);
             }, this);
         }
         else {

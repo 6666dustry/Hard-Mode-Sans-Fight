@@ -99,7 +99,7 @@ export default class SingleSelect extends Phaser.Scene {
         if (!this.cursors.downIsDown) {
             this.lastDownTime.downKey = time;
         }
-        const DELAY = 1000;
+        const DELAY = 750;
         if (this.cursors.upIsJustDown || (this.lastDownTime.upKey < time - DELAY && this.delayTime > 4)) {
             this.selected <= 0 || this.selected--;
             this.sound.play(Keys.Audio.cursor);
