@@ -33,7 +33,6 @@
     ],
     "Phase2RND": [
         "rndBlaster1.json",
-        "multi3.json",
         "splashBlaster.json",
         "splashBlasterHard.json"
     ]

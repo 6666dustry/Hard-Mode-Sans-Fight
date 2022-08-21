@@ -65,7 +65,8 @@
                 "endAngle": "$blasterAngle",
                 "size": 20,
                 "anchor": {
-                    "x": "middle"
+                    "x": "middle",
+                    "y": "middle"
                 },
                 "wait": 1200
             }

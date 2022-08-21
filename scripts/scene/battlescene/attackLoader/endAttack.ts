@@ -61,15 +61,12 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
                     loop: true
                 });
             }
-
-            if (this.resting) {
-                this.resting = false;
+            if (!this.first && (this.resting || this.loadFilePos + 1 >= this.getPhaseLength())) {
                 this.phase++;
                 this.loadFilePos = -1;
-                this.scene.sound.play(Keys.Audio.BGM, {
-                    loop: true
-                });
             }
+            D.Sans.x = 320;
+
             D.Statuses.hp = D.Statuses.maxHp;
             D.Statuses.kr = 0;
             D.Statuses.setDisplay();

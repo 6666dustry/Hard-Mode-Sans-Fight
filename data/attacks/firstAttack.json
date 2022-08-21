@@ -32,7 +32,8 @@
             "category": "effect",
             "type": "flash",
             "data": {
-                "pause": true
+                "pause": true,
+                "duration": 750
             }
         },
         {

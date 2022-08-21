@@ -64,7 +64,8 @@
                 "endY": "$blasterY",
                 "endAngle": "$blasterAngle",
                 "anchor": {
-                    "x": "middle"
+                    "x": "middle",
+                    "y": "middle"
                 },
                 "wait": 1700
             }

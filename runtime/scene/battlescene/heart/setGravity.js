@@ -13,55 +13,57 @@ function setSlam(config) {
             this.Image.setVelocity(0);
         };
         this.scene.cameras.main.shake(100, 0.01);
-        const SLAM_TO = this.director.CombatzoneDirector.getIn(this.Image.x, this.Image.y);
-        if (SLAM_TO) {
-            switch (config.direction || this.gravityDirection) {
-                case "up":
-                    this.scene.tweens.add({
-                        targets: this.Image,
-                        props: {
-                            y: SLAM_TO.boxY + PADDING
-                        },
-                        onComplete: ONCOMPLETE,
-                        onCompleteScope: this,
-                        duration: DURATION
-                    });
-                    break;
-                case "down":
-                    this.scene.tweens.add({
-                        targets: this.Image,
-                        props: {
-                            y: SLAM_TO.boxDy - PADDING
-                        },
-                        onComplete: ONCOMPLETE,
-                        onCompleteScope: this,
-                        duration: DURATION
-                    });
-                    break;
-                case "right":
-                    this.scene.tweens.add({
-                        targets: this.Image,
-                        props: {
-                            x: SLAM_TO.boxDx - PADDING
-                        },
-                        onComplete: ONCOMPLETE,
-                        onCompleteScope: this,
-                        duration: DURATION
-                    });
-                    break;
-                case "left":
-                    this.scene.tweens.add({
-                        targets: this.Image,
-                        props: {
-                            x: SLAM_TO.boxX + PADDING
-                        },
-                        onComplete: ONCOMPLETE,
-                        onCompleteScope: this,
-                        duration: DURATION
-                    });
-                    break;
+        if (this.Image.body) {
+            const SLAM_TO = this.director.CombatzoneDirector.getIn(this.Image.x, this.Image.y);
+            if (SLAM_TO) {
+                switch (config.direction || this.gravityDirection) {
+                    case "up":
+                        this.scene.tweens.add({
+                            targets: this.Image,
+                            props: {
+                                y: SLAM_TO.boxY + PADDING
+                            },
+                            onComplete: ONCOMPLETE,
+                            onCompleteScope: this,
+                            duration: DURATION
+                        });
+                        break;
+                    case "down":
+                        this.scene.tweens.add({
+                            targets: this.Image,
+                            props: {
+                                y: SLAM_TO.boxDy - PADDING
+                            },
+                            onComplete: ONCOMPLETE,
+                            onCompleteScope: this,
+                            duration: DURATION
+                        });
+                        break;
+                    case "right":
+                        this.scene.tweens.add({
+                            targets: this.Image,
+                            props: {
+                                x: SLAM_TO.boxDx - PADDING
+                            },
+                            onComplete: ONCOMPLETE,
+                            onCompleteScope: this,
+                            duration: DURATION
+                        });
+                        break;
+                    case "left":
+                        this.scene.tweens.add({
+                            targets: this.Image,
+                            props: {
+                                x: SLAM_TO.boxX + PADDING
+                            },
+                            onComplete: ONCOMPLETE,
+                            onCompleteScope: this,
+                            duration: DURATION
+                        });
+                        break;
+                }
+                this.scene.sound.play(Keys.Audio.slam);
             }
-            this.scene.sound.play(Keys.Audio.slam);
         }
     }
 }

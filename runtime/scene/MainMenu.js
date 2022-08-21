@@ -41,6 +41,7 @@ export default class MainMenu extends Phaser.Scene {
             progress.clear();
             progress.fillStyle(0xffffff, 1);
             progress.fillRect(0, 180, 640 * value, 60);
+            loading.setTint(0xffffff * value);
         });
         this.load.on('complete', function () {
             progress.destroy();

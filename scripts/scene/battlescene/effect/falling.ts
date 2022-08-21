@@ -33,7 +33,7 @@ export default function falling(this: Effect, config: AllReadonly<FallingConfig>
         });
     }
 
-    this.scene.time.delayedCall(
+    this.fallingEnd = this.scene.time.delayedCall(
         DATA.duration, () => {
             this.director.Sans.falling = undefined;
             this.director.Sans.setVisual(

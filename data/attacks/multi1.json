@@ -431,7 +431,6 @@
             "data": {
                 "x": 250,
                 "y": 280,
-                "delay": 0,
                 "length": 135,
                 "angle": 0,
                 "spin": "$spin",
@@ -450,7 +449,6 @@
             "data": {
                 "x": 390,
                 "y": 280,
-                "delay": 0,
                 "length": 135,
                 "angle": 0,
                 "spin": "$spin",
@@ -469,7 +467,6 @@
             "data": {
                 "x": 320,
                 "y": 210,
-                "delay": 0,
                 "length": 135,
                 "angle": 90,
                 "spin": "$spin",
@@ -488,7 +485,6 @@
             "data": {
                 "x": 320,
                 "y": 350,
-                "delay": 0,
                 "length": 135,
                 "angle": 90,
                 "spin": "$spin",

@@ -32,7 +32,7 @@ export default class BlasterDirector extends Phaser.GameObjects.Group {
                     frame: "right",
                 }
             ],
-            duration: ANIM_DURATION / 4,
+            duration: ANIM_DURATION / 2,
             repeat: -1
         });
     }

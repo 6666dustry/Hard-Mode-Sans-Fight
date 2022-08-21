@@ -705,61 +705,23 @@
             "category": "platform",
             "type": "addSingle",
             "data": {
-                "x": 320,
+                "x": 290,
                 "y": 330,
+                "color": "purple",
+                "tween": {
+                    "props": {
+                        "x": "+=60"
+                    },
+                    "ease": "Expo.easeInOut",
+                    "yoyo": true,
+                    "repeat": -1
+                },
                 "anchor": {
                     "x": "middle"
                 }
             }
         },
         {
-            "category": "jump",
-            "type": "RND",
-            "data": {
-                "to": [
-                    1,
-                    4
-                ],
-                "rel": true
-            }
-        },
-        {
-            "category": "blaster",
-            "type": "addSingle",
-            "data": {
-                "endX": "$comLeft",
-                "endY": 280,
-                "endAngle": 270,
-                "size": 60,
-                "wait": 1200,
-                "anchor": {
-                    "y": "top",
-                    "x": "top"
-                }
-            }
-        },
-        {
-            "category": "blaster",
-            "type": "addSingle",
-            "data": {
-                "endX": "$comRight",
-                "endY": 280,
-                "endAngle": 90,
-                "size": 60,
-                "wait": 1200,
-                "anchor": {
-                    "y": "top"
-                }
-            }
-        },
-        {
-            "category": "jump",
-            "type": "ABS",
-            "data": {
-                "to": "#endRND"
-            }
-        },
-        {
             "category": "blaster",
             "type": "addSingle",
             "data": {
@@ -768,6 +730,7 @@
                 "endAngle": 270,
                 "size": 60,
                 "wait": 1000,
+                "blastTime": 1000,
                 "anchor": {
                     "y": "top",
                     "x": "top"
@@ -783,16 +746,10 @@
                 "endAngle": 90,
                 "size": 60,
                 "wait": 1000,
+                "blastTime": 1000,
                 "anchor": {
                     "y": "top"
                 }
-            }
-        },
-        {
-            "category": "jump",
-            "type": "label",
-            "data": {
-                "name": "endRND"
             }
         },
         {
@@ -801,7 +758,7 @@
             "data": {
                 "to": "#end"
             },
-            "wait": 2000
+            "wait": 3000
         },
         {
             "category": "jump",

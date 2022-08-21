@@ -1,5 +1,6 @@
 
 import Keys from "./keys.js";
+import setTween from "./scene/battlescene/setTween.js";
 /**add readonly at all. */
 export type AllReadonly<P> = {
     readonly [K in keyof P]: P[K] extends object ? AllReadonly<P[K]> : P[K]
@@ -166,7 +167,7 @@ export type SetRectConfig = Partial<Pos2> & getZone & {
     inst?: boolean;
 };
 export type TweenRectConfig = getZone & {
-    tween: Phaser.Types.Tweens.TweenBuilderConfig | Phaser.Types.Tweens.TweenBuilderConfig[];
+    tween: Parameters<typeof setTween>[2];
 };
 /**return number */
 export type getCombatzonePos = getZone & {
@@ -206,7 +207,7 @@ export type BoneConfig = Partial<Pos2> & {
     /**used for tween. default is "middle"*/
     tweenAnchor?: "top" | "middle" | "bottom";
     /**Phaser tween. can multiple. */
-    tween?: Phaser.Types.Tweens.TweenBuilderConfig | Phaser.Types.Tweens.TweenBuilderConfig[] | false;
+    tween?: Parameters<typeof setTween>[2] | false;
     /** default is "inst" */
     deleteTween?: {
         tween?: "inst" |
@@ -333,7 +334,7 @@ export type PlatFormSingleConfig = {
     speed?: number;
     /** in degrees default is 0.*/
     speedAngle?: number;
-    tween?: Phaser.Types.Tweens.TweenBuilderConfig | Phaser.Types.Tweens.TweenBuilderConfig[] | false;
+    tween?: Parameters<typeof setTween>[2] | false;
     /**used for tween. default is "middle"*/
     tweenAnchor?: "left" | "middle" | "right";
     /**0 is green 1 is purple */
@@ -390,13 +391,13 @@ export type SansVisualConfig = {
     target?: "head" | "torso" | "sweet" | "leg";
     frame?:
     //head frames.
-    "blueeye" |
-    "closeeye" |
     "default" |
+    "closeeye" |
     "lookleft" |
     "noeyes" |
     "wink" |
     "yelloweye" |
+    "blueeye" |
     "tired1" |
     "tired2" |
 

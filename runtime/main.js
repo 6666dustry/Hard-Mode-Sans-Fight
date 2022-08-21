@@ -7,15 +7,19 @@ import Setting from "./scene/Setting.js";
 /*
 
 undertale by Tobyfox.
+    
+    link:https://undertale.com
 
 phaser3 by photonstorm.
+
+    link:https://www.phaser.io/phaser3
 
 inspired by c2 sans fight
 
     link:https://jcw87.github.io/c2-sans-fight
 
 */
-export const gameDebug = !0;
+export const gameDebug = !1;
 const MDebug = {
     showVelocity: true,
     showCollisions: true,

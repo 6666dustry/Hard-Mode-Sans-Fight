@@ -26,7 +26,7 @@ export default function falling(config) {
             autoInit: true,
         });
     }
-    this.scene.time.delayedCall(DATA.duration, () => {
+    this.fallingEnd = this.scene.time.delayedCall(DATA.duration, () => {
         this.director.Sans.falling = undefined;
         this.director.Sans.setVisual({
             frame: "default"
