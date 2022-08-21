@@ -4,7 +4,6 @@ import Keys from "../keys.js";
 import MoveKey from "../MoveKey.js";
 import { BattleStartConfig } from "../Types.js";
 type loadConfig = Phaser.Types.Loader.FileTypes.ImageFrameConfig | string;
-//MainMenu load many resource.
 export default class MainMenu extends Phaser.Scene {
     constructor() {
         super(Keys.Scene.mainMenu);

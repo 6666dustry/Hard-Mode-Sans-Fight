@@ -61,8 +61,8 @@ export default class SansText extends Phaser.GameObjects.Container {
         const DATA = checkType(config, {
             text: "string",
             poses: {
-                type: "object",
-                default: undefined
+                type: ["object", "boolean"],
+                default: false
             }
         }, this.director.AttackLoader.runAttackPos);
         if (this.scene === undefined) {

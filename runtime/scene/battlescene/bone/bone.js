@@ -163,7 +163,7 @@ export default class Bone extends Bullet {
         }
         this.destroyed = false;
         //add tween. can multiple
-        if (DATA.tween) {
+        if (DATA.tween && this.body) {
             setTween(scene, this, DATA.tween, {
                 length: "displayLength"
             });

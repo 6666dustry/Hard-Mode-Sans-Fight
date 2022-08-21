@@ -1,4 +1,3 @@
-
 enum SceneKey {
     battleScene = "battleScene",
     mainMenu = "mainMenu",
@@ -143,7 +142,6 @@ const Keys: {
     readonly Json: typeof JsonKey,
     readonly Anim: typeof AnimKey,
     readonly Event: typeof EventKey,
-    /**It Just have texts. */
     readonly Text: typeof TextKey,
     readonly Depth: typeof DepthKey,
     readonly Scene: typeof SceneKey;
@@ -161,7 +159,6 @@ const Keys: {
     Json: JsonKey,
     Anim: AnimKey,
     Event: EventKey,
-    /**It Just have texts. */
     Text: TextKey,
     Depth: DepthKey,
     Scene: SceneKey,

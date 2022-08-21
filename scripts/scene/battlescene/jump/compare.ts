@@ -9,7 +9,7 @@ export default function compare(this: Jumps, config: AllReadonly<CompareConfig>)
         valueA: "number",
         valueB: {
             type: "number",
-            default: undefined
+            default: 0
         },
         rel: {
             type: "boolean",

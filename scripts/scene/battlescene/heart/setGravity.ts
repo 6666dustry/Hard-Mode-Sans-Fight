@@ -2,7 +2,8 @@ import Heart from "./Heart.js";
 import { HeartGravity } from "../../../Types.js";
 import Keys from "../../../keys.js";
 import { SansVisualConfig } from "../../../Types.js";
-function setSlam(this: Heart, config: HeartGravity) {
+import checkType from "../checkType.js";
+function setSlam(this: Heart, config: Required<HeartGravity>) {
     if (config.direction) {
         this.gravityDirection = config.direction;
     }
@@ -73,30 +74,61 @@ function setSlam(this: Heart, config: HeartGravity) {
         }
     }
 }
-/**and sans slam. */
+
+
 export default function setGravity(this: Heart, config: HeartGravity) {
-    if (config.slamAnim) {
+    const DATA = checkType(config, {
+        direction: {
+            type: ["string", "boolean"],
+            default: false
+        },
+        slam: {
+            type: "boolean",
+            default: false
+        },
+        slamAnim: {
+            type: ["boolean", "string"],
+            default: false
+        },
+        color: {
+            type: ["string", "boolean"],
+            default: false
+        },
+        autoInit: {
+            type: "boolean",
+            default: false
+        },
+        playSound: {
+            type: "boolean",
+            default: false
+        },
+        takeDamage: {
+            type: "boolean",
+            default: false
+        },
+    }, this.director.AttackLoader.runAttackPos);
+    if (DATA.slamAnim) {
         const CONFIG: SansVisualConfig = {
             target: "torso",
-            anim: typeof config.slamAnim === "string" ? config.slamAnim : config.slamAnim ? `${ config.direction || "down" }Slam` : undefined,
-            autoInit: config.autoInit
+            anim: typeof DATA.slamAnim === "string" ? DATA.slamAnim : DATA.slamAnim ? `${ DATA.direction || "down" }Slam` : undefined,
+            autoInit: DATA.autoInit
         };
         this.director.Sans.setVisual(CONFIG);
 
-        this.scene.time.delayedCall(300, setSlam, [config], this);
+        this.scene.time.delayedCall(300, setSlam, [DATA], this);
     } else {
-        setSlam.call(this, config);
+        setSlam.call(this, DATA);
     }
-    if (config.color) {
+    if (DATA.color) {
         this.setColor({
-            color: config.color
+            color: DATA.color
         }
         );
     }
-    if (config.playSound) {
+    if (DATA.playSound) {
         this.scene.sound.play(Keys.Audio.ding);
     }
-    if (config.takeDamage) {
+    if (DATA.takeDamage) {
         if (this.director.Statuses.hp > 1) {
             this.director.Statuses.hp--;
             this.director.Statuses.setDisplay();

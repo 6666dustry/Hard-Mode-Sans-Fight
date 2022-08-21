@@ -9,7 +9,7 @@ export default function retry(this: AttackLoader) {
     D.removeAll();
     D.Heart.enemyTurnInit();
     D.CombatzoneDirector.setRectDefault(true);
-
+    D.Sans.x = 320;
     for (const key in this.Loading) {
         if (Object.prototype.hasOwnProperty.call(this.Loading, key)) {
             let element = this.Loading[key as keyof typeof this.Loading];

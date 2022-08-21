@@ -95,9 +95,10 @@ export default function update(this: Sans, time: number): void {
             const NAMES = this.head.texture.getFrameNames();
             NAMES.forEach((value, index, array) => {
                 if (value === "yelloweye" || value === "blueeye") {
-                    array.splice(index, 1);
+                    NAMES.splice(index, 1);
                 }
             });
+
             this.head.setFrame(
                 NAMES[Phaser.Math.Between(0, NAMES.length - 1)]
             );

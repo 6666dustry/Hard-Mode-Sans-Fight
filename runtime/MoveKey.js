@@ -1,3 +1,7 @@
+/**
+ * make w,a,s,d and cursorKeys.
+ * @constructor
+ */
 export default class MoveKey {
     constructor(scene) {
         this.scene = scene;

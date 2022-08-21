@@ -8,7 +8,7 @@ type stepFrom = {
  * @param stepped 
  * @param stepper 
  * @param makeCopy is make deep copy? default is false.
- * @returns
+ * @returns stepped values.
  */
 export default function step<Type extends stepperType & {
     [k: string]: any;

@@ -1,6 +1,7 @@
 import { EndTurn } from "../../../Types.js";
 import AttackLoader from "./attackLoader.js";
 import Keys from "../../../keys.js";
+import checkType from "../checkType.js";
 /**
  * turn end initialize.
  * @param this 
@@ -80,7 +81,25 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
 
 
         } else {
-            this.endEnemyTurn(config);
+            if (config) {
+                const DATA = checkType(config, {
+                    menuBone: {
+                        type: "number",
+                        default: 0
+                    },
+                    setSansVisual: {
+                        type: ["object", "boolean"],
+                        default: false
+                    },
+                    win: {
+                        type: "boolean",
+                        default: false
+                    }
+                }, this.director.AttackLoader.runAttackPos);
+                this.endEnemyTurn(DATA);
+            } else {
+                this.endEnemyTurn();
+            }
         }
     }
 }

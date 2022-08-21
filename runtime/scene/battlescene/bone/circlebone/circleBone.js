@@ -168,12 +168,20 @@ export default class CircleBone extends Phaser.GameObjects.Zone {
     oldAngle;
     lockLength;
     getPadding;
-    destroy() {
+    destroy(fromScene) {
         if (this.middlePoint) {
             this.middlePoint.clear();
             this.middlePoint.destroy();
         }
-        super.destroy();
+        for (const iterator of this.Bones) {
+            if (!iterator.destroyed) {
+                iterator.destroy(fromScene);
+            }
+        }
+        if (this.scene) {
+            this.scene.tweens.killTweensOf(this);
+        }
+        super.destroy(fromScene);
     }
 }
 //# sourceMappingURL=circleBone.js.map

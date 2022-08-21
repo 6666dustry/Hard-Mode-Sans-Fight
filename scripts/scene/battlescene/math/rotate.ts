@@ -21,12 +21,12 @@ export default function rotate(this: GameMath, config: AllReadonly<RotateConfig>
             default: 0
         },
         x: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         },
         y: {
-            type: "string",
-            default: undefined
+            type: ["string", "boolean"],
+            default: false
         },
         angle: "number"
     }, this.director.AttackLoader.runAttackPos);

@@ -130,7 +130,7 @@ export default class SingleSelect extends Phaser.Scene {
         }
 
 
-        const DELAY = 1000;
+        const DELAY = 750;
 
         if (this.cursors.upIsJustDown || (this.lastDownTime.upKey < time - DELAY && this.delayTime > 4)) {
             this.selected <= 0 || this.selected--;

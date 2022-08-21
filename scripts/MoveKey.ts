@@ -1,4 +1,8 @@
 import { detectKeysConfig } from "./Types.js";
+/**
+ * make w,a,s,d and cursorKeys.
+ * @constructor
+ */
 export default class MoveKey implements Phaser.Types.Input.Keyboard.CursorKeys {
     constructor(scene: Phaser.Scene) {
         this.scene = scene;
@@ -31,13 +35,16 @@ export default class MoveKey implements Phaser.Types.Input.Keyboard.CursorKeys {
     readonly left: Phaser.Input.Keyboard.Key;
     readonly down: Phaser.Input.Keyboard.Key;
     readonly right: Phaser.Input.Keyboard.Key;
-    upKeys: Phaser.Input.Keyboard.Key[];
-    leftKeys: Phaser.Input.Keyboard.Key[];
-    downKeys: Phaser.Input.Keyboard.Key[];
-    rightKeys: Phaser.Input.Keyboard.Key[];
-
     readonly space: Phaser.Input.Keyboard.Key;
     readonly shift: Phaser.Input.Keyboard.Key;
+    /**key of move to up. */
+    upKeys: Phaser.Input.Keyboard.Key[];
+    /**key of move to left. */
+    leftKeys: Phaser.Input.Keyboard.Key[];
+    /**key of move to down. */
+    downKeys: Phaser.Input.Keyboard.Key[];
+    /**key of move to right. */
+    rightKeys: Phaser.Input.Keyboard.Key[];
 
     public get upIsDown(): boolean {
         for (const iterator of this.upKeys) {

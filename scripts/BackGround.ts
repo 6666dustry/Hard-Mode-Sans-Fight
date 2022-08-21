@@ -107,6 +107,10 @@ export default class BackGround {
     update() {
         this.UnderLight.clear();
         this.UnderLight.fillGradientStyle(0x000000, 0x000000, 0xff0000, 0xff0000,);
-        this.UnderLight.fillRect(0, this.scene.scale.height - this.lightLength, this.scene.scale.width, this.lightLength);
+        this.UnderLight.fillRect(
+            0,
+            this.scene.scale.height - this.lightLength,
+            this.scene.scale.width,
+            this.lightLength);
     }
 }

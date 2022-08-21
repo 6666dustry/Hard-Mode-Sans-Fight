@@ -37,7 +37,7 @@ export default class GasterBlaster extends Bullet {
             },
             size: {
                 type: "number",
-                default: this.scene.textures.get(Keys.Sheet.blaster).get(0).width
+                default: 40
             },
             wait: {
                 type: "number",
@@ -66,9 +66,7 @@ export default class GasterBlaster extends Bullet {
         this.wait = DATA.wait;
         this.blastTime = DATA.blastTime;
         this.endAngle = DATA.endAngle;
-        this.endAngle %= 360;
         this.startAngle = DATA.startAngle;
-        this.startAngle %= 360;
         this.anchor = DATA.anchor;
         this.collision = collision;
         this.Face = scene.add.sprite(0, 0, Keys.Sheet.blaster);
