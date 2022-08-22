@@ -1,6 +1,7 @@
 import makeDeepCopy from "./makeDeepCopy.js";
 import stepType from "./steptype.js";
 /**
+ * does not support array.
  * @param stepped
  * @param stepper
  * @param makeCopy is make deep copy? default is false.
@@ -13,13 +14,15 @@ export default function step(stepped, stepper, makeCopy) {
     }
     const STEP_KEY = Object.keys(stepper);
     for (const iterator of STEP_KEY) {
-        if (result[iterator] != null) {
-            switch (typeof result[iterator]) {
+        let element = result[iterator];
+        let config = stepper[iterator];
+        if (element != null) {
+            switch (typeof element) {
                 case "object":
-                    result[iterator] = step(result[iterator], stepper[iterator]);
+                    result[iterator] = step(element, config);
                     break;
                 case "number":
-                    result[iterator] = stepType(result[iterator], stepper[iterator]);
+                    result[iterator] = stepType(element, config);
                     break;
                 default:
                     console.warn(`${String(iterator)} is not number.`);

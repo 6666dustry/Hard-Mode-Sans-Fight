@@ -12,280 +12,285 @@
             "category": "combatzone",
             "type": "getPos",
             "data": {
-                "bottom": "comBottom",
-                "left": "comLeft",
-                "width": "comWidth",
-                "right": "comRight"
+                "top": "comTop"
             }
         },
         {
-            "category": "heart",
-            "type": "setPosition",
+            "category": "sans",
+            "type": "setPos",
             "data": {
-                "x": 50,
-                "y": 320
-            },
-            "wait": 1
-        },
-        {
-            "category": "combatzone",
-            "type": "tweenRect",
-            "data": {
-                "tween": {
-                    "props": {
-                        "width": 100
-                    },
-                    "duration": 0
-                }
-            }
-        },
-        {
-            "category": "combatzone",
-            "type": "tweenRect",
-            "data": {
-                "tween": {
-                    "props": {
-                        "centerX": "+=500"
-                    },
-                    "duration": 14000,
-                    "yoyo": true,
-                    "ease": "Quad.easeIn"
-                }
+                "x": 150,
+                "y": "lock",
+                "duration": 500,
+                "ease": "Sine"
             },
             "wait": 100
         },
         {
-            "category": "bone",
-            "type": "addMulti",
+            "category": "combatzone",
+            "type": "setRect",
             "data": {
-                "y": "$comBottom",
-                "x": "$comLeft",
-                "speed": 1,
-                "count": 120,
-                "delay": 240,
-                "length": 30,
-                "anchor": {
-                    "y": "top",
-                    "x": "middle"
-                },
-                "spawnTween": {
-                    "tween": "biggerTop"
-                },
-                "lifetime": 9000,
-                "deleteTween": {
-                    "tween": "smallerTop"
-                }
+                "relPointX": 320,
+                "x": -60,
+                "dx": 60,
+                "duration": 500,
+                "ease": "Quad"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "anim": "upSlam",
+                "autoInit": true
+            },
+            "wait": 500
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "y": 50,
+                "duration": 500,
+                "ease": "Quad"
+            },
+            "wait": 250
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "lifetime": 9000
             }
         },
         {
             "category": "platform",
             "type": "addSingle",
             "data": {
-                "x": "$comLeft",
-                "y": 340,
-                "length": 45,
-                "tween": {
-                    "props": {
-                        "x": "$comRight"
-                    },
-                    "yoyo": true,
-                    "duration": 14000,
-                    "ease": "Quad.easeIn"
-                }
-            }
-        },
-        {
-            "category": "bone",
-            "type": "addCircle",
-            "data": {
-                "x": "$comLeft",
-                "y": 340,
-                "count": 6,
-                "spaceRadius": 100,
-                "rotateSpeed": -0.8,
-                "boneConfig": {
-                    "angle": 45,
-                    "length": 50,
-                    "anchor": {
-                        "x": "middle",
-                        "y": "middle"
-                    },
-                    "tween": {
-                        "props": {
-                            "length": 200
-                        },
-                        "yoyo": true,
-                        "duration": 2000,
-                        "repeat": -1
-                    }
+                "x": 290,
+                "y": 390,
+                "anchor": {
+                    "x": "middle"
                 },
                 "tween": [
                     {
                         "props": {
-                            "x": "$comRight",
-                            "boneRadius": {
-                                "duration": 2000,
-                                "value": 150
+                            "y": "-=40"
+                        },
+                        "ease": "Bounce"
+                    },
+                    {
+                        "props": {
+                            "y": "-=300",
+                            "x": {
+                                "from": 290,
+                                "to": 350,
+                                "ease": "Sine.easeInOut",
+                                "yoyo": true,
+                                "duration": 1000,
+                                "repeat": -1
                             }
                         },
-                        "yoyo": true,
-                        "duration": 14000,
-                        "ease": "Quad.easeIn"
+                        "duration": 9000,
+                        "delay": 1000
+                    }
+                ]
+            }
+        },
+        {
+            "category": "platform",
+            "type": "addSingle",
+            "data": {
+                "x": 350,
+                "y": 390,
+                "anchor": {
+                    "x": "middle"
+                },
+                "tween": [
+                    {
+                        "props": {
+                            "y": "-=40"
+                        },
+                        "ease": "Bounce"
+                    },
+                    {
+                        "props": {
+                            "y": "-=300",
+                            "x": {
+                                "from": 350,
+                                "to": 290,
+                                "ease": "Sine.easeInOut",
+                                "yoyo": true,
+                                "duration": 1000,
+                                "repeat": -1
+                            }
+                        },
+                        "duration": 9000,
+                        "delay": 1000
                     }
                 ]
             }
         },
         {
             "category": "bone",
-            "type": "addMulti",
+            "type": "addSingle",
             "data": {
-                "x": 450,
-                "y": 0,
-                "speed": 2,
-                "speedAngle": 90,
-                "delay": 600,
+                "x": 320,
+                "y": 50,
                 "length": 20,
-                "count": 17,
+                "speedAngle": 90,
+                "tweenAnchor": "bottom",
+                "anchor": {
+                    "x": "middle"
+                },
                 "tween": {
                     "props": {
-                        "length": 40,
-                        "x": 440
+                        "length": 320,
+                        "speed": {
+                            "value": 4,
+                            "delay": 1250
+                        }
                     },
-                    "repeat": -1,
-                    "duration": 1000,
-                    "yoyo": true
+                    "ease": "Bounce"
                 }
-            }
-        },
-        {
-            "category": "bone",
-            "type": "addMulti",
-            "data": {
-                "x": 350,
-                "y": 0,
-                "speed": 2,
-                "speedAngle": 90,
-                "delay": 450,
-                "length": 20,
-                "count": 19
-            }
-        },
-        {
-            "category": "bone",
-            "type": "addMulti",
-            "data": {
-                "x": 250,
-                "y": 0,
-                "speed": 2.3,
-                "speedAngle": 90,
-                "delay": 600,
-                "length": 20,
-                "count": 12
-            }
-        },
-        {
-            "category": "bone",
-            "type": "addMulti",
-            "data": {
-                "x": 150,
-                "y": 480,
-                "speed": -2,
-                "speedAngle": 90,
-                "delay": 800,
-                "length": 30,
-                "count": 10
-            }
-        },
-        {
-            "category": "heart",
-            "type": "getPos",
-            "data": {
-                "x": "heartX",
-                "y": "heartY"
             },
-            "wait": 14000
+            "wait": 500
         },
         {
-            "category": "jump",
-            "type": "label",
+            "category": "bone",
+            "type": "addGap",
             "data": {
-                "name": "blaster"
-            }
-        },
-        {
-            "category": "math",
-            "type": "sub",
-            "data": {
-                "variable": "blasterY",
-                "valueA": "$heartY",
-                "valueB": 80
-            }
-        },
-        {
-            "category": "heart",
-            "type": "getPos",
-            "data": {
-                "x": "heartX",
-                "y": "heartY"
-            }
-        },
-        {
-            "category": "math",
-            "type": "sub",
-            "data": {
-                "variable": "posY",
-                "valueA": "$heartY",
-                "valueB": 100
-            }
-        },
-        {
-            "category": "math",
-            "type": "rnd",
-            "data": {
-                "variable": "angle",
-                "min": 0,
-                "max": 180
-            }
-        },
-        {
-            "category": "math",
-            "type": "rotate",
-            "data": {
-                "originX": "$heartX",
-                "originY": "$heartY",
-                "pointX": "$heartX",
-                "pointY": "$posY",
-                "angle": "$angle",
-                "x": "bPosX",
-                "y": "bPosY"
-            }
+                "angle": 270,
+                "speedAngle": 90,
+                "speed": 3,
+                "length": 120,
+                "x": 260,
+                "y": 50,
+                "topLength": 40,
+                "padding": 40
+            },
+            "wait": 2000
         },
         {
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": "$bPosX",
-                "endY": "$bPosY",
-                "endAngle": "$angle",
-                "size": 25,
+                "endX": 320,
+                "endY": 50,
+                "size": 30,
                 "anchor": {
                     "x": "middle",
                     "y": "middle"
+                },
+                "wait": 1500
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addMulti",
+            "data": {
+                "x": 320,
+                "y": 40,
+                "length": 20,
+                "spin": 1.5,
+                "count": 4,
+                "delay": 100,
+                "speedAngle": 90,
+                "speed": 2,
+                "anchor": {
+                    "x": "middle",
+                    "y": "middle"
+                },
+                "step": {
+                    "x": {
+                        "values": [
+                            260,
+                            270,
+                            280,
+                            290,
+                            300,
+                            310,
+                            320,
+                            330,
+                            340,
+                            350,
+                            360,
+                            370,
+                            380
+                        ]
+                    },
+                    "y": {
+                        "min": 0,
+                        "max": 40
+                    },
+                    "angle": {
+                        "min": 0,
+                        "max": 180
+                    },
+                    "spin": {
+                        "min": -4,
+                        "max": 4
+                    },
+                    "speed": {
+                        "min": 1.5,
+                        "max": 4
+                    }
+                },
+                "tween": {
+                    "props": {
+                        "speed": "+=1"
+                    }
                 }
+            },
+            "wait": 1500
+        },
+        {
+            "category": "bone",
+            "type": "addStab",
+            "data": {
+                "wait": 500,
+                "direction": "up",
+                "onlyWarn": true
             }
         },
         {
             "category": "jump",
-            "type": "ABSCount",
+            "type": "RELCount",
             "data": {
-                "to": "#blaster",
-                "count": 8
+                "to": -2,
+                "count": 2
+            }
+        },
+        {
+            "category": "effect",
+            "type": "flash",
+            "data": {
+                "removeAll": true
             },
-            "wait": 1000
+            "wait": 1500
+        },
+        {
+            "category": "sans",
+            "type": "setPos",
+            "data": {
+                "x": 320,
+                "y": "auto"
+            }
+        },
+        {
+            "category": "combatzone",
+            "type": "setRect",
+            "data": {
+                "relPointX": 320,
+                "x": -60,
+                "dx": 60,
+                "y": 250
+            }
         },
         {
             "category": "endattack",
-            "wait": 1000
+            "wait": 500
         }
     ]
 }

@@ -1,4 +1,3 @@
-
 import Keys from "./keys.js";
 import setTween from "./scene/battlescene/setTween.js";
 /**add readonly at all. */
@@ -35,12 +34,14 @@ export type detectKeysConfig = {
     just?: boolean;
 };
 
-
+export type ValuesRnd = {
+    values: [number, ...number[]];
+};
 export type MinMaxRnd = {
     /**
      * @default false
      */
-    add: boolean;
+    add?: boolean;
     /**
      * @default false
      */
@@ -51,7 +52,7 @@ export type MinMaxRnd = {
     min?: number;
     max: number;
 };
-export type stepTypes = MinMaxRnd | number;
+export type stepTypes = MinMaxRnd | ValuesRnd | number;
 
 export type jsonFile = `${ string }.json`;
 export type BattleStartConfig = {
@@ -783,10 +784,14 @@ export type SetPositionConfig = {
      */
     x?: number | false;
     /**
-    * true = auto
     * @default false
     */
-    y?: number | "auto" | boolean;
+    y?: number | "auto" | "lock" | false;
+    ease?: Phaser.Types.Tweens.TweenBuilderConfig["ease"];
+    /**
+     * @default false
+     */
+    duration?: number | false;
 };
 export type SansConfig = SansVisualConfig | SetPositionConfig;
 
@@ -977,7 +982,7 @@ export type RndConfig = {
 };
 export type RndValuesConfig = {
     variable: string;
-    values: any[];
+    values: [any, ...any];
 };
 export type BetWeenAngle = {
     /**
