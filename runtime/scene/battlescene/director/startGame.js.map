@@ -1,1 +1,0 @@
-{"version":3,"file":"startGame.js","sourceRoot":"","sources":["../../../../scripts/scene/battlescene/director/startGame.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,UAAU,SAAS,CAAiB,QAAkB;IAChE,IAAI,CAAC,YAAY,CAAC,aAAa,CAAC,QAAQ,CAAC,CAAC;IAC1C,IAAI,CAAC,KAAK,CAAC,KAAK,CAAC,oBAAoB,CAAC,IAAI,CAAC,QAAQ,CAAC,CAAC;AACzD,CAAC"}

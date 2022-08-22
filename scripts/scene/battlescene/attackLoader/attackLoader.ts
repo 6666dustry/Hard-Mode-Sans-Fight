@@ -9,6 +9,7 @@ import startAttack from "./startAttack.js";
 import endEnemyTurn from "./endEnemyTurn.js";
 import endPlayerTurn from "./endPlayerTurn.js";
 import endAttack from "./endAttack.js";
+import getAttack from "./getAttack.js";
 export default class AttackLoader {
     constructor(scene: BattleScene, director: Director) {
         this.scene = scene;
@@ -28,6 +29,7 @@ export default class AttackLoader {
         this.loadAttack = loadAttack;
         this.catchAttack = catchOrder;
         this.catchRND = catchRND;
+        this.getAttack = getAttack;
         this.endPlayerTurn = endPlayerTurn;
         this.endEnemyTurn = endEnemyTurn;
         this.startAttack = startAttack;
@@ -40,6 +42,7 @@ export default class AttackLoader {
     readonly catchAttack: typeof catchOrder;
     readonly endPlayerTurn: typeof endPlayerTurn;
     readonly catchRND: typeof catchRND;
+    readonly getAttack: typeof getAttack;
     readonly startAttack: typeof startAttack;
     readonly endEnemyTurn: typeof endEnemyTurn;
     readonly retry: typeof retry;

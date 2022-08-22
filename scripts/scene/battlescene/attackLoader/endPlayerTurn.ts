@@ -1,5 +1,6 @@
 import Keys from "../../../keys.js";
 import AttackLoader from "./attackLoader.js";
+import getAttack from "./getAttack.js";
 /**
  * enemy turn initialize
  * @param this 
@@ -52,17 +53,8 @@ export default function endPlayerTurn(this: AttackLoader, single?: boolean): voi
             );
         } else {
             //first special attack.
-            if (this.first) {
-                data = this.catchAttack();
-            } else {
-                if (this.attacked) {
-                    this.attacked = false;
-                    this.loadFilePos++;
-                    data = this.catchAttack();
-                } else {
-                    data = this.catchRND();
-                }
-            }
+            data = this.getAttack();
+
             if (!this.resting) {
                 this.startAttack(data.attacks);
             }

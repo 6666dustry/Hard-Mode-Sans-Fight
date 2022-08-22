@@ -1,1 +1,0 @@
-{"version":3,"file":"stabUpdate.js","sourceRoot":"","sources":["../../../../../scripts/scene/battlescene/bone/stabbone/stabUpdate.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,UAAU,MAAM,CAAiB,IAAY;IACvD,IAAI,IAAI,CAAC,IAAI,CAAC,MAAM,IAAI,IAAI,CAAC,KAAK,KAAK,SAAS,EAAE;QAC9C,IAAI,CAAC,OAAO,CAAC,KAAK,EAAE,CAAC;QACrB,IAAI,CAAC,OAAO,EAAE,CAAC;KAClB;AACL,CAAC"}
