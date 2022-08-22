@@ -81,13 +81,18 @@ export default function update(time) {
                 break;
         }
         if (changeHead) {
-            const NAMES = this.head.texture.getFrameNames();
-            NAMES.forEach((value, index, array) => {
-                if (value === "yelloweye" || value === "blueeye") {
-                    NAMES.splice(index, 1);
+            let frames = this.head.texture.getFrameNames();
+            frames.forEach((value, index, array) => {
+                if (value === "blueeye") {
+                    let spliced = frames.splice(index, 1);
                 }
             });
-            this.head.setFrame(NAMES[Phaser.Math.Between(0, NAMES.length - 1)]);
+            frames.forEach((value, index, array) => {
+                if (value === "yelloweye") {
+                    let spliced = frames.splice(index, 1);
+                }
+            });
+            this.head.setFrame(frames[Phaser.Math.Between(0, frames.length - 1)]);
         }
     }
     this.sweet.setPosition(this.head.x, this.head.y - 20);
