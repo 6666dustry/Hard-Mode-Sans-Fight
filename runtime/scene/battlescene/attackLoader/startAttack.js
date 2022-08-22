@@ -7,11 +7,11 @@ export default function startAttack(attack) {
     const DO = D.searchVariable(this.SingleAttack);
     if (DO.wait && DO.wait > 0 && DO.category !== "jump") {
         this.Loading.loadAttack = this.Loading.loadAttack = this.scene.time.delayedCall(DO.wait, () => {
-            this.attackPlayer(DO);
+            this.loadAttack(DO);
         }, undefined, this);
     }
     else {
-        this.attackPlayer(DO);
+        this.loadAttack(DO);
     }
 }
 //# sourceMappingURL=startAttack.js.map

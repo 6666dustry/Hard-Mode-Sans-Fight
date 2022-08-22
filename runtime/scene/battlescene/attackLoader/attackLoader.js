@@ -1,5 +1,4 @@
 import loadAttack from "./loadAttack.js";
-import attackPlayer from "./attackPlayer.js";
 import catchOrder from "./catchAttack.js";
 import catchRND from "./catchRND.js";
 import retry from "./retry.js";
@@ -21,7 +20,6 @@ export default class AttackLoader {
         this.phase = 1;
         this.Loading = {};
         this.loadAttack = loadAttack;
-        this.attackPlayer = attackPlayer;
         this.catchAttack = catchOrder;
         this.catchRND = catchRND;
         this.endPlayerTurn = endPlayerTurn;
@@ -33,7 +31,6 @@ export default class AttackLoader {
     scene;
     director;
     loadAttack;
-    attackPlayer;
     catchAttack;
     endPlayerTurn;
     catchRND;

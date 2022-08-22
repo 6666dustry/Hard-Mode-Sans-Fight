@@ -2,7 +2,6 @@ import BattleScene from "../BattleScene.js";
 import Director from "../director/Director.js";
 import type { EndTurn, SingleAttack } from "../../../Types.js";
 import loadAttack from "./loadAttack.js";
-import attackPlayer from "./attackPlayer.js";
 import catchOrder from "./catchAttack.js";
 import catchRND from "./catchRND.js";
 import retry from "./retry.js";
@@ -27,7 +26,6 @@ export default class AttackLoader {
         this.Loading = {};
 
         this.loadAttack = loadAttack;
-        this.attackPlayer = attackPlayer;
         this.catchAttack = catchOrder;
         this.catchRND = catchRND;
         this.endPlayerTurn = endPlayerTurn;
@@ -39,7 +37,6 @@ export default class AttackLoader {
     readonly scene: BattleScene;
     readonly director: Director;
     readonly loadAttack: typeof loadAttack;
-    readonly attackPlayer: typeof attackPlayer;
     readonly catchAttack: typeof catchOrder;
     readonly endPlayerTurn: typeof endPlayerTurn;
     readonly catchRND: typeof catchRND;
@@ -69,7 +66,7 @@ export default class AttackLoader {
     /**playing attack functions. */
     Loading: {
         loadAttack?: {
-            [P in keyof Phaser.Time.TimerEvent]: P extends "callback" ? typeof attackPlayer :
+            [P in keyof Phaser.Time.TimerEvent]: P extends "callback" ? typeof loadAttack :
             Phaser.Time.TimerEvent[P]
         };
         startAttack?: {
