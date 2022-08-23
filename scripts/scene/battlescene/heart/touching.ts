@@ -14,24 +14,40 @@ export default function touching(this: Heart, args: { collision: Phaser.Types.Ph
 
     let left = 0, right = 0, top = 0, bottom = 0;
 
-    for (const iterator of args.collision.supports) {
-        if (args.collision.supports.length === 1) {
-            if (iterator.y > this.Image.y) {
-                this.collidingAt.bottom = true;
+    let points = [...args.collision.supports];
+
+    for (let index = 0; index < points.length; index++) {
+        const element = points[index];
+        for (let j = 0; j < points.length; j++) {
+            if (index === j) {
+                continue;
+            }
+            if (Phaser.Math.Distance.BetweenPoints(element, points[j]) < 1) {
+                points.splice(index, 1);
             }
 
-            if (iterator.y < this.Image.y) {
-                this.collidingAt.top = true;
-            }
+        }
+    }
 
-            if (iterator.x < this.Image.x) {
-                this.collidingAt.left = true;
-            }
+    if (points.length === 1) {
+        if (points[0].y > this.Image.y + this.Image.displayHeight / 3) {
+            this.collidingAt.bottom = true;
+        }
 
-            if (iterator.x > this.Image.x) {
-                this.collidingAt.right = true;
-            }
-        } else {
+        if (points[0].y < this.Image.y - this.Image.displayHeight / 3) {
+            this.collidingAt.top = true;
+        }
+
+        if (points[0].x < this.Image.x - this.Image.displayWidth / 3) {
+            this.collidingAt.left = true;
+        }
+
+        if (points[0].x > this.Image.x + this.Image.displayWidth / 3) {
+            this.collidingAt.right = true;
+        }
+
+    } else {
+        for (const iterator of points) {
 
             if (iterator.y > this.Image.y) {
                 bottom++;
