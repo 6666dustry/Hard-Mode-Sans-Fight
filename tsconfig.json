@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "esModuleInterop": true,
-        "outDir": "./runtime",
+        "outDir": "./dist",
         "sourceMap": true,
         "target": "ESNext",
         "module": "ESNext",
