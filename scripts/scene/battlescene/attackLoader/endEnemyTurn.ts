@@ -41,17 +41,11 @@ export default function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
 
         this.scene.scene.transition({
             target: Keys.Scene.mainMenu,
-            duration: 4000,
-            remove: true,
             onUpdate: () => {
-                this.scene.children.each(
-                    (child: any) => {
-                        if (child.alpha) {
-                            child.alpha = child.alpha - 0.01;
-                        }
-                    }
-                );
-            },
+                this.scene.cameras.cameras.forEach((value) => {
+                    value.alpha -= 0.01;
+                });
+            }
         });
     }
 

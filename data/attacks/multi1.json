@@ -670,7 +670,8 @@
         {
             "category": "endattack",
             "data": {
-                "menuBone": 1
+                "menuBone": 1,
+                "win": true
             }
         }
     ]
