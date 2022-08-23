@@ -1,5 +1,6 @@
 import Keys from "../../../keys.js";
 import AttackLoader from "./attackLoader.js";
+import Practice from "./practice.js";
 /**
  * start attack again. called at practice mode.
  * @param this 
@@ -19,21 +20,7 @@ export default function retry(this: AttackLoader) {
         }
     }
 
-    let text = this.scene.add.text(
-        320, 50, "failure", {
-        fontFamily: "damageFont",
-        color: "#c00",
-        fontSize: "32px"
-    }
-    );
-
-    text.setOrigin(0.5);
-    text.setDepth(Keys.Depth.debug);
-    this.scene.time.delayedCall(1000, () => {
-        if (text && text.scene) {
-            text.destroy();
-        }
-    });
+    Practice.showPassed(this.scene, false);
 
     this.runAttackPos = 0;
     this.startAttack();

@@ -21,6 +21,7 @@ turn: ${ AT.loadFilePos }
 phase: ${ AT.phase }
 attacked: ${ AT.attacked }
 colliding: ${ this.scene.director.Heart.colliding }
+collideAt:${ Object.entries(this.scene.director.Heart.collidingAt).join("   ") }
 canJump: ${ this.scene.director.Heart.canJump }
 single: ${ !!AT.playSingle }
 moving: ${ this.director.Heart.moving }

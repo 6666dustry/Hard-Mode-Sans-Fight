@@ -2,6 +2,7 @@ import { EndTurn } from "../../../Types.js";
 import AttackLoader from "./attackLoader.js";
 import Keys from "../../../keys.js";
 import checkType from "../checkType.js";
+import Practice from "./practice.js";
 /**
  * turn end initialize.
  * @param this 
@@ -21,22 +22,10 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
     //option of practice mode.
     if (this.scene.config.settings && this.scene.config.settings.practice) {
 
-        let text = this.scene.add.text(
-            320, 50, "success", {
-            fontFamily: "damageFont",
-            color: "#0f0",
-            fontSize: "32px"
-        }
-        );
-        text.setOrigin(0.5);
-        text.setDepth(Keys.Depth.debug);
-        this.scene.time.delayedCall(1000, () => {
-            if (text && text.scene) {
-                text.destroy();
-            }
-        });
+        Practice.showPassed(this.scene, true);
 
     }
+
     this.runAttackPos = 0;
     const D = this.director;
 
@@ -62,10 +51,11 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
                     loop: true
                 });
             }
-            if (!this.first && (this.resting || this.loadFilePos + 1 >= this.getPhaseLength())) {
+            if (this.isPhaseEnd()) {
                 this.phase++;
                 this.loadFilePos = -1;
             }
+
             D.Sans.x = 320;
 
             D.Statuses.hp = D.Statuses.maxHp;

@@ -66,6 +66,8 @@ export default function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
         });
     }
 
+
+
     // start player turn.
     else {
 

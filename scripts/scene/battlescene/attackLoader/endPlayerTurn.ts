@@ -1,6 +1,5 @@
 import Keys from "../../../keys.js";
 import AttackLoader from "./attackLoader.js";
-import getAttack from "./getAttack.js";
 /**
  * enemy turn initialize
  * @param this 
@@ -38,7 +37,7 @@ export default function endPlayerTurn(this: AttackLoader, single?: boolean): voi
     } else {
 
         //is phase ended?
-        if (!this.first && (this.resting || this.loadFilePos + 1 >= this.getPhaseLength())) {
+        if (this.isPhaseEnd()) {
 
             this.resting = true;
             this.scene.sound.stopByKey(Keys.Audio.BGM);

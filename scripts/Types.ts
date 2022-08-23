@@ -192,6 +192,7 @@ export type MultiConfig = {
 export type combatzoneType = "setRect" | "getPos" | "getPosition" | "tweenRect";
 /**
  * detect zones.
+ * @todo multiple zones.
  */
 export type getZone = {
     /**

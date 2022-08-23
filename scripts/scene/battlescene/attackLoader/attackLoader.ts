@@ -89,4 +89,7 @@ export default class AttackLoader {
                 return this.scene.config.Phase1.length;
         }
     }
+    isPhaseEnd(): boolean {
+        return (!this.first && (this.resting || this.loadFilePos + 1 >= this.getPhaseLength()));
+    }
 }
