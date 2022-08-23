@@ -110,6 +110,9 @@ export default class Director {
     readonly removeAll: typeof removeAll;
     readonly startGame: typeof startGame;
     update(time: number, fps: number): void {
+        if (!this.scene) {
+            return;
+        }
         if (!this.AttackLoader.playerTurn) {
             this.Heart.update(this.cursors, time);
         } else {

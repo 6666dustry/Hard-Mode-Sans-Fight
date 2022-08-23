@@ -664,14 +664,13 @@
             "type": "ABSCount",
             "data": {
                 "to": "#start",
-                "count": 6
+                "count": 5
             }
         },
         {
             "category": "endattack",
             "data": {
                 "menuBone": 1,
-                "win": true
             }
         }
     ]
