@@ -40,12 +40,29 @@ export default class MainMenu extends Phaser.Scene {
             fontFamily: "battlefont",
             fontSize: "60px"
         }).setOrigin(0.5);
+        let hsvWheel = Phaser.Display.Color.HSVColorWheel();
         this.load.on('progress', (value: number) => {
 
             progress.clear();
             progress.fillStyle(0xffffff, 1);
+
+            if (hsvWheel) {
+
+                const INDEX = Math.floor(value * hsvWheel.length - 1);
+                if (INDEX >= 0) {
+
+                    const RGB = hsvWheel[INDEX].r * 0xffff + hsvWheel[INDEX].g * 0xff + hsvWheel[INDEX].b;
+                    loading.setTint(RGB);
+
+                    //reverse.
+                    const REVERSE_INDEX = (hsvWheel.length - 1) - INDEX;
+                    const REVERSE_RGB = hsvWheel[REVERSE_INDEX].r * 0xffff + hsvWheel[REVERSE_INDEX].g * 0xff + hsvWheel[REVERSE_INDEX].b;
+
+                    progress.fillStyle(0xffffff - REVERSE_RGB);
+                }
+            }
+
             progress.fillRect(0, 180, 640 * value, 60);
-            loading.setTint(0xffffff * value);
         });
 
         this.load.on('complete', function () {
@@ -55,54 +72,57 @@ export default class MainMenu extends Phaser.Scene {
         });
 
         /**load game data. */
-        const ARGARRAY: [key: string, textureUrl: string, frameconfig?: loadConfig][] = [
-            [Keys.Image.heart, "image/heart/heart.png"],
-            [Keys.Image.break, "image/heart/breakedheart.png"],
-            [Keys.Image.block, "image/battlezone/whiteblock.png"],
-            [Keys.Image.HPfont, "image/commands/HP.png"],
-            [Keys.Image.KRfont, "image/commands/KR.png"],
-            [Keys.Image.speech, "image/sans/speechbubble.png"],
+        const ARGARRAY: [
+            key: string,
+            textureUrl: string,
+            frameConfig?: loadConfig][] = [
+                [Keys.Image.heart, "image/heart/heart.png"],
+                [Keys.Image.break, "image/heart/breakedheart.png"],
+                [Keys.Image.block, "image/battlezone/whiteblock.png"],
+                [Keys.Image.HPfont, "image/commands/HP.png"],
+                [Keys.Image.KRfont, "image/commands/KR.png"],
+                [Keys.Image.speech, "image/sans/speechbubble.png"],
 
-            [Keys.Sheet.fight, "image/commands/fight.png",
-            { frameWidth: 112, frameHeight: 44 }],
-            [Keys.Sheet.act, "image/commands/act.png",
-            { frameWidth: 112, frameHeight: 44 }],
-            [Keys.Sheet.item, "image/commands/item.png",
-            { frameWidth: 112, frameHeight: 44 }],
-            [Keys.Sheet.mercy, "image/commands/Mercy.png",
-            { frameWidth: 112, frameHeight: 44 }],
-            [Keys.Image.target, "image/commands/target.png"],
-            [Keys.Sheet.tagBar, "image/commands/targetBar.png", { frameWidth: 16, frameHeight: 131 }],
-            [Keys.Image.bone, "image/attack/bone.png", { frameWidth: 12, frameHeight: 6 }],
-            [Keys.Image.particleBone, "image/attack/bone.png"],
-            [Keys.Sheet.shard, "image/heart/shard.png", "image/heart/shard_atlas.json"],
+                [Keys.Sheet.fight, "image/commands/fight.png",
+                { frameWidth: 112, frameHeight: 44 }],
+                [Keys.Sheet.act, "image/commands/act.png",
+                { frameWidth: 112, frameHeight: 44 }],
+                [Keys.Sheet.item, "image/commands/item.png",
+                { frameWidth: 112, frameHeight: 44 }],
+                [Keys.Sheet.mercy, "image/commands/Mercy.png",
+                { frameWidth: 112, frameHeight: 44 }],
+                [Keys.Image.target, "image/commands/target.png"],
+                [Keys.Sheet.tagBar, "image/commands/targetBar.png", { frameWidth: 16, frameHeight: 131 }],
+                [Keys.Image.bone, "image/attack/bone.png", { frameWidth: 12, frameHeight: 6 }],
+                [Keys.Image.particleBone, "image/attack/bone.png"],
+                [Keys.Sheet.shard, "image/heart/shard.png", "image/heart/shard_atlas.json"],
 
-            [Keys.Sheet.attacked, "image/commands/strike.png", "image/commands/strike_atlas.json"],
-            [Keys.Sheet.sansHead, "image/sans/head.png", "image/sans/head_atlas.json"],
-            [Keys.Sheet.sansTorso, "image/sans/torsoes.png", "image/sans/torsoes_atlas.json"],
-            [Keys.Sheet.sansLeg, "image/sans/leg.png"],
-            [Keys.Sheet.sansSweet, "image/sans/sweet.png", "image/sans/sweet_atlas.json"],
-            [Keys.Sheet.blaster, "image/gasterblaster/gasterblaster.png", "image/gasterblaster/gasterblaster_atlas.json"],
-            [Keys.Sheet.platForm, "image/platform/Platform1.png", "image/platform/platform1_atlas.json"],
+                [Keys.Sheet.attacked, "image/commands/strike.png", "image/commands/strike_atlas.json"],
+                [Keys.Sheet.sansHead, "image/sans/head.png", "image/sans/head_atlas.json"],
+                [Keys.Sheet.sansTorso, "image/sans/torsoes.png", "image/sans/torsoes_atlas.json"],
+                [Keys.Sheet.sansLeg, "image/sans/leg.png"],
+                [Keys.Sheet.sansSweet, "image/sans/sweet.png", "image/sans/sweet_atlas.json"],
+                [Keys.Sheet.blaster, "image/gasterblaster/gasterblaster.png", "image/gasterblaster/gasterblaster_atlas.json"],
+                [Keys.Sheet.platForm, "image/platform/Platform1.png", "image/platform/platform1_atlas.json"],
 
-            [Keys.Audio.battleText, "media/battletext.ogg"],
-            [Keys.Audio.sansText, "media/SansSpeak.ogg"],
-            [Keys.Audio.cursor, "media/MenuCursor.ogg"],
-            [Keys.Audio.select, "media/MenuSelect.ogg"],
-            [Keys.Audio.fight, "media/PlayerFight.ogg"],
-            [Keys.Audio.heal, "media/PlayerHeal.ogg"],
-            [Keys.Audio.damage, "media/PlayerDamaged.ogg"],
-            [Keys.Audio.shatter, "media/HeartShatter.ogg"],
-            [Keys.Audio.split, "media/HeartSplit.ogg"],
-            [Keys.Audio.BGM, "media/mus_zz_megalovania.ogg"],
-            [Keys.Audio.blast0, "media/GasterBlast.ogg"],
-            [Keys.Audio.blast1, "media/GasterBlast2.ogg"],
-            [Keys.Audio.blaster, "media/GasterBlaster.ogg"],
-            [Keys.Audio.slam, "media/Slam.ogg"],
-            [Keys.Audio.warning, "media/Warning.ogg"],
-            [Keys.Audio.boneStab, "media/BoneStab.ogg"],
-            [Keys.Audio.ding, "media/Ding.ogg"],
-            [Keys.Audio.flash, "media/Flash.ogg"]];
+                [Keys.Audio.battleText, "media/battletext.ogg"],
+                [Keys.Audio.sansText, "media/SansSpeak.ogg"],
+                [Keys.Audio.cursor, "media/MenuCursor.ogg"],
+                [Keys.Audio.select, "media/MenuSelect.ogg"],
+                [Keys.Audio.fight, "media/PlayerFight.ogg"],
+                [Keys.Audio.heal, "media/PlayerHeal.ogg"],
+                [Keys.Audio.damage, "media/PlayerDamaged.ogg"],
+                [Keys.Audio.shatter, "media/HeartShatter.ogg"],
+                [Keys.Audio.split, "media/HeartSplit.ogg"],
+                [Keys.Audio.BGM, "media/mus_zz_megalovania.ogg"],
+                [Keys.Audio.blast0, "media/GasterBlast.ogg"],
+                [Keys.Audio.blast1, "media/GasterBlast2.ogg"],
+                [Keys.Audio.blaster, "media/GasterBlaster.ogg"],
+                [Keys.Audio.slam, "media/Slam.ogg"],
+                [Keys.Audio.warning, "media/Warning.ogg"],
+                [Keys.Audio.boneStab, "media/BoneStab.ogg"],
+                [Keys.Audio.ding, "media/Ding.ogg"],
+                [Keys.Audio.flash, "media/Flash.ogg"]];
         //load system.
         for (const ARGS of ARGARRAY) {
             switch (ARGS[1].slice(-3)) {
@@ -241,7 +261,7 @@ export default class MainMenu extends Phaser.Scene {
         }).setOrigin(0.5);
 
 
-        this.title = this.add.text(this.scale.width, this.scale.height, "    version: not ready", {
+        this.title = this.add.text(this.scale.width, this.scale.height, "    version: not ready (beta)", {
             fontFamily: "battlefont",
             fontSize: "20px"
         }).setOrigin(1);
