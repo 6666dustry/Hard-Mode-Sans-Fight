@@ -1,6 +1,6 @@
 import Keys from "../../../keys.js";
 /**
- * make sans anims.
+ * make sans animations.
  * @param scene 
  */
 export default function slamAnimMaker(scene: Phaser.Scene) {
