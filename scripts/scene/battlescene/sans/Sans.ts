@@ -2,7 +2,7 @@ import type { SansType, SansConfig, FallingConfig, SansVisualConfig } from "../.
 import Keys from "../../../keys.js";
 import Director from "../director/Director.js";
 import setVisual from "./setVisual.js";
-import slamAnimMaker from "./slamAnimMaker.js";
+import slamAnimMaker from "./slamAnims.js";
 import update from "./update.js";
 import setSansPosition from "./setPos.js";
 import router from "../router.js";
