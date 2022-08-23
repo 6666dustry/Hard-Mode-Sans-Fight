@@ -40,6 +40,7 @@ export default function update(this: Commands, cursors: MoveKey, xKey: Phaser.In
         }
         case 1: {
             const UPMENU: typeof this.updateMenu = this.updateMenu.bind(this);
+
             cursors.leftIsJustDown && UPMENU("left");
             cursors.rightIsJustDown && UPMENU("right");
             cursors.upIsJustDown && UPMENU("up");

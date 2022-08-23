@@ -3,6 +3,7 @@ import Keys from "../../../keys.js";
 import { EndTurn } from "../../../Types.js";
 import { menuBone1, menuBone2 } from "./menuBones.js";
 import AttackLoader from "./attackLoader.js";
+import gameClear from "./gameClear.js";
 /**
  * player turn initialize.
  * @param this 
@@ -38,39 +39,9 @@ export default function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
 
     //is game cleared?
     if (this.endConfig && this.endConfig.win) {
-
-        this.scene.scene.transition({
-            target: Keys.Scene.mainMenu,
-            remove: true,
-            onUpdate: () => {
-                let appear = true;
-                this.scene.cameras.cameras.forEach((value) => {
-                    value.alpha -= 0.01;
-                    if (value.alpha > 0) {
-                        appear = false;
-                    }
-                });
-                if (appear) {
-                    this.scene.scene.setVisible(true, Keys.Scene.mainMenu);
-                    this.scene.scene.get(Keys.Scene.mainMenu).cameras.cameras.forEach((value) => {
-                        value.alpha += 0.01;
-                    });
-                }
-            },
-            duration: 5000,
-            data: [this.scene.config]
-        });
-        this.scene.scene.setVisible(false, Keys.Scene.mainMenu);
-        this.scene.scene.get(Keys.Scene.mainMenu).cameras.cameras.forEach((value) => {
-            value.alpha = 0;
-        });
-    }
-
-
-
-    // start player turn.
-    else {
-
+        gameClear(this.scene, this.scene.config);
+    } else {
+        // start player turn.
         const D = this.director;
 
         D.Heart.playerTurnInit();

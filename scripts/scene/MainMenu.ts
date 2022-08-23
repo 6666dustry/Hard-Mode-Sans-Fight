@@ -136,15 +136,13 @@ export default class MainMenu extends Phaser.Scene {
     }
     create(config: BattleStartConfig): void {
 
-        this.textures.get(Keys.Sheet.blaster);
-
         this.sound.stopAll();
 
         this.BackGround = new BackGround(this);
 
         this.AttackOrders = this.cache.json.get(Keys.Json.attack);
 
-
+        //load attack data.
         for (let index = 0; index < this.AttackOrders.Phase1.length; index++) {
             const element = this.AttackOrders.Phase1[index];
 

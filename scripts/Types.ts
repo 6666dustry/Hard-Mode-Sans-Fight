@@ -485,7 +485,7 @@ export type CircleBoneConfig = Partial<Pos2> & {
     tween?: BoneConfig["tween"] | false;
     /**
      * @default false
-     * @see BoneConfig
+     * @see {@link BoneConfig}
      */
     boneConfig?: BoneConfig | false;
 };
