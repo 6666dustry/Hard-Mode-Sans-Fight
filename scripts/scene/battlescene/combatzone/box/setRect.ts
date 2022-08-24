@@ -75,15 +75,16 @@ export default function setRect(this: CombatZone, config: AllReadonly<SetRectCon
     inst = DATA.inst;
 
     this.scene.tweens.killTweensOf(this.RectSize);
+
     if (!inst && !overlapInst) {
         this.scene.tweens.add(
             {
-                targets: this,
+                targets: this.RectSize,
                 props: {
-                    boxX: x,
-                    boxY: y,
-                    boxDx: dx,
-                    boxDy: dy,
+                    x: x,
+                    y: y,
+                    right: dx,
+                    bottom: dy,
                 },
                 duration: duration,
                 ease: config.ease

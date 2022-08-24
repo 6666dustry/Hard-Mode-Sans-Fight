@@ -12,7 +12,7 @@ export default function tweenRect(this: CombatZone, config: AllReadonly<TweenRec
         tween: "object",
     }, this.director.AttackLoader.runAttackPos);
 
-
+    this.scene.tweens.killTweensOf(this.RectSize);
     if (DATA.tween) {
         this.moving = true;
         const TWEEN = makeDeepCopy<Phaser.Types.Tweens.TweenBuilderConfig | Phaser.Types.Tweens.TweenBuilderConfig[]>(DATA.tween);
