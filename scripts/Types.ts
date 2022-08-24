@@ -739,7 +739,7 @@ export type SansVisualConfig = {
     frame?:
     //head frames.
     "default" |
-    "closeeye" |
+    "closedeye" |
     "lookleft" |
     "noeyes" |
     "wink" |
@@ -800,6 +800,14 @@ export type SansConfig = SansVisualConfig | SetPositionConfig;
 export type EnemyTextType = "speech";
 export type SpeechConfig = {
     text: string;
+    /**
+     * @default 35
+     */
+    speed?: number;
+    /**
+     * @default "sansText"
+     */
+    sound?: keyof typeof Keys.Audio | false;
     /**
      * @default false
      */
