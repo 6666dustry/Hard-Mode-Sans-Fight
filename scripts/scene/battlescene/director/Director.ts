@@ -17,7 +17,7 @@ import Keys from "../../../keys.js";
 import { gameDebug } from "../../../main.js";
 import Effect from "../effect/Effect.js";
 import removeAll from "./removeAll.js";
-import AttackLoader from "../attackLoader/attackLoader.js";
+import AttackLoader from "../attackPlayer/attackLoader.js";
 import MoveKey from "../../../MoveKey.js";
 import startGame from "./startGame.js";
 type key = Phaser.Input.Keyboard.Key;
