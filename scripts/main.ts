@@ -15,10 +15,11 @@ phaser3 by photonstorm.
 
     link:https://www.phaser.io/phaser3
 
-inspired by c2 sans fight 
+inspired by c2 sans fight.
 
     link:https://jcw87.github.io/c2-sans-fight
 
+license:MIT License.
 */
 export const gameDebug: boolean = !1;
 const MDebug: Phaser.Types.Physics.Matter.MatterDebugConfig = {
