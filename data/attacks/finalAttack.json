@@ -812,7 +812,7 @@
             "category": "sanstext",
             "type": "speech",
             "data": {
-                "text": "I guess you win",
+                "text": "I guess you win.",
                 "poses": {
                     "frame": "tired2"
                 },
@@ -824,7 +824,7 @@
             "data": {
                 "win": true
             },
-            "wait": 2000
+            "wait": 100
         }
     ]
 }
