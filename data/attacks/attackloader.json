@@ -1,5 +1,5 @@
 {
-    "Phase1stop": [
+    "Phase1": [
         "firstAttack.json",
         "boneGap1.json",
         "blueBone.json",
@@ -13,11 +13,6 @@
         "boneGap1fast.json",
         "boneSlideH.json",
         "platformBlasterHard.json",
-        "talkTime.json"
-    ],
-    "Phase1": [
-        "firstAttack.json",
-        "boneGap1.json",
         "talkTime.json"
     ],
     "Phase1RND": [
