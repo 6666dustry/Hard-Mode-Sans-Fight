@@ -71,7 +71,7 @@ export default class MainMenu extends Phaser.Scene {
             { frameWidth: 112, frameHeight: 44 }],
             [Keys.Sheet.item, "image/commands/item.png",
             { frameWidth: 112, frameHeight: 44 }],
-            [Keys.Sheet.mercy, "image/commands/Mercy.png",
+            [Keys.Sheet.mercy, "image/commands/mercy.png",
             { frameWidth: 112, frameHeight: 44 }],
             [Keys.Image.target, "image/commands/target.png"],
             [Keys.Sheet.tagBar, "image/commands/targetBar.png", { frameWidth: 16, frameHeight: 131 }],
