@@ -13,7 +13,7 @@ import GameMath from "../math/GameMath.js";
 import searchVariable from "./searchVariable.js";
 import AudioPlayer from "../audio/AudioPlayer.js";
 import PlatFormDirector from "../platForm/platformDirector.js";
-import Keys from "../../../Keys.js";
+import Keys from "../../../keys.js";
 import { gameDebug } from "../../../main.js";
 import Effect from "../effect/Effect.js";
 import removeAll from "./removeAll.js";

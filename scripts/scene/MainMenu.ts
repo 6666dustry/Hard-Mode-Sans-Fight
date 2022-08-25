@@ -1,5 +1,5 @@
 //this place is export MainMenu and load all data.
-import BackGround from "../backGround.js";
+import BackGround from "../BackGround.js";
 import Keys from "../keys.js";
 import MoveKey from "../MoveKey.js";
 import { BattleStartConfig } from "../Types.js";
