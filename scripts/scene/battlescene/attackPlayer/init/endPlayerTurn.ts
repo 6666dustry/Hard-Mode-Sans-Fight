@@ -1,5 +1,6 @@
-import Keys from "../../../keys.js";
-import AttackLoader from "./attackLoader.js";
+import Keys from "../../../../keys.js";
+import AttackLoader from "../attackLoader.js";
+import Single from "./Single.js";
 /**
  * enemy turn initialize
  * @param this 
@@ -23,16 +24,17 @@ export default function endPlayerTurn(this: AttackLoader, single?: boolean): voi
     let data: any;
     //option of single mode.
     if (this.playSingle) {
-        this.scene.sound.stopByKey(Keys.Audio.BGM);
-        this.scene.sound.play(Keys.Audio.BGM, {
-            loop: true
-        });
-
-        D.CombatzoneDirector.setRectDefault(true);
-
-        this.attackName = this.scene.config.singleAttack as string;
-
-        data = this.scene.cache.json.get(this.scene.config.singleAttack as string);
+        Single.reload(this.scene, this.director);
+        /* this.scene.sound.stopByKey(Keys.Audio.BGM);
+         this.scene.sound.play(Keys.Audio.BGM, {
+             loop: true
+         });
+ 
+         D.CombatzoneDirector.setRectDefault(true);
+ 
+         this.attackName = this.scene.config.singleAttack as string;
+ 
+         data = this.scene.cache.json.get(this.scene.config.singleAttack as string);*/
 
         this.startAttack(data.attacks);
     } else {

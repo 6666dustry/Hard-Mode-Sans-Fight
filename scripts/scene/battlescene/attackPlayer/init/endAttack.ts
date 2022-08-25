@@ -1,15 +1,15 @@
-import { EndTurn } from "../../../Types.js";
-import AttackLoader from "./attackLoader.js";
-import checkType from "../checkType.js";
-import Practice from "./practice.js.js";
+import { EndTurn } from "../../../../Types.js";
+import AttackLoader from "../attackLoader.js";
+import checkType from "../../checkType.js";
+import Practice from "../practice.js";
 /**
  * turn end initialize.
  * @param this 
  * @param config 
  */
 export default function endAttack(this: AttackLoader, config: EndTurn) {
-    this.first = false;
 
+    //remove waiting attack.
     for (const key in this.Loading) {
         if (Object.prototype.hasOwnProperty.call(this.Loading, key)) {
             const element = this.Loading[key as keyof typeof this.Loading];
@@ -23,9 +23,9 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
     if (this.scene.config.settings && this.scene.config.settings.practice) {
 
         Practice.showPassed(this.scene, true);
-
     }
 
+    this.first = false;
     this.runAttackPos = 0;
     const D = this.director;
 
