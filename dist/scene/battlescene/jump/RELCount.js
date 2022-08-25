@@ -1,0 +1,39 @@
+import checkType from "../checkType.js";
+/**jump relative with count*/
+export default function RELCount(config) {
+    const DATA = checkType(config, {
+        to: ["number", "string"],
+        count: {
+            type: "number",
+            default: 1
+        },
+        remain: {
+            type: ["string", "boolean"],
+            default: false
+        }
+    }, this.director.AttackLoader.runAttackPos);
+    const INDEX = this.director.AttackLoader.runAttackPos;
+    if (this.counter[INDEX] === undefined) {
+        this.counter[INDEX] = config.count;
+    }
+    let to;
+    if (typeof DATA.to !== "number") {
+        to = this.searchLabel(DATA.to);
+    }
+    else {
+        to = DATA.to;
+    }
+    if (this.counter[INDEX] > 0) {
+        this.director.AttackLoader.runAttackPos += to;
+        this.counter[INDEX]--;
+        if (DATA.remain) {
+            this.director.GameMath.variables[DATA.remain] = this.counter[INDEX];
+        }
+        return true;
+    }
+    else {
+        this.counter[INDEX] = undefined;
+        return false;
+    }
+}
+//# sourceMappingURL=RELCount.js.map

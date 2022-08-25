@@ -1,0 +1,1 @@
+{"version":3,"file":"init.js","sourceRoot":"","sources":["../../../../scripts/scene/battlescene/jump/init.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,UAAU,IAAI;IACxB,KAAK,MAAM,GAAG,IAAI,IAAI,CAAC,OAAO,EAAE;QAC5B,IAAI,MAAM,CAAC,SAAS,CAAC,cAAc,CAAC,IAAI,CAAC,IAAI,CAAC,OAAO,EAAE,GAAG,CAAC,EAAE;YACzD,IAAI,CAAC,OAAO,CAAC,GAAG,CAAC,GAAG,SAAS,CAAC;SACjC;KACJ;AACL,CAAC"}
