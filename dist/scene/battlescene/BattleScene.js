@@ -1,4 +1,4 @@
-import BackGround from "../../backGround.js";
+import BackGround from "../../BackGround.js";
 import Director from "./director/Director.js";
 import Keys from "../../keys.js";
 import MoveKey from "../../MoveKey.js";

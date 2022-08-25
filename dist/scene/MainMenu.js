@@ -1,5 +1,5 @@
 //this place is export MainMenu and load all data.
-import BackGround from "../backGround.js";
+import BackGround from "../BackGround.js";
 import Keys from "../keys.js";
 import MoveKey from "../MoveKey.js";
 export default class MainMenu extends Phaser.Scene {
@@ -66,13 +66,13 @@ export default class MainMenu extends Phaser.Scene {
             [Keys.Image.KRfont, "image/commands/KR.png"],
             [Keys.Image.speech, "image/sans/speechbubble.png"],
             [Keys.Sheet.fight, "image/commands/fight.png",
-                { frameWidth: 112, frameHeight: 44 }],
+            { frameWidth: 112, frameHeight: 44 }],
             [Keys.Sheet.act, "image/commands/act.png",
-                { frameWidth: 112, frameHeight: 44 }],
+            { frameWidth: 112, frameHeight: 44 }],
             [Keys.Sheet.item, "image/commands/item.png",
-                { frameWidth: 112, frameHeight: 44 }],
+            { frameWidth: 112, frameHeight: 44 }],
             [Keys.Sheet.mercy, "image/commands/Mercy.png",
-                { frameWidth: 112, frameHeight: 44 }],
+            { frameWidth: 112, frameHeight: 44 }],
             [Keys.Image.target, "image/commands/target.png"],
             [Keys.Sheet.tagBar, "image/commands/targetBar.png", { frameWidth: 16, frameHeight: 131 }],
             [Keys.Image.bone, "image/attack/bone.png", { frameWidth: 12, frameHeight: 6 }],
