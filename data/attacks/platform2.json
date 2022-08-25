@@ -1,6 +1,23 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "you can't understand \nhow this feels.",
+                "poses": {
+                    "frame": "lookleft"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "heart",
             "type": "setG",
             "data": {

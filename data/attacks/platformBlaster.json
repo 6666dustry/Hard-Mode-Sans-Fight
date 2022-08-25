@@ -1,6 +1,39 @@
 {
     "attacks": [
         {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "and getting to \nthe surface doesn't really \nappeal anymore,              \neither.",
+                "poses": {
+                    "frame": "closedeye"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "heart",
             "type": "setColor",
             "data": {
@@ -301,6 +334,7 @@
                 "endAngle": "$angle",
                 "color": "$color",
                 "size": 30,
+                "blastTime": 250,
                 "anchor": {
                     "x": "middle"
                 }

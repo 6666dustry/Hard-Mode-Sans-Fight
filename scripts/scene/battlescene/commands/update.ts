@@ -49,7 +49,7 @@ export default function update(this: Commands, cursors: MoveKey, xKey: Phaser.In
             if (JustDown(xKey)) {
                 this.commandType = 0;
                 this.resetTexts(this.diaTexts);
-                this.textId = this.rollDiaText(this.diaTexts[0], Keys.Text.batTime);
+                this.dialogText();
                 this.SCENE.sound.play(Keys.Audio.select);
 
             } else if (JustDown(zKey)) {

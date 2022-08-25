@@ -1,6 +1,49 @@
 {
     "attacks": [
         {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "all i know is...           \nseeing what comes next...",
+                "poses": {
+                    "frame": "closedeye"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "i can't afford not to \ncare anymore.",
+                "poses": {
+                    "frame": "tired2"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "heart",
             "type": "setColor",
             "data": {
@@ -83,7 +126,7 @@
                     "y": "middle"
                 },
                 "step": {
-                    "speed": 0.1
+                    "length": -3
                 }
             }
         },
@@ -110,15 +153,15 @@
             "data": {
                 "y": "$platY",
                 "speed": -2,
-                "delay": 1000,
+                "delay": 900,
                 "length": 40,
                 "x": 440,
-                "count": 25,
+                "count": 30,
                 "anchor": {
                     "y": "middle"
                 },
                 "step": {
-                    "speed": -0.1
+                    "speed": -0.15
                 }
             },
             "wait": 200
@@ -167,6 +210,7 @@
                 "endY": "$boneY",
                 "endAngle": 270,
                 "size": "$padding",
+                "blastTime": 350,
                 "wait": 1000,
                 "anchor": {
                     "x": "top",
@@ -287,16 +331,10 @@
                 "to": "#addBlasters",
                 "count": 11
             },
-            "wait": 1000
+            "wait": 1100
         },
         {
             "category": "endattack",
-            "data": {
-                "setSansVisual": {
-                    "target": "sweet",
-                    "frame": "sweet2"
-                }
-            },
             "wait": 1500
         }
     ]

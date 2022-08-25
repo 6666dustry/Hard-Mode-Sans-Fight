@@ -1,6 +1,23 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "and that day's TODAY.",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "combatzone",
             "type": "setRect",
             "data": {

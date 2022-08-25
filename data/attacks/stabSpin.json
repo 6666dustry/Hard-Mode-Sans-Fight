@@ -61,7 +61,7 @@
                 "rotateSpeed": 2.5,
                 "tween": {
                     "props": {
-                        "spaceRadius": 60
+                        "spaceRadius": 45
                     },
                     "duration": 400,
                     "repeatDelay": 400,
@@ -93,7 +93,7 @@
                 "rotateSpeed": -2.5,
                 "tween": {
                     "props": {
-                        "spaceRadius": 60
+                        "spaceRadius": 45
                     },
                     "duration": 400,
                     "repeatDelay": 400,

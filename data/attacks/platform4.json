@@ -1,6 +1,49 @@
 {
     "attacks": [
         {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "cause even if we do...",
+                "poses": {
+                    "frame": "closedeye"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "we'll just end up \nright back here,              \nwithout any memory of it,             \nright?",
+                "poses": {
+                    "frame": "noeyes"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "heart",
             "type": "setColor",
             "data": {

@@ -23,6 +23,7 @@ export default function endPlayerTurn(this: AttackLoader, single?: boolean): voi
     let data: any;
     //option of single mode.
     if (this.playSingle) {
+        this.scene.sound.stopByKey(Keys.Audio.BGM);
         this.scene.sound.play(Keys.Audio.BGM, {
             loop: true
         });
@@ -36,27 +37,14 @@ export default function endPlayerTurn(this: AttackLoader, single?: boolean): voi
         this.startAttack(data.attacks);
     } else {
 
-        //is phase ended?
-        if (this.isPhaseEnd()) {
-
-            this.resting = true;
-            this.scene.sound.stopByKey(Keys.Audio.BGM);
-
-            D.Sans.setVisual({
-                state: "tired"
-            });
-
+        if (this.resting) {
             this.scene.time.delayedCall(
                 700, this.endEnemyTurn,
                 undefined, this
             );
         } else {
-            //first special attack.
             data = this.getAttack();
-
-            if (!this.resting) {
-                this.startAttack(data.attacks);
-            }
+            this.startAttack(data.attacks);
         }
     }
 }

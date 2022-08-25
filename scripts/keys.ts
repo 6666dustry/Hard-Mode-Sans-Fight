@@ -72,7 +72,7 @@ enum EventKey {
 //is it key?
 enum TextKey {
     batTime = "* You feel like you're going to\n have a bad time",
-    resting = "* sans is taking a break."
+    resting = "* Sans is sparing you."
 }
 let depthValue: number = 0;
 enum DepthKey {

@@ -1,6 +1,42 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "well, here goes nothing...",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "are you ready?",
+                "poses": {
+                    "target": "sweet",
+                    "frame": "sweet1",
+                    "visible": false
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "survive THIS \nand i'll show you \nmy special attack!"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "combatzone",
             "type": "setRect",
             "data": {
@@ -756,11 +792,11 @@
             "category": "sanstext",
             "type": "speech",
             "data": {
-                "text": "alright...",
+                "text": "huff...        \npuff...",
                 "poses": {
-                    "target": "head",
                     "frame": "tired1"
-                }
+                },
+                "speed": 75
             },
             "wait": 3000
         },
@@ -768,11 +804,19 @@
             "category": "sanstext",
             "type": "speech",
             "data": {
+                "text": "alright...",
+                "speed": 75
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
                 "text": "I guess you win",
                 "poses": {
-                    "target": "head",
                     "frame": "tired2"
-                }
+                },
+                "speed": 75
             }
         },
         {

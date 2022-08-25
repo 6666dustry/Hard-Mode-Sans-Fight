@@ -171,7 +171,22 @@ export type EndTurn = {
      * @default false
      */
     win?: boolean;
+    /**
+     * @default false
+     */
     setSansVisual?: SansVisualConfig | false;
+    /**
+   * @default false
+   */
+    playBGM?: boolean;
+    /**
+   * @default false
+   */
+    stopBGM?: boolean;
+    /**
+    * @default false
+    */
+    endPhase?: boolean;
 };
 
 

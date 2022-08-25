@@ -1,6 +1,39 @@
 {
     "attacks": [
         {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "look.              \ni gave up trying to \ngo back a long time ago.",
+                "poses": {
+                    "frame": "tired2"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "heart",
             "type": "setColor",
             "data": {

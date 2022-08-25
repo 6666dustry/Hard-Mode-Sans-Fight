@@ -1,6 +1,37 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "yeah,           \nmy special attack.             \nsound familiar?",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "well,       \nget ready.        \ncause after the next move,          \ni'm going to use it."
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "so,       \nif you don't want to see it,        \nnow would be a \ngood time to die."
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "combatzone",
             "type": "setRect",
             "data": {

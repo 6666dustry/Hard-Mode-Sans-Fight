@@ -1,6 +1,5 @@
 import { EndTurn } from "../../../Types.js";
 import AttackLoader from "./attackLoader.js";
-import Keys from "../../../keys.js";
 import checkType from "../checkType.js";
 import Practice from "./practice.js";
 /**
@@ -9,6 +8,7 @@ import Practice from "./practice.js";
  * @param config 
  */
 export default function endAttack(this: AttackLoader, config: EndTurn) {
+    this.first = false;
 
     for (const key in this.Loading) {
         if (Object.prototype.hasOwnProperty.call(this.Loading, key)) {
@@ -46,13 +46,10 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
         if (this.scene.config.settings && this.scene.config.settings.practice) {
 
             this.attacked = true;
-            if (this.first) {
-                this.scene.sound.play(Keys.Audio.BGM, {
-                    loop: true
-                });
-            }
-            if (this.isPhaseEnd()) {
+
+            if (this.endConfig.endPhase) {
                 this.phase++;
+                this.endConfig.endPhase = false;
                 this.loadFilePos = -1;
             }
 
@@ -62,7 +59,6 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
             D.Statuses.kr = 0;
             D.Statuses.setDisplay();
 
-            this.first = false;
 
             D.removeAll();
             D.Heart.enemyTurnInit();
@@ -82,6 +78,18 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
                         default: false
                     },
                     win: {
+                        type: "boolean",
+                        default: false
+                    },
+                    playBGM: {
+                        type: "boolean",
+                        default: false
+                    },
+                    stopBGM: {
+                        type: "boolean",
+                        default: false
+                    },
+                    endPhase: {
                         type: "boolean",
                         default: false
                     }

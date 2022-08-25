@@ -1,6 +1,46 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "and maybe all \nthey needed was...            \ni dunno.",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "some good food,            \nsome bad laughs,            \nsome nice friends."
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "jump",
             "type": "label",
             "data": {

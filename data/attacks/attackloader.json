@@ -1,5 +1,5 @@
 {
-    "Phase1": [
+    "Phase1stop": [
         "firstAttack.json",
         "boneGap1.json",
         "blueBone.json",
@@ -12,7 +12,13 @@
         "platform4.json",
         "boneGap1fast.json",
         "boneSlideH.json",
-        "platformBlasterHard.json"
+        "platformBlasterHard.json",
+        "talkTime.json"
+    ],
+    "Phase1": [
+        "firstAttack.json",
+        "boneGap1.json",
+        "talkTime.json"
     ],
     "Phase1RND": [
         "rndBlaster1.json",
@@ -21,8 +27,8 @@
     ],
     "Phase2": [
         "multi1.json",
-        "multi2.json",
         "rndBlaster2.json",
+        "multi2.json",
         "stab1.json",
         "stab2.json",
         "rndBlaster3.json",

@@ -1,6 +1,30 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "and if you \nkeep pushing me...",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "then i'll be forced to \nuse my special attack."
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "jump",
             "type": "label",
             "data": {

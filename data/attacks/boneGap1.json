@@ -1,6 +1,39 @@
 {
     "attacks": [
         {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "what? you think \ni'm just gonna stand there \nand take it?",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "heart",
             "type": "setColor",
             "data": {
@@ -28,10 +61,11 @@
             "data": {
                 "x": 0,
                 "y": 250,
-                "length": 135,
+                "length": 300,
                 "angle": 0,
                 "speed": 3,
-                "color": "blue",
+                "speedAngle": -5,
+                "color": "orange",
                 "anchor": {
                     "x": "middle"
                 }
@@ -43,10 +77,11 @@
             "data": {
                 "x": 640,
                 "y": 250,
-                "length": 135,
+                "length": 300,
                 "angle": 0,
-                "speed": -3,
-                "color": "blue",
+                "speed": 3,
+                "speedAngle": -175,
+                "color": "orange",
                 "anchor": {
                     "x": "middle"
                 }
@@ -56,13 +91,14 @@
             "category": "bone",
             "type": "addGap",
             "data": {
-                "x": 1,
+                "x": 0,
                 "y": 550,
                 "length": 300,
                 "topLength": 150,
                 "angle": 180,
                 "speedAngle": -5,
                 "speed": 3,
+                "padding": 33,
                 "anchor": {
                     "x": "middle"
                 }
@@ -72,13 +108,14 @@
             "category": "bone",
             "type": "addGap",
             "data": {
-                "x": 639,
+                "x": 640,
                 "y": 550,
                 "length": 300,
                 "topLength": 150,
                 "angle": 180,
                 "speedAngle": -175,
                 "speed": 3,
+                "padding": 33,
                 "anchor": {
                     "x": "middle"
                 }
@@ -91,7 +128,7 @@
                 "to": "#addGap",
                 "count": 15
             },
-            "wait": 600
+            "wait": 925
         },
         {
             "category": "endattack",

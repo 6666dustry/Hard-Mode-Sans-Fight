@@ -1,6 +1,40 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "sounds strange,           \nbut before all this \ni was secretly hoping \nwe could be friends.",
+                "poses": {
+                    "frame": "closedeye"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "i always thought \nthe anomaly was doing this \ncause they were unhappy.",
+                "poses": {
+                    "frame": "lookleft"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "and when they got \nwhat they wanted,              \nthey would stop all this."
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "combatzone",
             "type": "setRect",
             "data": {

@@ -25,8 +25,17 @@
             "category": "sanstext",
             "type": "speech",
             "data": {
-                "text": "ready?"
-            }
+                "text": "it's a beautiful day outside.                 \nbirds are singing,                  \nflowers are blooming..."
+            },
+            "wait": 500
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "on days like these,                  \nkids like you... "
+            },
+            "wait": 500
         },
         {
             "category": "effect",
@@ -35,6 +44,19 @@
                 "pause": true,
                 "duration": 750
             }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "Should be burning in hell.",
+                "sound": false,
+                "speed": 150,
+                "poses": {
+                    "frame": "noeyes"
+                }
+            },
+            "wait": 500
         },
         {
             "category": "sans",
@@ -430,6 +452,28 @@
             }
         },
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "huh.",
+                "poses": {
+                    "frame": "lookleft"
+                }
+            },
+            "wait": 4000
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "always wondered why people\nnever use their\nstrongest attack first.",
+                "poses": {
+                    "target": "torso",
+                    "frame": "shrug"
+                }
+            }
+        },
+        {
             "category": "sans",
             "type": "setVisual",
             "data": {
@@ -437,10 +481,21 @@
                 "frame": "default",
                 "state": "dancing"
             },
-            "wait": 4000
+            "wait": 200
         },
         {
-            "category": "endattack"
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "endattack",
+            "data": {
+                "playBGM": true
+            }
         }
     ]
 }

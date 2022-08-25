@@ -1,6 +1,49 @@
 {
     "attacks": [
         {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "... or is that just a poor \nexcuse for being lazy...?",
+                "poses": {
+                    "frame": "lookleft"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "hell if i know. ",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "heart",
             "type": "setColor",
             "data": {
@@ -21,6 +64,10 @@
                 "delay": 700,
                 "anchor": {
                     "x": "middle"
+                },
+                "step": {
+                    "speed": 0.1,
+                    "x": 5
                 }
             }
         },
@@ -37,6 +84,10 @@
                 "delay": 700,
                 "anchor": {
                     "x": "middle"
+                },
+                "step": {
+                    "speed": -0.1,
+                    "x": -5
                 }
             }
         },
@@ -56,7 +107,8 @@
                 "y": "$comTop",
                 "dx": 390,
                 "dy": "$comBottom",
-                "duration": 9000
+                "duration": 10000,
+                "ease": "Quad"
             }
         },
         {

@@ -1,6 +1,33 @@
 {
     "attacks": [
         {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "but that's ridiculous,             \nright?",
+                "poses": {
+                    "frame": "closedeye"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "yeah,           \nyou're the type of person \nwho won't EVER be happy.",
+                "poses": {
+                    "frame": "noeyes"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
             "category": "combatzone",
             "type": "setRect",
             "data": {

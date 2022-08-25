@@ -102,9 +102,6 @@ export default class Fight {
                 state: "dancing"
             });
             AT.loadFilePos = -1;
-            this.command.SCENE.sound.play(Keys.Audio.BGM, {
-                loop: true
-            });
         } else {
         }
         CO.director.Sans.avoid().setCallback("onComplete", (): void => {

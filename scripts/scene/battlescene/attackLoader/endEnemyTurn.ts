@@ -11,34 +11,23 @@ import gameClear from "./gameClear.js";
 export default function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
     this.playerTurn = true;
 
+
     if (config) {
-        if (this.endConfig) {
-            for (const key in config) {
-                if (Object.prototype.hasOwnProperty.call(config, key)) {
-                    const element = config[key as keyof EndTurn];
-                    if (element != null) {
-                        this.endConfig[key as keyof EndTurn] = element as any;
-                    }
+        for (const key in config) {
+            if (Object.prototype.hasOwnProperty.call(config, key)) {
+                const element = config[key as keyof EndTurn];
+                if (element != null) {
+                    this.endConfig[key as keyof EndTurn] = element as any;
                 }
             }
-        } else {
-            this.endConfig = config;
         }
-
     }
 
-
-    if (this.first) {
-        this.first = false;
-        this.scene.sound.play(Keys.Audio.BGM, {
-            loop: true
-        });
-    }
 
     this.director.removeAll();
 
     //is game cleared?
-    if (this.endConfig && this.endConfig.win) {
+    if (this.endConfig.win) {
         gameClear(this.scene, this.scene.config);
     } else {
         // start player turn.
@@ -46,36 +35,52 @@ export default function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
 
         D.Heart.playerTurnInit();
         D.CombatzoneDirector.setRectDefault();
+
+        if (this.endConfig.endPhase) {
+            this.endConfig.endPhase = false;
+            this.resting = true;
+        }
+
         D.Commands.playerTurnInit();
 
-        if (this.endConfig) {
 
-            if (this.endConfig.setSansVisual) {
-                D.Sans.setVisual(this.endConfig.setSansVisual);
+        if (this.endConfig.stopBGM) {
+            this.scene.sound.stopByKey(Keys.Audio.BGM);
+            this.endConfig.stopBGM = false;
+        }
 
-                delete this.endConfig.setSansVisual;
-            }
+        if (this.endConfig.playBGM) {
+            this.endConfig.playBGM = false;
+            this.scene.sound.play(Keys.Audio.BGM, {
+                loop: true
+            });
+        }
 
-            if (this.endConfig.menuBone) {
-                switch (this.endConfig.menuBone) {
-                    case 1: {
-                        menuBone1.call(D);
-                        break;
-                    }
-                    case 2: {
-                        menuBone2.call(D);
-                        break;
-                    }
+        if (this.endConfig.setSansVisual) {
+            D.Sans.setVisual(this.endConfig.setSansVisual);
 
-                    case 3: {
+            delete this.endConfig.setSansVisual;
+        }
 
-                        menuBone1.call(D);
-                        menuBone2.call(D);
-                        break;
-                    }
+        if (this.endConfig.menuBone) {
+            switch (this.endConfig.menuBone) {
+                case 1: {
+                    menuBone1.call(D);
+                    break;
+                }
+                case 2: {
+                    menuBone2.call(D);
+                    break;
+                }
+
+                case 3: {
+
+                    menuBone1.call(D);
+                    menuBone2.call(D);
+                    break;
                 }
             }
-
         }
+
     }
 }

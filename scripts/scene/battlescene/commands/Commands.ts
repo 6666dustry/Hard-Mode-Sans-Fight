@@ -265,18 +265,20 @@ export default class Commands {
             BUTTON.setFrame(0);
         }
     }
+    dialogText() {
+        if (this.director.AttackLoader.resting) {
+            this.textId = this.rollDiaText(this.diaTexts[0], Keys.Text.resting);
+        } else {
+            this.textId = this.rollDiaText(this.diaTexts[0], Keys.Text.batTime);
+        }
+    }
     /**
      * initialize!
      */
     playerTurnInit(): void {
         this.setTextsActive(true);
         this.updateCommand();
-        if (this.director.AttackLoader.resting) {
-            this.textId = this.rollDiaText(this.diaTexts[0], Keys.Text.resting);
-        } else {
-            this.textId = this.rollDiaText(this.diaTexts[0], Keys.Text.batTime);
-        }
-
+        this.dialogText();
         this.SCENE.events.once(Keys.Event.endTurn, this.director.AttackLoader.endPlayerTurn.bind(this.director.AttackLoader));
     };
     endPlayerTurn() {

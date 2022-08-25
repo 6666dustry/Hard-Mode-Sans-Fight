@@ -1,6 +1,59 @@
 {
     "attacks": [
         {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "shrug"
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "welp, it was worth a shot.",
+                "poses": {
+                    "frame": "wink"
+                }
+            }
+        },
+        {
+            "category": "sanstext",
+            "type": "speech",
+            "data": {
+                "text": "guess you like \ndoing things the hard way,           \nhuh?",
+                "poses": {
+                    "frame": "noeyes"
+                }
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "target": "torso",
+                "frame": "torso"
+            }
+        },
+        {
+            "category": "sans",
+            "type": "setVisual",
+            "data": {
+                "frame": "default"
+            }
+        },
+        {
+            "category": "audio",
+            "type": "play",
+            "data": {
+                "sound": "BGM",
+                "extra": {
+                    "loop": true
+                }
+            }
+        },
+        {
             "category": "jump",
             "type": "label",
             "data": {

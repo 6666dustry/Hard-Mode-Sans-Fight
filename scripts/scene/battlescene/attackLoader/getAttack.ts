@@ -7,9 +7,10 @@ import AttackLoader from "./attackLoader.js";
  * @returns 
  */
 export default function getAttack(this: AttackLoader, nextFile?: boolean): SingleAttack[] {
-    nextFile == undefined && (nextFile = true);
+    nextFile == null && (nextFile = true);
     let data: SingleAttack[];
     if (this.first) {
+        this.first = false;
         data = this.catchAttack();
     } else {
         if (this.attacked) {

@@ -37,15 +37,16 @@ export default class SansText extends Phaser.GameObjects.Container {
         this.text.setText(text);
         this.zKey.once("down", this.endSpeech.bind(this));
     }
-    rollDiaText(text: string): Phaser.Time.TimerEvent {
-        const length: number = text.length;
+    rollDiaText(config: Required<SpeechConfig>): Phaser.Time.TimerEvent {
+        const length: number = config.text.length;
         let i: number = 0;
-
-        return this.scene.time.addEvent({
+        let roll = this.scene.time.addEvent({
             callback: (): void => {
-                this.text.text += text[i];
-                this.scene.sound.play(Keys.Audio.battleText);
-                this.scene.sound.play(Keys.Audio.sansText);
+                this.text.setText(this.text.text + config.text[i]);
+
+                if (config.sound && this.text.text[i] !== " ") {
+                    this.scene.sound.play(Keys.Audio[config.sound]);
+                }
 
                 if (i >= length - 1) {
                     this.zKey.off("down");
@@ -54,15 +55,25 @@ export default class SansText extends Phaser.GameObjects.Container {
                 ++i;
             },
             repeat: length - 1,
-            delay: 35
+            delay: config.speed
         });
+
+        return roll;
     }
     speech(config: AllReadonly<SpeechConfig>): void {
         const DATA = checkType(config, {
             text: "string",
+            sound: {
+                type: ["string", "boolean"],
+                default: "sansText"
+            },
             poses: {
                 type: ["object", "boolean"],
                 default: false
+            },
+            speed: {
+                type: "number",
+                default: 35
             }
         }, this.director.AttackLoader.runAttackPos);
         if (this.scene === undefined) {
@@ -79,7 +90,7 @@ export default class SansText extends Phaser.GameObjects.Container {
         this.setVisible(true);
 
         this.text.setText("");
-        this.speechId = this.rollDiaText(DATA.text);
+        this.speechId = this.rollDiaText(DATA);
 
 
         this.zKey.once("down", this.#setTextInst.bind(this, config.text));

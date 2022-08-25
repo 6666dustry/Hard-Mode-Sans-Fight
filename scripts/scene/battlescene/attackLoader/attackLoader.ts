@@ -25,6 +25,7 @@ export default class AttackLoader {
         this.loadFilePos = 0;
         this.phase = 1;
         this.Loading = {};
+        this.endConfig = {};
 
         this.loadAttack = loadAttack;
         this.catchAttack = catchOrder;
@@ -78,7 +79,7 @@ export default class AttackLoader {
         };
     };
     /**end attack config. */
-    endConfig?: EndTurn;
+    endConfig: EndTurn;
     getPhaseLength(): number {
         switch (this.phase) {
             case 1:
