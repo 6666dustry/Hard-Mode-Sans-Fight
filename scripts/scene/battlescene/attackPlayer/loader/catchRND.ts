@@ -1,4 +1,4 @@
-import AttackLoader from "./attackLoader.js";
+import AttackLoader from "../attackLoader.js";
 
 /**
  * catch random attack.

@@ -1,4 +1,4 @@
-import Keys from "../../../keys.js";
+import Keys from "../../../../keys.js";
 export default class Practice {
     static showPassed(scene: Phaser.Scene, Passed: boolean) {
         let text = scene.add.text(

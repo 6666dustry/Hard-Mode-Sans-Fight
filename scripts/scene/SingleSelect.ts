@@ -31,7 +31,7 @@ export default class SingleSelect extends Phaser.Scene {
     preload() { }
     create(config: BattleStartConfig) {
         this.sound.stopAll();
-        this.config = config;
+        this.config = config || {};
 
         this.xKey = this.input.keyboard.addKey("X");
         this.zKey = this.input.keyboard.addKey("Z");

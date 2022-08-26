@@ -1,8 +1,13 @@
-import { SingleAttack } from "../../../Types.js";
-import AttackLoader from "./attackLoader.js";
+import { SingleAttack } from "../../../../Types.js";
+import AttackLoader from "../attackLoader.js";
+/**
+ * start enemy attacks.
+ * @param this 
+ * @param attack set to {@link AttackLoader.loadingAttack}
+ */
 export default function startAttack(this: AttackLoader, attack?: SingleAttack[]) {
     const D = this.director;
-    if (attack) {
+    if (Array.isArray(attack)) {
         this.loadingAttack = attack;
     }
 

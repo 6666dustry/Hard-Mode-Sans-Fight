@@ -1,9 +1,8 @@
-
-import Keys from "../../../keys.js";
-import { EndTurn } from "../../../Types.js";
+import Keys from "../../../../keys.js";
+import { EndTurn } from "../../../../Types.js";
 import { menuBone1, menuBone2 } from "./menuBones.js";
-import AttackLoader from "./attackLoader.js";
-import gameClear from "./gameClear.js";
+import AttackLoader from "../attackLoader.js";
+import gameClear from "../gameClear.js";
 /**
  * player turn initialize.
  * @param this 

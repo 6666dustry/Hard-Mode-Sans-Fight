@@ -242,7 +242,7 @@ export default class MainMenu extends Phaser.Scene {
         this.selector.setTint(0xff0000);
 
 
-        this.config = config;
+        this.config = config || {};
 
         this.config.Phase1 = this.Phase1;
         this.config.Phase1RND = this.Phase1RND;

@@ -1,15 +1,16 @@
 import BattleScene from "../BattleScene.js";
 import Director from "../director/Director.js";
-import type { EndTurn, SingleAttack } from "../../../Types.js";
-import loadAttack from "./loadAttack.js";
-import catchOrder from "./catchAttack.js";
-import catchRND from "./catchRND.js";
-import retry from "./retry.js";
-import startAttack from "./startAttack.js";
-import endEnemyTurn from "./endEnemyTurn.js";
-import endPlayerTurn from "./endPlayerTurn.js";
-import endAttack from "./endAttack.js";
-import getAttack from "./getAttack.js";
+import type { EndTurn, jsonFile, SingleAttack } from "../../../Types.js";
+import loadAttack from "./runner/loadAttack.js";
+import catchOrder from "./loader/catchAttack.js";
+import catchRND from "./loader/catchRND.js";
+import retry from "./init/retry.js";
+import startAttack from "./runner/startAttack.js";
+import endEnemyTurn from "./init/endEnemyTurn.js";
+import endPlayerTurn from "./init/endPlayerTurn.js";
+import startGame from "./init/startGame.js";
+import endAttack from "./init/endAttack.js";
+import getAttack from "./loader/getAttack.js";
 export default class AttackLoader {
     constructor(scene: BattleScene, director: Director) {
         this.scene = scene;
@@ -36,6 +37,7 @@ export default class AttackLoader {
         this.startAttack = startAttack;
         this.retry = retry;
         this.endAttack = endAttack;
+        this.startGame = startGame;
     }
     readonly scene: BattleScene;
     readonly director: Director;
@@ -48,6 +50,7 @@ export default class AttackLoader {
     readonly endEnemyTurn: typeof endEnemyTurn;
     readonly retry: typeof retry;
     readonly endAttack: typeof endAttack;
+    readonly startGame: typeof startGame;
     SingleAttack!: SingleAttack;
     /**if true, player can use commands. */
     playerTurn: boolean;
@@ -58,7 +61,7 @@ export default class AttackLoader {
     /**now turn`s all attacks. */
     loadingAttack!: SingleAttack[];
     /** file name. */
-    attackName!: string;
+    attackName!: jsonFile;
     /**is now resting turn. */
     resting: boolean;
     phase: 1 | 2;

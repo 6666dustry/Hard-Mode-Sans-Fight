@@ -1,5 +1,5 @@
-import AttackLoader from "./attackLoader.js";
-import Practice from "./practice.js";
+import AttackLoader from "../attackLoader.js";
+import Practice from "./Practice.js";
 /**
  * start attack again. called at practice mode.
  * @param this 

@@ -1,7 +1,7 @@
 import { EndTurn } from "../../../../Types.js";
 import AttackLoader from "../attackLoader.js";
 import checkType from "../../checkType.js";
-import Practice from "../practice.js";
+import Practice from "./Practice.js";
 /**
  * turn end initialize.
  * @param this 

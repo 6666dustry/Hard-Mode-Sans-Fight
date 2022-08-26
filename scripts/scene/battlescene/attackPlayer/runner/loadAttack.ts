@@ -24,14 +24,14 @@ import {
     EffectConfig,
     EffectType,
     EndTurn
-} from "../../../Types.js";
-import AttackLoader from "./attackLoader.js";
+} from "../../../../Types.js";
+import AttackLoader from "../attackLoader.js";
 /**
    * deliver data to another module.
    */
 export default function loadAttack(this: AttackLoader, attack: SingleAttack) {
     let noData = false;
-    if (!attack) {
+    if (typeof attack !== "object") {
         console.error(`attack is not defined at ${ this.runAttackPos }`);
         this.endAttack({});
     }

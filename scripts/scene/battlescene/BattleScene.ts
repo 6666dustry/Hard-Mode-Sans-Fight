@@ -44,7 +44,7 @@ export default class BattleScene extends Phaser.Scene {
         this.BackGround = new BackGround(this);
 
         this.matter.world.setBounds();
-        this.director.startGame(this.config.single);
+        this.director.startGame(this.config);
         console.log(this);
     }
     update(time: number, fps: number): void {
