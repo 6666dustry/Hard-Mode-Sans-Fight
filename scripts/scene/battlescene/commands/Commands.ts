@@ -27,7 +27,7 @@ export default class Commands {
         this.buttonPos = [];
         const SPRITES: string[] = [Keys.Sheet.fight, Keys.Sheet.act, Keys.Sheet.item, Keys.Sheet.mercy];
 
-        this.#buttons = [];
+        this.buttons = [];
         this.diaTexts = [];
         this.selectAct = 0;
         this.selectedCommand = 0;
@@ -53,7 +53,7 @@ export default class Commands {
         //set buttons.
         for (let index: number = 0; index < POSES.length; index++) {
             const elem: { x: number, y: number, Image: string; } = POSES[index];
-            this.#buttons[index] = SCENE.add.sprite(elem.x, elem.y, elem.Image, 0).setDepth(this.depth);
+            this.buttons[index] = SCENE.add.sprite(elem.x, elem.y, elem.Image, 0).setDepth(this.depth);
         }
         /**text config. */
         const texCon: Phaser.Types.GameObjects.Text.TextStyle = {
@@ -105,7 +105,7 @@ export default class Commands {
     readonly director: Director;
     /**used for stop roll texts. */
     textId!: Phaser.Time.TimerEvent;
-    #buttons: Phaser.GameObjects.Sprite[];
+    buttons: Phaser.GameObjects.Sprite[];
     readonly buttonPos: { x: number, y: number, Image: string; }[];
     /**0=fight,1=act,2=item,3=mercy */
     selectedCommand: number;
@@ -168,7 +168,7 @@ export default class Commands {
      * set button frame and set heart position.
      */
     updateCommand(): void {
-        for (const BUTTON of this.#buttons) {
+        for (const BUTTON of this.buttons) {
             BUTTON.setFrame(0);
         }
         const select: any[] = this.buttonPos;
@@ -177,7 +177,7 @@ export default class Commands {
             select[this.selectedCommand].y);
 
         this.Heart.Image.setAngle(0);
-        this.#buttons[this.selectedCommand].setFrame(1);
+        this.buttons[this.selectedCommand].setFrame(1);
     }
     /**
      * used for first select
@@ -261,7 +261,7 @@ export default class Commands {
      * reset button frames.
      */
     resetButtons() {
-        for (const BUTTON of this.#buttons) {
+        for (const BUTTON of this.buttons) {
             BUTTON.setFrame(0);
         }
     }

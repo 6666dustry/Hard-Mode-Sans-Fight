@@ -1,10 +1,9 @@
 {
     "compilerOptions": {
-        "esModuleInterop": true,
         "outDir": "./dist",
         "sourceMap": true,
-        "target": "ESNext",
-        "module": "ESNext",
+        "target": "ES5",
+        "module": "ES2015",
         "baseUrl": "./scripts",
         "strict": true,
     }

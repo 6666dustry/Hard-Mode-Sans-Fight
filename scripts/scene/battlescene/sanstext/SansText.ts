@@ -32,7 +32,7 @@ export default class SansText extends Phaser.GameObjects.Container {
     text: Phaser.GameObjects.Text;
     speechBack: Phaser.GameObjects.Image;
     speechId!: Phaser.Time.TimerEvent;
-    #setTextInst(text: string): void {
+    setTextInst(text: string): void {
         this.speechId.remove();
         this.text.setText(text);
         this.zKey.once("down", this.endSpeech.bind(this));
@@ -93,7 +93,7 @@ export default class SansText extends Phaser.GameObjects.Container {
         this.speechId = this.rollDiaText(DATA);
 
 
-        this.zKey.once("down", this.#setTextInst.bind(this, config.text));
+        this.zKey.once("down", this.setTextInst.bind(this, config.text));
     }
     endSpeech(): void {
         if (this.scene === undefined) {

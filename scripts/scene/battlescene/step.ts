@@ -13,7 +13,9 @@ type stepFrom = {
  */
 export default function step<Type extends stepperType & {
     [k: string]: any;
-}, stepperType extends stepFrom
+}, stepperType extends {
+    [k in keyof Type]: stepFrom
+}
     ,>(stepped: Type, stepper: Readonly<stepperType>, makeCopy?: boolean): Type {
 
     let result: Type = stepped;
@@ -30,13 +32,12 @@ export default function step<Type extends stepperType & {
             switch (typeof element) {
                 case "object":
 
-                    result[iterator] = step(element, config as stepFrom);
+                    result[iterator] = step(element, config as any);
                     break;
 
                 case "number":
 
-                    (result[iterator] as number) = stepType(element, config as Exclude<typeof stepper, stepFrom>);
-                    break;
+                    (result[iterator] as number) = stepType(element, config as any);
 
                 default:
                     console.warn(`${ String(iterator) } is not number.`);
