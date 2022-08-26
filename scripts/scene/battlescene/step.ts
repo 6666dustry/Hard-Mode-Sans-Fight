@@ -38,9 +38,9 @@ export default function step<Type extends stepperType & {
                 case "number":
 
                     (result[iterator] as number) = stepType(element, config as any);
-
+                    break;
                 default:
-                    console.warn(`${ String(iterator) } is not number.`);
+                    console.warn(`${ String(iterator) }(${ typeof stepped[iterator] }) is not number.`);
             }
         } else {
             console.warn(`${ String(iterator) } is not defined.`);

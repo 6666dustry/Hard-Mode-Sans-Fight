@@ -20,12 +20,12 @@ export default function checkType<check extends {
     for (const iterator of KEYS) {
 
         const element = Property[iterator];
-        const checked = Check[iterator];
+        const checking = Check[iterator];
 
         if (typeof element === "object" && !Array.isArray(element)) {
             //here, element is object. not array.
 
-            if (checked == undefined) {
+            if (checking == undefined) {
                 Check[iterator] = element.default as check[string] | check[number];
                 continue;
             }
@@ -35,7 +35,7 @@ export default function checkType<check extends {
                 let isMatched = false;
 
                 for (const ITERATOR of element.type) {
-                    if (typeof checked === ITERATOR) {
+                    if (typeof checking === ITERATOR) {
                         isMatched = true;
                         break;
                     }
@@ -47,7 +47,7 @@ export default function checkType<check extends {
 
             } else {
 
-                if (typeof checked !== element.type) {
+                if (typeof checking !== element.type) {
                     console.error(`${ String(iterator) } is not ${ element.type } at ${ runAttackPosition }`);
 
                     Check[iterator] = element.default as check[string] | check[number];
@@ -58,7 +58,7 @@ export default function checkType<check extends {
         } else {
 
             //here, element is string or array.
-            if (checked == undefined) {
+            if (checking == undefined) {
                 console.error(`${ String(iterator) } is not defined at ${ runAttackPosition }`);
             }
 
@@ -67,7 +67,7 @@ export default function checkType<check extends {
                 let isMatched = false;
 
                 for (const ITERATOR of element) {
-                    if (typeof checked === ITERATOR) {
+                    if (typeof checking === ITERATOR) {
                         isMatched = true;
                         break;
                     }
@@ -80,7 +80,7 @@ export default function checkType<check extends {
             } else {
 
 
-                if (typeof checked !== element) {
+                if (typeof checking !== element) {
                     console.error(`${ String(iterator) } is not ${ element } at ${ runAttackPosition }`);
                 }
             }

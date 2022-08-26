@@ -2,7 +2,7 @@
 const config = {
     // モード値を production に設定すると最適化された状態で、
     // development に設定するとソースマップ有効でJSファイルが出力される
-    mode: 'production',
+    mode: !0 ? 'development' : 'production',
 
     // メインとなるJavaScriptファイル（エントリーポイント）
     entry: './scripts/main.ts',
@@ -21,7 +21,7 @@ const config = {
     // フロントエンドの開発では拡張子を省略することが多いので、
     // 記載したほうがトラブルに巻き込まれにくい。
     resolve: {
-        // 拡張子を配列で指定
+
         extensionAlias: {
             ".js": [
                 '.ts', '.js',
