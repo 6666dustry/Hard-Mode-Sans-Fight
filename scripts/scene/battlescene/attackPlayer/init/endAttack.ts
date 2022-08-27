@@ -48,21 +48,10 @@ export default function endAttack(this: AttackLoader, config: EndTurn) {
             this.attacked = true;
 
             if (this.endConfig.endPhase) {
-                this.phase++;
-                this.endConfig.endPhase = false;
-                this.loadFilePos = -1;
+                this.nextPhase();
             }
 
-            D.Sans.x = 320;
-
-            D.Statuses.hp = D.Statuses.maxHp;
-            D.Statuses.kr = 0;
-            D.Statuses.setDisplay();
-
-
-            D.removeAll();
-            D.Heart.enemyTurnInit();
-            D.CombatzoneDirector.setRectDefault(true);
+            Practice.endAttack(D);
             this.endPlayerTurn();
 
 

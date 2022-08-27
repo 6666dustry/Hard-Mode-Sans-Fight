@@ -1,4 +1,5 @@
 import Keys from "../../../../keys.js";
+import Director from "../../director/Director.js";
 export default class Practice {
     static showPassed(scene: Phaser.Scene, Passed: boolean) {
         let text = scene.add.text(
@@ -15,5 +16,16 @@ export default class Practice {
                 text.destroy();
             }
         });
+    }
+    static endAttack(director: Director) {
+        director.Sans.x = 320;
+
+        director.Statuses.hp = director.Statuses.maxHp;
+        director.Statuses.kr = 0;
+        director.Statuses.setDisplay();
+
+        director.removeAll();
+        director.Heart.enemyTurnInit();
+        director.CombatzoneDirector.setRectDefault(true);
     }
 }

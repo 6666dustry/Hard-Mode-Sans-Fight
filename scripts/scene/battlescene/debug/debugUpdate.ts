@@ -19,15 +19,12 @@ attack:
     wait: ${ AT.SingleAttack.wait }
 turn: ${ AT.loadFilePos } 
 phase: ${ AT.phase }
-attacked: ${ AT.attacked }
-colliding: ${ this.scene.director.Heart.colliding }
-collideAt:${ Object.entries(this.scene.director.Heart.collidingAt).join("   ") }
-canJump: ${ this.scene.director.Heart.canJump }
 single: ${ !!AT.playSingle }
 moving: ${ this.director.Heart.moving }
 pressKey: ${ this.scene.cursors.getDownKey() } `);
         }
     }
+
     if (Phaser.Input.Keyboard.JustDown(this.scene.tKey)) {
         this.showParameter.text += "\npaused";
         this.scene.scene.pause(Keys.Scene.battleScene);
