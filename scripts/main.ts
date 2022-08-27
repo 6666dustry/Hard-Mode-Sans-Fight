@@ -24,7 +24,7 @@ license:MIT License.
 //can switch debug.
 //if debug, then press H key to restore health.
 //and press t key then pause game.
-export const gameDebug: boolean = !0;
+export const gameDebug: boolean = !1;
 const MDebug: Phaser.Types.Physics.Matter.MatterDebugConfig = {
     showVelocity: true,
     showCollisions: true,
