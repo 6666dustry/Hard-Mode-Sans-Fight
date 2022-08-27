@@ -41,7 +41,7 @@ export default class Sans extends Phaser.GameObjects.Container {
         this.add([this.leg, this.torso, this.head, this.sweet]);
         scene.add.existing(this);
 
-        this.damageText = this.scene.add.text(320, y - 50, "miss", {
+        this.damageText = this.scene.add.text(320, y - 90, "miss", {
             fontFamily: "damagefont",
             fontSize: "100px",
             color: "#999"

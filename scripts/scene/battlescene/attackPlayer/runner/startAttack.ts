@@ -18,11 +18,11 @@ export default function startAttack(this: AttackLoader, attack?: SingleAttack[])
     if (DO.wait && DO.wait > 0 && DO.category !== "jump") {
         this.Loading.loadAttack = this.Loading.loadAttack = this.scene.time.delayedCall(
             DO.wait, (): void => {
-                this.loadAttack(DO);
+                this.runAttack(DO);
             }, undefined, this
         ) as typeof this.Loading.loadAttack;
 
     } else {
-        this.loadAttack(DO);
+        this.runAttack(DO);
     }
 }

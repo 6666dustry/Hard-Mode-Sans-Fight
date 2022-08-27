@@ -95,15 +95,6 @@ export default class Fight {
         const D: Director = CO.director;
         const AT = D.AttackLoader;
         AT.attacked = true;
-        if (AT.resting) {
-            AT.resting = false;
-            AT.phase++;
-            D.Sans.setVisual({
-                state: "dancing"
-            });
-            AT.loadFilePos = -1;
-        } else {
-        }
         CO.director.Sans.avoid().setCallback("onComplete", (): void => {
             this.endInit();
             this.command.SCENE.events.emit(Keys.Event.endTurn);

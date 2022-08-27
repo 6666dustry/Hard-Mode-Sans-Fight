@@ -29,7 +29,8 @@ import AttackLoader from "../attackLoader.js";
 /**
    * deliver data to another module.
    */
-export default function loadAttack(this: AttackLoader, attack: SingleAttack) {
+export default function runAttack(this: AttackLoader, attack: SingleAttack, playNext?: boolean) {
+    playNext == null && (playNext = true);
     let noData = false;
     if (typeof attack !== "object") {
         console.error(`attack is not defined at ${ this.runAttackPos }`);
@@ -78,6 +79,7 @@ export default function loadAttack(this: AttackLoader, attack: SingleAttack) {
                 break;
 
             case "sanstext":
+                playNext = false;
                 D.SansText.router(
                     attack.data as EnemyTextConfig,
                     attack.type as EnemyTextType);
@@ -121,6 +123,7 @@ export default function loadAttack(this: AttackLoader, attack: SingleAttack) {
                 break;
             case "endAttack":
             case "endattack":
+                playNext = false;
                 this.endAttack(attack.data as EndTurn);
                 break;
 
@@ -136,15 +139,13 @@ export default function loadAttack(this: AttackLoader, attack: SingleAttack) {
         this.runAttackPos++;
     }
 
-    if (attack.category !== "endAttack" &&
-        attack.category !== "endattack" &&
-        attack.category !== "sanstext") {
+    if (playNext) {
         if (attack.category === "jump" && attack.wait && attack.wait > 0) {
             this.Loading.startAttack = this.scene.time.delayedCall(attack.wait, () => {
                 this.startAttack();
             }) as typeof this.Loading.startAttack;
-        } else
+        } else {
             this.startAttack();
-
+        }
     }
 }

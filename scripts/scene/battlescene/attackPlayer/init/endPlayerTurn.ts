@@ -9,10 +9,10 @@ export default function endPlayerTurn(this: AttackLoader, single?: boolean): voi
     const D = this.director;
     D.Commands.endPlayerTurn();
     D.Heart.enemyTurnInit();
+    D.removeAll();
 
     this.playerTurn = false;
     this.runAttackPos = 0;
-    D.removeAll();
     //is single mode?
     if (single != null) {
         this.playSingle = single;
@@ -26,6 +26,10 @@ export default function endPlayerTurn(this: AttackLoader, single?: boolean): voi
         Single.reload(this.scene, this.director);
         this.startAttack();
     } else {
+        if (this.attacked && this.resting) {
+            this.resting = false;
+            this.nextPhase();
+        }
 
         if (this.resting) {
             this.scene.time.delayedCall(

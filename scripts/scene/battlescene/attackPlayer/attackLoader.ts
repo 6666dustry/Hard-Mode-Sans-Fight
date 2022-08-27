@@ -1,7 +1,7 @@
 import BattleScene from "../BattleScene.js";
 import Director from "../director/Director.js";
 import type { EndTurn, jsonFile, SingleAttack } from "../../../Types.js";
-import loadAttack from "./runner/loadAttack.js";
+import runAttack from "./runner/runAttack.js";
 import catchOrder from "./loader/catchAttack.js";
 import catchRND from "./loader/catchRND.js";
 import retry from "./init/retry.js";
@@ -28,7 +28,7 @@ export default class AttackLoader {
         this.Loading = {};
         this.endConfig = {};
 
-        this.loadAttack = loadAttack;
+        this.runAttack = runAttack;
         this.catchAttack = catchOrder;
         this.catchRND = catchRND;
         this.getAttack = getAttack;
@@ -41,7 +41,7 @@ export default class AttackLoader {
     }
     readonly scene: BattleScene;
     readonly director: Director;
-    readonly loadAttack: typeof loadAttack;
+    readonly runAttack: typeof runAttack;
     readonly catchAttack: typeof catchOrder;
     readonly endPlayerTurn: typeof endPlayerTurn;
     readonly catchRND: typeof catchRND;
@@ -73,7 +73,7 @@ export default class AttackLoader {
     /**playing attack functions. */
     Loading: {
         loadAttack?: {
-            [P in keyof Phaser.Time.TimerEvent]: P extends "callback" ? typeof loadAttack :
+            [P in keyof Phaser.Time.TimerEvent]: P extends "callback" ? typeof runAttack :
             Phaser.Time.TimerEvent[P]
         };
         startAttack?: {
@@ -95,5 +95,10 @@ export default class AttackLoader {
     }
     isPhaseEnd(): boolean {
         return (!this.first && (this.resting || this.loadFilePos + 1 >= this.getPhaseLength()));
+    }
+    nextPhase() {
+        this.first = true;
+        this.phase++;
+        this.loadFilePos = 0;
     }
 }
