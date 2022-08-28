@@ -21,7 +21,7 @@ function setSlam(this: Heart, config: Required<HeartGravity>) {
 
         if (this.Image.body) {
 
-            const SLAM_TO = this.director.CombatzoneDirector.getIn(this.Image.x, this.Image.y);
+            const SLAM_TO = this.director.CombatzoneDirector.Zones.main;
             if (SLAM_TO) {
                 switch (config.direction || this.gravityDirection) {
                     case "up":

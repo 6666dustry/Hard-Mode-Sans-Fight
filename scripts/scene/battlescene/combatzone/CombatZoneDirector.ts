@@ -7,7 +7,6 @@ import { SetRectConfig } from "../../../Types.js";
 import setRectDefault from "./setRectDefault.js";
 import router from "./router.js";
 import getZone from "./getZone.js";
-import getIn from "./getIn.js";
 import removeAll from "./removeAll.js";
 export default class CombatZoneDirector extends Phaser.GameObjects.Group {
     constructor(scene: BattleScene, collide: number, heartCol: number, director: Director) {
@@ -35,7 +34,6 @@ export default class CombatZoneDirector extends Phaser.GameObjects.Group {
         this.setRectDefault = setRectDefault;
         this.router = router;
         this.getZone = getZone;
-        this.getIn = getIn;
         this.removeAll = removeAll;
 
         this.Zones = {
@@ -63,7 +61,6 @@ export default class CombatZoneDirector extends Phaser.GameObjects.Group {
 
     readonly setRectDefault: typeof setRectDefault;
     readonly getZone: typeof getZone;
-    readonly getIn: typeof getIn;
     readonly removeAll: typeof removeAll;
     readonly router: typeof router;
     public get midDialogPoint(): Phaser.Math.Vector2 {

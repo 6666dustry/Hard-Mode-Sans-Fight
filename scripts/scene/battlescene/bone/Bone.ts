@@ -250,9 +250,9 @@ export default class Bone extends Bullet {
         }
     }
     destroy(fromScene?: boolean | undefined): void {
-        if (this.scene && this.scene.sys && this.scene.sys.displayList) {
+        if (this.scene) {
             this.scene.tweens.killTweensOf(this);
-            super.destroy(false);
+            super.destroy(fromScene);
         }
         this.destroyed = true;
     }
