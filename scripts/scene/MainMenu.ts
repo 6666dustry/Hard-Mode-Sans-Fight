@@ -114,7 +114,7 @@ export default class MainMenu extends Phaser.Scene {
                 [Keys.Audio.damage, "media/PlayerDamaged.ogg"],
                 [Keys.Audio.shatter, "media/HeartShatter.ogg"],
                 [Keys.Audio.split, "media/HeartSplit.ogg"],
-                [Keys.Audio.BGM, "media/mus_zz_megalovania.ogg"],
+                [Keys.Audio.BGM, "media/You're Gonna Have A Bad Time - Megalovania (Undertale Remix).mp3"],
                 [Keys.Audio.blast0, "media/GasterBlast.ogg"],
                 [Keys.Audio.blast1, "media/GasterBlast2.ogg"],
                 [Keys.Audio.blaster, "media/GasterBlaster.ogg"],
@@ -127,7 +127,7 @@ export default class MainMenu extends Phaser.Scene {
         for (const ARGS of ARGARRAY) {
             switch (ARGS[1].slice(-3)) {
                 case "ogg":
-                    this.load.audio(ARGS[0], ARGS[1]);
+                case "mp3": this.load.audio(ARGS[0], ARGS[1]);
                     break;
                 case "png":
                     if (ARGS[2]) {
