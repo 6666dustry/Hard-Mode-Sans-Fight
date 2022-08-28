@@ -4,9 +4,10 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 238,
+                "relPointX": 320,
+                "x": -75,
                 "y": 235,
-                "dx": 388,
+                "dx": 75,
                 "dy": 385,
                 "inst": false
             }
@@ -93,8 +94,9 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 304,
-                "dx": 322,
+                "relPointX": 320,
+                "x": -9,
+                "dx": 9,
                 "ease": "Quad.easeOut"
             }
         },
@@ -159,8 +161,9 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 338,
-                "dx": 488,
+                "relPointX": 430,
+                "x": -75,
+                "dx": 75,
                 "ease": "Quad.easeOut"
             }
         },
@@ -177,8 +180,9 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 238,
-                "dx": 388,
+                "relPointX": 320,
+                "x": -75,
+                "dx": 75,
                 "ease": "Sine.easeInOut",
                 "duration": 3000
             }
@@ -195,8 +199,9 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 304,
-                "dx": 322,
+                "relPointX": 320,
+                "x": -9,
+                "dx": 9,
                 "ease": "Quad.easeOut"
             }
         },
@@ -204,7 +209,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 238,
+                "endX": 245,
                 "endY": 235,
                 "blastTime": 500,
                 "size": 45,
@@ -219,7 +224,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 388,
+                "endX": 395,
                 "endY": 235,
                 "blastTime": 500,
                 "endAngle": 90,
@@ -233,7 +238,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 388,
+                "endX": 395,
                 "endY": 385,
                 "blastTime": 500,
                 "size": 45,
@@ -247,7 +252,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 238,
+                "endX": 245,
                 "endY": 385,
                 "blastTime": 500,
                 "size": 45,
@@ -261,7 +266,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 238,
+                "endX": 245,
                 "endY": 235,
                 "blastTime": 500,
                 "endAngle": -45,
@@ -277,7 +282,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 388,
+                "endX": 395,
                 "endY": 235,
                 "blastTime": 500,
                 "endAngle": 45,
@@ -292,7 +297,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 388,
+                "endX": 395,
                 "endY": 385,
                 "blastTime": 500,
                 "endAngle": 135,
@@ -307,7 +312,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 238,
+                "endX": 245,
                 "endY": 385,
                 "blastTime": 500,
                 "endAngle": 225,
@@ -322,8 +327,9 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 238,
-                "dx": 388,
+                "relPointX": 320,
+                "x": -75,
+                "dx": 75,
                 "relPointY": 310,
                 "y": -9,
                 "dy": 9,
@@ -343,7 +349,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 238,
+                "endX": 245,
                 "endY": 235,
                 "blastTime": 500,
                 "size": 45,
@@ -386,7 +392,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 238,
+                "endX": 245,
                 "endY": 385,
                 "blastTime": 500,
                 "size": 45,
@@ -400,9 +406,10 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 238,
+                "relPointX": 320,
+                "x": -75,
+                "dx": 75,
                 "y": 235,
-                "dx": 388,
                 "dy": 385,
                 "ease": "Back.easeInOut"
             }
