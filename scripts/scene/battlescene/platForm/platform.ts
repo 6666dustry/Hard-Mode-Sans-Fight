@@ -244,6 +244,9 @@ export default class PlatForm extends Phaser.GameObjects.Container {
         }
     }
     destroy(fromScene?: boolean | undefined): void {
+        if (!this.scene) {
+            return;
+        }
         this.scene.tweens.killTweensOf(this);
         super.destroy(fromScene);
     }
