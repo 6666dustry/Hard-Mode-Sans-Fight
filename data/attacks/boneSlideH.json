@@ -104,16 +104,99 @@
             "type": "setRect",
             "data": {
                 "x": 250,
-                "y": "$comTop",
                 "dx": 390,
-                "dy": "$comBottom",
                 "duration": 10000,
                 "ease": "Quad"
             }
         },
         {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "y": "$comBottom",
+                "x": 250,
+                "length": 140,
+                "angle": 270,
+                "tween": {
+                    "props": {
+                        "y": "-=40"
+                    },
+                    "ease": "Sine",
+                    "yoyo": true,
+                    "duration": 400
+                },
+                "anchor": {
+                    "x": "top"
+                }
+            },
+            "wait": 10500
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "y": "$comTop",
+                "x": 250,
+                "length": 140,
+                "angle": 0,
+                "tween": {
+                    "props": {
+                        "x": "+=40"
+                    },
+                    "ease": "Sine",
+                    "yoyo": true,
+                    "duration": 400
+                },
+                "anchor": {
+                    "x": "top"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "y": "$comTop",
+                "x": 250,
+                "length": 140,
+                "angle": 270,
+                "tween": {
+                    "props": {
+                        "y": "+=40"
+                    },
+                    "ease": "Sine",
+                    "yoyo": true,
+                    "duration": 400
+                },
+                "anchor": {
+                    "x": "bottom"
+                }
+            }
+        },
+        {
+            "category": "bone",
+            "type": "addSingle",
+            "data": {
+                "y": "$comTop",
+                "x": 390,
+                "length": 140,
+                "angle": 0,
+                "tween": {
+                    "props": {
+                        "x": "-=40"
+                    },
+                    "ease": "Sine",
+                    "yoyo": true,
+                    "duration": 400
+                },
+                "anchor": {
+                    "x": "bottom"
+                }
+            }
+        },
+        {
             "category": "endattack",
-            "wait": 10000
+            "wait": 2000
         }
     ]
 }
