@@ -18,7 +18,7 @@ export default class CombatZoneDirector extends Phaser.GameObjects.Group {
         this.draws = [];
 
         this.menuRect = {
-            x: 30,
+            x: 35,
             y: 250,
             dx: 600,
             dy: 385,
