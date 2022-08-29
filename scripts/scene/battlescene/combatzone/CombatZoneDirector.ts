@@ -1,7 +1,7 @@
 import BattleScene from "../BattleScene.js";
 import Director from "../director/Director.js";
 import CombatZone from "./box/combatzone.js";
-import Bone from "../bone/bone.js";
+import Bone from "../bone/Bone.js";
 import PlatForm from "../platForm/platform.js";
 import { SetRectConfig } from "../../../Types.js";
 import setRectDefault from "./setRectDefault.js";

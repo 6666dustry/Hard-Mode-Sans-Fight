@@ -1,5 +1,5 @@
 import BattleScene from "../../BattleScene.js";
-import Bone from "../bone.js";
+import Bone from "../Bone.js";
 import { AllReadonly, BoneConfig, CircleBoneConfig } from "../../../../Types.js";
 import makeDeepCopy from "../../makeDeepCopy.js";
 import BoneDirector from "../BoneDirector.js";

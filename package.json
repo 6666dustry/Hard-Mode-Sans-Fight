@@ -8,7 +8,7 @@
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "buildDev": "webpack --mode=development",
+    "dev": "webpack --mode=development",
     "watch": "webpack -w",
     "build": "webpack --mode=production"
   },

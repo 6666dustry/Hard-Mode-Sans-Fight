@@ -1,7 +1,7 @@
 import BattleScene from "../BattleScene.js";
 import { AllReadonly, AnchorConfig, PlatFormSingleConfig, Pos2 } from "../../../Types.js";
 import Keys from "../../../keys.js";
-import BoxNinePatch from "./boxNinePatch.js";
+import BoxNinePatch from "./BoxNinePatch.js";
 import update from "./platformUpdate.js";
 import getAnchoredPos from "../getAnchoredPos.js";
 import type Director from "../director/Director.js";

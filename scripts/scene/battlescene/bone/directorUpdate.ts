@@ -1,5 +1,5 @@
 import BoneDirector from "./BoneDirector";
-import Bone from "./bone.js";
+import Bone from "./Bone.js";
 export default function update(this: BoneDirector, time: number): void {
     const SIZE: Phaser.Scale.ScaleManager = this.scene.scale;
     //update bones.
