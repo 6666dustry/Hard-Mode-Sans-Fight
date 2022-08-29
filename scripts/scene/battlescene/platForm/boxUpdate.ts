@@ -1,4 +1,4 @@
-import BoxNinePatch from "./boxNinePatch.js";
+import BoxNinePatch from "./BoxNinePatch.js";
 
 export default function update(this: BoxNinePatch) {
 
