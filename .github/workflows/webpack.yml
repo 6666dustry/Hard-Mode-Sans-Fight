@@ -26,4 +26,4 @@ jobs:
       run: |
         npm install
         npm run build
-        git push main page
+        git push origin page
