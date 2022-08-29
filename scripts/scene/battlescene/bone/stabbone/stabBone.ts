@@ -3,7 +3,7 @@ import { StabBoneConfig, bulletColor, AllReadonly } from "../../../../Types.js";
 import Keys from "../../../../keys.js";
 import Director from "../../director/Director.js";
 import BoneDirector from "../BoneDirector.js";
-import Bone from "../bone.js";
+import Bone from "../Bone.js";
 import spawnStab from "./spawnStabBone.js";
 import update from "./stabUpdate.js";
 import destroyStab from "./destroyStab.js";

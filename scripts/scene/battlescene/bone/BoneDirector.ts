@@ -1,4 +1,4 @@
-import Bone from "./bone.js";
+import Bone from "./Bone.js";
 import BattleScene from "scene/battlescene/BattleScene";
 import Director from "../director/Director.js";
 import Keys from "../../../keys.js";

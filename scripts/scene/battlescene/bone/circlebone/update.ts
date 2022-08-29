@@ -1,4 +1,4 @@
-import Bone from "../bone.js";
+import Bone from "../Bone.js";
 import CircleBone from "./circleBone.js";
 
 export default function update(this: CircleBone) {

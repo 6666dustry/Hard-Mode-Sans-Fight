@@ -6,7 +6,7 @@ import ABSCount from "./ABSCount.js";
 import REL from "./REL.js";
 import RELCount from "./RELCount.js";
 import RND from "./RND.js";
-import countOut from "./CountOut.js";
+import countOut from "./countOut.js";
 import compare from "./compare.js";
 import init from "./init.js";
 export default class Jumps {

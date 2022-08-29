@@ -1,6 +1,6 @@
 import { stepTypes } from "../../Types.js";
 import makeDeepCopy from "./makeDeepCopy.js";
-import stepType from "./steptype.js";
+import stepType from "./stepType.js";
 type stepFrom = {
     [k: string]: stepTypes | stepFrom;
 };
