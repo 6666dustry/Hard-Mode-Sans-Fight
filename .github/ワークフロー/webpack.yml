@@ -27,3 +27,4 @@ jobs:
         npm install
         npm run build
         mv "./github" "./"
+        git cd page
