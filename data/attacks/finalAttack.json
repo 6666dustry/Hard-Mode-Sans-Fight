@@ -40,8 +40,8 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 240,
-                "dx": 380,
+                "x": 250,
+                "dx": 390,
                 "y": 240,
                 "dy": 380,
                 "inst": true
@@ -119,7 +119,7 @@
             "category": "bone",
             "type": "addMulti",
             "data": {
-                "x": 240,
+                "x": 250,
                 "y": -10,
                 "angle": 90,
                 "length": 70,
@@ -143,7 +143,7 @@
             "category": "bone",
             "type": "addMulti",
             "data": {
-                "x": 380,
+                "x": 390,
                 "y": -10,
                 "angle": 90,
                 "length": 70,
@@ -362,8 +362,8 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 240,
-                "dx": 380,
+                "x": 250,
+                "dx": 390,
                 "y": 240,
                 "dy": 380,
                 "inst": true
@@ -380,7 +380,7 @@
             "category": "heart",
             "type": "setPos",
             "data": {
-                "x": 310,
+                "x": 320,
                 "y": 370
             }
         },
@@ -395,7 +395,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 240,
+                "endX": 250,
                 "endY": 240,
                 "blastTime": 600,
                 "size": 45
@@ -406,7 +406,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 380,
+                "endX": 390,
                 "endY": 240,
                 "blastTime": 600,
                 "endAngle": 90,
@@ -417,7 +417,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 380,
+                "endX": 390,
                 "endY": 380,
                 "blastTime": 600,
                 "size": 45,
@@ -428,7 +428,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 240,
+                "endX": 250,
                 "endY": 380,
                 "blastTime": 600,
                 "size": 45,
@@ -462,7 +462,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 240,
+                "endX": 250,
                 "endY": 240,
                 "blastTime": 600,
                 "size": 45
@@ -473,7 +473,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 380,
+                "endX": 390,
                 "endY": 240,
                 "blastTime": 600,
                 "endAngle": 90,
@@ -484,7 +484,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 380,
+                "endX": 390,
                 "endY": 380,
                 "blastTime": 600,
                 "size": 45,
@@ -495,7 +495,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 240,
+                "endX": 250,
                 "endY": 380,
                 "blastTime": 600,
                 "size": 45,
@@ -529,7 +529,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 240,
+                "endX": 250,
                 "endY": 240,
                 "blastTime": 600,
                 "size": 45
@@ -540,7 +540,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 380,
+                "endX": 390,
                 "endY": 240,
                 "blastTime": 600,
                 "endAngle": 90,
@@ -551,7 +551,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 380,
+                "endX": 390,
                 "endY": 380,
                 "blastTime": 600,
                 "size": 45,
@@ -562,7 +562,7 @@
             "category": "blaster",
             "type": "addSingle",
             "data": {
-                "endX": 240,
+                "endX": 250,
                 "endY": 380,
                 "blastTime": 600,
                 "size": 45,
@@ -611,9 +611,9 @@
             "category": "math",
             "type": "rotate",
             "data": {
-                "originX": 310,
+                "originX": 320,
                 "originY": 310,
-                "pointX": 310,
+                "pointX": 320,
                 "pointY": 150,
                 "angle": "$angle",
                 "x": "bPosX",

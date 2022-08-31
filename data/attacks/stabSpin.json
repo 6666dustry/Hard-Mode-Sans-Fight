@@ -4,8 +4,8 @@
             "category": "combatzone",
             "type": "setRect",
             "data": {
-                "x": 230,
-                "dx": 390,
+                "x": 240,
+                "dx": 400,
                 "y": 230,
                 "dy": 390,
                 "inst": true
@@ -44,7 +44,7 @@
             "category": "bone",
             "type": "addCircle",
             "data": {
-                "x": 310,
+                "x": 320,
                 "y": 310,
                 "count": 3,
                 "spaceRadius": 180,
@@ -76,7 +76,7 @@
             "category": "bone",
             "type": "addCircle",
             "data": {
-                "x": 310,
+                "x": 320,
                 "y": 310,
                 "count": 3,
                 "spaceRadius": 180,
