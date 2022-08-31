@@ -1,7 +1,7 @@
-import Keys from "../../../keys.js";
-import { AllReadonly, FlashConfig } from "../../../Types.js";
-import Effect from "./Effect.js";
+import type { AllReadonly, FlashConfig } from "../../../Types.js";
+import type Effect from "./Effect.js";
 import checkType from "../checkType.js";
+import Keys from "../../../keys.js";
 export default function flash(this: Effect, config: AllReadonly<FlashConfig>) {
     const DATA = checkType(config, {
         duration: {

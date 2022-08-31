@@ -1,5 +1,5 @@
-import Bone from "../Bone.js";
-import CircleBone from "./circleBone.js";
+import type Bone from "../Bone.js";
+import type CircleBone from "./circleBone.js";
 
 export default function update(this: CircleBone) {
     if (!this.scene) {

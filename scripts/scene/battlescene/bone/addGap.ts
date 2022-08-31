@@ -1,7 +1,6 @@
-import { AllReadonly, BoneConfig, GapBoneConfig } from "../../../Types.js";
+import type { AllReadonly, BoneConfig, GapBoneConfig } from "../../../Types.js";
+import type BoneDirector from "./BoneDirector.js";
 import checkType from "../checkType.js";
-import BoneDirector from "./BoneDirector.js";
-
 export default function addGap(this: BoneDirector, config: AllReadonly<GapBoneConfig>) {
     const DATA = checkType(config, {
         x: {

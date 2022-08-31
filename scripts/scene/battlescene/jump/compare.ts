@@ -1,7 +1,6 @@
-import { AllReadonly, CompareConfig } from "../../../Types.js";
+import type { AllReadonly, CompareConfig } from "../../../Types.js";
+import type Jumps from "./Jumps.js";
 import checkType from "../checkType.js";
-import Jumps from "./Jumps.js";
-
 export default function compare(this: Jumps, config: AllReadonly<CompareConfig>) {
     const DATA = checkType(config, {
         to: ["number", "string"],

@@ -1,6 +1,5 @@
-import Commands from "../Commands.js";
+import type Commands from "../Commands.js";
 import Keys from "../../../../keys.js";
-
 export default class Mercy {
     constructor(command: Commands) {
         this.command = command;

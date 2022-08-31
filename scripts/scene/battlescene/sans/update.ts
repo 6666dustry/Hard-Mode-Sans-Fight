@@ -1,8 +1,9 @@
-import Sans from "./Sans.js";
+import { dancing, tired } from "./movements.js";
+import type Sans from "./Sans.js";
 /**
-    * update image position.
-    * @param time just time. in milliseconds.
-    */
+ * update image position.   
+ * @param time just time. in milliseconds.
+*/
 export default function update(this: Sans, time: number): void {
     if (this.yAuto) {
         this.setPosition(this.x, this.director.CombatzoneDirector.Zones.main.RectSize.y - (this.leg.y + this.leg.height / 2) - + 20);
@@ -36,25 +37,12 @@ export default function update(this: Sans, time: number): void {
 
         switch (this.state) {
             case "dancing":
-
-                this.head.setPosition(
-                    Math.sin(this.animX),
-                    Math.sin(this.animY) + this.headY + Math.cos(((time / this.animSpeed * 2) % Math.PI) * 2 - Math.PI) * 0.5);
-
-                this.animX = ((time / this.animSpeed) % Math.PI) * 2 - Math.PI;
-                this.animY = ((time / (this.animSpeed / 2)) % Math.PI) * 2 - Math.PI;
-
-                this.torso.setPosition(Math.sin(this.animX), Math.sin(this.animY) * 1.3);
+                dancing.call(this, time);
                 break;
 
             case "tired":
-                this.head.setPosition(
-                    0,
-                    this.torso.y + this.headY);
-                this.animY = ((time / (this.animSpeed * 3.75)) % Math.PI) * 2 - Math.PI;
-                this.torso.setPosition(0, Math.sin(this.animY) * 1.3);
+                tired.call(this, time);
                 break;
-
             case "stop":
                 break;
         }

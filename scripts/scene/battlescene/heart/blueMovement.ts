@@ -1,6 +1,6 @@
-import Heart from "./Heart";
-import { HeartDirection } from "../../../Types.js";
-import MoveKey from "../../../MoveKey.js";
+import type Heart from "./Heart";
+import type { HeartDirection } from "../../../Types.js";
+import type MoveKey from "../../../MoveKey.js";
 /**
   * 
   * @param cursors keys data.

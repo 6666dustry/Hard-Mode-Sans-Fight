@@ -1,10 +1,6 @@
-import {
-    JumpsConfig,
-    JumpsType,
-} from "../../../Types.js";
-import Jumps from "./Jumps.js";
+import type { JumpsConfig, JumpsType, } from "../../../Types.js";
+import type Jumps from "./Jumps.js";
 import routerCall from "../router.js";
-
 export default function router(this: Jumps, config: JumpsConfig, type: JumpsType) {
     try {
         const IS_LOOP: number = this.director.AttackLoader.runAttackPos;

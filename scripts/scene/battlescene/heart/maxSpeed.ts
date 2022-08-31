@@ -1,6 +1,5 @@
+import type Heart from "./Heart.js";
 import Keys from "../../../keys.js";
-import Heart from "./Heart.js";
-
 export default function maxSpeed(this: Heart) {
     let max = 3;
     if (this.colliding == Keys.Label.platform) {

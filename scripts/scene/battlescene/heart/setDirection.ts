@@ -1,4 +1,4 @@
-import Heart from "./Heart.js";
+import type Heart from "./Heart.js";
 /**
  * @return in degrees.
  */

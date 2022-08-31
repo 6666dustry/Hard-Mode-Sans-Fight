@@ -1,8 +1,4 @@
-import Bullet from "./bullet.js";
-
-/**
- * 
- */
+import type Bullet from "./bullet.js";
 export default function checkTakeDamage(this: Bullet, body: MatterJS.BodyType, takeKr?: boolean, remain1?: boolean) {
     if (!remain1 || this.director.Statuses.hp > 1) {
         switch (Math.floor(this.color) % 3) {

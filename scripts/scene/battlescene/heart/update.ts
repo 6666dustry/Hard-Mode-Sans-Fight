@@ -1,5 +1,5 @@
-import MoveKey from "../../../MoveKey.js";
-import Heart from "./Heart.js";
+import type MoveKey from "../../../MoveKey.js";
+import type Heart from "./Heart.js";
 export default function update(this: Heart, cursors: MoveKey, time: number): void {
     this.setDirection();
     switch (this.color) {

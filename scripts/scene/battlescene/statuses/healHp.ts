@@ -1,5 +1,5 @@
-import Statuses from "./Statuses.js";
-import { HealConfig } from "../../../Types.js";
+import type Statuses from "./Statuses.js";
+import type { HealConfig } from "../../../Types.js";
 import Keys from "../../../keys.js";
 /**
  * heal player hp.

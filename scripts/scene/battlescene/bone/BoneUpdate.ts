@@ -1,4 +1,4 @@
-import Bone from "./Bone.js";
+import type Bone from "./Bone.js";
 import Keys from "../../../keys.js";
 function setLength(this: Bone) {
     if (this.oldLength !== this.displayLength) {

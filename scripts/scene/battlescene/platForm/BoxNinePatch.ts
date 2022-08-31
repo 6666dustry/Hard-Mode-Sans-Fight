@@ -1,5 +1,5 @@
-import BattleScene from "../BattleScene.js";
-import { Image, BoxNinePatchConfig } from "../../../Types.js";
+import type BattleScene from "../BattleScene.js";
+import type { Image, BoxNinePatchConfig } from "../../../Types.js";
 import Keys from "../../../keys.js";
 import update from "./boxUpdate.js";
 

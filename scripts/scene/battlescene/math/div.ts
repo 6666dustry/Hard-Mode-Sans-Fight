@@ -1,6 +1,6 @@
-import { AllReadonly, DivConfig } from "../../../Types.js";
+import type { AllReadonly, DivConfig } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
-import GameMath from "./GameMath.js";
 
 export default function div(this: GameMath, config: AllReadonly<DivConfig>) {
     const DATA = checkType(config, {

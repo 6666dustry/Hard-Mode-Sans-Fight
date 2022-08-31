@@ -1,6 +1,6 @@
-import { AllReadonly, SubConfig } from "../../../Types.js";
+import type { AllReadonly, SubConfig } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
-import GameMath from "./GameMath.js";
 /**
  * do valueA - valueB.
  * @param this 

@@ -1,18 +1,14 @@
-import BattleScene from "scene/battlescene/BattleScene.js";
-import Keys from "../../../../keys.js";
-import Director from "../../director/Director.js";
+import type BattleScene from "scene/battlescene/BattleScene.js";
+import type { combatZoneConfig, combatzoneType, MatterSp, } from "../../../../Types";
+import type Director from "../../director/Director.js";
+import type CombatZoneDirector from "../CombatZoneDirector.js";
 import setRect from "./setRect.js";
 import update from "./update.js";
-import {
-    combatZoneConfig,
-    combatzoneType,
-    MatterSp,
-} from "../../../../Types";
+import Keys from "../../../../keys.js";
 import getPos from "./getPos.js";
 import tweenRect from "./tweenRect.js";
 import router from "../../router.js";
 import { gameDebug } from "../../../../main.js";
-import CombatZoneDirector from "../CombatZoneDirector.js";
 export default class CombatZone extends Phaser.GameObjects.Group {
     /**
      * 

@@ -1,5 +1,5 @@
-import BattleScene from "../BattleScene.js";
-import Director from "../director/Director.js";
+import type BattleScene from "../BattleScene.js";
+import type Director from "../director/Director.js";
 import addSingle from "./addSingle.js";
 import router from "./router.js";
 import update from "./directorUpdate.js";

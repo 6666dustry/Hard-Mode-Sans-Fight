@@ -1,5 +1,5 @@
-import { BattleStartConfig, jsonFile } from "../../../../Types.js";
-import AttackLoader from "../attackLoader.js";
+import type { BattleStartConfig, jsonFile } from "../../../../Types.js";
+import type AttackLoader from "../attackLoader.js";
 
 export default function startGame(this: AttackLoader, config: BattleStartConfig) {
     if (config.single) {

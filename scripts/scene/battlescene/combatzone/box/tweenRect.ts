@@ -1,5 +1,5 @@
-import { AllReadonly, TweenRectConfig } from "../../../../Types.js";
-import CombatZone from "./combatzone.js";
+import type { AllReadonly, TweenRectConfig } from "../../../../Types.js";
+import type CombatZone from "./combatzone.js";
 import setTween from "../../setTween.js";
 import checkType from "../../checkType.js";
 import makeDeepCopy from "../../makeDeepCopy.js";

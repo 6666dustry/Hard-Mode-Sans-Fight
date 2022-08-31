@@ -1,5 +1,4 @@
-import GasterBlaster from "./GasterBlaster.js";
-
+import type GasterBlaster from "./GasterBlaster.js";
 export default function update(this: GasterBlaster, time: number, delta: number) {
 
     this.Face.anims.update(time, delta);

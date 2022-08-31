@@ -1,5 +1,5 @@
-import { BoneConfig, MultiBoneConfig, MultiConfig, platformMultiConfig, PlatFormSingleConfig } from "../../Types.js";
-import Bone from "./bone/Bone.js";
+import type { BoneConfig, MultiBoneConfig, MultiConfig, platformMultiConfig, PlatFormSingleConfig } from "../../Types.js";
+import type Bone from "./bone/Bone.js";
 import makeDeepCopy from "./makeDeepCopy.js";
 import step from "./step.js";
 export default function addMulti<Single extends BoneConfig | PlatFormSingleConfig, Type extends Bone["moveType"]>(this: {

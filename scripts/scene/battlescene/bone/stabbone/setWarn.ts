@@ -1,4 +1,4 @@
-import stabBone from "./stabBone.js";
+import type stabBone from "./stabBone.js";
 
 export default function setWarn(this: stabBone) {
     const PADDING: 2 = 2;

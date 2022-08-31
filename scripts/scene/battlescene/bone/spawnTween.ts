@@ -1,5 +1,5 @@
-import Bone from "./Bone.js";
-import { BoneConfig } from "../../../Types.js";
+import type Bone from "./Bone.js";
+import type { BoneConfig } from "../../../Types.js";
 export default function spawnTween(this: Bone, type: BoneConfig["spawnTween"]) {
     if (this.scene) {
         if (type) {

@@ -1,7 +1,6 @@
-import { AllReadonly, RotateConfig } from "../../../Types.js";
+import type { AllReadonly, RotateConfig } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
-import GameMath from "./GameMath.js";
-
 export default function rotate(this: GameMath, config: AllReadonly<RotateConfig>) {
     const DATA = checkType(config, {
         pointX: {

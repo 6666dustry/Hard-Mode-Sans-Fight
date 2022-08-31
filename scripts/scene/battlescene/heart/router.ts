@@ -1,8 +1,5 @@
-import Heart from "./Heart.js";
-import {
-    HeartConfig,
-    HeartType,
-} from "../../../Types.js";
+import type Heart from "./Heart.js";
+import type { HeartConfig, HeartType, } from "../../../Types.js";
 import routerCall from "../router.js";
 export default function router(this: Heart, config: HeartConfig, type: HeartType): void {
     switch (type) {

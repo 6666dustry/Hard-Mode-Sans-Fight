@@ -1,5 +1,5 @@
-import CombatZoneDirector from "../CombatZoneDirector.js";
-import CombatZone from "./combatzone.js";
+import type CombatZoneDirector from "../CombatZoneDirector.js";
+import type CombatZone from "./combatzone.js";
 export default function update(this: CombatZone, draws: CombatZoneDirector["draws"], updateDisplay?: boolean) {
 
     if (updateDisplay) {

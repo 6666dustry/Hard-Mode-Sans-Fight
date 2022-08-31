@@ -1,5 +1,5 @@
-import { Pos2 } from "../../../Types.js";
-import PlatForm from "./platform.js";
+import type { Pos2 } from "../../../Types.js";
+import type PlatForm from "./platform.js";
 import Keys from "../../../keys.js";
 function setLength(this: PlatForm) {
     this.Zone.boxLength = this.platLength;

@@ -1,7 +1,6 @@
 import Keys from "../../../keys.js";
-import { bulletColor } from "../../../Types.js";
-import Bullet from "./bullet.js";
-
+import type { bulletColor } from "../../../Types.js";
+import type Bullet from "./bullet.js";
 export default function setColorKey(this: Bullet, v: bulletColor, tints?: {
     setTint: (arg: number) => any;
 }[]) {

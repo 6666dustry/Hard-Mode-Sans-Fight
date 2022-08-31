@@ -1,4 +1,4 @@
-import Director from "../../director/Director.js";
+import type Director from "../../director/Director.js";
 /**
  * @package menu boe configs.
  */

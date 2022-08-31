@@ -1,8 +1,8 @@
-import CircleBone from "./circleBone.js";
+import type CircleBone from "./circleBone.js";
 /**
  * 
  * @param this 
- * @returns padding of bones in degrees.
+ * @returns padding of bones. in degrees.
  */
 export default function getPadding(this: CircleBone) {
     if (this.padding === "equal") {

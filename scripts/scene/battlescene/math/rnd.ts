@@ -1,5 +1,5 @@
-import { AllReadonly, RndConfig } from "../../../Types.js";
-import GameMath from "./GameMath.js";
+import type { AllReadonly, RndConfig } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
 
 export default function rnd(this: GameMath, config: AllReadonly<RndConfig>) {

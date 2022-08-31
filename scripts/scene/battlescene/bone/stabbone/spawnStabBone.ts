@@ -1,6 +1,6 @@
-import { BoneConfig } from "../../../../Types.js";
+import type { BoneConfig } from "../../../../Types.js";
+import type stabBone from "./stabBone.js";
 import Keys from "../../../../keys.js";
-import stabBone from "./stabBone.js";
 import compareBigger from "./compareBigger.js";
 export default function spawnStab(this: stabBone) {
     if (!this.scene) {

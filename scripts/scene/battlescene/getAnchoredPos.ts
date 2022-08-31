@@ -1,4 +1,4 @@
-import { AnchorConfig } from "../../Types.js";
+import type { AnchorConfig } from "../../Types.js";
 import makeDeepCopy from "./makeDeepCopy.js";
 /**
  * 

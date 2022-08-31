@@ -1,14 +1,14 @@
-import BattleScene from "scene/battlescene/BattleScene.js";
+import type BattleScene from "scene/battlescene/BattleScene.js";
+import type CombatZoneDirector from "../combatzone/CombatZoneDirector.js";
+import type Heart from "../heart/Heart.js";
+import type Director from "../director/Director.js";
+import type Statuses from "../statuses/Statuses.js";
 import Keys from "../../../keys.js";
-import Heart from "../heart/Heart.js";
-import Director from "../director/Director.js";
 import Fight from "./command/Fight.js";
 import Act from "./command/Act.js";
 import Item from "./command/Item.js";
 import Mercy from "./command/Mercy.js";
-import Statuses from "../statuses/Statuses.js";
 import update from "./update.js";
-import CombatZoneDirector from "../combatzone/CombatZoneDirector.js";
 import selectAction from "./selectAction.js";
 /**
  * player turn system.
@@ -103,20 +103,20 @@ export default class Commands {
     readonly depth: number;
     readonly SCENE: BattleScene;
     readonly director: Director;
-    /**used for stop roll texts. */
-    textId!: Phaser.Time.TimerEvent;
-    buttons: Phaser.GameObjects.Sprite[];
-    readonly buttonPos: { x: number, y: number, Image: string; }[];
     /**0=fight,1=act,2=item,3=mercy */
     selectedCommand: number;
     selectAct: number;
-    commandType: Number;
+    commandType: number;
     diaTexts: Phaser.GameObjects.Text[];
     readonly textsPos: { x: number, y: number; }[];
     /**how many have choices. */
     pageAction: boolean[];
     /**Is this update use command update?*/
     endingTurn: boolean;
+    /**used for stop roll texts. */
+    textId!: Phaser.Time.TimerEvent;
+    buttons: Phaser.GameObjects.Sprite[];
+    readonly buttonPos: { x: number, y: number, Image: string; }[];
     readonly Heart: Heart;
     readonly Combatzone: CombatZoneDirector;
     readonly Statuses: Statuses;

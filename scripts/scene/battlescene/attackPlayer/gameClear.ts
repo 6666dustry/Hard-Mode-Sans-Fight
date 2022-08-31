@@ -1,5 +1,5 @@
 import Keys from "../../../keys.js";
-import { BattleStartConfig } from "../../../Types.js";
+import type { BattleStartConfig } from "../../../Types.js";
 export default function gameClear(scene: Phaser.Scene, config: BattleStartConfig) {
 
     scene.scene.transition({

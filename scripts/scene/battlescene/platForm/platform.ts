@@ -1,10 +1,10 @@
-import BattleScene from "../BattleScene.js";
-import { AllReadonly, AnchorConfig, PlatFormSingleConfig, Pos2 } from "../../../Types.js";
+import type BattleScene from "../BattleScene.js";
+import type Director from "../director/Director.js";
+import type { AllReadonly, AnchorConfig, PlatFormSingleConfig, Pos2 } from "../../../Types.js";
 import Keys from "../../../keys.js";
 import BoxNinePatch from "./BoxNinePatch.js";
 import update from "./platformUpdate.js";
 import getAnchoredPos from "../getAnchoredPos.js";
-import type Director from "../director/Director.js";
 import setTarget from "../setTween.js";
 import checkType from "../checkType.js";
 export default class PlatForm extends Phaser.GameObjects.Container {

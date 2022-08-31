@@ -2,7 +2,7 @@ import BackGround from "../../BackGround.js";
 import Director from "./director/Director.js";
 import Keys from "../../keys.js";
 import MoveKey from "../../MoveKey.js";
-import { BattleStartConfig } from "../../Types.js";
+import type { BattleStartConfig } from "../../Types.js";
 export default class BattleScene extends Phaser.Scene {
     constructor() {
         super(Keys.Scene.battleScene);
@@ -16,8 +16,8 @@ export default class BattleScene extends Phaser.Scene {
     //debug only.
     /**restore health */
     hKey!: Phaser.Input.Keyboard.Key;
-
-    dKey!: Phaser.Input.Keyboard.Key;
+    /**switch debug. */
+    qKey!: Phaser.Input.Keyboard.Key;
 
     cursors!: MoveKey;
     director!: Director;
@@ -35,7 +35,7 @@ export default class BattleScene extends Phaser.Scene {
         this.zKey = this.input.keyboard.addKey("Z");
         this.tKey = this.input.keyboard.addKey("T");
         this.hKey = this.input.keyboard.addKey("H");
-        this.dKey = this.input.keyboard.addKey("D");
+        this.qKey = this.input.keyboard.addKey("Q");
 
         this.cursors = new MoveKey(this);
 

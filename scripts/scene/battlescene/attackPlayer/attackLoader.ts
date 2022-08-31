@@ -1,5 +1,5 @@
-import BattleScene from "../BattleScene.js";
-import Director from "../director/Director.js";
+import type BattleScene from "../BattleScene.js";
+import type Director from "../director/Director.js";
 import type { EndTurn, jsonFile, SingleAttack } from "../../../Types.js";
 import runAttack from "./runner/runAttack.js";
 import catchOrder from "./loader/catchAttack.js";
@@ -51,9 +51,6 @@ export default class AttackLoader {
     readonly retry: typeof retry;
     readonly endAttack: typeof endAttack;
     readonly startGame: typeof startGame;
-    SingleAttack!: SingleAttack;
-    /**if true, player can use commands. */
-    playerTurn: boolean;
     /**running attack position. */
     runAttackPos: number;
     /**load file position */
@@ -62,6 +59,9 @@ export default class AttackLoader {
     loadingAttack!: SingleAttack[];
     /** file name. */
     attackName!: jsonFile;
+    SingleAttack!: SingleAttack;
+    /**if true, player can use commands. */
+    playerTurn: boolean;
     /**is now resting turn. */
     resting: boolean;
     phase: 1 | 2;

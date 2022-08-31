@@ -1,5 +1,5 @@
-import Keys from "./keys.js";
-import setTween from "./scene/battlescene/setTween.js";
+import type Keys from "./keys.js";
+import type setTween from "./scene/battlescene/setTween.js";
 /**add readonly at all. */
 export type AllReadonly<P> = {
     readonly [K in keyof P]: P[K] extends object ? AllReadonly<P[K]> : P[K]

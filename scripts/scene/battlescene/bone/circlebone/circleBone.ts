@@ -1,8 +1,8 @@
-import BattleScene from "../../BattleScene.js";
-import Bone from "../Bone.js";
-import { AllReadonly, BoneConfig, CircleBoneConfig } from "../../../../Types.js";
+import type BattleScene from "../../BattleScene.js";
+import type Bone from "../Bone.js";
+import type { AllReadonly, BoneConfig, CircleBoneConfig } from "../../../../Types.js";
+import type BoneDirector from "../BoneDirector.js";
 import makeDeepCopy from "../../makeDeepCopy.js";
-import BoneDirector from "../BoneDirector.js";
 import update from "./update.js";
 import Keys from "../../../../keys.js";
 import getPadding from "./getPadding.js";

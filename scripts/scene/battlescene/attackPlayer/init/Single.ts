@@ -1,5 +1,5 @@
 import Keys from "../../../../keys.js";
-import Director from "../../director/Director.js";
+import type Director from "../../director/Director.js";
 export default class Single {
     static reload(scene: Phaser.Scene, director: Director) {
         scene.sound.stopByKey(Keys.Audio.BGM);

@@ -1,5 +1,5 @@
-import { SingleAttack } from "../../../../Types.js";
-import AttackLoader from "../attackLoader.js";
+import type { SingleAttack } from "../../../../Types.js";
+import type AttackLoader from "../attackLoader.js";
 /**
  * return next attack.
  * @param this 

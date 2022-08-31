@@ -1,6 +1,6 @@
-import { RELCountConfig } from "../../../Types.js";
+import type { RELCountConfig } from "../../../Types.js";
+import type Jumps from "./Jumps.js";
 import checkType from "../checkType.js";
-import Jumps from "./Jumps.js";
 /**jump relative with count*/
 export default function RELCount(this: Jumps, config: RELCountConfig): boolean {
     const DATA = checkType(config, {

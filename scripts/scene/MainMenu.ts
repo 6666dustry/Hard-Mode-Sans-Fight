@@ -3,7 +3,6 @@ import BackGround from "../BackGround.js";
 import Keys from "../keys.js";
 import MoveKey from "../MoveKey.js";
 import { BattleStartConfig } from "../Types.js";
-type loadConfig = Phaser.Types.Loader.FileTypes.ImageFrameConfig | string;
 export default class MainMenu extends Phaser.Scene {
     constructor() {
         super(Keys.Scene.mainMenu);
@@ -71,88 +70,188 @@ export default class MainMenu extends Phaser.Scene {
             loading.destroy();
         });
 
-        /**load game data. */
-        const ARGARRAY: [
-            key: string,
-            textureUrl: string,
-            frameConfig?: loadConfig][] = [
-                [Keys.Image.heart, "image/heart/heart.png"],
-                [Keys.Image.break, "image/heart/breakedheart.png"],
-                [Keys.Image.block, "image/battlezone/whiteblock.png"],
-                [Keys.Image.HPfont, "image/commands/HP.png"],
-                [Keys.Image.KRfont, "image/commands/KR.png"],
-                [Keys.Image.speech, "image/sans/speechbubble.png"],
+        this.load.image([{
+            key: Keys.Image.heart,
+            url: "image/heart/heart.png"
+        },
+        {
+            key: Keys.Image.break,
+            url: "image/heart/breakedheart.png"
+        },
+        {
+            key: Keys.Image.block,
+            url: "image/battlezone/whiteblock.png"
+        },
+        {
+            key: Keys.Image.HPfont,
+            url: "image/commands/HP.png"
+        },
+        {
+            key: Keys.Image.KRfont,
+            url: "image/commands/KR.png"
+        },
+        {
+            key: Keys.Image.speech,
+            url: "image/sans/speechbubble.png"
+        },
+        {
+            key: Keys.Image.target,
+            url: "image/commands/target.png"
+        }, {
+            key: Keys.Image.particleBone,
+            url: "image/attack/bone.png"
+        },
+        {
+            key: Keys.Sheet.sansLeg,
+            url: "image/sans/leg.png",
+        },]);
 
-                [Keys.Sheet.fight, "image/commands/fight.png",
-                { frameWidth: 112, frameHeight: 44 }],
-                [Keys.Sheet.act, "image/commands/act.png",
-                { frameWidth: 112, frameHeight: 44 }],
-                [Keys.Sheet.item, "image/commands/item.png",
-                { frameWidth: 112, frameHeight: 44 }],
-                [Keys.Sheet.mercy, "image/commands/mercy.png",
-                { frameWidth: 112, frameHeight: 44 }],
-                [Keys.Image.target, "image/commands/target.png"],
-                [Keys.Sheet.tagBar, "image/commands/targetBar.png", { frameWidth: 16, frameHeight: 131 }],
-                [Keys.Image.bone, "image/attack/bone.png", { frameWidth: 12, frameHeight: 6 }],
-                [Keys.Image.particleBone, "image/attack/bone.png"],
-                [Keys.Sheet.shard, "image/heart/shard.png", "image/heart/shard_atlas.json"],
 
-                [Keys.Sheet.attacked, "image/commands/strike.png", "image/commands/strike_atlas.json"],
-                [Keys.Sheet.sansHead, "image/sans/head.png", "image/sans/head_atlas.json"],
-                [Keys.Sheet.sansTorso, "image/sans/torsoes.png", "image/sans/torsoes_atlas.json"],
-                [Keys.Sheet.sansLeg, "image/sans/leg.png"],
-                [Keys.Sheet.sansSweet, "image/sans/sweet.png", "image/sans/sweet_atlas.json"],
-                [Keys.Sheet.blaster, "image/gasterblaster/gasterblaster.png", "image/gasterblaster/gasterblaster_atlas.json"],
-                [Keys.Sheet.platForm, "image/platform/Platform1.png", "image/platform/platform1_atlas.json"],
+        this.load.spritesheet([{
+            key: Keys.Sheet.fight,
+            url: "image/commands/fight.png",
+            frameConfig: { frameWidth: 112, frameHeight: 44 }
+        },
+        {
+            key: Keys.Sheet.act,
+            url: "image/commands/act.png",
+            frameConfig: { frameWidth: 112, frameHeight: 44 }
+        },
+        {
+            key: Keys.Sheet.item,
+            url: "image/commands/item.png",
+            frameConfig: { frameWidth: 112, frameHeight: 44 }
+        },
+        {
+            key: Keys.Sheet.mercy,
+            url: "image/commands/mercy.png",
+            frameConfig: { frameWidth: 112, frameHeight: 44 }
+        }, {
+            key: Keys.Sheet.tagBar,
+            url: "image/commands/targetBar.png",
+            frameConfig: { frameWidth: 16, frameHeight: 131 }
+        },
+        {
+            key: Keys.Image.bone,
+            url: "image/attack/bone.png",
+            frameConfig: { frameWidth: 12, frameHeight: 6 }
+        }]);
+        this.load.atlas([{
+            key: Keys.Sheet.shard,
+            textureURL: "image/heart/shard.png",
+            atlasURL: "image/heart/shard_atlas.json",
+        },
+        {
+            key: Keys.Sheet.attacked,
+            textureURL: "image/commands/strike.png",
+            atlasURL: "image/commands/strike_atlas.json",
+        },
+        {
+            key: Keys.Sheet.sansHead,
+            textureURL: "image/sans/head.png",
+            atlasURL: "image/sans/head_atlas.json",
+        },
+        {
+            key: Keys.Sheet.sansTorso,
+            textureURL: "image/sans/torsoes.png",
+            atlasURL: "image/sans/torsoes_atlas.json",
+        },
+        {
+            key: Keys.Sheet.sansSweet,
+            textureURL: "image/sans/sweet.png",
+            atlasURL: "image/sans/sweet_atlas.json",
+        },
+        {
+            key: Keys.Sheet.blaster,
+            textureURL: "image/gasterblaster/gasterblaster.png",
+            atlasURL: "image/gasterblaster/gasterblaster_atlas.json",
+        },
+        {
+            key: Keys.Sheet.platForm,
+            textureURL: "image/platform/Platform1.png",
+            atlasURL: "image/platform/platform1_atlas.json",
+        }]);
 
-                [Keys.Audio.battleText, "media/battletext.ogg"],
-                [Keys.Audio.sansText, "media/SansSpeak.ogg"],
-                [Keys.Audio.cursor, "media/MenuCursor.ogg"],
-                [Keys.Audio.select, "media/MenuSelect.ogg"],
-                [Keys.Audio.fight, "media/PlayerFight.ogg"],
-                [Keys.Audio.heal, "media/PlayerHeal.ogg"],
-                [Keys.Audio.damage, "media/PlayerDamaged.ogg"],
-                [Keys.Audio.shatter, "media/HeartShatter.ogg"],
-                [Keys.Audio.split, "media/HeartSplit.ogg"],
-                [Keys.Audio.BGM, "media/You're Gonna Have A Bad Time - Megalovania (Undertale Remix).mp3"],
-                [Keys.Audio.blast0, "media/GasterBlast.ogg"],
-                [Keys.Audio.blast1, "media/GasterBlast2.ogg"],
-                [Keys.Audio.blaster, "media/GasterBlaster.ogg"],
-                [Keys.Audio.slam, "media/Slam.ogg"],
-                [Keys.Audio.warning, "media/Warning.ogg"],
-                [Keys.Audio.boneStab, "media/BoneStab.ogg"],
-                [Keys.Audio.ding, "media/Ding.ogg"],
-                [Keys.Audio.flash, "media/Flash.ogg"]];
-        //load system.
-        for (const ARGS of ARGARRAY) {
-            switch (ARGS[1].slice(-3)) {
-                case "ogg":
-                case "mp3": this.load.audio(ARGS[0], ARGS[1]);
-                    break;
-                case "png":
-                    if (ARGS[2]) {
-                        if (typeof ARGS[2] === "string") {
-                            if (ARGS[2].slice(-4) === "json") {
-                                this.load.atlas(ARGS[0], ARGS[1], ARGS[2]);
-                            }
-                        } else {
-                            this.load.spritesheet(ARGS[0], ARGS[1], ARGS[2]);
-                        }
-                    } else {
-                        this.load.image(ARGS[0], ARGS[1]);
-                    }
-                    break;
-                case "xml":
+        this.load.audio([{
+            key: Keys.Audio.battleText,
+            url: "media/battletext.ogg"
+        },
+        {
+            key: Keys.Audio.sansText,
+            url: "media/SansSpeak.ogg"
+        },
+        {
+            key: Keys.Audio.cursor,
+            url: "media/MenuCursor.ogg"
+        },
+        {
+            key: Keys.Audio.select,
+            url: "media/MenuSelect.ogg"
+        },
+        {
+            key: Keys.Audio.fight,
+            url: "media/PlayerFight.ogg"
+        },
+        {
+            key: Keys.Audio.heal,
+            url: "media/PlayerHeal.ogg"
+        },
+        {
+            key: Keys.Audio.damage,
+            url: "media/PlayerDamaged.ogg"
+        },
+        {
+            key: Keys.Audio.shatter,
+            url: "media/HeartShatter.ogg"
+        },
+        {
+            key: Keys.Audio.split,
+            url: "media/HeartSplit.ogg"
+        },
+        {
+            key: Keys.Audio.BGM,
+            url: "media/You're Gonna Have A Bad Time - Megalovania (Undertale Remix).mp3"
+        },
+        {
+            key: Keys.Audio.blast0,
+            url: "media/GasterBlast.ogg"
+        },
+        {
+            key: Keys.Audio.blast1,
+            url: "media/GasterBlast2.ogg"
+        },
+        {
+            key: Keys.Audio.blaster,
+            url: "media/GasterBlaster.ogg"
+        },
+        {
+            key: Keys.Audio.slam,
+            url: "media/Slam.ogg"
+        },
+        {
+            key: Keys.Audio.warning,
+            url: "media/Warning.ogg"
+        },
+        {
+            key: Keys.Audio.boneStab,
+            url: "media/BoneStab.ogg"
+        },
+        {
+            key: Keys.Audio.ding,
+            url: "media/Ding.ogg"
+        },
+        {
+            key: Keys.Audio.flash,
+            url: "media/Flash.ogg"
+        }]);
 
-                    this.load.xml(ARGS[0], ARGS[1]);
-                    break;
-                default: {
-                    break;
-                }
-            }
-        }
-        this.load.json("menutext", "data/menutext.json");
-        this.load.json(Keys.Json.attack, "data/attacks/attackloader.json");
+        this.load.json([{
+            key: "menutext",
+            url: "data/menutext.json"
+        }, {
+            key: Keys.Json.attack,
+            url: "data/attacks/attackloader.json"
+        }]);
     }
     create(config: BattleStartConfig): void {
 

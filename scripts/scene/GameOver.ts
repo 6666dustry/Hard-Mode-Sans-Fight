@@ -1,6 +1,6 @@
 import Keys from "../keys.js";
 import MoveKey from "../MoveKey.js";
-import { BattleStartConfig } from "../Types.js";
+import type { BattleStartConfig } from "../Types.js";
 
 export default class GameOver extends Phaser.Scene {
     constructor() {

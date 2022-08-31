@@ -1,5 +1,5 @@
-import { AllReadonly, FallingConfig } from "../../../Types.js";
-import Effect from "./Effect.js";
+import type { AllReadonly, FallingConfig } from "../../../Types.js";
+import type Effect from "./Effect.js";
 import checkType from "../checkType.js";
 export default function falling(this: Effect, config: AllReadonly<FallingConfig>) {
     const DATA = checkType(config, {

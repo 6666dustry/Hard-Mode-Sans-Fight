@@ -14,6 +14,7 @@ export default class Debug extends Phaser.GameObjects.Container {
         }).setScale(1 / 4).setDepth(Keys.Depth.debug);
 
         this.state = "running";
+        this.running = true;
 
         this.setMode = setMode;
         this.update = debugUpdate;
@@ -22,5 +23,6 @@ export default class Debug extends Phaser.GameObjects.Container {
     declare scene: BattleScene;
     showParameter: Phaser.GameObjects.Text;
     state: "sleep" | "running";
+    running: boolean;
     setMode: typeof setMode;
 }

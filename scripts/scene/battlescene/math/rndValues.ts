@@ -1,6 +1,6 @@
-import { AllReadonly, RndValuesConfig } from "../../../Types.js";
+import type { AllReadonly, RndValuesConfig } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
-import GameMath from "./GameMath.js";
 
 export default function rndValues(this: GameMath, config: AllReadonly<RndValuesConfig>) {
     const DATA = checkType(config, {

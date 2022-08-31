@@ -1,6 +1,5 @@
-import MoveKey from "../../../MoveKey.js";
-import Heart from "./Heart";
-
+import type MoveKey from "../../../MoveKey.js";
+import type Heart from "./Heart";
 /**
    * red soul custom movement.
    * @param cursors keys data.

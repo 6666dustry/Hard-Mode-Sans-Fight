@@ -1,6 +1,5 @@
-import Jumps from "./Jumps.js";
-import { label, SingleAttack } from "../../../Types.js";
-
+import type Jumps from "./Jumps.js";
+import type { label, SingleAttack } from "../../../Types.js";
 function searchLabel(this: Jumps, data: label["name"]): number {
     try {
         let label: string;

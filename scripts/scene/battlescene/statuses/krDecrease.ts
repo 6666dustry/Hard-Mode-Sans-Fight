@@ -1,5 +1,4 @@
-import Statuses from "./Statuses.js";
-
+import type Statuses from "./Statuses.js";
 export default function krDecrease(this: Statuses): void {
 
     if (this.hp <= 1) {

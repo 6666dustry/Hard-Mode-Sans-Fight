@@ -1,4 +1,4 @@
-import { stepTypes } from "../../Types.js";
+import type { stepTypes } from "../../Types.js";
 
 export default function stepType(stepFrom: number, stepTo: stepTypes
 ): number {

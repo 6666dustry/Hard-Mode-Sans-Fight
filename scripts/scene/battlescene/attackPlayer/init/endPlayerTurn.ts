@@ -1,4 +1,4 @@
-import AttackLoader from "../attackLoader.js";
+import type AttackLoader from "../attackLoader.js";
 import Single from "./Single.js";
 /**
  * enemy turn initialize

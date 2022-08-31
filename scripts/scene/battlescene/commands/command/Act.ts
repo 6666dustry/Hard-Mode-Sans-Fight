@@ -1,6 +1,6 @@
+import type MoveKey from "../../../../MoveKey.js";
+import type Commands from "../Commands.js";
 import Keys from "../../../../keys.js";
-import MoveKey from "../../../../MoveKey.js";
-import Commands from "../Commands.js";
 export default class Act {
     constructor(command: Commands) {
         this.command = command;

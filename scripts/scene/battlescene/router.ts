@@ -1,4 +1,4 @@
-import Director from "./director/Director.js";
+import type Director from "./director/Director.js";
 export default function router<Key extends string>(this: { [P in Key]: any } & {
     director: Director;
 }, config: {

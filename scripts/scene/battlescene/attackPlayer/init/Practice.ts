@@ -1,5 +1,5 @@
 import Keys from "../../../../keys.js";
-import Director from "../../director/Director.js";
+import type Director from "../../director/Director.js";
 export default class Practice {
     static showPassed(scene: Phaser.Scene, Passed: boolean) {
         let text = scene.add.text(

@@ -1,7 +1,7 @@
 import BackGround from "../BackGround.js";
 import Keys from "../keys.js";
 import MoveKey from "../MoveKey.js";
-import { BattleStartConfig } from "../Types.js";
+import type { BattleStartConfig } from "../Types.js";
 
 export default class SingleSelect extends Phaser.Scene {
     constructor() {

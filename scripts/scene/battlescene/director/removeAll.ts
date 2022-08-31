@@ -1,4 +1,4 @@
-import Director from "./Director.js";
+import type Director from "./Director.js";
 /**
  * remove all bullets, reset counts and reset variables.
  * @param this 

@@ -1,4 +1,4 @@
-import AttackLoader from "../attackLoader.js";
+import type AttackLoader from "../attackLoader.js";
 import Practice from "./Practice.js";
 /**
  * start attack again. called at practice mode.

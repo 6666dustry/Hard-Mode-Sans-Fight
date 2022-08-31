@@ -1,5 +1,5 @@
-import { AllReadonly, getCombatzonePos } from "../../../../Types.js";
-import CombatZone from "./combatzone.js";
+import type { AllReadonly, getCombatzonePos } from "../../../../Types.js";
+import type CombatZone from "./combatzone.js";
 import checkType from "../../checkType.js";
 export default function getPos(this: CombatZone, config: AllReadonly<getCombatzonePos>) {
     const DATA = checkType(config, {

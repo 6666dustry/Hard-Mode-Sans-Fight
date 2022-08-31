@@ -1,6 +1,6 @@
-import { BetWeenAngle, AllReadonly } from "../../../Types.js";
+import type { BetWeenAngle, AllReadonly } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
-import GameMath from "./GameMath.js";
 
 export default function betWeenAngle(this: GameMath, config: AllReadonly<BetWeenAngle>) {
     const DATA = checkType(config, {

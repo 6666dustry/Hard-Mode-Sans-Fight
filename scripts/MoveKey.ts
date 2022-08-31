@@ -1,4 +1,4 @@
-import { detectKeysConfig } from "./Types.js";
+import type { detectKeysConfig } from "./Types.js";
 /**
  * make w,a,s,d and cursorKeys.
  * @constructor

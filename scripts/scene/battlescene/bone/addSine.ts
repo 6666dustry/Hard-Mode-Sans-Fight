@@ -1,5 +1,5 @@
-import BoneDirector from "./BoneDirector.js";
-import { SineBoneConfig, BoneConfig, AllReadonly } from "../../../Types.js";
+import type BoneDirector from "./BoneDirector.js";
+import type { SineBoneConfig, BoneConfig, AllReadonly } from "../../../Types.js";
 import step from "../step.js";
 import checkType from "../checkType.js";
 export default function addSine(this: BoneDirector, config: AllReadonly<SineBoneConfig>) {

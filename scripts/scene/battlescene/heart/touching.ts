@@ -1,6 +1,5 @@
 import Keys from "../../../keys.js";
-import Heart from "./Heart.js";
-
+import type Heart from "./Heart.js";
 export default function touching(this: Heart, args: { collision: Phaser.Types.Physics.Matter.MatterCollisionData; }): void {
     this.colliding = args.collision.bodyA.label as typeof this.colliding;
     let collided = args.collision.bodyA;

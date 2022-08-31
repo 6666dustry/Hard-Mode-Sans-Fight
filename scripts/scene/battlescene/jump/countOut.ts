@@ -1,6 +1,6 @@
-import { AllReadonly, CountOutConfig } from "../../../Types.js";
+import type { AllReadonly, CountOutConfig } from "../../../Types.js";
+import type Jumps from "./Jumps.js";
 import checkType from "../checkType.js";
-import Jumps from "./Jumps.js";
 /**if through count time, then jump*/
 export default function countOut(this: Jumps, config: AllReadonly<CountOutConfig>) {
     const DATA = checkType(config, {

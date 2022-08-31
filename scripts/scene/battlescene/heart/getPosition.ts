@@ -1,5 +1,5 @@
-import { AllReadonly, getHeartPos } from "../../../Types.js";
-import Heart from "./Heart.js";
+import type { AllReadonly, getHeartPos } from "../../../Types.js";
+import type Heart from "./Heart.js";
 import checkType from "../checkType.js";
 
 export default function getPosition(this: Heart, config: AllReadonly<getHeartPos>) {

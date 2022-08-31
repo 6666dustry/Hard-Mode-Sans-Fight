@@ -1,5 +1,4 @@
-import AttackLoader from "../attackLoader.js";
-
+import type AttackLoader from "../attackLoader.js";
 /**
 * catch phase attack.
 * called at player attacked.

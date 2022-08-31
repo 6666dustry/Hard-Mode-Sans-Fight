@@ -1,10 +1,10 @@
-import Commands from "./Commands.js";
-import Fight from "./command/Fight.js";
-import Act from "./command/Act.js";
-import Item from "./command/Item.js";
-import Mercy from "./command/Mercy.js";
+import type Commands from "./Commands.js";
+import type Fight from "./command/Fight.js";
+import type Act from "./command/Act.js";
+import type Item from "./command/Item.js";
+import type Mercy from "./command/Mercy.js";
+import type MoveKey from "../../../MoveKey.js";
 import Keys from "../../../keys.js";
-import MoveKey from "../../../MoveKey.js";
 /**
 * commands update.
 * @param  cursors 

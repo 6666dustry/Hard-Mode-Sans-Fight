@@ -1,13 +1,7 @@
-import BattleScene from "scene/battlescene/BattleScene.js";
+import type BattleScene from "scene/battlescene/BattleScene.js";
+import type Director from "../director/Director.js";
+import type { HeartColor, SetHeartPos, HeartDirection, setColor, AllReadonly, } from "../../../Types.js";
 import Keys from "../../../keys.js";
-import Director from "../director/Director.js";
-import {
-    HeartColor,
-    SetHeartPos,
-    HeartDirection,
-    setColor,
-    AllReadonly,
-} from "../../../Types.js";
 import blueMovement from "./blueMovement.js";
 import redMovement from "./redMovement.js";
 import setGravity from "./setGravity.js";
@@ -57,7 +51,6 @@ export default class Heart {
         this.Image.setIgnoreGravity(true);
         this.jumpTime = 0;
         this.jumping = false;
-        this.moveWithPlatform = false;
         this.normalSpeed = 3;
         this.slowSpeed = 1;
 
@@ -98,7 +91,6 @@ export default class Heart {
         left: boolean;
         right: boolean;
     };
-    moveWithPlatform: boolean;
     /**heart color. */
     color: HeartColor;
     Image: Phaser.Physics.Matter.Image;

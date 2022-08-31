@@ -1,10 +1,10 @@
-import BattleScene from "scene/battlescene/BattleScene.js";
+import type BattleScene from "scene/battlescene/BattleScene.js";
+import type Director from "../director/Director.js";
+import type { AnchorConfig, BlasterConfig, Anchor, AllReadonly } from "../../../Types.js";
 import Keys from "../../../keys.js";
 import { gameDebug } from "../../../main.js";
-import type { AnchorConfig, BlasterConfig, Anchor, AllReadonly } from "../../../Types.js";
 import Bullet from "../bullet/bullet.js";
 import checkType from "../checkType.js";
-import Director from "../director/Director.js";
 import getAnchoredPos from "../getAnchoredPos.js";
 import update from "./blasterUpdate.js";
 export default class GasterBlaster extends Bullet {

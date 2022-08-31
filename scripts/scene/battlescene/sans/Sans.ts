@@ -1,6 +1,6 @@
 import type { SansType, SansConfig, FallingConfig, SansVisualConfig } from "../../../Types.js";
+import type Director from "../director/Director.js";
 import Keys from "../../../keys.js";
-import Director from "../director/Director.js";
 import setVisual from "./setVisual.js";
 import slamAnimMaker from "./slamAnims.js";
 import update from "./update.js";

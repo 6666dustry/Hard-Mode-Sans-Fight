@@ -2,6 +2,10 @@ import Keys from "../../../keys.js";
 import Debug from "./Debug.js";
 
 export default function debugUpdate(this: Debug, time: number, fps: number) {
+    if (Phaser.Input.Keyboard.JustDown(this.scene.qKey)) {
+        this.setMode(!this.running);
+    }
+
     if (this.state !== "running") {
         return;
     }

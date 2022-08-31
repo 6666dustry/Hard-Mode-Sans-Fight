@@ -1,5 +1,5 @@
-import { bulletColor } from "../../../Types.js";
-import Director from "../director/Director.js";
+import type { bulletColor } from "../../../Types.js";
+import type Director from "../director/Director.js";
 import checkTakeDamage from "./checkTakeDamage.js";
 import getColorKey from "./getColorKey.js";
 import setColorKey from "./setColorKey.js";

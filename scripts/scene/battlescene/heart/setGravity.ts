@@ -1,7 +1,7 @@
-import Heart from "./Heart.js";
-import { HeartGravity } from "../../../Types.js";
+import type Heart from "./Heart.js";
+import type { HeartGravity } from "../../../Types.js";
+import type { SansVisualConfig } from "../../../Types.js";
 import Keys from "../../../keys.js";
-import { SansVisualConfig } from "../../../Types.js";
 import checkType from "../checkType.js";
 function setSlam(this: Heart, config: Required<HeartGravity>) {
     if (config.direction) {

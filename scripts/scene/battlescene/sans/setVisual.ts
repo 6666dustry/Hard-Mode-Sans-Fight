@@ -1,6 +1,6 @@
-import { AllReadonly, SansVisualConfig } from "../../../Types.js";
+import type { AllReadonly, SansVisualConfig } from "../../../Types.js";
+import type Sans from "./Sans.js";
 import Keys from "../../../keys.js";
-import Sans from "./Sans.js";
 import checkType from "../checkType.js";
 export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConfig>) {
     const DATA = checkType(Config, {
@@ -31,9 +31,6 @@ export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConf
     }, this.director.AttackLoader.runAttackPos);
 
     let target: Phaser.GameObjects.Sprite = this[DATA.target];
-
-
-    target.setVisible(DATA.visible);
 
 
     if (DATA.anim && DATA.target === "torso") {
@@ -94,19 +91,23 @@ export default function setVisual(this: Sans, Config: AllReadonly<SansVisualConf
 
         if (DATA.target === "sweet" && DATA.frame === "addSweet") {
             if (!target.visible) {
+                console.log("why");
                 target.setVisible(true);
+                target.setFrame("sweet1");
             } else {
                 let num: 1 | 2 | 3 = Number.parseInt(target.frame.name.slice(-1)) as 1 | 2 | 3;
 
                 num <= 2 && num++;
                 target.setFrame(`sweet${ num }`);
             }
+
         } else
             if (DATA.frame) {
                 target.anims.stop();
                 target.setFrame(DATA.frame);
             }
     }
+    target.setVisible(DATA.visible);
 
     if (DATA.state) {
         this.state = DATA.state;

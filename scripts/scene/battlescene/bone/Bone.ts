@@ -1,7 +1,7 @@
-import BattleScene from "scene/battlescene/BattleScene.js";
-import Keys from "../../../keys.js";
-import Director from "../director/Director.js";
+import type BattleScene from "scene/battlescene/BattleScene.js";
+import type Director from "../director/Director.js";
 import type { Image, BoneConfig, Anchor, AnchorConfig, AllReadonly } from "../../../Types.js";
+import Keys from "../../../keys.js";
 import update from "./BoneUpdate.js";
 import deleteTween from "./deleteTween.js";
 import spawnTween from "./spawnTween.js";
@@ -217,8 +217,8 @@ export default class Bone extends Bullet {
             });
         }
     }
-    moveType: "normal" | "stab" | "circle" | "menu";
-    collision: number;
+    readonly moveType: "normal" | "stab" | "circle" | "menu";
+    readonly collision: number;
     state: "appear" | "living" | "dying";
     oldColor: typeof this.color;
     top: Image;

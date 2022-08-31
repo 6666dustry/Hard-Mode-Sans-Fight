@@ -1,4 +1,4 @@
-import CombatZoneDirector from "./CombatZoneDirector.js";
+import type CombatZoneDirector from "./CombatZoneDirector.js";
 
 export default function (this: CombatZoneDirector) {
     for (const key in this.Zones) {

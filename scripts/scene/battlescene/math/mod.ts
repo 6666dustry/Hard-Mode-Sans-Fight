@@ -1,5 +1,5 @@
 import type { AllReadonly, ModConfig } from "../../../Types.js";
-import GameMath from "./GameMath.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
 
 export default function mod(this: GameMath, config: AllReadonly<ModConfig>) {

@@ -1,3 +1,4 @@
+import type MoveKey from "../../../MoveKey.js";
 import CombatZoneDirector from "../combatzone/CombatZoneDirector.js";
 import Heart from "../heart/Heart.js";
 import Commands from "../commands/Commands.js";
@@ -18,7 +19,6 @@ import { gameDebug } from "../../../main.js";
 import Effect from "../effect/Effect.js";
 import removeAll from "./removeAll.js";
 import AttackLoader from "../attackPlayer/attackLoader.js";
-import MoveKey from "../../../MoveKey.js";
 import startGame from "./startGame.js";
 type key = Phaser.Input.Keyboard.Key;
 /**

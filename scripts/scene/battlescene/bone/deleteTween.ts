@@ -1,5 +1,5 @@
-import { BoneConfig } from "../../../Types.js";
-import Bone from "./Bone.js";
+import type { BoneConfig } from "../../../Types.js";
+import type Bone from "./Bone.js";
 function boneRemove(this: Bone) {
     if (this.scene) {
         this.removeAll(true);

@@ -1,7 +1,6 @@
-import { AllReadonly, SetPositionConfig } from "../../../Types.js";
+import type { AllReadonly, SetPositionConfig } from "../../../Types.js";
+import type Sans from "./Sans.js";
 import checkType from "../checkType.js";
-import Sans from "./Sans.js";
-
 export default function setSansPosition(this: Sans, config: AllReadonly<SetPositionConfig>) {
     const DATA = checkType(config, {
         x: {

@@ -1,7 +1,7 @@
-import BattleScene from "scene/battlescene/BattleScene";
+import type BattleScene from "scene/battlescene/BattleScene";
+import type Director from "../director/Director.js";
+import type { EnemyTextType, SpeechConfig, EnemyTextConfig, AllReadonly } from "../../../Types.js";
 import Keys from "../../../keys.js";
-import Director from "../director/Director.js";
-import { EnemyTextType, SpeechConfig, EnemyTextConfig, AllReadonly } from "../../../Types.js";
 import router from "../router.js";
 import checkType from "../checkType.js";
 export default class SansText extends Phaser.GameObjects.Container {
@@ -30,9 +30,9 @@ export default class SansText extends Phaser.GameObjects.Container {
     readonly zKey: Phaser.Input.Keyboard.Key;
     readonly director: Director;
     text: Phaser.GameObjects.Text;
-    speechBack: Phaser.GameObjects.Image;
+    readonly speechBack: Phaser.GameObjects.Image;
     speechId!: Phaser.Time.TimerEvent;
-    setTextInst(text: string): void {
+    stopRoll(text: string): void {
         this.speechId.remove();
         this.text.setText(text);
         this.zKey.once("down", this.endSpeech.bind(this));
@@ -93,7 +93,7 @@ export default class SansText extends Phaser.GameObjects.Container {
         this.speechId = this.rollDiaText(DATA);
 
 
-        this.zKey.once("down", this.setTextInst.bind(this, config.text));
+        this.zKey.once("down", this.stopRoll.bind(this, config.text));
     }
     endSpeech(): void {
         if (this.scene === undefined) {

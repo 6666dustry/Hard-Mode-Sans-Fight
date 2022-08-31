@@ -1,5 +1,4 @@
-
-import {
+import type {
     BlastersConfig,
     BlasterType,
     BonesConfig,
@@ -25,7 +24,7 @@ import {
     EffectType,
     EndTurn
 } from "../../../../Types.js";
-import AttackLoader from "../attackLoader.js";
+import type AttackLoader from "../attackLoader.js";
 /**
    * deliver data to another module.
    */

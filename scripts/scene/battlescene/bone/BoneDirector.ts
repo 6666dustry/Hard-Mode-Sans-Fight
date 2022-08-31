@@ -1,15 +1,11 @@
-import Bone from "./Bone.js";
-import BattleScene from "scene/battlescene/BattleScene";
-import Director from "../director/Director.js";
+import type BattleScene from "scene/battlescene/BattleScene";
+import type Director from "../director/Director.js";
+import type { BoneConfig, CircleBoneConfig, StabBoneConfig } from "../../../Types.js";
 import Keys from "../../../keys.js";
+import Bone from "./Bone.js";
 import stabBone from "./stabbone/stabBone.js";
 import CircleBone from "./circlebone/circleBone.js";
 import addGap from "./addGap.js";
-import {
-    BoneConfig,
-    CircleBoneConfig,
-    StabBoneConfig
-} from "../../../Types.js";
 import update from "./directorUpdate.js";
 import addSine from "./addSine.js";
 import addMulti from "../addMulti.js";

@@ -1,9 +1,9 @@
-import BattleScene from "../BattleScene.js";
-import Director from "../director/Director.js";
+import type BattleScene from "../BattleScene.js";
+import type Director from "../director/Director.js";
+import type Bone from "../bone/Bone.js";
+import type PlatForm from "../platForm/platform.js";
+import type { SetRectConfig } from "../../../Types.js";
 import CombatZone from "./box/combatzone.js";
-import Bone from "../bone/Bone.js";
-import PlatForm from "../platForm/platform.js";
-import { SetRectConfig } from "../../../Types.js";
 import setRectDefault from "./setRectDefault.js";
 import router from "./router.js";
 import getZone from "./getZone.js";

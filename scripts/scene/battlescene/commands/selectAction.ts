@@ -1,4 +1,4 @@
-import Commands from "./Commands.js";
+import type Commands from "./Commands.js";
 import Keys from "../../../keys.js";
 /**
      * used for action select

@@ -1,6 +1,6 @@
-import { RNDJumpConfig } from "../../../Types.js";
+import type { RNDJumpConfig } from "../../../Types.js";
+import type Jumps from "./Jumps.js";
 import checkType from "../checkType.js";
-import Jumps from "./Jumps.js";
 /**
  * randomly jump.
  * @param this 

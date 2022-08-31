@@ -1,4 +1,4 @@
-import stabBone from "./stabBone.js";
+import type stabBone from "./stabBone.js";
 export default function destroyStab(this: stabBone) {
     for (const iterator of this.Bones) {
         iterator.removeAll(true);

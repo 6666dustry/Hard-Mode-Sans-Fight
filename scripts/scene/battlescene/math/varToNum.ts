@@ -1,5 +1,5 @@
-import { variableName, variableType } from "../../../Types.js";
-import GameMath from "./GameMath.js";
+import type { variableName, variableType } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 /**
  * 
  * @param this 
@@ -18,7 +18,7 @@ export default function variableToUse(this: GameMath, key: variableName): variab
             return result;
         }
 
-        console.error(`variable name is not defined ${ key }`);
+        console.warn(`variable name is not defined ${ key }`);
         return 0;
     }
     return key;

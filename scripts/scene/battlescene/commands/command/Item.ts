@@ -1,6 +1,6 @@
+import type { ItemConfig } from "../../../../Types.js";
+import type Commands from "../Commands.js";
 import Keys from "../../../../keys.js";
-import { ItemConfig } from "../../../../Types.js";
-import Commands from "../Commands.js";
 export default class Item {
     constructor(command: Commands, items?: (keyof typeof Keys.Item)[]) {
         this.command = command;

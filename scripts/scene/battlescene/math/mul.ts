@@ -1,7 +1,7 @@
-import { AllReadonly, MulConfig } from "../../../Types.js";
-import GameMath from "./GameMath.js";
+import type { AllReadonly, MulConfig } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
-function mul(this: GameMath, config: AllReadonly<MulConfig>) {
+export default function mul(this: GameMath, config: AllReadonly<MulConfig>) {
 
     const DATA = checkType(config, {
         variable: "string",
@@ -13,4 +13,3 @@ function mul(this: GameMath, config: AllReadonly<MulConfig>) {
     const B: number = DATA.valueB;
     this.variables[DATA.variable] = A * B;
 }
-export default mul;

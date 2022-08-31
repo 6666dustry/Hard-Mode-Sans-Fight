@@ -1,5 +1,5 @@
-import { EndTurn } from "../../../../Types.js";
-import AttackLoader from "../attackLoader.js";
+import type { EndTurn } from "../../../../Types.js";
+import type AttackLoader from "../attackLoader.js";
 import checkType from "../../checkType.js";
 import Practice from "./Practice.js";
 /**

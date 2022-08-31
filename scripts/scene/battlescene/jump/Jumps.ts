@@ -1,4 +1,4 @@
-import Director from "../director/Director.js";
+import type Director from "../director/Director.js";
 import router from "./router.js";
 import searchLabel from "./searchLabel.js";
 import ABS from "./ABS.js";

@@ -1,5 +1,5 @@
-import { SingleAttack } from "../../../Types.js";
-import Director from "./Director.js";
+import type { SingleAttack } from "../../../Types.js";
+import type Director from "./Director.js";
 function searcher(this: Director,
     search:
         {

@@ -1,14 +1,14 @@
-import BattleScene from "../../BattleScene.js";
-import { StabBoneConfig, bulletColor, AllReadonly } from "../../../../Types.js";
+import type BattleScene from "../../BattleScene.js";
+import type { StabBoneConfig, bulletColor, AllReadonly } from "../../../../Types.js";
+import type CombatZone from "../../combatzone/box/combatzone.js";
+import type Director from "../../director/Director.js";
+import type BoneDirector from "../BoneDirector.js";
+import type Bone from "../Bone.js";
 import Keys from "../../../../keys.js";
-import Director from "../../director/Director.js";
-import BoneDirector from "../BoneDirector.js";
-import Bone from "../Bone.js";
 import spawnStab from "./spawnStabBone.js";
 import update from "./stabUpdate.js";
 import destroyStab from "./destroyStab.js";
 import setWarn from "./setWarn.js";
-import CombatZone from "../../combatzone/box/combatzone.js";
 import checkType from "../../checkType.js";
 export default class stabBone extends Phaser.GameObjects.Zone {
     constructor(scene: BattleScene, config: AllReadonly<StabBoneConfig>, director: Director, boneDirector: BoneDirector) {

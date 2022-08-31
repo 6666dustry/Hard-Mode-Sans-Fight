@@ -1,6 +1,5 @@
 import Keys from "../../../keys.js";
-import Heart from "./Heart.js";
-
+import type Heart from "./Heart.js";
 export default function setCollisionGravity(this: Heart) {
     if (this.colliding !== Keys.Label.platform) {
 

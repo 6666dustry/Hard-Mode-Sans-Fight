@@ -1,6 +1,6 @@
-import { AddConfig, AllReadonly } from "../../../Types.js";
+import type { AddConfig, AllReadonly } from "../../../Types.js";
+import type GameMath from "./GameMath.js";
 import checkType from "../checkType.js";
-import GameMath from "./GameMath.js";
 
 export default function add(this: GameMath, config: AllReadonly<AddConfig>) {
     const DATA = checkType(config, {

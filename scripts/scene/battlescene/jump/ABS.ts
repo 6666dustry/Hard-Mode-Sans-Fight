@@ -1,6 +1,6 @@
-import { ABSConfig, AllReadonly } from "../../../Types.js";
+import type { ABSConfig, AllReadonly } from "../../../Types.js";
+import type Jumps from "./Jumps.js";
 import checkType from "../checkType.js";
-import Jumps from "./Jumps.js";
 /**jump absolute*/
 export default function ABS(this: Jumps, config: AllReadonly<ABSConfig>): true {
     const DATA = checkType(config, {

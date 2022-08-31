@@ -1,5 +1,5 @@
-import CombatZone from "./combatzone";
-import { AllReadonly, SetRectConfig } from "../../../../Types";
+import type CombatZone from "./combatzone";
+import type { AllReadonly, SetRectConfig } from "../../../../Types";
 import checkType from "../../checkType.js";
 export default function setRect(this: CombatZone, config: AllReadonly<SetRectConfig>, overlapInst?: boolean) {
 

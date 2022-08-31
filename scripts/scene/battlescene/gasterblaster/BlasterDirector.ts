@@ -1,8 +1,8 @@
-import GasterBlaster from "./GasterBlaster.js";
-import Director from "../director/Director.js";
-import BattleScene from "../BattleScene.js";
-import Keys from "../../../keys.js";
+import type Director from "../director/Director.js";
+import type BattleScene from "../BattleScene.js";
 import type { BlasterConfig, BlasterType } from "../../../Types.js";
+import GasterBlaster from "./GasterBlaster.js";
+import Keys from "../../../keys.js";
 import router from "../router.js";
 export default class BlasterDirector extends Phaser.GameObjects.Group {
     constructor(scene: BattleScene, collision: number, OPERATOR: Director) {
