@@ -11,6 +11,9 @@ export default function catchOrder(this: AttackLoader): any {
             result = this.scene.cache.json.get(
                 this.scene.config.Phase1[this.loadFilePos]
             );
+            if (result == null) {
+                result = this.scene.config.Phase1[this.scene.config.Phase1.length - 1];
+            }
             this.attackName = this.scene.config.Phase1[this.loadFilePos];
             break;
         }
@@ -18,6 +21,9 @@ export default function catchOrder(this: AttackLoader): any {
             result = this.scene.cache.json.get(
                 this.scene.config.Phase2[this.loadFilePos]
             );
+            if (result == null) {
+                result = this.scene.config.Phase2[this.scene.config.Phase2.length - 1];
+            }
             this.attackName = this.scene.config.Phase2[this.loadFilePos];
             break;
         }

@@ -21,7 +21,7 @@ export default function gameClear(scene: Phaser.Scene, config: BattleStartConfig
             }
         },
         duration: 5000,
-        data: [config]
+        data: [config],
     });
     scene.scene.setVisible(false, Keys.Scene.mainMenu);
     scene.scene.get(Keys.Scene.mainMenu).cameras.cameras.forEach((value) => {

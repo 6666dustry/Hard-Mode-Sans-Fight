@@ -11,11 +11,13 @@ import endPlayerTurn from "./init/endPlayerTurn.js";
 import startGame from "./init/startGame.js";
 import endAttack from "./init/endAttack.js";
 import getAttack from "./loader/getAttack.js";
-export default class AttackLoader {
+import Base from "../director/Base.js";
+export default class AttackLoader extends Base(class { }) {
     constructor(scene: BattleScene, director: Director) {
-        this.scene = scene;
-        this.director = director;
+        super();
+        this.BaseConstructor(scene, director);
 
+        this.gameEnd = false;
         this.first = true;
         this.playerTurn = false;
         this.resting = false;
@@ -39,8 +41,6 @@ export default class AttackLoader {
         this.endAttack = endAttack;
         this.startGame = startGame;
     }
-    readonly scene: BattleScene;
-    readonly director: Director;
     readonly runAttack: typeof runAttack;
     readonly catchAttack: typeof catchOrder;
     readonly endPlayerTurn: typeof endPlayerTurn;
@@ -70,6 +70,7 @@ export default class AttackLoader {
     /**is first attack? */
     first: boolean;
     playSingle: boolean;
+    gameEnd: boolean;
     /**playing attack functions. */
     Loading: {
         loadAttack?: {

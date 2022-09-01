@@ -41,4 +41,7 @@ pressKey: ${ this.scene.cursors.getDownKey() } `);
             debug: true
         });
     }
+    if (Phaser.Input.Keyboard.JustDown(this.scene.nKey)) {
+        this.director.AttackLoader.loadFilePos++;
+    }
 }

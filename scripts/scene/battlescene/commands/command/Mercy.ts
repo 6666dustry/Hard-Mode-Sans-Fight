@@ -18,7 +18,7 @@ export default class Mercy {
         return this.texts;
     }
     action(): void {
-        this.command.SCENE.events.emit(Keys.Event.endTurn);
+        this.command.scene.events.emit(Keys.Event.endTurn);
         this.command.resetButtons();
     }
     update() { }

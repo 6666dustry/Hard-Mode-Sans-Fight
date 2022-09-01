@@ -27,6 +27,7 @@ export default function endEnemyTurn(this: AttackLoader, config?: EndTurn) {
 
     //is game cleared?
     if (this.endConfig.win) {
+        this.gameEnd = true;
         gameClear(this.scene, this.scene.config);
     } else {
         // start player turn.

@@ -9,9 +9,11 @@ import getPadding from "./getPadding.js";
 import { gameDebug } from "../../../../main.js";
 import setTarget from "../../setTween.js";
 import checkType from "../../checkType.js";
-export default class CircleBone extends Phaser.GameObjects.Zone {
+import Base from "../../director/Base.js";
+export default class CircleBone extends Base(Phaser.GameObjects.Zone) {
     constructor(scene: BattleScene, config: AllReadonly<CircleBoneConfig>, BoneDirector: BoneDirector) {
         super(scene, config.x || 0, config.y || 0);
+        this.BaseConstructor(scene, scene.director);
         scene.add.existing(this);
 
         this.BoneDirector = BoneDirector;
@@ -177,9 +179,6 @@ export default class CircleBone extends Phaser.GameObjects.Zone {
     public get centerY(): number {
         return this.y;
     }
-
-
-    declare scene: BattleScene;
     readonly BoneDirector: BoneDirector;
     boneRadius: number;
     spaceRadius: number;

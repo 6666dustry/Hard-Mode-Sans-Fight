@@ -10,11 +10,12 @@ import update from "./directorUpdate.js";
 import addSine from "./addSine.js";
 import addMulti from "../addMulti.js";
 import router from "./router.js";
-export default class BoneDirector extends Phaser.GameObjects.Group {
-    constructor(scene: BattleScene, collision: number, OPERATOR: Director) {
+import Base from "../director/Base.js";
+export default class BoneDirector extends Base(Phaser.GameObjects.Group) {
+    constructor(scene: BattleScene, collision: number, director: Director) {
         super(scene);
+        this.BaseConstructor(scene, director);
         this.collision = collision;
-        this.director = OPERATOR;
         scene.add.existing(this);
         this.repeats = [];
         this.stabs = [];
@@ -29,8 +30,6 @@ export default class BoneDirector extends Phaser.GameObjects.Group {
         this.router = router;
         this.update = update;
     }
-    declare scene: BattleScene;
-    readonly director: Director;
     readonly collision: number;
     repeats: Phaser.Time.TimerEvent[];
     stabs: stabBone[];

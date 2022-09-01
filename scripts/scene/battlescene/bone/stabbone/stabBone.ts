@@ -10,9 +10,11 @@ import update from "./stabUpdate.js";
 import destroyStab from "./destroyStab.js";
 import setWarn from "./setWarn.js";
 import checkType from "../../checkType.js";
-export default class stabBone extends Phaser.GameObjects.Zone {
+import Base from "../../director/Base.js";
+export default class stabBone extends Base(Phaser.GameObjects.Zone) {
     constructor(scene: BattleScene, config: AllReadonly<StabBoneConfig>, director: Director, boneDirector: BoneDirector) {
         super(scene, 0, 0);
+        this.BaseConstructor(scene, director);
         scene.add.existing(this);
         const DATA = checkType(config,
             {
@@ -50,7 +52,6 @@ export default class stabBone extends Phaser.GameObjects.Zone {
                 }
             }, director.AttackLoader.runAttackPos);
 
-        this.director = director;
         this.BONE_DIRECTOR = boneDirector;
         this.Bones = [];
         this.state = "warning";
@@ -111,7 +112,6 @@ export default class stabBone extends Phaser.GameObjects.Zone {
     readonly setWarn: typeof setWarn;
     readonly spawnStab: typeof spawnStab;
     readonly destroyStab: typeof destroyStab;
-    readonly director: Director;
     readonly BONE_DIRECTOR: BoneDirector;
     readonly timerEvent: Phaser.Time.TimerEvent;
     Bones: Bone[];

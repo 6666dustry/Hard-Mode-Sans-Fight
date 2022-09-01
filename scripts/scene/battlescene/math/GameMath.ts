@@ -15,8 +15,11 @@ import mod from "./mod.js";
 import rotate from "./rotate.js";
 import betWeenAngle from "./betWeenAngle.js";
 import init from "./init.js";
-export default class GameMath {
+import Base from "../director/Base.js";
+export default class GameMath extends Base(class { }) {
     constructor(scene: BattleScene, director: Director) {
+        super();
+        this.BaseConstructor(scene, director);
         this.scene = scene;
         this.director = director;
         this.variables = {};
@@ -36,8 +39,6 @@ export default class GameMath {
         this.findVariable = findVariable;
         this.init = init;
     }
-    readonly scene: BattleScene;
-    readonly director: Director;
     variables: {
         [k: string]: variableType;
     };

@@ -28,6 +28,12 @@ export default class Item {
 
         CO.Heart.Image.setPosition(X, Y);
         CO.Heart.Image.setAngle(0);
+        if (this.texts.length <= 0) {
+            CO.commandType = 0;
+            CO.resetTexts(CO.diaTexts);
+            CO.dialogText();
+            CO.scene.sound.play(Keys.Audio.select);
+        }
 
         /** loop counter. max is 4. */
         let loopMax: number = this.texts.length;
@@ -69,7 +75,7 @@ export default class Item {
         const CO: Commands = this.command;
         const ARG: (keyof typeof Keys.Item) = this.texts[CO.selectAct + this.page * 4];
 
-        if (!(CO.SCENE.config.settings && CO.SCENE.config.settings.infItem)) {
+        if (!(CO.scene.config.settings && CO.scene.config.settings.infItem)) {
             this.texts.splice(CO.selectAct + this.page * 4, 1);
         }
 
@@ -99,9 +105,9 @@ export default class Item {
         CO.Heart.Image.setVisible(false);
 
         if (item.description) {
-            CO.SCENE.events.once(Keys.Event.endRoll, this.showDetails.bind(this, item.description, zKey));
+            CO.scene.events.once(Keys.Event.endRoll, this.showDetails.bind(this, item.description, zKey));
         } else {
-            CO.SCENE.events.once(Keys.Event.endRoll, this.zKeyEvent.bind(this, zKey));
+            CO.scene.events.once(Keys.Event.endRoll, this.zKeyEvent.bind(this, zKey));
         }
     }
     showDetails(text: string, zKey: Phaser.Input.Keyboard.Key) {
@@ -112,11 +118,11 @@ export default class Item {
                 CO.diaTexts[0],
                 text);
 
-            CO.SCENE.events.once(Keys.Event.endRoll, this.zKeyEvent.bind(this, zKey));
+            CO.scene.events.once(Keys.Event.endRoll, this.zKeyEvent.bind(this, zKey));
         }, this);
     }
     endInit(): void {
-        this.command.SCENE.events.emit(Keys.Event.endTurn);
+        this.command.scene.events.emit(Keys.Event.endTurn);
         this.textId.remove();
     }
     update(): void { }

@@ -9,21 +9,21 @@ export default class Fight {
         const midP = this.command.director.CombatzoneDirector.midDialogPoint;
 
         [this.target, this.bar, this.slash]
-            = [CO.SCENE.add.sprite(midP.x, midP.y, Keys.Image.target).setDepth(CO.depth).setVisible(false),
+            = [CO.scene.add.sprite(midP.x, midP.y, Keys.Image.target).setDepth(CO.depth).setVisible(false),
 
-            CO.SCENE.add.sprite(30, midP.y, Keys.Sheet.tagBar).setDepth(CO.depth).setVisible(false),
+            CO.scene.add.sprite(30, midP.y, Keys.Sheet.tagBar).setDepth(CO.depth).setVisible(false),
 
-            CO.SCENE.add.sprite(320, 100, Keys.Sheet.attacked).setDepth(CO.depth).setVisible(false)];
+            CO.scene.add.sprite(320, 100, Keys.Sheet.attacked).setDepth(CO.depth).setVisible(false)];
 
         this.setActives(false);
-        CO.SCENE.anims.create({
+        CO.scene.anims.create({
             key: Keys.Anim.barFlash,
             frames: Keys.Sheet.tagBar,
             duration: 200,
             repeat: 10,
             yoyo: true
         });
-        CO.SCENE.anims.create({
+        CO.scene.anims.create({
             key: Keys.Anim.attacking,
             frames: Keys.Sheet.attacked,
             duration: 450,
@@ -62,7 +62,7 @@ export default class Fight {
         CO.resetButtons();
         this.setActives(true);
         this.slash.setVisible(false);
-        this.barTween = CO.SCENE.tweens.add(
+        this.barTween = CO.scene.tweens.add(
             {
                 targets: this.bar,
                 delay: 300,
@@ -76,7 +76,7 @@ export default class Fight {
                 onCompleteScope: this
             }
         );
-        CO.SCENE.tweens.add({
+        CO.scene.tweens.add({
             targets: this.target,
             delay: 0,
             duration: 300,
@@ -97,16 +97,16 @@ export default class Fight {
         AT.attacked = true;
         CO.director.Sans.avoid().setCallback("onComplete", (): void => {
             this.endInit();
-            this.command.SCENE.events.emit(Keys.Event.endTurn);
+            this.command.scene.events.emit(Keys.Event.endTurn);
         }, [this], this).completeDelay = 400;
-        CO.SCENE.sound.play(Keys.Audio.fight);
+        CO.scene.sound.play(Keys.Audio.fight);
 
         this.barTween.stop();
 
         this.bar.anims.play(Keys.Anim.barFlash);
         this.slash.setVisible(true).anims.play(Keys.Anim.attacking);
 
-        CO.SCENE.tweens.add({
+        CO.scene.tweens.add({
             targets: this.slash,
             delay: 0,
             props: {
@@ -122,8 +122,8 @@ export default class Fight {
         this.barTween.stop();
         this.command.director.Sans.showDamage();
         this.zEvent.off("down", undefined, undefined, true);
-        this.command.SCENE.time.delayedCall(1000, (): void => {
-            this.command.SCENE.events.emit(Keys.Event.endTurn);
+        this.command.scene.time.delayedCall(1000, (): void => {
+            this.command.scene.events.emit(Keys.Event.endTurn);
             this.endInit();
         }, undefined, this);
     }

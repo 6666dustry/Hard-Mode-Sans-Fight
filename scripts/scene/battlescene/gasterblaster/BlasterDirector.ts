@@ -4,11 +4,13 @@ import type { BlasterConfig, BlasterType } from "../../../Types.js";
 import GasterBlaster from "./GasterBlaster.js";
 import Keys from "../../../keys.js";
 import router from "../router.js";
-export default class BlasterDirector extends Phaser.GameObjects.Group {
-    constructor(scene: BattleScene, collision: number, OPERATOR: Director) {
+import Base from "../director/Base.js";
+export default class BlasterDirector extends Base(Phaser.GameObjects.Group) {
+    constructor(scene: BattleScene, collision: number, director: Director) {
         super(scene);
+        this.BaseConstructor(scene, director);
         this.collision = collision;
-        this.director = OPERATOR;
+        this.director = director;
 
         scene.add.existing(this);
 
@@ -42,7 +44,6 @@ export default class BlasterDirector extends Phaser.GameObjects.Group {
         });
     }
     readonly collision: number;
-    readonly director: Director;
     addSingle(Config: BlasterConfig): GasterBlaster {
         let result: GasterBlaster;
         result = new GasterBlaster(this.scene as BattleScene, Config, this.collision, this.director);

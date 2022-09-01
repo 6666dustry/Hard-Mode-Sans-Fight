@@ -4,13 +4,13 @@ import type { EnemyTextType, SpeechConfig, EnemyTextConfig, AllReadonly } from "
 import Keys from "../../../keys.js";
 import router from "../router.js";
 import checkType from "../checkType.js";
-export default class SansText extends Phaser.GameObjects.Container {
-    constructor(scene: BattleScene, x: number, y: number, zKey: Phaser.Input.Keyboard.Key, OPERATOR: Director) {
+import Base from "../director/Base.js";
+export default class SansText extends Base(Phaser.GameObjects.Container) {
+    constructor(scene: BattleScene, x: number, y: number, zKey: Phaser.Input.Keyboard.Key, director: Director) {
         super(scene, x, y);
+        this.BaseConstructor(scene, director);
 
         this.zKey = zKey;
-        this.director = OPERATOR;
-
         this.speechBack = scene.add.image(0, 0, Keys.Image.speech);
 
         this.text = scene.add.text(-80, -40, "", {
@@ -28,7 +28,6 @@ export default class SansText extends Phaser.GameObjects.Container {
         this.setVisible(false);
     }
     readonly zKey: Phaser.Input.Keyboard.Key;
-    readonly director: Director;
     text: Phaser.GameObjects.Text;
     readonly speechBack: Phaser.GameObjects.Image;
     speechId!: Phaser.Time.TimerEvent;

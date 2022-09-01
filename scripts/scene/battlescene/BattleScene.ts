@@ -16,6 +16,9 @@ export default class BattleScene extends Phaser.Scene {
     //debug only.
     /**restore health */
     hKey!: Phaser.Input.Keyboard.Key;
+    //debug only.
+    /**play nextAttack */
+    nKey!: Phaser.Input.Keyboard.Key;
     /**switch debug. */
     qKey!: Phaser.Input.Keyboard.Key;
 
@@ -35,6 +38,7 @@ export default class BattleScene extends Phaser.Scene {
         this.zKey = this.input.keyboard.addKey("Z");
         this.tKey = this.input.keyboard.addKey("T");
         this.hKey = this.input.keyboard.addKey("H");
+        this.nKey = this.input.keyboard.addKey("N");
         this.qKey = this.input.keyboard.addKey("Q");
 
         this.cursors = new MoveKey(this);

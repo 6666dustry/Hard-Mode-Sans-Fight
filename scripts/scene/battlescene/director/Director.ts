@@ -65,7 +65,7 @@ export default class Director {
         this.Debug.setMode(gameDebug);
 
 
-        this.Jumps = new Jumps(this);
+        this.Jumps = new Jumps(scene, this);
 
         this.GameMath = new GameMath(scene, this);
 
@@ -110,9 +110,10 @@ export default class Director {
     readonly removeAll: typeof removeAll;
     readonly startGame: typeof startGame;
     update(time: number, fps: number): void {
-        if (!this.scene) {
+        if (!this.scene || this.AttackLoader.gameEnd) {
             return;
         }
+
         if (!this.AttackLoader.playerTurn) {
             this.Heart.update(this.cursors, time);
         } else {

@@ -7,7 +7,8 @@ import update from "./platformUpdate.js";
 import getAnchoredPos from "../getAnchoredPos.js";
 import setTarget from "../setTween.js";
 import checkType from "../checkType.js";
-export default class PlatForm extends Phaser.GameObjects.Container {
+import Base from "../director/Base.js";
+export default class PlatForm extends Base(Phaser.GameObjects.Container) {
     constructor(scene: BattleScene, config: AllReadonly<PlatFormSingleConfig>,
         collision: number,
         heartCol: number, type?: string, ignoreWarn?: {
@@ -15,10 +16,10 @@ export default class PlatForm extends Phaser.GameObjects.Container {
         }) {
 
         super(scene, 0, 0);
+        this.BaseConstructor(scene, scene.director);
 
         this.collision = collision;
         this.heartCol = heartCol;
-        this.director = scene.director;
         const DATA = checkType(config, {
             x: {
                 type: "number",
@@ -187,11 +188,9 @@ export default class PlatForm extends Phaser.GameObjects.Container {
 
         this.update = update;
     }
-    declare scene: BattleScene;
     declare body: MatterJS.BodyType;
     readonly heartCol: number;
     readonly collision: number;
-    readonly director: Director;
     /**0 is green, 1 is purple */
     color: 0 | 1;
     spin: number;

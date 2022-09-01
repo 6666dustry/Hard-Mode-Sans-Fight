@@ -81,7 +81,7 @@ export default class Act {
         this.setHeartPos();
     }
     endInit() {
-        this.command.SCENE.events.emit(Keys.Event.endTurn);
+        this.command.scene.events.emit(Keys.Event.endTurn);
         this.textId.remove();
         this.endAction = false;
     }
@@ -104,14 +104,14 @@ export default class Act {
             CO.endingTurn = false;
             CO.actionInit();
         } else if (JustDown(zKey)) {
-            CO.SCENE.sound.play(Keys.Audio.select);
+            CO.scene.sound.play(Keys.Audio.select);
             CO.resetTexts(CO.diaTexts);
             this.textId = CO.rollDiaText(CO.diaTexts[0], "* " + this.texts[0][2][this.select]);
             CO.Heart.Image.setVisible(false);
 
             CO.resetButtons();
             this.endAction = true;
-            CO.SCENE.events.once(Keys.Event.endRoll, this.zKeyEvent.bind(this, zKey));
+            CO.scene.events.once(Keys.Event.endRoll, this.zKeyEvent.bind(this, zKey));
         }
     }
 }

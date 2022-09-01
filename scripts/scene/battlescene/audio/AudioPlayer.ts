@@ -3,17 +3,16 @@ import type Director from "../director/Director.js";
 import router from "./router.js";
 import play from "./play.js";
 import stop from "./stop.js";
-export default class AudioPlayer {
+import Base from "../director/Base.js";
+export default class AudioPlayer extends Base(class { }) {
     constructor(scene: BattleScene, director: Director) {
-        this.scene = scene;
-        this.director = director;
+        super();
+        this.BaseConstructor(scene, director);
 
         this.play = play;
         this.stop = stop;
         this.router = router;
     }
-    declare scene: BattleScene;
-    readonly director: Director;
     readonly router: typeof router;
     readonly play: typeof play;
     readonly stop: typeof stop;

@@ -9,7 +9,8 @@ import getPos from "./getPos.js";
 import tweenRect from "./tweenRect.js";
 import router from "../../router.js";
 import { gameDebug } from "../../../../main.js";
-export default class CombatZone extends Phaser.GameObjects.Group {
+import Base from "../../director/Base.js";
+export default class CombatZone extends Base(Phaser.GameObjects.Group) {
     /**
      * 
      * @param scene BattleScene reference.
@@ -19,11 +20,11 @@ export default class CombatZone extends Phaser.GameObjects.Group {
      */
     constructor(scene: BattleScene, collide: number, heartCol: number, director: Director, CombatZoneDirector: CombatZoneDirector) {
         super(scene);
+        this.BaseConstructor(scene, director);
         scene.add.existing(this);
 
         this.collide = collide;
         this.heartCol = heartCol;
-        this.director = director;
         this.CombatZoneDirector = CombatZoneDirector;
 
         const MENU_RECT = CombatZoneDirector.menuRect;
@@ -77,7 +78,6 @@ export default class CombatZone extends Phaser.GameObjects.Group {
     readonly collide: number;
     /**heart collide category */
     readonly heartCol: number;
-    readonly director: Director;
     readonly CombatZoneDirector: CombatZoneDirector;
     readonly RenderZone: Phaser.GameObjects.RenderTexture;
     right!: MatterSp;

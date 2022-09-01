@@ -18,9 +18,6 @@ export default class GasterBlaster extends Bullet {
 
         scene.add.existing(this);
 
-        this.director = director;
-
-
         const DATA = checkType(Config, {
             startX: {
                 type: "number",

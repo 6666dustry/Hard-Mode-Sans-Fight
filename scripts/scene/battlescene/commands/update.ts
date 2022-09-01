@@ -31,9 +31,9 @@ export default function update(this: Commands, cursors: MoveKey, xKey: Phaser.In
                 this.commandType = 1;
                 this.actionInit();
             } else if (xKey.ctrlKey) {
-                this.SCENE.events.off(Keys.Event.endTurn);
-                this.SCENE.sound.stopByKey(Keys.Audio.BGM);
-                this.SCENE.scene.start(Keys.Scene.mainMenu, this.SCENE.config);
+                this.scene.events.off(Keys.Event.endTurn);
+                this.scene.sound.stopByKey(Keys.Audio.BGM);
+                this.scene.scene.start(Keys.Scene.mainMenu, this.scene.config);
                 break;
             }
             break;
@@ -50,10 +50,10 @@ export default function update(this: Commands, cursors: MoveKey, xKey: Phaser.In
                 this.commandType = 0;
                 this.resetTexts(this.diaTexts);
                 this.dialogText();
-                this.SCENE.sound.play(Keys.Audio.select);
+                this.scene.sound.play(Keys.Audio.select);
 
             } else if (JustDown(zKey)) {
-                this.SCENE.sound.play(Keys.Audio.select);
+                this.scene.sound.play(Keys.Audio.select);
                 this.endingTurn = true;
                 NOWCOMMAND.action(zKey);
             }

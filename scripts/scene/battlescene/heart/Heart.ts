@@ -17,20 +17,12 @@ import maxSpeed from "./maxSpeed.js";
 import getPosition from "./getPosition.js";
 import router from "./router.js";
 import checkType from "../checkType.js";
-/**
- * attack turn heart movement systems.
- */
-export default class Heart {
-    /**
-     * 
-     * @param SCENE BattleScene reference.
-     * @param collide heart collide category reference.
-     * @param OPERATOR Operator reference.
-     */
-    constructor(SCENE: BattleScene, collide: number, OPERATOR: Director) {
-        this.scene = SCENE;
+import Base from "../director/Base.js";
+export default class Heart extends Base(class { }) {
+    constructor(scene: BattleScene, collide: number, director: Director) {
+        super();
+        this.BaseConstructor(scene, director);
         this.collide = collide;
-        this.director = OPERATOR;
 
         this.canJump = false;
         this.color = "red";
@@ -79,10 +71,8 @@ export default class Heart {
         this.Image.setOnCollideEnd(this.notTouching.bind(this));
         (this.Image.body as MatterJS.BodyType).label = Keys.Label.heart;
     };
-    readonly scene: BattleScene;
     /**heart collide category */
     readonly collide: number;
-    readonly director: Director;
     readonly normalSpeed: number;
     readonly slowSpeed: number;
     collidingAt: {

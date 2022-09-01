@@ -10,18 +10,20 @@ import Item from "./command/Item.js";
 import Mercy from "./command/Mercy.js";
 import update from "./update.js";
 import selectAction from "./selectAction.js";
+import Base from "../director/Base.js";
 /**
  * player turn system.
  */
-export default class Commands {
+export default class Commands extends Base(class { })
+{
     /**
      * 
-     * @param SCENE BattleScene reference.
-     * @param OPERATOR Operator reference.
+     * @param scene BattleScene reference.
+     * @param director Operator reference.
      */
-    constructor(SCENE: BattleScene, OPERATOR: Director, heart: Heart, combatzone: CombatZoneDirector, statuses: Statuses) {
-        this.SCENE = SCENE;
-        this.director = OPERATOR;
+    constructor(scene: BattleScene, director: Director, heart: Heart, combatzone: CombatZoneDirector, statuses: Statuses) {
+        super();
+        this.BaseConstructor(scene, director);
 
         this.depth = Keys.Depth.command;
         this.buttonPos = [];
@@ -53,7 +55,7 @@ export default class Commands {
         //set buttons.
         for (let index: number = 0; index < POSES.length; index++) {
             const elem: { x: number, y: number, Image: string; } = POSES[index];
-            this.buttons[index] = SCENE.add.sprite(elem.x, elem.y, elem.Image, 0).setDepth(this.depth);
+            this.buttons[index] = scene.add.sprite(elem.x, elem.y, elem.Image, 0).setDepth(this.depth);
         }
         /**text config. */
         const texCon: Phaser.Types.GameObjects.Text.TextStyle = {
@@ -89,7 +91,7 @@ export default class Commands {
             };
             this.textsPos[index] = { x: TEXT_POS.x, y: TEXT_POS.y };
 
-            this.diaTexts[index] = SCENE.add.text(TEXT_POS.x, TEXT_POS.y, "", texCon).setScale(0.25).setDepth(this.depth);
+            this.diaTexts[index] = scene.add.text(TEXT_POS.x, TEXT_POS.y, "", texCon).setScale(0.25).setDepth(this.depth);
         }
         this.diaTexts.forEach((value) => {
             value.setVisible(false);
@@ -101,8 +103,6 @@ export default class Commands {
         this.selectAction = selectAction;
     }
     readonly depth: number;
-    readonly SCENE: BattleScene;
-    readonly director: Director;
     /**0=fight,1=act,2=item,3=mercy */
     selectedCommand: number;
     selectAct: number;
@@ -151,13 +151,13 @@ export default class Commands {
     rollDiaText(add: Phaser.GameObjects.Text, text: string): Phaser.Time.TimerEvent {
         const length: number = text.length;
         let i: number = 0;
-        return this.SCENE.time.addEvent({
+        return this.scene.time.addEvent({
             callback: (): void => {
                 add.setText(add.text + [text[i]]);
-                this.SCENE.sound.play(Keys.Audio.battleText);
+                this.scene.sound.play(Keys.Audio.battleText);
 
                 if (i >= length - 1)
-                    this.SCENE.events.emit(Keys.Event.endRoll);
+                    this.scene.events.emit(Keys.Event.endRoll);
                 ++i;
             },
             repeat: length - 1,
@@ -198,7 +198,7 @@ export default class Commands {
                 } else this.selectedCommand++;
                 break;
         }
-        this.SCENE.sound.play(Keys.Audio.cursor);
+        this.scene.sound.play(Keys.Audio.cursor);
     }
     /**
      * get command.
@@ -242,7 +242,7 @@ export default class Commands {
      * show texts for player.
      */
     actionInit(): void {
-        this.SCENE.sound.play(Keys.Audio.select);
+        this.scene.sound.play(Keys.Audio.select);
         this.selectAct = 0;
         this.getCommands().startInit();
     };
@@ -279,7 +279,7 @@ export default class Commands {
         this.setTextsActive(true);
         this.updateCommand();
         this.dialogText();
-        this.SCENE.events.once(Keys.Event.endTurn, this.director.AttackLoader.endPlayerTurn.bind(this.director.AttackLoader));
+        this.scene.events.once(Keys.Event.endTurn, this.director.AttackLoader.endPlayerTurn.bind(this.director.AttackLoader));
     };
     endPlayerTurn() {
         this.commandType = 0;

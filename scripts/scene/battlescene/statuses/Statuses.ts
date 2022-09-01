@@ -8,15 +8,18 @@ import setSetting from "./setSettnig.js";
 import update from "./update.js";
 import takeDamage from "./takeDamage.js";
 import gameOver from "./gameOver.js";
-export default class Statuses extends Phaser.GameObjects.Container {
+import Base from "../director/Base.js";
+export default class Statuses extends
+    Base(Phaser.GameObjects.Container)
+{
     /**
      * add hp bar and more.
      * @param scene battle scene reference.
-     * @param OPERATOR operator reference.
+     * @param director operator reference.
      */
-    constructor(scene: BattleScene, OPERATOR: Director, y: number) {
-        super(scene, 320, y);
-        this.director = OPERATOR;
+    constructor(scene: BattleScene, director: Director, y: number) {
+        super(scene, 320, y, undefined);
+        this.BaseConstructor(scene, director);
         this.hp = 92;
         this.kr = 0;
         this.maxHp = 92;
@@ -72,12 +75,9 @@ export default class Statuses extends Phaser.GameObjects.Container {
         this.takeDamage = takeDamage;
         this.gameOver = gameOver;
         this.update = update;
-
         scene.time.delayedCall(400,
             this.krDecrease, undefined, this);
     }
-    readonly director: Director;
-    declare scene: BattleScene;
     hp: number;
     kr: number;
     maxHp: number;

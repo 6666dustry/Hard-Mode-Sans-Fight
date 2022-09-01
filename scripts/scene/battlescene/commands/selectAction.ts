@@ -63,6 +63,6 @@ export default function selectAction(this: Commands, cursorKey: string): void {
     if (!moved) {
         this.selectAct = 0;
     } else {
-        this.SCENE.sound.play(Keys.Audio.cursor);
+        this.scene.sound.play(Keys.Audio.cursor);
     }
 }

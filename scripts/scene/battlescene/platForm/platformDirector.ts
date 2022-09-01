@@ -4,10 +4,11 @@ import addSingle from "./addSingle.js";
 import router from "./router.js";
 import update from "./directorUpdate.js";
 import addMulti from "../addMulti.js";
-export default class PlatFormDirector extends Phaser.GameObjects.Group {
-    constructor(scene: BattleScene, collision: number, DIRECTOR: Director, heartCol: number) {
+import Base from "../director/Base.js";
+export default class PlatFormDirector extends Base(Phaser.GameObjects.Group) {
+    constructor(scene: BattleScene, collision: number, director: Director, heartCol: number) {
         super(scene);
-        this.director = DIRECTOR;
+        this.BaseConstructor(scene, director);
         this.collision = collision;
         this.heartCol = heartCol;
 
@@ -20,8 +21,6 @@ export default class PlatFormDirector extends Phaser.GameObjects.Group {
         this.update = update;
         this.router = router;
     }
-    declare scene: BattleScene;
-    readonly director: Director;
     readonly collision: number;
     readonly heartCol;
     repeats: Phaser.Time.TimerEvent[];

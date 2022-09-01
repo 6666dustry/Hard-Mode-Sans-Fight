@@ -1,5 +1,8 @@
 import type Keys from "./keys.js";
 import type setTween from "./scene/battlescene/setTween.js";
+export type Constructor<T = {}> = {
+    new(...someParam: any): T;
+};
 /**add readonly at all. */
 export type AllReadonly<P> = {
     readonly [K in keyof P]: P[K] extends object ? AllReadonly<P[K]> : P[K]

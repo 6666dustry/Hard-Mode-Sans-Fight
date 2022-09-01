@@ -9,9 +9,12 @@ import RND from "./RND.js";
 import countOut from "./countOut.js";
 import compare from "./compare.js";
 import init from "./init.js";
-export default class Jumps {
-    constructor(DIRECTOR: Director) {
-        this.director = DIRECTOR;
+import Base from "../director/Base.js";
+import BattleScene from "../BattleScene.js";
+export default class Jumps extends Base(class { }) {
+    constructor(scene: BattleScene, director: Director) {
+        super();
+        this.BaseConstructor(scene, director);
 
         this.counter = [];
 
@@ -27,7 +30,6 @@ export default class Jumps {
 
         this.router = router;
     }
-    readonly director: Director;
     counter: (number | undefined | false)[];
     readonly router: typeof router;
     readonly searchLabel: typeof searchLabel;

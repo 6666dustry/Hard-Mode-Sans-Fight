@@ -8,12 +8,13 @@ import setRectDefault from "./setRectDefault.js";
 import router from "./router.js";
 import getZone from "./getZone.js";
 import removeAll from "./removeAll.js";
-export default class CombatZoneDirector extends Phaser.GameObjects.Group {
+import Base from "../director/Base.js";
+export default class CombatZoneDirector extends Base(Phaser.GameObjects.Group) {
     constructor(scene: BattleScene, collide: number, heartCol: number, director: Director) {
         super(scene);
+        this.BaseConstructor(scene, director);
         this.collide = collide;
         this.heartCol = heartCol;
-        this.director = director;
 
         this.draws = [];
 
@@ -49,7 +50,6 @@ export default class CombatZoneDirector extends Phaser.GameObjects.Group {
     readonly collide: number;
     /**heart collide category */
     readonly heartCol: number;
-    readonly director: Director;
     draws: (
         Bone |
         PlatForm |

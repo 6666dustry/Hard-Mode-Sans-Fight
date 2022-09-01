@@ -1,4 +1,5 @@
 import type { SansType, SansConfig, FallingConfig, SansVisualConfig } from "../../../Types.js";
+import type BattleScene from "../BattleScene.js";
 import type Director from "../director/Director.js";
 import Keys from "../../../keys.js";
 import setVisual from "./setVisual.js";
@@ -6,10 +7,12 @@ import slamAnimMaker from "./slamAnims.js";
 import update from "./update.js";
 import setSansPosition from "./setPos.js";
 import router from "../router.js";
+import Base from "../director/Base.js";
 //sans.
-export default class Sans extends Phaser.GameObjects.Container {
-    constructor(scene: Phaser.Scene, x: number, y: number, DIRECTOR: Director) {
+export default class Sans extends Base(Phaser.GameObjects.Container) {
+    constructor(scene: BattleScene, x: number, y: number, director: Director) {
         super(scene, x, y);
+        this.BaseConstructor(scene, director);
         this.torsoX = 0;
         this.torsoY = 0;
 
@@ -28,7 +31,7 @@ export default class Sans extends Phaser.GameObjects.Container {
         this.yAuto = true;
 
         this.state = "dancing";
-        this.director = DIRECTOR;
+        this.director = director;
 
         this.leg = scene.add.sprite(0, this.legY, Keys.Sheet.sansLeg).setScale(2);
 
@@ -68,7 +71,6 @@ export default class Sans extends Phaser.GameObjects.Container {
     readonly damageText: Phaser.GameObjects.Text;
     readonly avoidWait: number;
     readonly avoidSpeed: number;
-    readonly director: Director;
     state: Exclude<NonNullable<SansVisualConfig["state"]>, boolean>;
     slamming: boolean;
     yAuto: boolean;
