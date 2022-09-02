@@ -1,7 +1,7 @@
-import type Heart from "./Heart.js";
-export default function isFalling(this: Heart): boolean {
-    const BODY: MatterJS.BodyType = this.Image.body as MatterJS.BodyType;
-    switch (this.gravityDirection) {
+import Blue from "./blue.js";
+export default function isFalling(this: Blue): boolean {
+    const BODY: MatterJS.BodyType = this.Heart.Image.body as MatterJS.BodyType;
+    switch (this.Heart.gravityDirection) {
         case "up":
             return BODY.velocity.y <= 0;
         case "down":

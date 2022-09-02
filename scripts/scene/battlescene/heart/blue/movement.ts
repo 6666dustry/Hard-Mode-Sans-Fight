@@ -1,12 +1,12 @@
-import type Heart from "./Heart";
-import type { HeartDirection } from "../../../Types.js";
-import type MoveKey from "../../../MoveKey.js";
+import Blue from "./blue.js";
+import type { HeartDirection } from "../../../../Types.js";
+import type MoveKey from "../../../../MoveKey.js";
 /**
   * 
   * @param cursors keys data.
   * @param time just clock.
   */
-export default function blueMovement(this: Heart, cursors: MoveKey, time: number): void {
+export default function movement(this: Blue, cursors: MoveKey, time: number): void {
     this.setCollisionGravity();
     let direction: [
         boolean,//up
@@ -14,7 +14,7 @@ export default function blueMovement(this: Heart, cursors: MoveKey, time: number
         boolean,//left
         boolean//right
     ] = [!0, !0, !0, !0];
-    switch (this.gravityDirection) {
+    switch (this.Heart.gravityDirection) {
         case "up":
         case "down":
             direction[0] = false;
@@ -27,17 +27,17 @@ export default function blueMovement(this: Heart, cursors: MoveKey, time: number
             break;
     }
     //set color to blue.
-    this.Image.setTint(0x0000ff);
-    const SPEED: number = this.scene.xKey.isDown ? this.slowSpeed : this.normalSpeed;
+    this.Heart.Image.setTint(0x0000ff);
+    const SPEED: number = this.scene.xKey.isDown ? this.Heart.slowSpeed : this.Heart.normalSpeed;
 
-    direction[0] && cursors.upIsDown && (this.Force.y = -SPEED);
-    direction[1] && cursors.downIsDown && (this.Force.y = SPEED);
-    direction[2] && cursors.leftIsDown && (this.Force.x = -SPEED);
-    direction[3] && cursors.rightIsDown && (this.Force.x = SPEED);
+    direction[0] && cursors.upIsDown && (this.Heart.Force.y = -SPEED);
+    direction[1] && cursors.downIsDown && (this.Heart.Force.y = SPEED);
+    direction[2] && cursors.leftIsDown && (this.Heart.Force.x = -SPEED);
+    direction[3] && cursors.rightIsDown && (this.Heart.Force.x = SPEED);
 
     ///set jump key.
     let jumpKey: HeartDirection;
-    switch (this.gravityDirection) {
+    switch (this.Heart.gravityDirection) {
         case "up":
             jumpKey = "down";
 
@@ -77,14 +77,14 @@ export default function blueMovement(this: Heart, cursors: MoveKey, time: number
         just: true
     }) && !this.isFalling) {
         const VALUE = 0.2;
-        switch (this.gravityDirection) {
+        switch (this.Heart.gravityDirection) {
             case "up":
             case "down":
-                this.Force.y *= VALUE;
+                this.Heart.Force.y *= VALUE;
                 break;
             case "left":
             case "right":
-                this.Force.x *= VALUE;
+                this.Heart.Force.x *= VALUE;
                 break;
         }
         this.jumped = true;
@@ -94,35 +94,35 @@ export default function blueMovement(this: Heart, cursors: MoveKey, time: number
 
     //up
     if (direction[0] && !cursors.upIsDown) {
-        if (this.Force.y < 0) {
-            this.Force.y = 0;
+        if (this.Heart.Force.y < 0) {
+            this.Heart.Force.y = 0;
         }
     }
     //down
     if (direction[1] && !cursors.downIsDown) {
-        if (this.Force.y > 0) {
-            this.Force.y = 0;
+        if (this.Heart.Force.y > 0) {
+            this.Heart.Force.y = 0;
         }
     }
     //left
     if (direction[2] && !cursors.leftIsDown) {
-        if (this.Force.x < 0) {
-            this.Force.x = 0;
+        if (this.Heart.Force.x < 0) {
+            this.Heart.Force.x = 0;
         }
     }
     //right
     if (direction[3] && !cursors.rightIsDown) {
-        if (this.Force.x > 0) {
-            this.Force.x = 0;
+        if (this.Heart.Force.x > 0) {
+            this.Heart.Force.x = 0;
         }
     }
     //both 
 
     if (direction[2] && cursors.leftIsDown && direction[3] && cursors.rightIsDown) {
-        this.Force.x = 0;
+        this.Heart.Force.x = 0;
     }
 
     if (direction[0] && cursors.upIsDown && direction[1] && cursors.downIsDown) {
-        this.Force.y = 0;
+        this.Heart.Force.y = 0;
     }
 }

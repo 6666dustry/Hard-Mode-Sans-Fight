@@ -27,28 +27,30 @@ export default function touching(this: Heart, args: { collision: Phaser.Types.Ph
 
         }
     }
+    const HEIGHT = this.Image.displayHeight / 3,
+        WIDTH = this.Image.displayWidth / 3;
 
     if (points.length === 1) {
-        if (points[0].y > this.Image.y + this.Image.displayHeight / 3) {
+        if (points[0].y > this.Image.y + HEIGHT) {
             this.collidingAt.bottom = true;
         }
 
-        if (points[0].y < this.Image.y - this.Image.displayHeight / 3) {
+        if (points[0].y < this.Image.y - HEIGHT) {
             this.collidingAt.top = true;
         }
 
-        if (points[0].x < this.Image.x - this.Image.displayWidth / 3) {
+        if (points[0].x < this.Image.x - WIDTH) {
             this.collidingAt.left = true;
         }
 
-        if (points[0].x > this.Image.x + this.Image.displayWidth / 3) {
+        if (points[0].x > this.Image.x + WIDTH) {
             this.collidingAt.right = true;
         }
 
     } else {
         for (const iterator of points) {
 
-            if (iterator.y > this.Image.y) {
+            if (iterator.y > this.Image.y + HEIGHT) {
                 bottom++;
             }
 
@@ -56,7 +58,7 @@ export default function touching(this: Heart, args: { collision: Phaser.Types.Ph
                 this.collidingAt.bottom = true;
             }
 
-            if (iterator.y < this.Image.y) {
+            if (iterator.y < this.Image.y - HEIGHT) {
                 top++;
             }
 
@@ -64,7 +66,7 @@ export default function touching(this: Heart, args: { collision: Phaser.Types.Ph
                 this.collidingAt.top = true;
             }
 
-            if (iterator.x < this.Image.x) {
+            if (iterator.x < this.Image.x - WIDTH) {
                 left++;
             }
 
@@ -72,7 +74,7 @@ export default function touching(this: Heart, args: { collision: Phaser.Types.Ph
                 this.collidingAt.left = true;
             }
 
-            if (iterator.x > this.Image.x) {
+            if (iterator.x > this.Image.x + WIDTH) {
                 right++;
             }
 
@@ -81,18 +83,5 @@ export default function touching(this: Heart, args: { collision: Phaser.Types.Ph
             }
         }
     }
-    switch (this.gravityDirection) {
-        case "down":
-            this.canJump = this.collidingAt.bottom;
-            break;
-        case "up":
-            this.canJump = this.collidingAt.top;
-            break;
-        case "left":
-            this.canJump = this.collidingAt.left;
-            break;
-        case "right":
-            this.canJump = this.collidingAt.right;
-            break;
-    }
+    this.Blue.touching();
 }

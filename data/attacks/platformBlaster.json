@@ -150,7 +150,7 @@
                 "speed": -2,
                 "delay": 1000,
                 "length": 40,
-                "x": 440,
+                "x": 500,
                 "count": 25,
                 "anchor": {
                     "y": "middle"

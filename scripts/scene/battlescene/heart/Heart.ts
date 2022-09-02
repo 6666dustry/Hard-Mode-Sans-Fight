@@ -2,29 +2,25 @@ import type BattleScene from "scene/battlescene/BattleScene.js";
 import type Director from "../director/Director.js";
 import type { HeartColor, SetHeartPos, HeartDirection, setColor, AllReadonly, } from "../../../Types.js";
 import Keys from "../../../keys.js";
-import blueMovement from "./blueMovement.js";
 import redMovement from "./redMovement.js";
 import setGravity from "./setGravity.js";
 import setDirection from "./setDirection.js";
 import touching from "./touching.js";
-import isFalling from "./isFalling.js";
-import onGravity from "./onGravity.js";
-import onJump from "./onJump.js";
+import isFalling from "./blue/isFalling.js";
 import update from "./update.js";
 import isMoving from "./isMoving.js";
-import setCollisionGravity from "./setCollisionGravity.js";
 import maxSpeed from "./maxSpeed.js";
 import getPosition from "./getPosition.js";
 import router from "./router.js";
 import checkType from "../checkType.js";
 import Base from "../director/Base.js";
+import Blue from "./blue/blue.js";
 export default class Heart extends Base(class { }) {
     constructor(scene: BattleScene, collide: number, director: Director) {
         super();
         this.BaseConstructor(scene, director);
         this.collide = collide;
 
-        this.canJump = false;
         this.color = "red";
 
         this.gravityDirection = "down";
@@ -33,7 +29,6 @@ export default class Heart extends Base(class { }) {
         this.Force = {
             x: 0, y: 0
         };
-        this.jumped = false;
         this.Image = this.scene.matter.add.image(0, 0, Keys.Image.heart);
 
         this.Image.setDepth(Keys.Depth.heart);
@@ -41,8 +36,6 @@ export default class Heart extends Base(class { }) {
         this.Image.setMass(Keys.MASS);
         this.Image.setBounce(0);
         this.Image.setIgnoreGravity(true);
-        this.jumpTime = 0;
-        this.jumping = false;
         this.normalSpeed = 3;
         this.slowSpeed = 1;
 
@@ -53,14 +46,10 @@ export default class Heart extends Base(class { }) {
             right: false,
         };
 
-        this.blueMovement = blueMovement;
         this.redMovement = redMovement;
         this.setGravity = setGravity;
         this.setDirection = setDirection;
         this.touching = touching;
-        this.onGravity = onGravity;
-        this.onJump = onJump;
-        this.setCollisionGravity = setCollisionGravity;
         this.maxSpeed = maxSpeed;
         this.getPosition = getPosition;
         this.router = router;
@@ -70,6 +59,8 @@ export default class Heart extends Base(class { }) {
         this.Image.setOnCollideActive(this.touching.bind(this));
         this.Image.setOnCollideEnd(this.notTouching.bind(this));
         (this.Image.body as MatterJS.BodyType).label = Keys.Label.heart;
+
+        this.Blue = new Blue(scene, director, this);
     };
     /**heart collide category */
     readonly collide: number;
@@ -84,11 +75,6 @@ export default class Heart extends Base(class { }) {
     /**heart color. */
     color: HeartColor;
     Image: Phaser.Physics.Matter.Image;
-    /** is this touch scaffold */
-    canJump: boolean;
-    jumped: boolean;
-    jumping: boolean;
-    jumpTime: number;
     gravityDirection: HeartDirection;
     slamming: boolean;
     Force: {
@@ -97,47 +83,27 @@ export default class Heart extends Base(class { }) {
     };
 
     colliding: keyof typeof Keys.Label | false;
-    readonly blueMovement: typeof blueMovement;
+    Blue: Blue;
     readonly redMovement: typeof redMovement;
     readonly setGravity: typeof setGravity;
     readonly setDirection: typeof setDirection;
     readonly touching: typeof touching;
-    readonly onGravity: typeof onGravity;
-    readonly onJump: typeof onJump;
-    readonly setCollisionGravity: typeof setCollisionGravity;
     readonly maxSpeed: typeof maxSpeed;
     readonly update: typeof update;
     readonly getPosition: typeof getPosition;
     readonly router: typeof router;
 
-    public get isFalling(): boolean {
-        return isFalling.call(this);
-    }
-
     public get moving(): boolean {
         return isMoving.call(this);
     }
-
-    public get ImageSize(): Phaser.Geom.Rectangle {
-        let result = new Phaser.Geom.Rectangle();
-        result.width = this.Image.displayWidth;
-        result.height = this.Image.displayHeight;
-        result.centerX = this.Image.x;
-        result.centerY = this.Image.y;
-        return result;
-    }
-
     public get Edge(): Phaser.Math.Vector2 {
         let result = new Phaser.Math.Vector2(this.Image.x, this.Image.y + this.Image.displayHeight / 2);
         return result;
     }
 
     notTouching(): void {
-        this.canJump = false;
+        this.Blue.notTouching();
         this.colliding = false;
-        if (!this.jumping) {
-            this.jumpTime = 0;
-        }
         this.collidingAt = {
             top: false,
             bottom: false,
@@ -154,7 +120,7 @@ export default class Heart extends Base(class { }) {
             }
         }, this.director.AttackLoader.runAttackPos);
         this.color = DATA.color;
-        this.canJump = false;
+        //this.canJump = false;
         if (DATA.playSound) {
             this.scene.sound.play(Keys.Audio.ding);
         }
