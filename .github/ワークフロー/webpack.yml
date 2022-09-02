@@ -1,8 +1,6 @@
 name: NodeJS with Webpack
 
 on:
-  commit:
-    branches: [ "main" ]
   push:
     branches: [ "main" ]
   pull_request:
@@ -28,5 +26,3 @@ jobs:
       run: |
         npm install
         npm run build
-        mv "./github" "./"
-        git cd page
